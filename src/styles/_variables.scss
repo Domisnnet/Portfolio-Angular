@@ -117,3 +117,20 @@ Light Theme — Overrides Only
 
   --artifact-border: rgba(0, 0, 0, 0.1);
 }
+
+/* =====================
+   Legacy Aliases (FIX)
+===================== */
+:root {
+  /* Text legacy */
+  --text-color: var(--color-text-primary);
+  --text-color-secondary: var(--color-text-secondary);
+
+  /* Surface legacy */
+  --surface: var(--color-bg-surface);
+
+  /* Font legacy */
+  --font-body: var(--font-main);
+  --font-heading: var(--font-title);
+  --font-accent: var(--font-script);
+}
