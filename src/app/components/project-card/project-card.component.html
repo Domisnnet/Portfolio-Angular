@@ -12,9 +12,44 @@
           loading="lazy"
         />
         <div class="alien-scan-marker">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="3" />
-            <path d="M3 12h1m16 0h1M12 3v1m0 16v1" />
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="0.5" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>
+            <g filter="url(#glow)" stroke="cyan" stroke-width="1.2" stroke-linecap="round">
+              <path d="M12 8l3.5 2v4L12 16l-3.5-2v-4z">
+                <animateTransform 
+                  attributeName="transform" 
+                  type="scale" 
+                  values="1; 1.1; 1" 
+                  dur="3s" 
+                  repeatCount="indefinite" 
+                  additive="sum" 
+                  pivot="12 12" />
+              </path>
+              <g>
+                <path d="M12 2l2 3h-4l2-3z" /> <path d="M12 22l-2-3h4l-2 3z" /> <path d="M2 12l3-2v4l-3-2z" /> <path d="M22 12l-3 2v-4l3 2z" /> <animateTransform 
+                  attributeName="transform" 
+                  type="rotate" 
+                  from="0 12 12" 
+                  to="360 12 12" 
+                  dur="20s" 
+                  repeatCount="indefinite" />
+              </g>
+              <path d="M7 7l-1-1M17 17l1 1M17 7l1-1M7 17l-1-1" stroke-dasharray="2 2">
+                <animate 
+                  attributeName="stroke-opacity" 
+                  values="1; 0.2; 1" 
+                  dur="2s" 
+                  repeatCount="indefinite" />
+              </path>
+            </g>
           </svg>
         </div>
       </div>
@@ -45,7 +80,7 @@
             rel="noopener noreferrer"
             (click)="$event.stopPropagation()"
           >
-            Ver projeto
+            Ver Projeto
           </a>
         }
       </div>
