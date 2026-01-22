@@ -28,7 +28,7 @@ export class ProjectsPageComponent {
       tags: ['vue', 'tailwind', 'firebase'],
       link: 'https://github.com/Domisnnet/Drakonik-Nexus-Vue.Js',
     },
-    {
+    /*{
       title: 'KingDomfy',
       description: 'Streaming musical com player funcional, inspirada no Spotify.',
       image: 'assets/images/kingdomfy.png',
@@ -76,6 +76,6 @@ export class ProjectsPageComponent {
       image: 'assets/images/portfolio.png',
       tags: ['angular', 'scss', 'motions', 'design'],
       link: 'https://portfolio-56747762-94d87.web.app/',
-    },
+    }, */
   ]);
 }
