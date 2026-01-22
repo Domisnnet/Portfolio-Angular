@@ -1,10 +1,10 @@
 /* ====================
-Root — Dark Theme (default)
+Root — Dark Theme
 ==================== */
 :root {
 
   /* =====================
-  Typography
+    Typography
   ===================== */
   --font-main: 'Poppins', sans-serif;
   --font-code: 'Fira Code', monospace;
@@ -12,7 +12,7 @@ Root — Dark Theme (default)
   --font-title: 'Dancing Script', cursive;
 
   /* =====================
-  Brand Tokens
+    Brand Tokens
   ===================== */
   --color-brand-primary: #4f46e5;
   --color-brand-secondary: #4338ca;
@@ -23,7 +23,7 @@ Root — Dark Theme (default)
   --color-accent: var(--color-brand-accent);
 
   /* =====================
-  Text
+    Text
   ===================== */
   --color-text-primary: #f9fafb;
   --color-text-secondary: #9ca3af;
@@ -34,7 +34,7 @@ Root — Dark Theme (default)
   --color-text-link-hover: #7dd3fc;
 
   /* =====================
-  Background
+    Background
   ===================== */
   --color-bg-body: #111827;
   --color-bg-surface: rgba(255, 255, 255, 0.05);
@@ -43,94 +43,135 @@ Root — Dark Theme (default)
   --color-bg-overlay: rgba(0, 0, 0, 0.6);
 
   /* =====================
-  Border
+    Border
   ===================== */
   --color-border-default: #374151;
   --color-border-muted: #1f2937;
   --color-border-accent: var(--color-accent);
 
   /* =====================
-  RGB Helpers
+    RGB Helpers
   ===================== */
   --color-accent-rgb: 6, 182, 212;
   --color-bg-body-rgb: 17, 24, 39;
 
-  /* =====================
-  Artifact Card — Dark
-  ===================== */
+  /* =========================
+    Artifact Card — Dark
+  ========================= */
   --artifact-bg-front: #ffffff;
   --artifact-bg-back: #0a0f1c;
 
+  /* =====================
+    Text
+  ===================== */
   --artifact-text-front: #1a1a1a;
   --artifact-text-back: #ffffff;
   --artifact-text-muted: rgba(255, 255, 255, 0.7);
 
+  /* =====================
+    Accent
+  ===================== */
   --artifact-accent: #00ffc8;
   --artifact-accent-rgb: 0, 255, 200;
 
+  /* =====================
+    Border
+  ===================== */
   --artifact-border: rgba(0, 255, 200, 0.4);
   --artifact-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 
-  /* =====================
-  Cosmic / Environment
-  ===================== */
+  /* =========================
+    Cosmic / Environment
+  ========================= */
   --cosmic-bg: #020205;
 
+  /* =====================
+    Accent
+  ===================== */
   --cosmic-accent: var(--artifact-accent);
   --cosmic-accent-rgb: var(--artifact-accent-rgb);
 
+  /* =====================
+    Grid
+  ===================== */
   --cosmic-grid-opacity: 0.04;
   --cosmic-stars-opacity: 0.5;
 
+  /* =====================
+    Text
+  ===================== */
   --cosmic-hud-text: rgba(0, 255, 200, 0.85);
   --cosmic-hud-glow: rgba(0, 255, 200, 0.6);
 
-  --cosmic-font: var(--font-code);                        
- }
+  /* =====================
+    Font
+  ===================== */
+  --cosmic-font: var(--font-code);
+}
 
 /* =====================================================
-Light Theme — Overrides Only
+  Light Theme — Overrides Only
 ===================================================== */
 .light-theme {
+
+  /* =====================
+    Text
+  ===================== */
   --color-text-primary: #1f2937;
   --color-text-secondary: #6b7280;
   --color-text-muted: #9ca3af;
   --color-text-inverse: #ffffff;
 
+  /* =====================
+    Background
+  ===================== */
   --color-bg-body: #ffffff;
   --color-bg-surface: #f3f4f6;
   --color-bg-surface-alt: #e5e7eb;
   --color-bg-header: rgba(255, 255, 255, 0.8);
   --color-bg-overlay: rgba(0, 0, 0, 0.4);
 
+  /* =====================
+    Border
+  ===================== */
   --color-border-default: #e5e7eb;
   --color-border-muted: #d1d5db;
 
+  /* =====================
+    Background
+  ===================== */
   --color-bg-body-rgb: 255, 255, 255;
 
+  /* =====================
+    Background
+  ===================== */
   --artifact-bg-front: #ffffff;
   --artifact-bg-back: #f3f4f6;
 
+  /* =====================
+    Text
+  ===================== */
   --artifact-text-front: #1f2937;
   --artifact-text-back: #111827;
   --artifact-text-muted: rgba(0, 0, 0, 0.6);
 
+  /* =====================
+    Border
+  ===================== */
   --artifact-border: rgba(0, 0, 0, 0.1);
 }
 
-/* =====================
-   Legacy Aliases (FIX)
-===================== */
+/* =================================
+  Compatibility Aliases (TEMP)
+================================= */
 :root {
-  /* Text legacy */
+  --surface: var(--color-bg-surface);
+  --surface-alt: var(--color-bg-surface-alt);
+
   --text-color: var(--color-text-primary);
   --text-color-secondary: var(--color-text-secondary);
 
-  /* Surface legacy */
-  --surface: var(--color-bg-surface);
-
-  /* Font legacy */
+  --font-heading: var(--font-main);
   --font-body: var(--font-main);
-  --font-heading: var(--font-title);
   --font-accent: var(--font-script);
 }

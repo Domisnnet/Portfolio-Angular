@@ -1,11 +1,9 @@
 <div class="lab-page">
   <h1>LAB DE PROJETOS</h1>
   <div class="projects-grid">
-    @for (project of projects; track project.title) {
-    <app-project-lab-card *ngFor="let project of projects" 
-      [title]="project.title"
-      [image]="project.image">
+    <app-project-lab-card
+      *ngFor="let project of projects; trackBy: trackByTitle"
+      [project]="project">
     </app-project-lab-card>
-    }
   </div>
 </div>

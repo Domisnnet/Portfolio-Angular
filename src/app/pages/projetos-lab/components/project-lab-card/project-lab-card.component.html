@@ -1,4 +1,5 @@
-<div class="card">
-  <img [ngSrc]="project().image" [alt]="project().title" width="400" height="300">
-  <h3>{{ project().title }}</h3>
+<div class="project-card">
+  <img [src]="project.image" [alt]="project.title" width="400" height="400" />
+  <h3>{{ project.title }}</h3>
+  <p *ngIf="project.description">{{ project.description }}</p>
 </div>

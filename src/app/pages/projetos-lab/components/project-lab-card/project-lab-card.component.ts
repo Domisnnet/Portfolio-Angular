@@ -1,11 +1,16 @@
+import { Component, Input } from '@angular/core';
 
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
+export interface Project {
+  image: string;
+  title: string;
+  description?: string; 
+}
 
 @Component({
   selector: 'app-project-lab-card',
-  standalone: true,
   templateUrl: './project-lab-card.component.html',
   styleUrls: ['./project-lab-card.component.scss']
 })
-export class ProjectLabCardComponent {}
+export class ProjectLabCardComponent {
+  @Input() project!: Project;
+}
