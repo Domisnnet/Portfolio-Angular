@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { StackService } from '../../services/stack.service';
 import { PillCategory } from '../../constants/project-tags.config';
@@ -14,6 +14,7 @@ import { StackPillComponent } from '../../components/stack-pill/stack-pill.compo
     TitleCasePipe,
     StackPillComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
 
@@ -25,5 +26,5 @@ export class HomeComponent {
     'cms',
   ];
 
-  constructor(public readonly stackService: StackService) {}
+  public stackService = inject(StackService);
 }

@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectCardComponent } from '../../components/project-card/project-card.component';
 import { TagKey } from '../../constants/project-tags.config';
@@ -17,6 +17,7 @@ export interface Project {
   imports: [CommonModule, ProjectCardComponent],
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsPageComponent {
   readonly projects = signal<Project[]>([

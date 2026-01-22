@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
@@ -8,7 +8,6 @@ import { LoaderService } from './core/services/loader.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [
     CommonModule,
     RouterOutlet,
@@ -17,13 +16,14 @@ import { LoaderService } from './core/services/loader.service';
     LoaderComponent
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  loading$;
+  private loader = inject(LoaderService);
+  loading$ = this.loader.loading$;
 
-  constructor(private loader: LoaderService) {
-    this.loading$ = this.loader.loading$;
+  constructor() {
     this.loader.show();
     setTimeout(() => {
       this.loader.hide();
