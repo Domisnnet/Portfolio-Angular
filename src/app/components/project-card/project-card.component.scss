@@ -2,94 +2,87 @@
   display: block;
   width: 280px;
   height: 350px;
-
   perspective: 1000px;
-
-  /* leve rotação inicial aleatória */
-  transform: rotate(var(--rotation, 0deg));
-  transition: transform 0.45s ease;
-
-  &:hover {
-    transform: rotate(0deg) scale(1.1);
-    z-index: 10;
-  }
 }
 
 /* =========================
-   CARD 3D
+  CARD ROOT
 ========================= */
-.photo-card {
+.artifact-card {
   width: 100%;
   height: 100%;
-  position: relative;
+  cursor: pointer;
+}
 
+/* =========================
+  INNER - 3D WRAPPER
+========================= */
+.artifact-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+}
 
-  &:hover {
-    transform: rotateY(180deg);
-  }
+.artifact-card.is-flipped .artifact-inner {
+  transform: rotateY(180deg);
 }
 
 /* =========================
-   FACES (BASE)
+  FACES — BASE
 ========================= */
-.face {
+.artifact-face {
   position: absolute;
   inset: 0;
-
   backface-visibility: hidden;
-  border-radius: 2px;
-
-  background: #ffffff; /* papel fotográfico */
-  padding: 12px 12px 44px; /* margem inferior estilo Polaroid */
-
-  box-shadow:
-    0 10px 20px rgba(0, 0, 0, 0.35),
-    inset 0 0 0 1px rgba(0, 0, 0, 0.08);
-
+  border-radius: 4px;
   overflow: hidden;
+  padding: 12px 12px 44px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
 /* =========================
-   FRENTE
+  FRONT
 ========================= */
-.front {
+.artifact-front {
+  background-color: var(--artifact-bg-front);
+  color: var(--artifact-text-front);
+
   display: flex;
   flex-direction: column;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .artifact-photo {
+    position: relative;
+    flex: 1;
 
-    filter: sepia(12%) contrast(1.1) brightness(0.98);
-    transition: filter 0.4s ease;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(12%) contrast(1.1) brightness(0.98);
+    }
   }
 
-  .caption {
+  .handwritten-label {
     margin-top: 10px;
-    font-family: var(--font-accent);
-    font-size: 0.85rem;
-    color: #222;
     text-align: center;
+    font-family: var(--font-main);
+    font-size: 0.85rem;
   }
 }
 
 /* =========================
-   VERSO
+  BACK
 ========================= */
-.back {
+.artifact-back {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
   text-align: center;
   transform: rotateY(180deg);
-  background: var(--artifact-bg-back);
+  background-color: var(--artifact-bg-back);
   color: var(--artifact-text-back);
-  padding: 20px;
   border: 1px solid var(--artifact-border);
 
   h3 {
@@ -99,116 +92,8 @@
   }
 
   p {
-    font-family: var(--font-body);
     font-size: 0.9rem;
     line-height: 1.4;
     opacity: 0.85;
   }
-
-  a {
-    margin-top: 14px;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--artifact-accent);
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-.projects-page {
-  position: relative;
-  min-height: 100vh;
-  padding: 80px 24px 120px;
-  background: radial-gradient(circle at top, #020b0b 0%, #000 60%);
-  overflow: hidden;
-}
-
-/* =========================
-  HEADER
-========================= */
-.projects-header {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto 80px;
-  text-align: center;
-}
-
-.header-content {
-  position: relative;
-  z-index: 2;
-}
-
-.header-content h1 {
-  font-family: var(--font-main);
-  font-size: clamp(2.6rem, 4vw, 3.4rem);
-  font-weight: 800;
-  color: var(--text-color);
-  margin-bottom: 12px;
-}
-
-.header-content p {
-  font-family: var(--font-body);
-  color: var(--text-color-secondary);
-  font-size: 1rem;
-}
-
-/* =========================
-  SCANNING ARTIFACT
-========================= */
-.alien-scan-marker {
-  position: absolute;
-  top: 8px;
-  left: calc(50% - 320px); 
-  width: 26px;
-  height: 26px;
-  color: var(--artifact-accent);
-  filter: drop-shadow(0 0 6px var(--artifact-accent));
-  opacity: 0;
-  transform: scale(0.85);
-  animation: scanPulse 2.4s ease-in-out infinite;
-  z-index: 1;
-}
-
-/* animação */
-@keyframes scanPulse {
-  0% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  30% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  70% {
-    opacity: 0.6;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-
-/* =========================
-  DESKTOP ONLY
-========================= */
-@media (max-width: 1024px) {
-  .alien-scan-marker {
-    display: none;
-  }
-}
-
-/* =========================
-  GRID DE PROJETOS
-========================= */
-.projects-grid {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 64px;
 }
