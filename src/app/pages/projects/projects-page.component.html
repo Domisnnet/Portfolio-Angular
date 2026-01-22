@@ -12,12 +12,12 @@
     <p>Artefatos tecnológicos recuperados.</p>
   </header>
   <div class="projects-grid">
-    <ng-container *ngFor="let project of projects(); let i = index">
+    @for (project of projects(); track project.title; let i = $index) {
       <app-project-card
         [project]="project"
         [index]="i"
         [style.--rotation]="i % 2 === 0 ? '2deg' : '-2deg'"
       ></app-project-card>
-    </ng-container>
+    }
   </div>
 </section>

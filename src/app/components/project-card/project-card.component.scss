@@ -81,23 +81,19 @@
    VERSO
 ========================= */
 .back {
-  transform: rotateY(180deg);
-
-  background: var(--surface);
-  color: var(--text-color);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
+  transform: rotateY(180deg);
+  background: var(--artifact-bg-back);
+  color: var(--artifact-text-back);
   padding: 20px;
-
-  border: 1px solid rgba(255, 255, 255, 0.75);
+  border: 1px solid var(--artifact-border);
 
   h3 {
-    font-family: var(--font-heading);
+    font-family: var(--font-main);
     font-size: 1.1rem;
     margin-bottom: 8px;
   }
@@ -147,7 +143,7 @@
 }
 
 .header-content h1 {
-  font-family: var(--font-heading);
+  font-family: var(--font-main);
   font-size: clamp(2.6rem, 4vw, 3.4rem);
   font-weight: 800;
   color: var(--text-color);
