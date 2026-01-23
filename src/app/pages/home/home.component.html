@@ -1,41 +1,8 @@
-<section class="hero hero--enter">
-  <div class="hero-container">
-    <div class="hero-content">
-      <img
-        src="/assets/images/avatar.png"
-        alt="Avatar de DomisDev"
-        width="130"
-        height="130"
-        class="avatar"
-      />
-      <div class="hero-text">
-        <h1>Olá, eu sou o DomisDev!</h1>
-        <h2>Front-end Developer</h2>
-        <p>
-          Desenvolvedor Front-end focado em experiências modernas, interfaces
-          elegantes e arquiteturas bem definidas. Em evolução constante para
-          Full Stack.
-        </p>
-        <div class="hero-cta">
-          <a class="btn" href="assets/cv.pdf" download>📄 Baixar CV</a>
-          <a
-            class="btn outline"
-            href="https://github.com/Domisnnet"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            🐙 GitHub
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="stack-section">
   <div class="stack-container no-padding-top">
     <h2>Minha Stack Dev</h2>
     <h2 class="text-muted">Codificando ideias. Construindo o futuro!</h2>
-      <p>Desenvolvedor web em constante evolução — criativo, curioso e apaixonado por tecnologia.</p>
+    <p>Desenvolvedor web em constante evolução — criativo, curioso e apaixonado por tecnologia.</p>
     @for (category of categories; track category) {
       <div class="stack-block" [class]="category">
         <h3>{{ category | titlecase }}</h3>
