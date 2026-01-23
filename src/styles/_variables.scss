@@ -159,12 +159,10 @@ Root — Dark Theme
     Border
   ===================== */
   --artifact-border: rgba(0, 0, 0, 0.1);
-}
 
-/* =================================
-  Compatibility Aliases (TEMP)
-================================= */
-:root {
+  /* =================================
+    Compatibility Aliases (TEMP)
+  ================================= */
   --surface: var(--color-bg-surface);
   --surface-alt: var(--color-bg-surface-alt);
 
@@ -174,4 +172,8 @@ Root — Dark Theme
   --font-heading: var(--font-main);
   --font-body: var(--font-main);
   --font-accent: var(--font-script);
+
+  --footer-text-muted: #919496;
+  --footer-link-hover: #9bf0e1;
+  --border-color: #333;
 }
