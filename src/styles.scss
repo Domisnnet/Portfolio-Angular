@@ -3,10 +3,6 @@
 ============================= */   
 @use './styles/variables'; 
 
-/* ================
-   Google Fonts
-================ */   
-@import url('...'); 
 
 /* ================
    Base & Reset
@@ -23,3 +19,8 @@
 @use './styles/hero';
 @use './styles/cta';
 @use './styles/cosmic';
+
+/* ================
+   Google Fonts
+================ */   
+@import url('...'); 
