@@ -4,20 +4,21 @@
   height: 380px;
 }
 
-/* =========================
-  Card Wrapper
-========================= */
+/* ==========================
+  CARD WRAPPER & 3D LOGIC
+========================== */
 .artifact-card {
   width: 100%;
   height: 100%;
   position: relative;
   perspective: 1200px;
-  border-radius: 5px;
+  border-radius: 8px;
+
+  &.is-flipped .artifact-inner {
+    transform: rotateY(180deg);
+  }
 }
 
-/* =========================
-  3D Inner
-========================= */
 .artifact-inner {
   width: 100%;
   height: 100%;
@@ -26,148 +27,128 @@
   transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.artifact-card.is-flipped .artifact-inner {
-  transform: rotateY(180deg);
-}
-
-/* =========================
-  Faces Base
-========================= */
+/* =============
+  FACES BASE
+============= */
 .artifact-face {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   overflow: hidden;
+  border: 1px solid var(--border-color);
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* =========================
-  Front — Polaroid
-========================= */
+/* =========
+  FRONT
+========= */
 .artifact-front {
   display: flex;
   flex-direction: column;
-  background-color: var(--artifact-bg-front);
-  color: var(--artifact-text-front);
-  padding: 5px;
+  background-color: var(--text-primary);
+  padding: 8px;
   z-index: 2;
-  opacity: 1;
-  visibility: visible;
   transform: rotateY(0deg);
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--artifact-bg-front);
-    z-index: -1;
-    box-shadow: var(--artifact-shadow);
-  }
-}
-
-.is-flipped .artifact-front {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+  box-shadow: 0 8px 24px var(--border-color);
 }
 
 .artifact-photo {
   position: relative;
-  height: calc(100% - 42px);
+  height: calc(100% - 50px);
+  
   img {
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 4px;
     object-fit: cover;
-    filter: sepia(12%) contrast(1.1) brightness(0.98);
+    filter: grayscale(20%) contrast(1.1);
   }
 }
 
-/* =========================
-  Back — Artefato Escaneado
-========================= */
+.handwritten-label {
+  margin-top: auto;
+  padding: 10px 0;
+  text-align: center;
+  font-family: var(--font-fancy);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bg-body);
+}
+
+/* ==========
+  BACK
+========== */
 .artifact-back {
   display: flex;
-  position: absolute;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--artifact-bg-back);
-  color: var(--artifact-text-back);
+  background-color: var(--bg-body);
+  color: var(--text-primary);
   padding: 24px;
-  border-radius: 5px;
-  inset: 0;
   z-index: 1;
   opacity: 0;
   visibility: hidden;
   transform: rotateY(180deg) translateZ(1px);
 }
 
-.is-flipped .artifact-back {
-  opacity: 1;
-  visibility: visible;
-  z-index: 3;
-  pointer-events: auto;
+.is-flipped {
+  .artifact-front {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .artifact-back {
+    opacity: 1;
+    visibility: visible;
+    z-index: 3;
+  }
 }
 
-/* =========================
-  Botão — Call to Action
-========================= */
+/* ==============
+  CTA BUTTON
+============== */
 .artifact-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 20px;
+  padding: 10px 15px;
   margin-top: auto;
-  border-radius: 20px;
-  font-family: var(--font-main);
+  border-radius: 50px;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  color: var(--artifact-accent);
+  color: var(--brand-accent);
   background-color: transparent;
-  border: 2px solid var(--artifact-accent);
+  border: 2px solid var(--brand-accent);
   transition: all 0.3s ease;
-  transform: translateZ(10px);
 
   &:hover {
-    background: rgba(var(--artifact-accent-rgb), 0.15);
-    box-shadow: 0 0 15px rgba(var(--artifact-accent-rgb), 0.4);
+    background-color: var(--brand-accent);
+    box-shadow: 0 0 15px var(--brand-accent);
   }
 }
 
-/* =========================
-  Elementos Decorativos
-========================= */
+/* =======================
+  DECORATIVE ELEMENTS
+======================= */
 .alien-scan-marker {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 26px;
-  height: 26px;
-  color: var(--artifact-accent);
-  filter: drop-shadow(0 0 6px var(--artifact-accent));
-  opacity: 0;
-  transform: scale(0.8);
+  top: 15px;
+  right: 15px;
+  width: 24px;
+  height: 24px;
+  color: var(--brand-accent);
+  filter: drop-shadow(0 0 4px var(--brand-accent));
+  opacity: 0.5;
   transition: all 0.3s ease;
 }
 
 .artifact-card:hover .alien-scan-marker {
   opacity: 1;
-  transform: scale(1.1);
-}
-
-.handwritten-label {
-  margin-top: auto;
-  padding: 8px 0;
-  text-align: center;
-  font-family: var(--font-title);
-  font-size: 0.9rem;
-  color: var(--color-text-inverse);
+  transform: scale(1.1) rotate(90deg);
 }
