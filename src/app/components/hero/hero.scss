@@ -3,8 +3,9 @@
 ============================ */
 .hero-section {
   padding: 6rem 0;
-  background-color: var(--color-bg-body);
+  background-color: var(--bg-body);
   overflow: hidden;
+  position: relative;
 }
 
 .hero-container {
@@ -15,6 +16,10 @@
   grid-template-columns: 1fr;
   align-items: center;
   gap: 4rem;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
 }
 
 /* =========================
@@ -22,96 +27,101 @@
 ========================= */
 .hero-text {
   text-align: center;
+  z-index: 5;
 
   .hero-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: var(--color-text-accent);
+    color: var(--text-primary);
     line-height: 1.2;
     margin-bottom: 1rem;
   }
 
   .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--color-text-secondary);
+    color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto 2rem;
   }
 
-  .cta-button {
-    display: inline-block;
-    background-color: var(--color-accent);
-    color: var(--color-text-inverse);
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease,
-      box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(var(--color-accent-rgb), 0.35);
-    }
+  @media (min-width: 992px) {
+    text-align: left;
+    .hero-subtitle { margin-left: 0; }
   }
 }
 
-/* =========================
+.cta-button {
+  display: inline-block;
+  background-color: var(--brand-accent);
+  color: var(--bg-body); 
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px var(--border-color);
+
+  &:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+  }
+}
+
+/* ==============================
   Visual Abstrato e Animação
-========================= */
+============================== */
 .hero-visual {
-  display: none;
+  display: flex;
   position: relative;
-  height: 300px;
+  height: 400px;
+  width: 100%;
   justify-content: center;
   align-items: center;
+  z-index: 1;
+
+  @media (max-width: 992px) {
+    height: 300px;
+    order: -1;
+  }
+}
+
+.hero-avatar {
+  width: 280px;
+  height: auto;
+  z-index: 10;
+  position: relative;
+  animation: heroFloat 6s ease-in-out infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+
+  @media (max-width: 768px) {
+    width: 200px;
+  }
 }
 
 .shape {
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient( 45deg, var(--color-primary), var(--color-secondary));
-  opacity: 0.7;
-  animation: float 6s ease-in-out infinite;
+  background: linear-gradient(45deg, var(--brand-accent), var(--text-muted));
+  opacity: 0.4;
+  filter: blur(40px);
+  z-index: 1;
 }
 
-.shape-1 {
-  width: 150px;
-  height: 150px;
-  top: 10%;
-  left: 20%;
-  animation-delay: 0s;
-}
+.shape-1 { width: 180px; height: 180px; top: 5%; left: 10%; }
+.shape-2 { width: 100px; height: 100px; bottom: 10%; right: 15%; }
+.shape-3 { width: 140px; height: 140px; top: 40%; right: 10%; }
 
-.shape-2 {
-  width: 80px;
-  height: 80px;
-  top: 60%;
-  left: 50%;
-  animation-delay: 2s;
-}
-
-.shape-3 {
-  width: 120px;
-  height: 120px;
-  top: 30%;
-  left: 80%;
-  animation-delay: 4s;
-}
-
-/* =========================
-  Animação de Flutuação
-========================= */
-@keyframes float {
-  0% {
-    transform: translateY(0);
+/* ===============
+  KEYFRAMES
+=============== */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
   }
   50% {
-    transform: translateY(-20px);
-  }
-  100% {
-    transform: translateY(0);
+    transform: translate3d(0, -25px, 0);
   }
 }
 
@@ -129,9 +139,5 @@
     .hero-subtitle {
       margin-left: 0;
     }
-  }
-
-  .hero-visual {
-    display: flex;
   }
 }
