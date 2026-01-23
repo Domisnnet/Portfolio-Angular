@@ -1,0 +1,93 @@
+
+/* ===============================
+ Cosmic Section / Environment (Version 2 - More Stars)
+=============================== */
+
+.cosmic-section-v2 {
+    position: relative;
+    min-height: 100vh;
+    background-color: #000;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Base stars layer */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: transparent;
+}
+
+.stars::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 20%, white, transparent),
+        radial-gradient(1.5px 1.5px at 30% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 40%, white, transparent),
+        radial-gradient(2px 2px at 50% 90%, white, transparent),
+        radial-gradient(1.5px 1.5px at 90% 10%, white, transparent),
+        radial-gradient(1px 1px at 45% 65%, white, transparent);
+    background-size: 300px 300px;
+    opacity: 0.6;
+    animation: stars-twinkle 15s linear infinite;
+}
+
+.stars::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 5% 15%, white, transparent),
+        radial-gradient(1px 1px at 25% 35%, white, transparent),
+        radial-gradient(1.5px 1.5px at 75% 55%, white, transparent),
+        radial-gradient(2px 2px at 95% 85%, white, transparent);
+    background-size: 400px 400px;
+    opacity: 0.5;
+    animation: stars-twinkle 25s linear infinite reverse;
+}
+
+/* Twinkling animation */
+@keyframes stars-twinkle {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-300px);
+    }
+}
+
+/* =========================
+   HUD Elements (Hardcoded Example)
+========================= */
+.hud-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    color: #00ff00; /* Classic green HUD color */
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14px;
+    text-shadow: 0 0 5px #00ff00;
+    pointer-events: none;
+}
+
+.hud-item {
+    margin-bottom: 10px;
+    background: rgba(0, 20, 0, 0.5);
+    padding: 5px 10px;
+    border-left: 2px solid #00ff00;
+}
+
+.hud-item-header {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
