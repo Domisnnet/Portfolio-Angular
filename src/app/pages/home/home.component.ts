@@ -3,6 +3,7 @@ import { CommonModule, TitleCasePipe } from '@angular/common';
 import { StackService } from '../../services/stack.service';
 import { PillCategory } from '../../constants/project-tags.config';
 import { StackPillComponent } from '../../components/stack-pill/stack-pill.component';
+import { HeroComponent } from '../../components/hero/hero';
 
 @Component({
   selector: 'app-home',
@@ -13,11 +14,11 @@ import { StackPillComponent } from '../../components/stack-pill/stack-pill.compo
     CommonModule,
     TitleCasePipe,
     StackPillComponent,
+    HeroComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
-
   readonly categories: readonly PillCategory[] = [
     'frontend',
     'backend',
