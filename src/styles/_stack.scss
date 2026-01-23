@@ -1,56 +1,21 @@
 /* =================
 Stack pills
 ================= */
-
 .stack-pill {
   display: inline-block;
   padding: 0.4rem 0.8rem;
   margin: 0.3rem;
   border-radius: 20px;
-
   font-family: var(--font-code);
   font-size: 0.9rem;
+  transition: all 0.3s ease;
+  color: var(--_pill-color);
+  background: rgba(from var(--_pill-color) r g b / 0.1);
+  border: 1px solid rgba(from var(--_pill-color) r g b / 0.2);
 
-  background-color: var(--pill-bg);
-  color: var(--pill-text);
-  border: 1px solid var(--pill-border);
-
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    border-color 0.3s ease;
-}
-
-/* =================
-Stack variants
-================= */
-
-.stack-pill.frontend {
-  --pill-text: var(--pill-frontend-text);
-  --pill-bg: var(--pill-frontend-bg);
-  --pill-border: var(--pill-frontend-border);
-}
-
-.stack-pill.backend {
-  --pill-text: var(--pill-backend-text);
-  --pill-bg: var(--pill-backend-bg);
-  --pill-border: var(--pill-backend-border);
-}
-
-.stack-pill.database {
-  --pill-text: var(--pill-database-text);
-  --pill-bg: var(--pill-database-bg);
-  --pill-border: var(--pill-database-border);
-}
-
-.stack-pill.devops {
-  --pill-text: var(--pill-devops-text);
-  --pill-bg: var(--pill-devops-bg);
-  --pill-border: var(--pill-devops-border);
-}
-
-.stack-pill.cms {
-  --pill-text: var(--pill-cms-text);
-  --pill-bg: var(--pill-cms-bg);
-  --pill-border: var(--pill-cms-border);
+  &.frontend { --_pill-color: var(--pill-fe); }
+  &.backend  { --_pill-color: var(--pill-be); }
+  &.database { --_pill-color: var(--pill-db); }
+  &.devops   { --_pill-color: var(--pill-do); }
+  &.cms      { --_pill-color: var(--pill-cms); }
 }
