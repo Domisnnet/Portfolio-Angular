@@ -13,6 +13,7 @@
   position: relative;
   perspective: 1200px;
   border-radius: 8px;
+  z-index: 200;
 
   &.is-flipped .artifact-inner {
     transform: rotateY(180deg);
@@ -53,7 +54,6 @@
   padding: 8px;
   z-index: 2;
   transform: rotateY(0deg);
-  box-shadow: 0 8px 24px var(--border-color);
 }
 
 .artifact-photo {
@@ -86,7 +86,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--bg-body);
+  background-color: var(--card-bg-card);
   color: var(--text-primary);
   padding: 24px;
   z-index: 1;
@@ -122,7 +122,7 @@
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  color: var(--brand-accent);
+  color: var(--card-accent);
   background-color: transparent;
   border: 2px solid var(--brand-accent);
   transition: all 0.3s ease;
@@ -131,6 +131,12 @@
     background-color: var(--brand-accent);
     box-shadow: 0 0 15px var(--brand-accent);
   }
+}
+
+.artifact-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 /* =======================
@@ -144,11 +150,15 @@
   height: 24px;
   color: var(--brand-accent);
   filter: drop-shadow(0 0 4px var(--brand-accent));
-  opacity: 0.5;
-  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: opacity 0.3s ease,transform 0.3s ease,visibility 0.3s ease;
 }
 
 .artifact-card:hover .alien-scan-marker {
   opacity: 1;
-  transform: scale(1.1) rotate(90deg);
+  visibility: visible;
+  transform: scale(1) rotate(90deg);
 }
