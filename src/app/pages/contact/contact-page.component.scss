@@ -1,3 +1,93 @@
+/* ==================
+  Cosmic Section
+================== */
+.cosmic-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--cosmic-bg);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ===================
+  Stars Overlay
+=================== */
+.stars-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.45;
+
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, var(--text-primary), transparent),
+    radial-gradient(1px 1px at 32% 42%, var(--text-primary), transparent),
+    radial-gradient(1px 1px at 48% 76%, var(--text-primary), transparent),
+    radial-gradient(1px 1px at 78% 22%, var(--text-primary), transparent),
+    radial-gradient(1px 1px at 88% 64%, var(--text-primary), transparent),
+    radial-gradient(1.5px 1.5px at 18% 62%, rgba(var(--cosmic-accent-rgb), 0.55), transparent),
+    radial-gradient(1.5px 1.5px at 58% 34%, rgba(var(--cosmic-accent-rgb), 0.45), transparent),
+    radial-gradient(1.5px 1.5px at 72% 82%, rgba(var(--cosmic-accent-rgb), 0.5), transparent),
+    radial-gradient(2px 2px at 42% 18%, rgba(var(--cosmic-accent-rgb), 0.65), transparent),
+    radial-gradient(2px 2px at 82% 44%, rgba(var(--cosmic-accent-rgb), 0.6), transparent);
+  background-size: 340px 340px;
+  animation: stars-drift 180s linear infinite, stars-twinkle 7s ease-in-out infinite alternate;
+}
+
+/* ==================
+  Tractor Beam
+================== */
+.cosmic-beam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 780px;
+  height: 780px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    /* Anel interno */
+    radial-gradient(circle at center, transparent 0%, transparent 32%, rgba(var(--cosmic-accent-rgb), 0.22) 33%, transparent 34%),
+    /* Anel médio */
+    radial-gradient(circle at center, transparent 0%, transparent 50%, rgba(var(--cosmic-accent-rgb), 0.18) 51%, transparent 52%),
+    /* Beam base */
+    radial-gradient(circle at center, rgba(var(--cosmic-accent-rgb), 0.20) 0%, rgba(var(--cosmic-accent-rgb), 0.15) 22%, rgba(var(--cosmic-accent-rgb), 0.10) 40%, rgba(var(--cosmic-accent-rgb), 0.05) 56%, transparent 68%);
+  box-shadow: 0 0 28px rgba(var(--cosmic-accent-rgb), 0.18), 0 0 100px rgba(var(--cosmic-accent-rgb), 0.14);
+  animation: beam-pulse 6.6s ease-in-out infinite;
+}
+
+/* =========================
+  HUD Interface
+========================= */
+.scanning-artifact {
+  position: fixed;
+  top: 120px;
+  left: 40px;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .status-line {
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--brand-cosmic);
+    background: rgba(var(--cosmic-accent-rgb), 0.08);
+    border-left: 3px solid var(--brand-accent);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    backdrop-filter: blur(4px);
+    animation: statusBlink 2s ease-in-out infinite;
+  }
+}
+
 .artifact-frame {
   position: absolute;
   top: 50%;
@@ -6,9 +96,10 @@
   width: 90%;
   max-width: 580px;
   background: var(--artifact-bg);
-  border: 1px solid var(--cosmic-accent);
-  box-shadow: 0 0 35px var(--artifact-shadow);
+  border: 2px solid var(--cosmic-accent);
   backdrop-filter: blur(12px);
+  border-radius: 12px;
+  overflow: hidden;
   z-index: 10;
 }
 
@@ -46,8 +137,10 @@
       line-height: 1.7;
       margin-top: 5px;
 
-      .cmd { color: var(--cosmic-accent); }
-      
+      .cmd {
+        color: var(--cosmic-accent);
+      }
+
       .highlight {
         color: var(--artifact-neon);
         text-shadow: 0 0 10px var(--artifact-neon);
@@ -89,5 +182,7 @@
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
