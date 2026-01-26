@@ -14,6 +14,8 @@
   perspective: 1200px;
   border-radius: 8px;
   z-index: 200;
+  animation: zero-gravity-float 18s ease-in-out infinite;
+  will-change: transform;
 
   &.is-flipped .artifact-inner {
     transform: rotateY(180deg);
@@ -161,4 +163,15 @@
   opacity: 1;
   visibility: visible;
   transform: scale(1) rotate(90deg);
+}
+
+/* ===================
+  Keyframes
+=================== */  
+@keyframes zero-gravity-float {
+  0%   { transform: translate3d(0, 0, 0) rotateZ(0deg); }
+  25%  { transform: translate3d(6px, -10px, 0) rotateZ(0.6deg); }
+  50%  { transform: translate3d(-6px, -14px, 0) rotateZ(-0.6deg); }
+  75%  { transform: translate3d(4px, -8px, 0) rotateZ(0.4deg); }
+  100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
 }
