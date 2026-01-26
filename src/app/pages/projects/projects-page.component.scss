@@ -65,7 +65,7 @@ app-project-card {
   position: fixed;
   top: 120px;
   left: 40px;
-  z-index: 100;
+  z-index: 10;
   pointer-events: none;
   display: flex;
   flex-direction: column;
@@ -76,8 +76,9 @@ app-project-card {
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.05em;
-    color: var(--brand-accent);
-    border-left: 2px solid var(--brand-accent);
+    color: var(--brand-cosmic);
+    background: rgba(var(--cosmic-accent-rgb), 0.08);
+    border-left: 3px solid var(--brand-accent);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     padding: 8px 12px;
