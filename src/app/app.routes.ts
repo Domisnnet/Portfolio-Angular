@@ -23,6 +23,6 @@ export const routes: Routes = [
   },
   {
     path: 'privacidade-termos',
-    loadComponent: () => import('./components/footer/pages/privacidade-termos.component').then(m => m.PrivacidadeTermosComponent)
+    loadComponent: () => import('./components/footer/pages/privacidade-termos').then(m => m.PrivacidadeTermosComponent)
   }
 ];
