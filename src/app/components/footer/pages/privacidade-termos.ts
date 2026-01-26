@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-privacidade-termos',
   imports: [RouterLink],
   templateUrl: './privacidade-termos.html',
-  styleUrl: './privacidade-termos.scss', // CORRIGIDO DE styleUrls PARA styleUrl
+  styleUrl: './privacidade-termos.scss', 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrivacidadeTermosComponent {}
