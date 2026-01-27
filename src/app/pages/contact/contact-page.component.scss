@@ -151,9 +151,15 @@
 
       .highlight {
         color: var(--artifact-neon);
-        text-shadow: 0 0 10px var(--artifact-neon);
+        text-shadow: 0 0 6px var(--artifact-neon);
         font-weight: bold;
       }
+
+      .highlight-rx {
+        color: var(--artifact-neon-rx);
+        text-shadow: 0 0 6px var(--artifact-neon-rx);
+        font-weight: bold;
+      } 
 
       .mono {
         background: var(--bg-surface-alt);
