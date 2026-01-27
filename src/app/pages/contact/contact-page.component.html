@@ -38,9 +38,7 @@
         <div class="content">
           No final de 2024, um curso gratuito do
           <span class="highlight">Professor Gustavo Guanabara</span>
-          reacendeu a chama. A lógica, o HTML, o CSS e a possibilidade de criar
-          despertaram algo que deixou de ser hobby e virou
-          <span class="mono">compromisso</span>.
+          reacendeu a chama.
           Hoje, construo este portfólio em Angular como parte dessa evolução
           contínua.
         </div>
@@ -53,23 +51,46 @@
       </div>
     </div>
   </div>
-  <article class="about-text" *ngIf="isTextMode" @fadeSwap>
-    <h2>Sobre mim</h2>
-    <p>
-      Desde cedo sempre fui curioso sobre como as coisas funcionam. Meu primeiro contato com tecnologia 
-      aconteceu ainda na adolescência, utilizando um computador antigo, onde cada comando precisava ser 
-      digitado manualmente. Aquilo despertou em mim o interesse por lógica e por compreender como 
-      instruções eram capazes de gerar resultados.
-    </p>
-    <p>
-      Com o tempo, a vida trouxe outras prioridades — família, trabalho e responsabilidades. 
-      A tecnologia ficou em segundo plano, mas nunca deixou de fazer parte do meu interesse pessoal.
-    </p>
-    <p>
-      Em 2024, retomei esse caminho de forma estruturada. Através de estudos em lógica de programação, 
-      HTML, CSS e atualmente Angular, passei a encarar o desenvolvimento como um processo contínuo de 
-      aprendizado. Este portfólio representa essa jornada e minha evolução como desenvolvedor.
-    </p>
+  <article class="about-wrapper" *ngIf="isTextMode">
+    <button
+      class="lang-badge"
+      (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')">
+      {{ language === 'pt' ? 'EN' : 'PT' }}
+    </button>
+    <div class="about-text">
+      <ng-container *ngIf="language === 'pt'">
+        <h2>Sobre mim</h2>
+        <p>
+          Desde cedo sempre fui curioso sobre como as coisas funcionam.
+          Meu primeiro contato com tecnologia aconteceu ainda na adolescência,
+          utilizando um computador antigo, onde cada comando precisava ser digitado manualmente.
+        </p>
+        <p>
+          Com o tempo, a vida trouxe outras prioridades — família, trabalho e responsabilidades.
+          A tecnologia ficou em segundo plano, mas nunca deixou de fazer parte do meu interesse pessoal.
+        </p>
+        <p>
+          Em 2024, retomei esse caminho de forma estruturada.
+          Este portfólio representa essa jornada e minha evolução como desenvolvedor.
+        </p>
+      </ng-container>
+      <ng-container *ngIf="language === 'en'">
+        <h2>About me</h2>
+        <p>
+          From an early age, I have always been curious about how things work.
+          My first contact with technology happened during my teenage years,
+          using an old computer where every command had to be typed manually.
+        </p>
+        <p>
+          Over time, life brought other priorities — family, work, and responsibilities.
+          Technology moved into the background, but it never stopped being a personal interest.
+        </p>
+        <p>
+          In 2024, I returned to this path in a more structured way.
+          This portfolio represents that journey and my ongoing evolution as a developer.
+        </p>
+      </ng-container>
+    </div>
     <button class="alt-mode-btn" (click)="toggleMode()">
       &lt;&lt; voltar para versão técnica
     </button>

@@ -29,8 +29,13 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class ContactPageComponent {
   isTextMode = false;
+  language: 'pt' | 'en' = 'pt';
 
   toggleMode(): void {
     this.isTextMode = !this.isTextMode;
+  }
+
+  toggleLanguage(lang: 'pt' | 'en'): void {
+    this.language = lang;
   }
 }
