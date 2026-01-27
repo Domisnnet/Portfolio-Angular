@@ -2,6 +2,7 @@
   Root
 ======== */
 :root {
+  
   /* --- Typography --- */
   --font-main: 'Poppins', sans-serif;
   --font-code: 'Fira Code', monospace;
@@ -18,7 +19,14 @@
   --card-bg-card: #151515;
 
   /* --- Artifact / Terminal Tokens --- */
-  --artifact-bg: rgba(0, 15, 10, 0.75);
+  --artifact-bg-dark: rgba(0, 15, 10, 0.78);
+  --artifact-bg-light: rgba(255, 255, 255, 0.85);
+
+  /* --- Artifact Border --- */
+  --artifact-border-dark: rgba(var(--cosmic-accent-rgb), 0.45);
+  --artifact-border-light: rgba(0, 0, 0, 0.15);
+
+  /* --- Artifact Neon & Shadow --- */
   --artifact-neon: #00ff00; 
   --artifact-meta: var(--text-muted);
   --artifact-shadow: rgba(var(--cosmic-accent-rgb), 0.3);
@@ -34,14 +42,18 @@
   --text-muted: #6b7280;
   --border-color: #374151;
 
-  /* --- Stack Pills --- */
+  /* =============
+    Stack Pills
+  ============= */
   --pill-fe: #38bdf8;
   --pill-be: #4ade80;
   --pill-db: #f59e0b;
   --pill-do: #ff0026;
   --pill-cms: #f472b6;
 
-  /* --- Cosmic Helpers --- */
+  /* ==================
+    Cosmic Helpers 
+  ================== */
   --cosmic-bg: #020205;
   --cosmic-accent-rgb: 0, 255, 200;
 }
