@@ -92,14 +92,8 @@ app-project-card {
   ANIMATIONS
 =============== */
 @keyframes statusBlink {
-  0%, 100% { 
-    opacity: 1; 
-    transform: translateX(0);
-  }
-  50% { 
-    opacity: 0.6; 
-    transform: translateX(4px); 
-  }
+  0%, 100% { opacity: 1; transform: translateX(0); }
+  50% { opacity: 0.6; transform: translateX(4px); }
 }
 
 /* =========================
