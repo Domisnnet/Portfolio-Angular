@@ -131,14 +131,14 @@
 
   &:hover {
     background-color: var(--brand-accent);
-    box-shadow: 0 0 15px var(--brand-accent);
+    box-shadow: 0 4px 15px var(--brand-accent);
   }
 }
 
 .artifact-stack {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 8px;
 }
 
 /* =======================
