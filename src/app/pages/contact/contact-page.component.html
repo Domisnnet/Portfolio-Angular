@@ -1,15 +1,12 @@
 <section class="cosmic-section">
   <div class="stars-overlay"></div>
-  <div class="cosmic-beam"></div>
+  <div class="cosmic-beam" *ngIf="!isTextMode"></div>
   <div class="scanning-artifact" *ngIf="!isTextMode">
     <span class="status-line">SYSTEM: BOOTING_CORE</span>
     <span class="status-line">DATA_SOURCE: VINTAGE_386_CHIP</span>
     <span class="status-line">DECODING: SUCCESS</span>
   </div>
-  <div
-    class="artifact-frame" 
-    @panelEnter>
-  >
+  <div class="artifact-frame" *ngIf="!isTextMode" @panelEnter>
     <div class="terminal-header">
       <span class="pulse-icon">●</span>
       LOG_FILE_RECOVERED.bin
@@ -50,17 +47,13 @@
       </div>
       <div class="footer-status">
         <button class="alt-mode-btn" (click)="toggleMode()">
-          &gt;&gt; switch --human-readable
+          &gt;&gt; ler versão simplificada
         </button>
         <p class="status-msg">EXECUTING: angular_portfolio_v1.0</p>
       </div>
     </div>
   </div>
-  <article
-    class="about-text"
-    *ngIf="isTextMode"
-    @fadeSwap
-  >
+  <article class="about-text" *ngIf="isTextMode" @fadeSwap>
     <h2>Sobre mim</h2>
     <p>
       Desde cedo sempre fui curioso sobre como as coisas funcionam.

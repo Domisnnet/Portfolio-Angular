@@ -178,15 +178,35 @@
   }
 }
 
+.about-text {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  font-family: var(--font-main);
+  line-height: 1.75;
+  color: var(--text-primary);
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 32px;
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+  }
+}
+
 .alt-mode-btn {
   margin-top: 24px;
   background: transparent;
-  border: 1px dashed var(--cosmic-accent);
+  border: 2px dashed var(--cosmic-accent);
   color: var(--cosmic-accent);
   font-family: var(--font-code);
   font-size: 0.75rem;
   padding: 8px 14px;
   cursor: pointer;
+  border-radius: 10px;
   transition: all 0.25s ease;
 
   &:hover {
