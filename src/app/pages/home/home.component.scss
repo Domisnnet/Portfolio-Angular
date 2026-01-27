@@ -18,6 +18,11 @@
   border-radius: 16px;
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
+
+  h3 {
+    margin-bottom: 16px;
+    font-size: 1.3rem;
+  }
 }
 
 .pill-grid {
