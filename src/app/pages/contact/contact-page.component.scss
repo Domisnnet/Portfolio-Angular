@@ -9,6 +9,22 @@
   isolation: isolate;
 }
 
+/* =================
+  Nebula Layer
+================= */
+.cosmic-section::before {
+  content: '';
+  position: absolute;
+  inset: -35%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 28% 38%, rgba(var(--cosmic-accent-rgb), 0.12), transparent 55%),
+    radial-gradient(circle at 72% 62%, rgba(var(--cosmic-accent-rgb), 0.07), transparent 60%);
+  filter: blur(160px);
+  animation: nebula-drift 24s ease-in-out infinite alternate;
+}
+
 /* ===================
   Stars Overlay
 =================== */
@@ -94,14 +110,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
-  max-width: 720px; 
+  max-width: 720px;
   max-height: 85vh;
   background: var(--artifact-bg);
   border: 3px solid var(--artifact-border);
   backdrop-filter: blur(8px) saturate(120%);
-  
+
   border-radius: 12px;
-  overflow-y: auto; 
+  overflow-y: auto;
   z-index: 100;
 }
 
@@ -140,7 +156,7 @@
 
     .content {
       color: var(--text-primary);
-      line-height: 1.8; 
+      line-height: 1.8;
       font-size: 1.05rem;
       text-align: left;
 
@@ -151,15 +167,15 @@
 
       .highlight {
         color: var(--artifact-neon);
-        text-shadow: 0 0 6px var(--artifact-neon);
+        text-shadow: 0 0 5px var(--artifact-neon);
         font-weight: bold;
       }
 
       .highlight-rx {
         color: var(--artifact-neon-rx);
-        text-shadow: 0 0 6px var(--artifact-neon-rx);
+        text-shadow: 0 0 5px var(--artifact-neon-rx);
         font-weight: bold;
-      } 
+      }
 
       .mono {
         background: var(--bg-surface-alt);
@@ -181,6 +197,7 @@
     font-weight: bold;
     text-align: right;
     font-family: var(--font-code);
+    letter-spacing: 0.05em;
   }
 }
 
@@ -242,6 +259,7 @@
 
 .alt-mode-btn {
   margin-top: 24px;
+  margin-bottom: 24px;
   background: transparent;
   border: 2px dashed var(--cosmic-accent);
   color: var(--cosmic-accent);
@@ -261,18 +279,50 @@
 .artifact-frame::-webkit-scrollbar {
   width: 4px;
 }
+
 .artifact-frame::-webkit-scrollbar-thumb {
   background: var(--cosmic-accent);
 }
 
 /* ===============
-  ANIMATIONS
+  Animations
 =============== */
-@keyframes statusBlink {
-  0%, 100% { opacity: 1; transform: translateX(0); }
-  50% { opacity: 0.6; transform: translateX(4px); }
+@keyframes nebula-drift {
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1.14) rotate(6deg); }
+}
+
+@keyframes beam-pulse {
+  0% { transform: translate(-50%, -50%) scale(0.85);opacity: 0.35; }
+  50% { transform: translate(-50%, -50%) scale(1);opacity: 0.85; }
+  100% { transform: translate(-50%, -50%) scale(0.85);opacity: 0.35; }
+}
+
+@keyframes stars-drift {
+  from { background-position: 0 0; }
+  to { background-position: 900px 1800px; }
+}
+
+@keyframes stars-twinkle {
+  from { opacity: 0.25; }
+  to { opacity: 0.6; }
+}
+
+@keyframes grid-move {
+  from { background-position: 0 0; }
+  to { background-position: 600px 600px; }
 }
 
 @keyframes blink {
-  50% { opacity: 0; }
+  50% { opacity: 0.6; }
+}
+
+/* ===================
+  Media Queries
+=================== */
+@media (max-width: 1120px) {
+  .cosmic-beam,
+  .scanning-artifact {
+    display: none;
+  }
 }
