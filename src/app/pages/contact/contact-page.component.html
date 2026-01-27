@@ -1,50 +1,88 @@
 <section class="cosmic-section">
   <div class="stars-overlay"></div>
   <div class="cosmic-beam"></div>
-  <div class="scanning-artifact">
+  <div class="scanning-artifact" *ngIf="!isTextMode">
     <span class="status-line">SYSTEM: BOOTING_CORE</span>
     <span class="status-line">DATA_SOURCE: VINTAGE_386_CHIP</span>
     <span class="status-line">DECODING: SUCCESS</span>
   </div>
-  <div class="artifact-frame" [@abductionAnimation]>
+  <div
+    class="artifact-frame" 
+    @panelEnter>
+  >
     <div class="terminal-header">
-      <span class="pulse-icon">●</span> LOG_FILE_RECOVERED.bin
+      <span class="pulse-icon">●</span>
+      LOG_FILE_RECOVERED.bin
     </div>
     <div class="terminal-body">
       <div class="log-block">
         <span class="meta-tag">[TIMESTAMP: CIRCA_1990s]</span>
         <div class="content">
-          <span class="cmd">> whoami:</span>
-          Desde a adolescência sempre me intrigou como o ser humano, através de instruções, consegue fazer uma máquina irracional realizar coisas incríveis. 
-          Me lembro dos primeiros contatos com um computador 
-          <span class="highlight">386 de tela verde,</span> eu descobri que instruções
-          manuais podiam criar o incrível.Mas era trabalhoso, tinha que digitar os comandos de forma manual
-           — era preciso digitar linha por linha para acessar um único arquivo.
+          <span class="cmd">&gt; whoami:</span>
+          Desde a adolescência sempre me intrigou como o ser humano, através de
+          instruções, consegue fazer uma máquina irracional realizar coisas
+          incríveis. Meu primeiro contato foi com um
+          <span class="highlight">386 de tela verde</span>, onde cada comando era
+          digitado manualmente — linha por linha — apenas para acessar um arquivo.
         </div>
       </div>
       <div class="log-block">
         <span class="meta-tag">[SYSTEM_PAUSED: RESPONSABILIDADES_REAIS]</span>
         <div class="content">
-          A vida seguiu, vieram Casamento, filho, trabalho e responsabilidades... 
+          A vida seguiu. Casamento, filho, trabalho e responsabilidades.
           O sonho foi movido para o
-          <span class="mono">background-process</span> e aquele sonho ficou guardado na gaveta. A vida seguiu,
-          mas o código estava entranhado no meu <span class="mono">DNA.</span>
+          <span class="mono">background-process</span>,
+          mas o código permaneceu entranhado no meu
+          <span class="mono">DNA</span>.
         </div>
       </div>
       <div class="log-block">
         <span class="meta-tag">[REBOOT_INITIATED: LATE_2024]</span>
         <div class="content">
-          Até que no final de 2024, um curso gratuito do <span class="highlight">Professor Gustavo Guanabara</span>
-          reacendeu a chama. Descobri a Lógica da Computação, os conceitos básicos, HTML e CSS… minha cabeça fervia de ideias. Aquilo foi o trigger. 
-          O que era hobby virou um <span class="mono">upgrade</span> estudo sério, e aqui estou, construindo meu portfólio em Angular para organizar essa jornada e continuar aprendendo cada dia mais.
+          No final de 2024, um curso gratuito do
+          <span class="highlight">Professor Gustavo Guanabara</span>
+          reacendeu a chama. A lógica, o HTML, o CSS e a possibilidade de criar
+          despertaram algo que deixou de ser hobby e virou
+          <span class="mono">compromisso</span>.
+          Hoje, construo este portfólio em Angular como parte dessa evolução
+          contínua.
         </div>
       </div>
       <div class="footer-status">
-        <div class="progress-container">
-          <div class="progress-fill"></div>
-        </div>
+        <button class="alt-mode-btn" (click)="toggleMode()">
+          &gt;&gt; switch --human-readable
+        </button>
         <p class="status-msg">EXECUTING: angular_portfolio_v1.0</p>
       </div>
     </div>
   </div>
+  <article
+    class="about-text"
+    *ngIf="isTextMode"
+    @fadeSwap
+  >
+    <h2>Sobre mim</h2>
+    <p>
+      Desde cedo sempre fui curioso sobre como as coisas funcionam.
+      Meu primeiro contato com tecnologia foi ainda na adolescência,
+      utilizando um computador antigo, onde cada comando precisava ser
+      digitado manualmente. Aquilo despertou em mim o interesse por lógica
+      e por entender como instruções eram capazes de gerar resultados.
+    </p>
+    <p>
+      Com o tempo, a vida trouxe outras prioridades: família, trabalho e
+      responsabilidades. A tecnologia ficou em segundo plano, mas nunca
+      deixou de fazer parte do meu interesse pessoal.
+    </p>
+    <p>
+      Em 2024, retomei esse caminho de forma estruturada. Através de estudos
+      em lógica de programação, HTML, CSS e atualmente Angular, passei a
+      encarar o desenvolvimento como um processo contínuo de aprendizado.
+      Este portfólio representa essa jornada e minha evolução como
+      desenvolvedor.
+    </p>
+    <button class="alt-mode-btn" (click)="toggleMode()">
+      &lt;&lt; voltar para versão técnica
+    </button>
+  </article>
 </section>

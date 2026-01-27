@@ -97,12 +97,12 @@
   max-width: 720px; 
   max-height: 85vh;
   background: var(--artifact-bg);
-  border: 2px solid var(--cosmic-accent);
-  backdrop-filter: blur(12px);
+  border: 3px solid var(--artifact-border);
+  backdrop-filter: blur(8px) saturate(120%);
+  
   border-radius: 12px;
   overflow-y: auto; 
   z-index: 100;
-  box-shadow: 0 0 40px rgba(var(--cosmic-accent-rgb), 0.2);
 }
 
 .terminal-header {
@@ -175,6 +175,23 @@
     font-weight: bold;
     text-align: right;
     font-family: var(--font-code);
+  }
+}
+
+.alt-mode-btn {
+  margin-top: 24px;
+  background: transparent;
+  border: 1px dashed var(--cosmic-accent);
+  color: var(--cosmic-accent);
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(var(--cosmic-accent-rgb), 0.12);
+    letter-spacing: 0.05em;
   }
 }
 
