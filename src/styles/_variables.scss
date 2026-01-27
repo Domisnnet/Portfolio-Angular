@@ -51,6 +51,11 @@
   --pill-do: #ff0026;
   --pill-cms: #f472b6;
 
+  /* --- Artifact / Terminal Tokens / Light --- */
+  --artifact-bg: var(--artifact-bg-dark);
+  --artifact-border: var(--artifact-border-dark);
+
+
   /* ==================
     Cosmic Helpers 
   ================== */
@@ -73,4 +78,8 @@
   /* Ajuste de saturação */
   --pill-fe: #0284c7;
   --pill-be: #16a34a;
+
+  /* --- Artifact / Terminal Tokens / Light --- */
+  --artifact-bg: var(--artifact-bg-light);
+  --artifact-border: var(--artifact-border-light);
 }
