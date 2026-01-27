@@ -2,66 +2,47 @@
   display: inline-flex;
   align-items: center;
   padding: 6px 14px;
-  border-radius: 999px;
+  border-radius: 50px;
+  font-family: var(--font-main);
   font-size: 0.75rem;
   font-weight: 600;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   opacity: 0;
   transform: translateY(6px);
   animation: revealPill 0.4s ease forwards;
   animation-delay: calc(var(--delay, 0) * 80ms);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.25s ease;
+  cursor: default;
 
-  /* =========================
+  /* ==============
     CATEGORIAS
-  ========================== */
-  &[data-category='frontend'] {
-    color: #61dafb;
-    background: rgba(97, 218, 251, 0.12);
-    border-color: rgba(97, 218, 251, 0.25);
-  }
-
-  &[data-category='backend'] {
-    color: #3c873a;
-    background: rgba(60, 135, 58, 0.12);
-    border-color: rgba(60, 135, 58, 0.25);
-  }
-
-  &[data-category='databases'] {
-    color: #47a248;
-    background: rgba(71, 162, 72, 0.12);
-    border-color: rgba(71, 162, 72, 0.25);
-  }
-
-  &[data-category='devops'] {
-    color: #2496ed;
-    background: rgba(36, 150, 237, 0.12);
-    border-color: rgba(36, 150, 237, 0.25);
-  }
-
-  &[data-category='cms'] {
-    color: #d54e21;
-    background: rgba(213, 78, 33, 0.12);
-    border-color: rgba(213, 78, 33, 0.25);
-  }
+  ============== */
+  &[data-category='frontend']  { --current-pill-color: var(--pill-fe); }
+  &[data-category='backend']   { --current-pill-color: var(--pill-be); }
+  &[data-category='databases'] { --current-pill-color: var(--pill-db); }
+  &[data-category='devops']    { --current-pill-color: var(--pill-do); }
+  &[data-category='cms']       { --current-pill-color: var(--pill-cms); }
+  color: var(--current-pill-color);
+  background-color: color-mix(in srgb, var(--current-pill-color) 12%, transparent);
+  border-color: color-mix(in srgb, var(--current-pill-color) 20%, transparent);
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px -4px currentColor;
+    transform: translateY(-4px);
+    background-color: color-mix(in srgb, var(--current-pill-color) 20%, transparent);
+    border-color: var(--current-pill-color);
+    box-shadow: 0 8px 20px -4px color-mix(in srgb, var(--current-pill-color) 40%, transparent);
   }
 }
 
 .stack-pill-inner {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .stack-pill-logo {
-  width: 16px !important;
-  height: 16px !important;
-  display: inline-block;
-  line-height: 0;
+  width: 22px !important;
+  height: 22px !important;
   object-fit: contain;
   flex-shrink: 0;
 }
