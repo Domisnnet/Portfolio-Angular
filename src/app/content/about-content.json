@@ -1,0 +1,92 @@
+{
+  "pt": {
+    "cmd": {
+      "whoami": "whoami:"
+    },
+    "meta": {
+      "timestamp": "TIMESTAMP: CIRCA_1990s",
+      "paused": "SYSTEM_PAUSED: RESPONSABILIDADES_REAIS",
+      "reboot": "REBOOT_INITIATED: LATE_2024",
+      "executing": "EXECUTING: angular_portfolio_v1.0"
+    },
+    "logs": {
+      "origin": {
+        "intro": "Desde a adolescência, sempre fui movido pela curiosidade de entender como o ser humano consegue, por meio de instruções, fazer uma máquina “irracional” executar coisas incríveis.",
+        "details": [
+          {
+            "text": "Meu primeiro contato com tecnologia foi ainda na era do ",
+            "highlight": "386 — tela verde",
+            "suffix": ", quando cada comando era digitado manualmente — linha por linha — apenas para acessar um arquivo."
+          }
+        ]
+      },
+      "pause": {
+        "text":"Com o tempo, a vida seguiu seu curso: prioridades mudaram, vieram o Casamento, um filho, a correria do trabalho e da casa. A tecnologia nunca deixou de me fascinar, e mesmo com o sonho  movido para o",
+        "mono": "background-process",
+        "suffix": " e guardado na gaveta, ele nunca deixou de fazer parte do meu ",
+        "dna": "DNA."
+      },
+      "reboot": {
+        "text": "Até que, no final de 2024, algo simples reacendeu a chama:",
+        "course": "um curso gratuito do professor Gustavo Guanabara",
+        "details": "Foi ali que redescobri o prazer pelo raciocínio lógico, pelos fundamentos, pelos porquês. HTML, CSS… e de repente minha cabeça estava fervendo de ideias novamente.",
+        "closing": "Hoje, este portfólio em Angular representa parte dessa evolução contínua."
+      }
+    },
+    "actions": {
+      "simple": ">> ler versão simplificada",
+      "technical": "<< voltar para versão técnica"
+    },
+    "simple": {
+      "title": "Sobre mim",
+      "p1": "Sempre fui movido pela curiosidade de entender como as coisas funcionam. Desde cedo, a tecnologia despertou meu interesse e moldou minha forma de pensar.",
+      "p2": "Com o tempo, a vida trouxe novas prioridades — família, trabalho e responsabilidades. Ainda assim, o interesse por tecnologia nunca deixou de existir.",
+      "p3": "Em 2024, retomei esse caminho de forma estruturada. Este portfólio representa essa decisão e minha evolução contínua como desenvolvedor."
+    }
+  },
+  "en": {
+    "cmd": {
+      "whoami": "whoami:"
+    },
+    "meta": {
+      "timestamp": "TIMESTAMP: CIRCA_1990s",
+      "paused": "SYSTEM_PAUSED: REAL_WORLD_RESPONSIBILITIES",
+      "reboot": "REBOOT_INITIATED: LATE_2024",
+      "executing": "EXECUTING: angular_portfolio_v1.0"
+    },
+    "logs": {
+      "origin": {
+        "intro": "Since my teenage years, I have always been driven by curiosity to understand how humans, through instructions, can make an “irrational” machine perform incredible things.",
+        "details": [
+          {
+            "text": "My first contact with technology dates back to the era of the ",
+            "highlight": "386 — green screen",
+            "suffix": ", when every command had to be typed manually — line by line — just to access a file."
+          }
+        ]
+      },
+      "pause": {
+        "text": "Over time, life followed its course: priorities changed, marriage came along, a child, and the daily rush of work and home. Technology never stopped fascinating me, and even with the dream moved to a",
+        "mono": "background process",
+        "suffix": " and stored away in a drawer, it never stopped being part of my ",
+        "dna": "DNA."
+      },
+      "reboot": {
+        "text": "Then, at the end of 2024, something simple reignited the flame:",
+        "course": "a free course by Professor Gustavo Guanabara",
+        "details": "That was when I rediscovered the pleasure of logical reasoning, fundamentals, and the whys. HTML, CSS… and suddenly my mind was buzzing with ideas again.",
+        "closing": "Today, this Angular portfolio represents part of that continuous evolution."
+      }
+    },
+    "actions": {
+      "simple": ">> read simplified version",
+      "technical": "<< back to technical view"
+    },
+    "simple": {
+      "title": "About me",
+      "p1": "I have always been driven by curiosity to understand how things work. From an early age, technology sparked my interest and shaped the way I think.",
+      "p2": "Over time, life introduced new priorities — family, work, and responsibilities. Still, my interest in technology never truly disappeared.",
+      "p3": "In 2024, I returned to this path in a structured way. This portfolio represents that decision and my continuous evolution as a developer."
+    }
+  }
+}  
