@@ -1,30 +1,40 @@
-/* =====================
-   LOADER COMPONENT
-===================== */
 .loader-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+}
+
+.loader-container.hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .loader-svg {
-    width: 220px;
-    height: 220px;
-    shape-rendering: geometricPrecision;
-    transform-origin: center;
+  width: 220px;
+  height: 220px;
+  shape-rendering: geometricPrecision;
+  transform-origin: center;
+}
 
-    .loader-bg-circle {
-        fill: var(--bg-body);
-        transition: fill 0.8s ease;
-    }
+.loader-bg-circle {
+  fill: var(--bg-body);
+  transition: fill 0.8s ease;
+}
 
-    .loader-text-icon {
-        fill: var(--brand-accent);
-        font-family: var(--font-code);
-        font-size: 28px;
-        font-weight: bold;
-        filter: drop-shadow(0 0 8px rgba(from var(--brand-accent) r g b / 0.4));
-    }
+.loader-text-icon {
+  fill: var(--brand-accent);
+  font-family: var(--font-code);
+  font-size: 28px;
+  font-weight: bold;
+  filter: drop-shadow(0 0 8px rgba(from var(--brand-accent) r g b / 0.4));
 }
