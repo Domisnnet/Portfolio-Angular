@@ -1,6 +1,9 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
+import aboutContent from '../../content/about-content.json';
+
+type Language = 'pt' | 'en';
 
 @Component({
   selector: 'app-contact-page',
@@ -28,14 +31,18 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class ContactPageComponent {
+
   isTextMode = false;
-  language: 'pt' | 'en' = 'pt';
+  language: Language = 'pt';
+
+  content = aboutContent[this.language];
 
   toggleMode(): void {
     this.isTextMode = !this.isTextMode;
   }
 
-  toggleLanguage(lang: 'pt' | 'en'): void {
+  toggleLanguage(lang: Language): void {
     this.language = lang;
+    this.content = aboutContent[this.language];
   }
 }

@@ -13,44 +13,60 @@
     </div>
     <div class="terminal-body">
       <div class="log-block">
-        <span class="meta-tag">[TIMESTAMP: CIRCA_1990s]</span>
-        <div class="content">
-          <span class="cmd">&gt; whoami:</span><br>
-          Desde a adolescência sempre me intrigou como o ser humano, através de
-          instruções, consegue fazer uma máquina irracional realizar coisas
-          incríveis. Me lembro dos primeiros contatos com um computador, um
-          <span class="highlight">386 de tela verde, </span> onde cada comando era
-          digitado manualmente — linha por linha — apenas para acessar um arquivo.
-        </div>
+        <span class="meta-tag">
+          [{{ content.meta.timestamp }}]
+        </span>
+        <p class="content">
+          <span class="cmd">&gt; {{ content.cmd.whoami }}</span>
+        </p>
+        <p class="content">
+          {{ content.logs.origin.intro }}
+        </p>
+        <p
+          class="content"
+          *ngFor="let item of content.logs.origin.details"
+        >
+          {{ item.text }}
+          <span class="highlight">{{ item.highlight }}</span>
+          {{ item.suffix }}
+        </p>
       </div>
       <div class="log-block">
-        <span class="meta-tag">[SYSTEM_PAUSED: RESPONSABILIDADES_REAIS]</span>
-        <div class="content">
-          A vida seguiu, vieram: Casamento, filho, trabalho e responsabilidades.
-          O sonho foi movido para o 
-          <span class="mono">background-process</span> , e aquele sonho ficou guardado na gaveta
-          mas o código permaneceu entranhado no meu
-          <span class="mono">DNA</span>.
-        </div>
+        <span class="meta-tag">
+          [{{ content.meta.paused }}]
+        </span>
+        <p class="content">
+          {{ content.logs.pause.text }}
+          <span class="mono">{{ content.logs.pause.mono }}</span>
+          {{ content.logs.pause.suffix }}
+          <span class="mono">{{ content.logs.pause.dna }}</span>
+        </p>
       </div>
       <div class="log-block">
-        <span class="meta-tag">[REBOOT_INITIATED: LATE_2024]</span>
-        <div class="content">
-          Pra minha surpresa, no final de 2024, um curso gratuito do
-          <span class="highlight">Professor Gustavo Guanabara</span> , mudou tudo e 
-          <span class="highlight-rx">reacendeu a chama.</span> Os conceitos básicos, a lógica de programação, HTML e CSS… 
-          minha cabeça fervia de ideias! 
-          A possibilidade de criar qualquer coisa que eu quiser despertaram algo que deixou de ser hobby e virou
-          <span class="mono">compromisso</span>.
-          Hoje, construo este portfólio em Angular como parte dessa evolução
-          contínua.
-        </div>
+        <span class="meta-tag">
+          [{{ content.meta.reboot }}]
+        </span>
+        <p class="content">
+          {{ content.logs.reboot.text }}
+          <span class="highlight-rx">reacendeu a chama</span>:
+          <span class="highlight">
+            {{ content.logs.reboot.course }}
+          </span>
+        </p>
+        <p class="content">
+          {{ content.logs.reboot.details }}
+        </p>
+        <p class="content">
+          {{ content.logs.reboot.closing }}
+        </p>
       </div>
       <div class="footer-status">
         <button class="alt-mode-btn" (click)="toggleMode()">
-          &gt;&gt; ler versão simplificada
+          {{ content.actions.simple }}
         </button>
-        <p class="status-msg">EXECUTING: angular_portfolio_v1.0</p>
+        <p class="status-msg">
+          {{ content.meta.executing }}
+        </p>
       </div>
     </div>
   </div>
@@ -61,41 +77,13 @@
       {{ language === 'pt' ? 'EN' : 'PT' }}
     </button>
     <div class="about-text">
-      <ng-container *ngIf="language === 'pt'">
-        <h2>Sobre mim</h2>
-        <p>
-          Desde cedo sempre fui curioso sobre como as coisas funcionam.
-          Meu primeiro contato com tecnologia aconteceu ainda na adolescência,
-          utilizando um computador antigo, onde cada comando precisava ser digitado manualmente.
-        </p>
-        <p>
-          Com o tempo, a vida trouxe outras prioridades — família, trabalho e responsabilidades.
-          A tecnologia ficou em segundo plano, mas nunca deixou de fazer parte do meu interesse pessoal.
-        </p>
-        <p>
-          Em 2024, retomei esse caminho de forma estruturada.
-          Este portfólio representa essa jornada e minha evolução como desenvolvedor.
-        </p>
-      </ng-container>
-      <ng-container *ngIf="language === 'en'">
-        <h2>About me</h2>
-        <p>
-          From an early age, I have always been curious about how things work.
-          My first contact with technology happened during my teenage years,
-          using an old computer where every command had to be typed manually.
-        </p>
-        <p>
-          Over time, life brought other priorities — family, work, and responsibilities.
-          Technology moved into the background, but it never stopped being a personal interest.
-        </p>
-        <p>
-          In 2024, I returned to this path in a more structured way.
-          This portfolio represents that journey and my ongoing evolution as a developer.
-        </p>
-      </ng-container>
+      <h2>{{ content.simple.title }}</h2>
+      <p>{{ content.simple.p1 }}</p>
+      <p>{{ content.simple.p2 }}</p>
+      <p>{{ content.simple.p3 }}</p>
     </div>
     <button class="alt-mode-btn" (click)="toggleMode()">
-      &lt;&lt; voltar para versão técnica
+      {{ content.actions.technical }}
     </button>
   </article>
 </section>
