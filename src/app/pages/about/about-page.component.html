@@ -48,7 +48,6 @@
           </span>
           <p class="content">
             {{ content.logs.reboot.text }}
-            <span class="highlight-rx">reacendeu a chama</span>:
             <span class="highlight">
               {{ content.logs.reboot.course }}
             </span>
@@ -56,8 +55,26 @@
           <p class="content">
             {{ content.logs.reboot.details }}
           </p>
+        </div>
+        <div class="log-block">
           <p class="content">
-            {{ content.logs.reboot.closing }}
+            {{ content.logs.present.text }}
+          </p>
+          <p class="content">
+            {{ content.logs.present.details }}
+            <span class="highlight">
+              {{ content.logs.present.commitment }}
+            </span>
+            {{ content.logs.present.suffix }}
+          </p>
+        </div>
+        <div class="log-block">
+          <p class="content">
+            {{ content.logs.closing.text }}
+            <span class="highlight">
+              {{ content.logs.closing.highlight }}
+            </span>
+            {{ content.logs.closing.suffix }}
           </p>
         </div>
         <div class="footer-status">
@@ -70,9 +87,12 @@
         </div>
       </div>
     </div>
-  } @else {
+  }
+  @else {
     <article class="about-wrapper">
-      <button class="lang-badge" (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')">
+      <button
+        class="lang-badge"
+        (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')">
         {{ language === 'pt' ? 'EN' : 'PT' }}
       </button>
       <div class="about-text">
