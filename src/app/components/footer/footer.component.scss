@@ -30,7 +30,7 @@
   @media (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr); 
     grid-template-areas: 
-      "link1 link2 link3"
+      "Jornada Tech Real Explorar"
       "tech tech tech"     
       "contact contact contact"; 
     text-align: center;
@@ -41,7 +41,7 @@
   @media (max-width: 768px) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 
-      "link1 link2 link3"
+      "Jornada Tech Real Explorar"
       "tech"
       "contact";
     text-align: center;
@@ -52,9 +52,9 @@
 /* =========================
   Mapeamento das Classes
 ========================= */
-.footer-col-1 { grid-area: link1; }
-.footer-col-2 { grid-area: link2; }
-.footer-col-3 { grid-area: link3; }
+.footer-col-1 { grid-area: Jornada; }
+.footer-col-2 { grid-area: Tech Real; }
+.footer-col-3 { grid-area: Explorar; }
 .footer-col-tech { grid-area: tech; }
 .footer-col-contact { grid-area: contact; }
 
