@@ -1,23 +1,26 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact-page',
   standalone: true,
-  imports: [FormsModule],
+  imports: [
+    FormsModule,
+    AngularFirestoreModule
+  ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactPageComponent {
-  private firestore = inject(AngularFirestore);
-
   contactData = {
     name: '',
     email: '',
     message: ''
   };
+
+  constructor(private firestore: AngularFirestore) {}
 
   onSubmit() {
     this.firestore.collection('contacts').add(this.contactData)
