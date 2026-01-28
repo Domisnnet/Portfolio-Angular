@@ -24,5 +24,17 @@ export const routes: Routes = [
   {
     path: 'privacidade',
     loadComponent: () => import('./components/footer/pages/privacidade/privacidade.component').then(m => m.PrivacidadeComponent)
+  },
+  {
+    path: 'background',
+    loadComponent: () => import('./components/footer/pages/background/background.component').then(m => m.BackgroundComponent)
+  },
+  {
+    path: '2024',
+    loadComponent: () => import('./components/footer/pages/2024/2024.component').then(m => m.Year2024Component)
+  },
+  {
+    path: 'domisdev-v1-0',
+    loadComponent: () => import('./components/footer/pages/domisdev-v1.0/domisdev-v1.0.component').then(m => m.DomisdevV1Component)
   }
 ];

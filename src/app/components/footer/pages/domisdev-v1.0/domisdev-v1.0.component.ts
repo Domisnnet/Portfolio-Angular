@@ -4,8 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-domisdev-v1-0',
   templateUrl: './domisdev-v1.0.component.html',
   styleUrls: ['./domisdev-v1.0.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DomisdevV1Component {
-
-}
+export class DomisdevV1Component {}

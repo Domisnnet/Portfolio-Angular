@@ -4,8 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'app-2024',
   templateUrl: './2024.component.html',
   styleUrls: ['./2024.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class Year2024Component {
-
-}
+export class Year2024Component {}
