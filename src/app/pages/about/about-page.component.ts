@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
-import aboutContent from '../../content/about-content.json';
+import aboutContent from '../../../assets/content/about-content.json';
 
 type Language = 'pt' | 'en';
 
