@@ -103,6 +103,11 @@
   align-items: center;
   gap: 0.5rem;
   
+  .mono {
+    background: var(--cosmic-accent) !important;
+    color: var(--brand-accent) !important;
+  }
+
   &:hover {
     .mono {
       background: var(--cosmic-accent) !important;
