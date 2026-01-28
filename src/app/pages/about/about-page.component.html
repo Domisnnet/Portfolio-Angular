@@ -1,12 +1,13 @@
 <section class="cosmic-section">
-    <div class="stars-overlay"></div>
-    <div class="cosmic-beam" *ngIf="!isTextMode"></div>
-    <div class="scanning-artifact" *ngIf="!isTextMode">
+  <div class="stars-overlay"></div>
+  @if (!isTextMode) {
+    <div class="cosmic-beam"></div>
+    <div class="scanning-artifact">
       <span class="status-line">SYSTEM: BOOTING_CORE</span>
       <span class="status-line">DATA_SOURCE: VINTAGE_386_CHIP</span>
       <span class="status-line">DECODING: SUCCESS</span>
     </div>
-    <div class="artifact-frame" *ngIf="!isTextMode" @panelEnter>
+    <div class="artifact-frame" @panelEnter>
       <div class="terminal-header">
         <span class="pulse-icon">●</span>
         LOG_FILE_RECOVERED.bin
@@ -22,14 +23,13 @@
           <p class="content">
             {{ content.logs.origin.intro }}
           </p>
-          <p
-            class="content"
-            *ngFor="let item of content.logs.origin.details"
-          >
-            {{ item.text }}
-            <span class="highlight">{{ item.highlight }}</span>
-            {{ item.suffix }}
-          </p>
+          @for (item of content.logs.origin.details; track item) {
+            <p class="content">
+              {{ item.text }}
+              <span class="highlight">{{ item.highlight }}</span>
+              {{ item.suffix }}
+            </p>
+          }
         </div>
         <div class="log-block">
           <span class="meta-tag">
@@ -70,10 +70,9 @@
         </div>
       </div>
     </div>
-    <article class="about-wrapper" *ngIf="isTextMode">
-      <button
-        class="lang-badge"
-        (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')">
+  } @else {
+    <article class="about-wrapper">
+      <button class="lang-badge" (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')">
         {{ language === 'pt' ? 'EN' : 'PT' }}
       </button>
       <div class="about-text">
@@ -86,4 +85,5 @@
         {{ content.actions.technical }}
       </button>
     </article>
-  </section>
+  }
+</section>
