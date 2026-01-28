@@ -1,0 +1,30 @@
+{
+  "about": {
+    "cmd": {
+      "whoami": "whoami:"
+    },
+    "meta": {
+      "timestamp": "TIMESTAMP: CIRCA_1990s",
+      "paused": "SYSTEM_PAUSED: REAL_WORLD_RESPONSIBILITIES",
+      "reboot": "REBOOT_INITIATED: LATE_2024",
+      "executing": "EXECUTING: angular_portfolio_v1.0"
+    },
+    "logs": {
+      "origin": "Since adolescence, I've always been driven by the curiosity to understand how humans, through instructions, manage to make an “irrational” machine perform incredible feats. My first contact with technology was back in the 386 era – green screen and commands typed by hand – a time when accessing a file required patience, logic, and attention (and yes, that gives away my age 😄).",
+      "pause": "Over time, life took its course: priorities changed, Marriage came, a child, the hustle and bustle of work and home. Technology never ceased to fascinate me, and even with the dream tucked away in a drawer, it never stopped being part of my DNA.",
+      "reboot": "Then, at the end of 2024, something simple rekindled the flame: a free course by professor Gustavo Guanabara. It was there that I rediscovered the pleasure of logical reasoning, of fundamentals, of the whys. HTML, CSS… and suddenly my head was buzzing with ideas again.",
+      "present": "One course led to another. What started as a hobby turned into serious study. Learning ceased to be a pastime and became a commitment. Making mistakes, refactoring, understanding concepts, testing possibilities—all of this became part of the routine.",
+      "closing": "Today, this Angular portfolio represents more than just organized projects: it's proof that it's never too late to pursue a dream, learn something new, and constantly evolve. In the end, anything is an excuse to learn—and get your hands dirty with code."
+    },
+    "actions": {
+      "simple": ">> read simplified version",
+      "technical": "<< back to technical view"
+    },
+    "simple": {
+      "title": "About Me",
+      "p1": "I’ve always been driven by curiosity and a desire to understand how things work. Technology has shaped the way I think since an early age.",
+      "p2": "Over time, life introduced new priorities — family, work, and responsibilities. Still, my interest in technology never disappeared.",
+      "p3": "In 2024, I returned to this path in a structured way. This portfolio represents that decision and my continuous evolution as a developer."
+    }
+  }
+}

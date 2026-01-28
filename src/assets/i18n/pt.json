@@ -1,0 +1,30 @@
+{
+  "about": {
+    "cmd": {
+      "whoami": "whoami:"
+    },
+    "meta": {
+      "timestamp": "TIMESTAMP: CIRCA_1990s",
+      "paused": "SYSTEM_PAUSED: RESPONSABILIDADES_REAIS",
+      "reboot": "REBOOT_INITIATED: LATE_2024",
+      "executing": "EXECUTING: angular_portfolio_v1.0"
+    },
+    "logs": {
+      "origin": "Desde a adolescência, sempre fui movido pela curiosidade de entender como o ser humano consegue, por meio de instruções, fazer uma máquina “irracional” executar coisas incríveis. Meu primeiro contato com tecnologia foi ainda na era do 386 — tela verde e comandos digitados na unha — uma época em que acessar um arquivo exigia paciência, lógica e atenção (e sim, isso entrega a idade 😄).",
+      "pause": "Com o tempo, a vida seguiu seu curso: prioridades mudaram, vieram o Casamento, um filho, a correria do trabalho e da casa. A tecnologia nunca deixou de me fascinar, e mesmo com o sonho guardado na gaveta, ele nunca deixou de fazer parte do meu DNA.",
+      "reboot": "Até que, no final de 2024, algo simples reacendeu a chama: um curso gratuito do professor Gustavo Guanabara. Foi ali que redescobri o prazer pelo raciocínio lógico, pelos fundamentos, pelos porquês. HTML, CSS… e de repente minha cabeça estava fervendo de ideias novamente.",
+      "present": "Um curso puxou o outro. O que começou como hobby virou estudo sério. Aprender deixou de ser passatempo e passou a ser compromisso. Errar, refatorar, entender conceitos, testar possibilidades — tudo isso passou a fazer parte da rotina.",
+      "closing": "Hoje, este portfólio em Angular representa mais do que projetos organizados: ele é a prova de que nunca é tarde para retomar um sonho, aprender algo novo e evoluir constantemente. No fim das contas, tudo é desculpa para aprender — e colocar a mão no código."
+    },
+    "actions": {
+      "simple": ">> ler versão simplificada",
+      "technical": "<< voltar para versão técnica"
+    },
+    "simple": {
+      "title": "Sobre mim",
+      "p1": "Sempre fui movido pela curiosidade de entender como as coisas funcionam. Desde cedo, a tecnologia despertou meu interesse e moldou minha forma de pensar.",
+      "p2": "Com o tempo, a vida trouxe novas prioridades — família, trabalho e responsabilidades. Ainda assim, o interesse por tecnologia nunca deixou de existir.",
+      "p3": "Em 2024, retomei esse caminho de forma estruturada. Este portfólio representa essa decisão e minha evolução contínua como desenvolvedor."
+    }
+  }
+}
