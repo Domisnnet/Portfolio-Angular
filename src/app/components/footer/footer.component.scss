@@ -95,6 +95,22 @@
   }  
 }
 
+/* ====================
+  Estilos Especiais
+==================== */  
+.jornada-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    .mono {
+      background: var(--cosmic-accent) !important;
+      color: var(--brand-accent) !important;
+    }
+  }
+}
+
 /* ================
   SOCIAL ICONS
 ================ */
