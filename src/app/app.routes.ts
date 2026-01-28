@@ -22,7 +22,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/projetos-lab/pages/projects-lab.page').then(m => m.ProjectsLabPage)
   },
   {
-    path: 'privacidade-termos',
-    loadComponent: () => import('./components/footer/pages/privacidade-termos').then(m => m.PrivacidadeTermosComponent)
+    path: 'privacidade',
+    loadComponent: () => import('./components/footer/pages/privacidade/privacidade.component').then(m => m.PrivacidadeComponent)
   }
 ];

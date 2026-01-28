@@ -4,6 +4,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import aboutContent from '../../../assets/content/about-content.json';
 
 type Language = 'pt' | 'en';
+
 interface AboutContent {
   cmd: {
     whoami: string;
@@ -12,8 +13,8 @@ interface AboutContent {
     timestamp: string;
     paused: string;
     reboot: string;
-    present: string;
-    closing: string;
+    present?: string; // Optional property
+    closing?: string; // Optional property
     executing: string;
   };
   logs: {
@@ -89,7 +90,7 @@ export class AboutPageComponent {
   isTextMode = false;
   language: Language = 'pt';
 
-  content = aboutContent[this.language];
+  content: AboutContent = aboutContent[this.language];
 
   toggleMode(): void {
     this.isTextMode = !this.isTextMode;
