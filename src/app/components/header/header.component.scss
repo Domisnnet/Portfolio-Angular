@@ -1,16 +1,21 @@
 /* ==============
   MAIN HEADER
 ============== */
-.main-header {
+:host {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
+}
+
+.main-header {
+  top: 0;
+  left: 0;
+  width: 100%;
   padding: 0.8rem 0;
   background: var(--bg-header);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
   transition: background 0.3s ease, border 0.3s ease;
 
   .nav-container {
@@ -21,6 +26,12 @@
     align-items: center;
     padding: 0 24px;
   }
+}
+
+.cosmic-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .logo {
@@ -124,6 +135,14 @@
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
+}
+
+.cosmic-bg,
+.grid-overlay,
+.stars-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 /* =======================

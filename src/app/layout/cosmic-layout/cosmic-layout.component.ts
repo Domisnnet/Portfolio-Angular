@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/ro
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { CosmicMode } from './cosmic-mode.type';
+import { HeaderComponent } from '../../components/header/header.component';
 import { TerminalFooterComponent } from '../../components/footer/terminal-footer/terminal-footer.component';
 import { MainFooterComponent } from '../../components/footer/main-footer/main-footer.component';
 
@@ -12,6 +13,7 @@ import { MainFooterComponent } from '../../components/footer/main-footer/main-fo
   imports: [
     CommonModule,
     RouterOutlet,
+    HeaderComponent,
     TerminalFooterComponent,
     MainFooterComponent
   ],
