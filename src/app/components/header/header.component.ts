@@ -1,19 +1,27 @@
-import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { Component, Input, computed, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ThemeToggleComponent } from '../../core/theme-toggle.component';
+
+export type CosmicMode = 'silent' | 'minimal' | 'full';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, ThemeToggleComponent],
+  imports: [RouterModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  isMenuOpen = signal(false);
 
-  toggleMenu() {
-    this.isMenuOpen.set(!this.isMenuOpen());
+  private _mode = signal<CosmicMode>('full');
+
+  @Input({ required: true })
+  set modeInput(value: CosmicMode) {
+    this._mode.set(value);
   }
+
+  mode = computed(() => this._mode());
+
+  isVisible = computed(() => this._mode() !== 'silent');
+  isMinimal = computed(() => this._mode() === 'minimal');
+  isFull = computed(() => this._mode() === 'full');
 }

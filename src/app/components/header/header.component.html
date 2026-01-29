@@ -1,46 +1,20 @@
-<header class="main-header">
-  <nav class="nav-container">
-    <div class="logo" routerLink="/">
-      <span class="logo-dot"></span>
-      <span class="logo-text">DomisDev</span>
+@if (isVisible()) {
+  <header class="main-header" [class.minimal]="isMinimal()">
+    <div class="nav-container">
+      <a routerLink="/" class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">DomisDev</span>
+      </a>
+      @if (isFull()) {
+        <nav class="nav-links">
+          <a routerLink="/">Home</a>
+          <a routerLink="/projects">Projetos</a>
+          <a routerLink="/about">Sobre</a>
+        </nav>
+        <div class="header-actions">
+          <a routerLink="/contact" class="btn-contact">Contato</a>
+        </div>
+      }
     </div>
-    <ul class="nav-links" [class.open]="isMenuOpen()">
-      <li>
-        <a
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          (click)="isMenuOpen.set(false)"
-          >Home</a
-        >
-      </li>
-      <li>
-        <a 
-          routerLink="/projects" 
-          routerLinkActive="active"
-          (click)="isMenuOpen.set(false)"
-          >Projetos</a
-        >
-      </li>
-      <li>
-        <a 
-          routerLink="/contact" 
-          routerLinkActive="active" 
-          class="btn-contact"
-          (click)="isMenuOpen.set(false)"
-          >Contato</a
-        >
-      </li>
-    </ul>
-    <div class="header-actions">
-      <app-theme-toggle></app-theme-toggle>
-      <button class="hamburger-menu" (click)="toggleMenu()" aria-label="Abrir menu">
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-      </button>
-    </div>
-  </nav>
-</header>
+  </header>
+}

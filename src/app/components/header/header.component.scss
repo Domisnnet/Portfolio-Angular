@@ -9,6 +9,19 @@
   z-index: 1000;
 }
 
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+
+.main-header.minimal {
+  .nav-links,
+  .header-actions {
+    display: none;
+  }
+}
+
 .cosmic-section {
   position: relative;
   z-index: 1;
