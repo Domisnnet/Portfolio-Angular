@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, ActivatedRoute } from '@angular/router';
+import { TerminalFooterComponent } from '../../components/footer/terminal-footer.component';
 
 export type CosmicMode = 'full' | 'minimal' | 'silent';
 
