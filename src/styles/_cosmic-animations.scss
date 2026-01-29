@@ -27,6 +27,11 @@
   to { background-position: 600px 600px; }
 }
 
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; transform: translateX(0); }
+  50% { opacity: 0.6; transform: translateX(4px); }
+}
+
 @keyframes blink {
   50% { opacity: 0.6; }
 }
