@@ -3405,3 +3405,105 @@
 [error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
 [debug] [2026-01-29T18:01:25.473Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
 [debug] [2026-01-29T18:01:25.474Z] > authorizing via signed-in user (dominique.goncalves61@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-29T20:53:59.181Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-29T20:53:59.183Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-29T20:54:06.935Z] Running auto auth
+[debug] [2026-01-29T20:54:06.936Z] Running auto auth
+[debug] [2026-01-29T20:54:07.021Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.023Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo [none]
+[debug] [2026-01-29T20:54:07.079Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.079Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo [none]
+[debug] [2026-01-29T20:54:07.356Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo 200
+[debug] [2026-01-29T20:54:07.357Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo {"name":"projects/portfolio-23948217-d156e/billingInfo","projectId":"portfolio-23948217-d156e","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-29T20:54:07.381Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.383Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.383Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.408Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.409Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.409Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firestore.googleapis.com [none]
+[debug] [2026-01-29T20:54:07.410Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firestore.googleapis.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.413Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-29T20:54:07.413Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.423Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-01-29T20:54:07.424Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.443Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-29T20:54:07.443Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.453Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseio.com [none]
+[debug] [2026-01-29T20:54:07.453Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseio.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.504Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo 200
+[debug] [2026-01-29T20:54:07.504Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo {"name":"projects/portfolio-23948217-d156e/billingInfo","projectId":"portfolio-23948217-d156e","billingAccountName":"","billingEnabled":false}
+[debug] [2026-01-29T20:54:07.508Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.508Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.511Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.528Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.530Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.531Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firestore.googleapis.com [none]
+[debug] [2026-01-29T20:54:07.531Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firestore.googleapis.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.537Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebasedataconnect.googleapis.com [none]
+[debug] [2026-01-29T20:54:07.537Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebasedataconnect.googleapis.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.551Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/cloudfunctions.googleapis.com [none]
+[debug] [2026-01-29T20:54:07.551Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.567Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseapphosting.googleapis.com [none]
+[debug] [2026-01-29T20:54:07.567Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseapphosting.googleapis.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.573Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseio.com [none]
+[debug] [2026-01-29T20:54:07.573Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseio.com x-goog-quota-user=projects/portfolio-23948217-d156e
+[debug] [2026-01-29T20:54:07.791Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-29T20:54:07.792Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-29T20:54:07.793Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/cloudfunctions.googleapis.com 200
+[debug] [2026-01-29T20:54:07.793Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-01-29T20:54:07.797Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-29T20:54:07.797Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-29T20:54:07.803Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseio.com 403
+[debug] [2026-01-29T20:54:07.804Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseio.com [omitted]
+[debug] [2026-01-29T20:54:07.827Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseio.com 403
+[debug] [2026-01-29T20:54:07.827Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseio.com [omitted]
+[debug] [2026-01-29T20:54:07.831Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firestore.googleapis.com 200
+[debug] [2026-01-29T20:54:07.831Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firestore.googleapis.com [omitted]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-29T20:54:07.837Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-29T20:54:07.838Z] > authorizing via signed-in user (dominique.goncalves61@gmail.com)
+[debug] [2026-01-29T20:54:07.838Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:07.838Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo [none]
+[debug] [2026-01-29T20:54:07.874Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseapphosting.googleapis.com 200
+[debug] [2026-01-29T20:54:07.874Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebaseapphosting.googleapis.com [omitted]
+[debug] [2026-01-29T20:54:07.884Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firestore.googleapis.com 200
+[debug] [2026-01-29T20:54:07.891Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firestore.googleapis.com [omitted]
+[debug] [2026-01-29T20:54:07.908Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/cloudfunctions.googleapis.com 200
+[debug] [2026-01-29T20:54:07.917Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/cloudfunctions.googleapis.com [omitted]
+[debug] [2026-01-29T20:54:07.953Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebasedataconnect.googleapis.com 200
+[debug] [2026-01-29T20:54:07.953Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/portfolio-23948217-d156e/services/firebasedataconnect.googleapis.com [omitted]
+[debug] [2026-01-29T20:54:07.960Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo 200
+[debug] [2026-01-29T20:54:07.960Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo {"name":"projects/portfolio-23948217-d156e/billingInfo","projectId":"portfolio-23948217-d156e","billingAccountName":"","billingEnabled":false}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-29T20:54:07.968Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-29T20:54:07.970Z] > authorizing via signed-in user (dominique.goncalves61@gmail.com)
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-29T20:54:08.025Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-29T20:54:08.025Z] > authorizing via signed-in user (dominique.goncalves61@gmail.com)
+[debug] [2026-01-29T20:54:08.026Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:08.026Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo [none]
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-29T20:54:08.037Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-29T20:54:08.037Z] > authorizing via signed-in user (dominique.goncalves61@gmail.com)
+[debug] [2026-01-29T20:54:08.037Z] No OAuth tokens found
+[debug] [2026-01-29T20:54:08.038Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo [none]
+[debug] [2026-01-29T20:54:08.072Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo 200
+[debug] [2026-01-29T20:54:08.073Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo {"name":"projects/portfolio-23948217-d156e/billingInfo","projectId":"portfolio-23948217-d156e","billingAccountName":"","billingEnabled":false}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-29T20:54:08.076Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-29T20:54:08.076Z] > authorizing via signed-in user (dominique.goncalves61@gmail.com)
+[debug] [2026-01-29T20:54:08.129Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo 200
+[debug] [2026-01-29T20:54:08.129Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/portfolio-23948217-d156e/billingInfo {"name":"projects/portfolio-23948217-d156e/billingInfo","projectId":"portfolio-23948217-d156e","billingAccountName":"","billingEnabled":false}
+[error] Failed to fetch Firebase Project from Studio Workspace because WORKSPACE_SLUG environment variable is empty
+[debug] [2026-01-29T20:54:08.131Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/userinfo.email"]
+[debug] [2026-01-29T20:54:08.131Z] > authorizing via signed-in user (dominique.goncalves61@gmail.com)
