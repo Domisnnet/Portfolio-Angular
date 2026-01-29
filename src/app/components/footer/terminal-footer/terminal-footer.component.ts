@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs/operators';
+import { CosmicMode } from '../../../layout/cosmic-layout/cosmic-mode.type';
 
 @Component({
   selector: 'app-terminal-footer',
@@ -10,25 +9,27 @@ import { filter } from 'rxjs/operators';
   templateUrl: './terminal-footer.component.html',
   styleUrls: ['./terminal-footer.component.scss']
 })
-export class TerminalFooterComponent {
-  status = 'SYSTEM ONLINE';
-    routeLabel = 'ORBIT STABLE';
-  
-  constructor(private router: Router) {
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(event => {
-        this.updateStatus((event as NavigationEnd).urlAfterRedirects);
-      });
-    }
-  
-  private updateStatus(url: string) {
-    if (url.includes('projects')) {
-      this.routeLabel = 'SCANNING SECTORS';
-    } else if (url.includes('contact')) {
-      this.routeLabel = 'OPEN CHANNEL';
-    } else {
-      this.routeLabel = 'ORBIT STABLE';
+export class TerminalFooterComponent implements OnChanges {
+
+  @Input() mode: CosmicMode = 'full';
+
+  message = '';
+
+  ngOnChanges() {
+    this.updateMessage();
+  }
+
+  private updateMessage() {
+    switch (this.mode) {
+      case 'full':
+        this.message = '> SCANNING ARCHIVES...';
+        break;
+      case 'minimal':
+        this.message = '> OPENING COMMS CHANNEL...';
+        break;
+      case 'silent':
+        this.message = '> PASSIVE MODE ENABLED';
+        break;
     }
   }
 }
