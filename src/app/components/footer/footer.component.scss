@@ -101,17 +101,26 @@
 .jornada-link {
   display: inline-flex;
   align-items: center;
+  font-weight: bold;
   gap: 0.5rem;
   
   .mono {
-    background: var(--cosmic-accent) !important;
-    color: var(--brand-accent) !important;
+    color: var(--artifact-neon) !important;
   }
 
   &:hover {
     .mono {
-      background: var(--cosmic-accent) !important;
-      color: var(--brand-accent) !important;
+      color: var(--artifact-neon) !important;
+    }
+  }
+
+  .highlight {
+    color: var(--artifact-neon-rx) !important;
+  }
+
+  &:hover {
+    .highlight {
+      color: var(--artifact-neon-rx) !important;
     }
   }
 }
@@ -134,8 +143,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     background-color: var(--bg-surface);
     border: 3px solid var(--border-color);
     border-radius: 50%;
@@ -188,8 +197,8 @@
   }
 
   .tech-icon {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     transition: all 0.3s ease;
 
     &:hover {
