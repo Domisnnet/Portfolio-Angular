@@ -10,7 +10,7 @@ export const routes: Routes = [
         path: '',
         loadComponent: () =>
           import('./pages/home/home.component').then((m) => m.HomeComponent),
-        data: { cosmic: 'silent' },
+        data: { cosmic: 'full' },
       },
       {
         path: 'projects',
@@ -69,6 +69,6 @@ export const routes: Routes = [
           ),
         data: { cosmic: 'silent' },
     }
-  ],  
+    ],  
   }  
 ];
