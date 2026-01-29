@@ -1,5 +1,5 @@
 import { Component, computed, signal } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { filter } from 'rxjs/operators';
 import { CosmicMode } from './cosmic-mode.type';
@@ -12,7 +12,8 @@ import { MainFooterComponent } from '../../components/footer/main-footer/main-fo
   imports: [
     CommonModule,
     MainFooterComponent,
-    TerminalFooterComponent
+    TerminalFooterComponent,
+    RouterOutlet
   ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss']
