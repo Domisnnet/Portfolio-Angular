@@ -1,9 +1,7 @@
-<section class="cosmic-section" [attr.data-cosmic]="mode">
-  <div class="stars-overlay"></div>
-  <div class="cosmic-grid-overlay" *ngIf="mode === 'full'"></div>
-  <div class="cosmic-beam" *ngIf="mode === 'full'"></div>
-  <main class="cosmic-content">
-    <router-outlet></router-outlet>
-  </main>
-  <app-terminal-footer></app-terminal-footer>
+<section class="cosmic-section">
+  <router-outlet></router-outlet>
+  @if (showMainFooter()) {
+    <app-main-footer />
+  }
+  <app-terminal-footer />
 </section>

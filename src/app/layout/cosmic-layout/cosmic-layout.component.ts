@@ -1,27 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { CosmicMode } from './cosmic-mode.type';
 import { TerminalFooterComponent } from '../../components/footer/terminal-footer/terminal-footer.component';
-
-export type CosmicMode = 'full' | 'minimal' | 'silent';
+import { MainFooterComponent } from '../../components/footer/main-footer/main-footer.component';
 
 @Component({
   selector: 'app-cosmic-layout',
   standalone: true,
   imports: [
     CommonModule,
-    RouterOutlet,
-    TerminalFooterComponent
+    TerminalFooterComponent,
+    MainFooterComponent
   ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss']
 })
 export class CosmicLayoutComponent {
-  mode: CosmicMode = 'full';
 
-  constructor(private route: ActivatedRoute) {
-    this.route.firstChild?.data.subscribe(data => {
-      this.mode = data['cosmic'] ?? 'full';
-    });
+  private modeSignal = signal<CosmicMode>('full');
+  mode = computed(() => this.modeSignal());
+
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe(() => {
+        const child = this.route.firstChild;
+        const cosmic = child?.snapshot.data['cosmic'] as CosmicMode | undefined;
+        this.modeSignal.set(cosmic ?? 'full');
+      });
   }
+
+  showMainFooter(): boolean {
+    return this.mode() === 'full';
+  }
+
 }
