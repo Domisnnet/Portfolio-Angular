@@ -48,8 +48,8 @@ export const routes: Routes = [
   {
     path: 'Ano2024',
     loadComponent: () =>
-      import('./components/footer/pages/Ano2024/Ano2024.component').then(
-        (m) => m.Ano2024Component
+      import('./components/footer/pages/Ano2024/Ano-2024.component').then(
+        (m) => m.Year2024Component
       ),
   },
   {
@@ -63,7 +63,7 @@ export const routes: Routes = [
     path: 'Domisdev-v1.0',
     loadComponent: () =>
       import('./components/footer/pages/domisdev/domisdev-1.0.component').then(
-        (m) => m.Domisdev1.0Component
+        (m) => m.DomisdevV1Component
       ),
   }
 ];
