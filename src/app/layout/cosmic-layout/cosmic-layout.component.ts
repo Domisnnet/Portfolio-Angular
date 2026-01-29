@@ -11,8 +11,8 @@ import { MainFooterComponent } from '../../components/footer/main-footer/main-fo
   standalone: true,
   imports: [
     CommonModule,
-    TerminalFooterComponent,
-    MainFooterComponent
+    MainFooterComponent,
+    TerminalFooterComponent
   ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss']
