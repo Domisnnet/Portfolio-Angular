@@ -39,12 +39,15 @@
 /* ===================
   Media Queries
 =================== */
+@media (min-widht: 769px){
+  .cosmic-grid-overlay { display: none !important; }
+}
+
 @media (max-width: 1120px) {
   .cosmic-beam,
   .scanning-artifact { display: none; }
 }
 
 @media (max-width: 768px) {
-  .cosmic-grid-overlay { opacity: 0.15; }
   .cosmic-section::before { filter: blur(100px); }
 } 
