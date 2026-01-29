@@ -38,13 +38,7 @@ export const routes: Routes = [
         (m) => m.AboutPageComponent
       ),
   },
-  {
-    path: 'privacidade',
-    loadComponent: () =>
-      import('./components/footer/pages/privacidade/privacidade.component').then(
-        (m) => m.PrivacidadeComponent
-      ),
-  },
+  
   {
     path: 'Ano2024',
     loadComponent: () =>
@@ -64,6 +58,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./components/footer/pages/domisdev/domisdev-1.0.component').then(
         (m) => m.DomisdevV1Component
+      ),
+  },
+  {
+    path: 'privacidade',
+    loadComponent: () =>
+      import('./components/footer/pages/privacidade/privacidade.component').then(
+        (m) => m.PrivacidadeComponent
       ),
   }
 ];
