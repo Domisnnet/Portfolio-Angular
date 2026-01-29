@@ -1,3 +1,36 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.cosmic-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.main-contct {
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.8rem 0;
+  background: var(--bg-header);
+  backdrop-filter: blur(12px);
+  transition: background 0.3s ease, border 0.3s ease;
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+  }
+}
+
 .contact-page {
   max-width: 600px;
   margin: 0 auto;

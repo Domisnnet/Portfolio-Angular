@@ -9,6 +9,12 @@
   z-index: 1000;
 }
 
+.cosmic-section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
 .main-header {
   top: 0;
   left: 0;
@@ -26,12 +32,6 @@
     align-items: center;
     padding: 0 24px;
   }
-}
-
-.cosmic-section {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
 }
 
 .logo {
