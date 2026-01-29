@@ -18,12 +18,12 @@
 @use './styles/stack';
 @use './styles/hero';
 @use './styles/cta';
-@use 'cosmic-base';
-@use 'cosmic-nebula';
-@use 'cosmic-stars';
-@use 'cosmic-tech'; 
-@use 'cosmic-energy';
-@use 'cosmic-animations';
+@use './styles/cosmic-base';
+@use './styles/cosmic-nebula';
+@use ',/styles/cosmic-stars';
+@use './styles/cosmic-tech'; 
+@use './styles/cosmic-energy';
+@use './styles/cosmic-animations';
 
 /* ================
    Google Fonts

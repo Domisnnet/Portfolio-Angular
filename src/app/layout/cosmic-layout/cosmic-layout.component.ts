@@ -7,7 +7,11 @@ export type CosmicMode = 'full' | 'minimal' | 'silent';
 @Component({
   selector: 'app-cosmic-layout',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    TerminalFooterComponent
+  ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss']
 })
