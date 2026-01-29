@@ -51,5 +51,19 @@ export const routes: Routes = [
       import('./components/footer/pages/Ano2024/Ano2024.component').then(
         (m) => m.Ano2024Component
       ),
+  },
+  {
+    path: 'Background',
+    loadComponent: () =>
+      import('./components/footer/pages/background/background.component').then(
+        (m) => m.BackgroundComponent
+      ),
+  },
+  {
+    path: 'Domisdev-v1.0',
+    loadComponent: () =>
+      import('./components/footer/pages/domisdev/domisdev-1.0.component').then(
+        (m) => m.Domisdev1.0Component
+      ),
   }
 ];
