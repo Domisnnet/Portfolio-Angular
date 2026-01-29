@@ -14,8 +14,8 @@ import { MainFooterComponent } from '../../components/footer/main-footer/main-fo
     CommonModule,
     RouterOutlet,
     HeaderComponent,
-    TerminalFooterComponent,
-    MainFooterComponent
+    MainFooterComponent,
+    TerminalFooterComponent
   ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss']
