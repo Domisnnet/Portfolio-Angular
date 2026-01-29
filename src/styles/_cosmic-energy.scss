@@ -1,0 +1,27 @@
+/* ==================
+  Tractor Beam
+================== */
+.cosmic-beam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 980px;
+  height: 980px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 5;
+  pointer-events: none;
+  background: /* Anel interno */
+    radial-gradient(circle at center,transparent 0%,transparent 32%,
+    rgba(var(--cosmic-accent-rgb), 0.22) 33%,transparent 34%),
+    /* Anel médio */
+    radial-gradient(circle at center,transparent 0%,transparent 50%,
+    rgba(var(--cosmic-accent-rgb), 0.18) 51%,transparent 52%),
+    /* Beam base */
+    radial-gradient(circle at center,rgba(var(--cosmic-accent-rgb), 0.20) 0%,
+    rgba(var(--cosmic-accent-rgb), 0.15) 22%,rgba(var(--cosmic-accent-rgb), 0.10) 40%,
+    rgba(var(--cosmic-accent-rgb), 0.05) 56%,transparent 68%);
+  box-shadow: 0 0 28px rgba(var(--cosmic-accent-rgb), 0.18),0 0 100px 
+    rgba(var(--cosmic-accent-rgb), 0.14);
+  animation: beam-pulse 6.6s ease-in-out infinite,
+}
