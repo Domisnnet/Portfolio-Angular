@@ -35,7 +35,7 @@
         radial-gradient(1.5px 1.5px at 72% 82%, rgba(var(--cosmic-accent-rgb), 0.5), transparent),
         radial-gradient(2px 2px at 42% 18%, rgba(var(--cosmic-accent-rgb), 0.65), transparent),
         radial-gradient(2px 2px at 82% 44%, rgba(var(--cosmic-accent-rgb), 0.6), transparent);
-    background-size: 340px 340px;
+    background-size: 320px 320px;
     animation: stars-drift 180s linear infinite,stars-twinkle 7s ease-in-out infinite alternate;
 }
 
@@ -46,7 +46,7 @@
     position: absolute;
     inset: 0;
     z-index: 2;
-    opacity: 0.3;
+    opacity: 1;
     mix-blend-mode: screen;
     pointer-events: none;
     background-image:
@@ -67,7 +67,7 @@
     height: 980px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    z-index: 3;
+    z-index: 5;
     pointer-events: none;
     background: /* Anel interno */
         radial-gradient(circle at center,transparent 0%,transparent 32%,rgba(var(--cosmic-accent-rgb), 0.22) 33%,transparent 34%),
@@ -76,15 +76,15 @@
         /* Beam base */
         radial-gradient(circle at center,rgba(var(--cosmic-accent-rgb), 0.20) 0%,rgba(var(--cosmic-accent-rgb), 0.15) 22%,rgba(var(--cosmic-accent-rgb), 0.10) 40%,rgba(var(--cosmic-accent-rgb), 0.05) 56%,transparent 68%);
     box-shadow: 0 0 28px rgba(var(--cosmic-accent-rgb), 0.18),0 0 100px rgba(var(--cosmic-accent-rgb), 0.14);
-    animation: beam-pulse 6.6s ease-in-out infinite;
+    animation: beam-pulse 6.6s ease-in-out infinite,
 }
 
 /* ===============
     Animations
 =============== */
 @keyframes nebula-drift {
-    from { transform: scale(1) rotate(0deg); }
-    to { transform: scale(1.14) rotate(6deg); }
+    from { transform: scale(1) rotate(0deg); opacity: 0.85; }
+    to { transform: scale(1.14) rotate(6deg); opacity: 1; }
 }
 
 @keyframes beam-pulse {
@@ -117,7 +117,10 @@
 =================== */
 @media (max-width: 1120px) {
     .cosmic-beam,
-    .scanning-artifact {
-        display: none;
-    }
+    .scanning-artifact { display: none; }
 }
+
+@media (max-width: 768px) {
+    .cosmic-grid-overlay { opacity: 0.15; }
+    .cosmic-section::before { filter: blur(100px); }
+} 
