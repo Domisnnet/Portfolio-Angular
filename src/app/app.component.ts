@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { TerminalFooterComponent } from './components/footer/terminal-footer.component';
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './core/services/loader.service';
 
@@ -12,7 +12,7 @@ import { LoaderService } from './core/services/loader.service';
     CommonModule,
     RouterOutlet,
     HeaderComponent,
-    FooterComponent,
+    TerminalFooterComponent,
     LoaderComponent
   ],
   templateUrl: './app.component.html',
