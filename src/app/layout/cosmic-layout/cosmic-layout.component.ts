@@ -5,17 +5,15 @@ import { filter } from 'rxjs/operators';
 import { CosmicMode } from './cosmic-mode.type';
 import { TerminalFooterComponent } from '../../components/footer/terminal-footer/terminal-footer.component';
 import { MainFooterComponent } from '../../components/footer/main-footer/main-footer.component';
-import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-cosmic-layout',
   standalone: true,
   imports: [
     CommonModule,
-    MainFooterComponent,
-    TerminalFooterComponent,
     RouterOutlet,
-    HeaderComponent
+    TerminalFooterComponent,
+    MainFooterComponent
   ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss']
@@ -23,7 +21,10 @@ import { HeaderComponent } from '../../components/header/header.component';
 export class CosmicLayoutComponent {
 
   private modeSignal = signal<CosmicMode>('full');
+  private routeSignal = signal<string>('');
+
   mode = computed(() => this.modeSignal());
+  routeName = computed(() => this.routeSignal());
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.router.events
@@ -32,6 +33,9 @@ export class CosmicLayoutComponent {
         const child = this.route.firstChild;
         const cosmic = child?.snapshot.data['cosmic'] as CosmicMode | undefined;
         this.modeSignal.set(cosmic ?? 'full');
+
+        const path = child?.snapshot.routeConfig?.path ?? '';
+        this.routeSignal.set(path);
       });
   }
 

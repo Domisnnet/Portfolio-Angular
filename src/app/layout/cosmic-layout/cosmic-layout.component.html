@@ -1,8 +1,10 @@
-<app-header></app-header>
 <section class="cosmic-section">
   <router-outlet></router-outlet>
   @if (showMainFooter()) {
     <app-main-footer />
   }
-  <app-terminal-footer />
+  <app-terminal-footer
+    [mode]="mode()"
+    [route]="routeName()"
+  />
 </section>
