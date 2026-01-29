@@ -1,18 +1,17 @@
 import { Component, computed, signal } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { Router, RouterModule, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { CosmicMode } from './cosmic-mode.type';
 import { HeaderComponent } from '../../components/header/header.component';
-import { TerminalFooterComponent } from '../../components/footer/terminal-footer/terminal-footer.component';
 import { MainFooterComponent } from '../../components/footer/main-footer/main-footer.component';
+import { TerminalFooterComponent } from '../../components/footer/terminal-footer/terminal-footer.component';
+
+export type CosmicMode = 'silent' | 'minimal' | 'full';
 
 @Component({
   selector: 'app-cosmic-layout',
   standalone: true,
   imports: [
-    CommonModule,
-    RouterOutlet,
+    RouterModule,
     HeaderComponent,
     MainFooterComponent,
     TerminalFooterComponent
@@ -21,27 +20,41 @@ import { MainFooterComponent } from '../../components/footer/main-footer/main-fo
   styleUrls: ['./cosmic-layout.component.scss']
 })
 export class CosmicLayoutComponent {
+  private _mode = signal<CosmicMode>('full');
 
-  private modeSignal = signal<CosmicMode>('full');
-  private routeSignal = signal<string>('');
+  mode = computed(() => this._mode());
 
-  mode = computed(() => this.modeSignal());
-  routeName = computed(() => this.routeSignal());
+  routeName = computed(() => this.router.url);
 
-  constructor(private router: Router, private route: ActivatedRoute) {
-    this.router.events
-      .pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe(() => {
-        const child = this.route.firstChild;
-        const cosmic = child?.snapshot.data['cosmic'] as CosmicMode | undefined;
-        this.modeSignal.set(cosmic ?? 'full');
+  showMainFooter = computed(() => {
+    return this._mode() !== 'silent';
+  });
 
-        const path = child?.snapshot.routeConfig?.path ?? '';
-        this.routeSignal.set(path);
-      });
+  showTerminal = computed(() => {
+    return this._mode() !== 'full';
+  });
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
+    this.listenRouteChanges();
   }
 
-  showMainFooter(): boolean {
-    return this.mode() === 'full';
+  private listenRouteChanges() {
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        let currentRoute = this.route.firstChild;
+
+        while (currentRoute?.firstChild) {
+          currentRoute = currentRoute.firstChild;
+        }
+
+        const cosmic: CosmicMode =
+          (currentRoute?.snapshot.data?.['cosmic'] as CosmicMode) ?? 'full';
+
+        this._mode.set(cosmic);
+      });
   }
 }

@@ -4,8 +4,10 @@
   @if (showMainFooter()) {
     <app-main-footer />
   }
-  <app-terminal-footer
-    [mode]="mode()"
-    [route]="routeName()"
-  />
+  @if (showTerminal()) {
+    <app-terminal-footer
+      [mode]="mode()"
+      [route]="routeName()"
+    />
+  }
 </section>
