@@ -5,6 +5,7 @@ import { filter } from 'rxjs/operators';
 import { CosmicMode } from './cosmic-mode.type';
 import { TerminalFooterComponent } from '../../components/footer/terminal-footer/terminal-footer.component';
 import { MainFooterComponent } from '../../components/footer/main-footer/main-footer.component';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-cosmic-layout',
@@ -13,7 +14,8 @@ import { MainFooterComponent } from '../../components/footer/main-footer/main-fo
     CommonModule,
     MainFooterComponent,
     TerminalFooterComponent,
-    RouterOutlet
+    RouterOutlet,
+    HeaderComponent
   ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss']
@@ -36,5 +38,4 @@ export class CosmicLayoutComponent {
   showMainFooter(): boolean {
     return this.mode() === 'full';
   }
-
 }

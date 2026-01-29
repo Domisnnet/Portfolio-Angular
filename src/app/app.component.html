@@ -2,7 +2,6 @@
   <app-loader></app-loader>
 </div>
 <div class="app-content" [class.visible]="!(loading$ | async)">
-  <app-header></app-header>
   <main>
     <router-outlet></router-outlet>
   </main>
