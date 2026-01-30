@@ -7,7 +7,7 @@
     </div>
     <div class="secret-zone" 
          (click)="activateEasterEgg()"
-         (keydown.space)="activateEasterEgg()">
+         (keydown.space)="activateEasterEgg($event)">
       <div class="egg-animation" *ngIf="eggActive">
         <div class="egg-explosion">
           🎉 **EASTER EGG ATIVADO!** 🎉

@@ -6,15 +6,17 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './persistir.component.html',
-  styleUrl: './persistir.component.scss',
+  styleUrls: ['./persistir.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersistirComponent {
   eggActive = false;
+  eggClicks = 0;
 
-  activateEasterEgg() {
+  activateEasterEgg(event?: Event) {
     this.eggClicks++;
-    if (this.eggClicks >= 3 || event?.code === 'Space') {
+    const keyboardEvent = event as KeyboardEvent;
+    if (this.eggClicks >= 3 || keyboardEvent?.code === 'Space') {
       this.eggActive = true;
       this.eggClicks = 0;
     }
