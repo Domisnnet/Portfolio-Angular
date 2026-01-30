@@ -54,10 +54,10 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'domisdev-v1.0',
+        path: 'domisdev',
         loadComponent: () =>
-          import('./components/footer/pages/domisdev/domisdev-1.0.component').then(
-            (m) => m.Domisdev10Component),
+          import('./components/footer/pages/domisdev/domisdev.component').then(
+            (m) => m.DomisdevComponent),
         data: { cosmic: 'silent' },
       },
       {
@@ -69,7 +69,7 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'projects',
+        path: 'footer-projects',
         loadComponent: () =>
           import('./components/footer/pages/projects/projects.component').then(
             (m) => m.FooterProjectsComponent
