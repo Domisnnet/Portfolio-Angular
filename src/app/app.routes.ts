@@ -69,8 +69,29 @@ export const routes: Routes = [
           data: { cosmic: 'silent' },
       },
       {
-        path: ''
+        path: 'projects',
+          loadComponent: () =>
+            import('./components/footer/pages/projects/projects.component').then(
+              (m) => m.ProjectsComponent
+            ),
+          data: { cosmic: 'silent' },
       },
+      {
+        path: 'architecture',
+          loadComponent: () =>
+            import('./components/footer/pages/architecture/architecture.component').then(
+              (m) => m.ArchitectureComponent
+            ),
+          data: { cosmic: 'silent' },
+      },
+      {
+        path: 'performance',
+          loadComponent: () =>
+            import('./components/footer/pages/performance/performance.component').then( 
+              (m) => m.PerformanceComponent
+            ),
+          data: { cosmic: 'silent' },
+      },  
       {
         path: 'privacidade',
           loadComponent: () =>
