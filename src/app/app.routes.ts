@@ -45,7 +45,7 @@ export const routes: Routes = [
           data: { cosmic: 'silent' },
       },
       {
-        path: 'Background',
+        path: 'background',
         loadComponent: () =>
           import('./components/footer/pages/background/background.component').then(
             (m) => m.BackgroundComponent
@@ -53,12 +53,23 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'Domisdev-v1.0',
+        path: 'domisdev-v1.0',
           loadComponent: () =>
             import('./components/footer/pages/domisdev/domisdev-1.0.component').then(
               (m) => m.DomisdevV1Component
             ),
           data: { cosmic: 'silent' },
+      },
+      {
+        path: 'angular',
+          loadComponent: () =>
+            import('./components/footer/pages/angular/angular.component').then(
+              (m) => m.AngularComponent
+            ),
+          data: { cosmic: 'silent' },
+      },
+      {
+        path: ''
       },
       {
         path: 'privacidade',
