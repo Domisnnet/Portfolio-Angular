@@ -1,11 +1,10 @@
-<section class="cosmic-section">
-  <app-header />
-  <router-outlet />
-  @if (showMainFooter()) {
-    <app-main-footer />
-  }
-  <app-terminal-footer
-    [mode]="cosmicMode()"
-    [route]="routeName()"
-  />
+<app-header [mode]="mode()" />
+<section
+  class="cosmic-section"
+  [attr.data-mode]="mode()"
+>
+  <div class="cosmic-content">
+    <router-outlet />
+  </div>
+  <app-main-footer />
 </section>
