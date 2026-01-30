@@ -9,4 +9,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './camadas.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PerformanceComponent {}
+export class CamadasComponent {}

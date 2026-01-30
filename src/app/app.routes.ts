@@ -120,7 +120,8 @@ export const routes: Routes = [
         path: 'privacidade',
         loadComponent: () =>
           import('./components/footer/pages/privacidade/privacidade.component').then(
-            (m) => m.PrivacidadeComponent),
+            (m) => m.PrivacidadeComponent
+          ),
         data: { cosmic: 'silent' },
       },
     ],

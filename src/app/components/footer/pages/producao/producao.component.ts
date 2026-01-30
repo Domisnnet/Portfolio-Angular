@@ -9,4 +9,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './producao.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PerformanceComponent {}
+export class ProducaoComponent {}

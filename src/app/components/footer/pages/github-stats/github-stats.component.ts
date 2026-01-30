@@ -9,4 +9,4 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './github-stats.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PerformanceComponent {}
+export class GithubStatsComponent {}
