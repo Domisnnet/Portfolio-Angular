@@ -69,6 +69,14 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
+        path: 'projects',
+        loadComponent: () =>
+          import('./components/footer/pages/projects/projects.component').then(
+            (m) => m.FooterProjectsComponent
+          ),
+        data: { cosmic: 'silent' },
+      },
+      {
         path: 'architecture-page',
         loadComponent: () =>
           import('./components/footer/pages/architecture/architecture.component').then(
