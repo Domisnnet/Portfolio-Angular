@@ -11,7 +11,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/home/home.component').then(
             (m) => m.HomeComponent),
-        data: { cosmic: 'full' },
+        data: { cosmic: 'minimal' },
       },
       {
         path: 'projects',
