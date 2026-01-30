@@ -1,27 +1,34 @@
-import { Component, Input, computed, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ThemeToggleComponent } from '../../core/theme-toggle.component';
 
-export type CosmicMode = 'silent' | 'minimal' | 'full';
+type HeaderMode = 'full' | 'minimal' | 'silent';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [
+    RouterModule,
+    ThemeToggleComponent
+  ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'], 
 })
 export class HeaderComponent {
 
-  private _mode = signal<CosmicMode>('full');
+  private mode = signal<HeaderMode>('full');
+  isVisible = () => this.mode() !== 'silent';
+  isFull = () => this.mode() === 'full';
+  isMinimal = () => this.mode() === 'minimal';
+  isSilent = () => this.mode() === 'silent';
 
-  @Input({ required: true })
-  set modeInput(value: CosmicMode) {
-    this._mode.set(value);
+  setMode(mode: HeaderMode) {
+    this.mode.set(mode);
   }
 
-  mode = computed(() => this._mode());
+  menuOpen = signal(false);
 
-  isVisible = computed(() => this._mode() !== 'silent');
-  isMinimal = computed(() => this._mode() === 'minimal');
-  isFull = computed(() => this._mode() === 'full');
+  toggleMenu(): void {
+    this.menuOpen.update(v => !v);
+  }
 }
