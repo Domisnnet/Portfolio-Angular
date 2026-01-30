@@ -9,7 +9,8 @@ export const routes: Routes = [
       {
         path: '',
         loadComponent: () =>
-          import('./pages/home/home.component').then((m) => m.HomeComponent),
+          import('./pages/home/home.component').then(
+            (m) => m.HomeComponent),
         data: { cosmic: 'full' },
       },
       {
@@ -26,23 +27,23 @@ export const routes: Routes = [
           import('./pages/contact/contact-page.component').then(
             (m) => m.ContactPageComponent
           ),
-        data: { cosmic: 'minimal' },  
+        data: { cosmic: 'minimal' },
       },
       {
         path: 'about',
-          loadComponent: () =>
-            import('./pages/about/about-page.component').then(
-              (m) => m.AboutPageComponent
-            ),
-          data: { cosmic: 'silent' },
+        loadComponent: () =>
+          import('./pages/about/about-page.component').then(
+            (m) => m.AboutPageComponent
+          ),
+        data: { cosmic: 'silent' },
       },
       {
-        path: 'Ano2024',
-          loadComponent: () =>
-            import('./components/footer/pages/Ano2024/Ano-2024.component').then(
-              (m) => m.Year2024Component
-            ),
-          data: { cosmic: 'silent' },
+        path: 'ano2024',
+        loadComponent: () =>
+          import('./components/footer/pages/Ano2024/Ano-2024.component').then(
+            (m) => m.Ano2024Component
+          ),
+        data: { cosmic: 'silent' },
       },
       {
         path: 'background',
@@ -54,52 +55,40 @@ export const routes: Routes = [
       },
       {
         path: 'domisdev-v1.0',
-          loadComponent: () =>
-            import('./components/footer/pages/domisdev/domisdev-1.0.component').then(
-              (m) => m.DomisdevV1Component
-            ),
-          data: { cosmic: 'silent' },
+        loadComponent: () =>
+          import('./components/footer/pages/domisdev/domisdev-1.0.component').then(
+            (m) => m.Domisdev10Component),
+        data: { cosmic: 'silent' },
       },
       {
-        path: 'angular',
-          loadComponent: () =>
-            import('./components/footer/pages/angular/angular.component').then(
-              (m) => m.AngularComponent
-            ),
-          data: { cosmic: 'silent' },
+        path: 'angular-page',
+        loadComponent: () =>
+          import('./components/footer/pages/angular/angular.component').then(
+            (m) => m.AngularComponent
+          ),
+        data: { cosmic: 'silent' },
       },
       {
-        path: 'projects',
-          loadComponent: () =>
-            import('./components/footer/pages/projects/projects.component').then(
-              (m) => m.ProjectsComponent
-            ),
-          data: { cosmic: 'silent' },
+        path: 'architecture-page',
+        loadComponent: () =>
+          import('./components/footer/pages/architecture/architecture.component').then(
+            (m) => m.ArchitectureComponent),
+        data: { cosmic: 'silent' },
       },
       {
-        path: 'architecture',
-          loadComponent: () =>
-            import('./components/footer/pages/architecture/architecture.component').then(
-              (m) => m.ArchitectureComponent
-            ),
-          data: { cosmic: 'silent' },
+        path: 'performance-page',
+        loadComponent: () =>
+          import('./components/footer/pages/performance/performance.component').then(
+            (m) => m.PerformanceComponent),
+        data: { cosmic: 'silent' },
       },
-      {
-        path: 'performance',
-          loadComponent: () =>
-            import('./components/footer/pages/performance/performance.component').then( 
-              (m) => m.PerformanceComponent
-            ),
-          data: { cosmic: 'silent' },
-      },  
       {
         path: 'privacidade',
-          loadComponent: () =>
-            import('./components/footer/pages/privacidade/privacidade.component').then(
-              (m) => m.PrivacidadeComponent
-            ),
-          data: { cosmic: 'silent' },
-      }
-    ],  
-  }  
+        loadComponent: () =>
+          import('./components/footer/pages/privacidade/privacidade.component').then(
+            (m) => m.PrivacidadeComponent),
+        data: { cosmic: 'silent' },
+      },
+    ],
+  },
 ];

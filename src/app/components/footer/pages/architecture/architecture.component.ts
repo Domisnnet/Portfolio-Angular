@@ -4,11 +4,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'app-architecture',
   standalone: true,
-  imports: [
-    CommonModule, 
-  ],
+  imports: [CommonModule],
   templateUrl: './architecture.component.html',
   styleUrl: './architecture.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrivacidadeComponent {}
+export class ArchitectureComponent {}

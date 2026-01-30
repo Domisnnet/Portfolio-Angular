@@ -4,11 +4,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 @Component({
   selector: 'app-angular',
   standalone: true,
-  imports: [
-    CommonModule, 
-  ],
+  imports: [CommonModule],
   templateUrl: './angular.component.html',
   styleUrl: './angular.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrivacidadeComponent {}
+export class AngularComponent {}
