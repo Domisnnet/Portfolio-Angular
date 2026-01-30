@@ -19,32 +19,27 @@
   height: 100%;
   width: 100%;
   background: var(--bg-header);
-  backdrop-filter: blur(var(--blur-header));
-  border-bottom: 1px solid var(--border-color-soft);
-  transition: background var(--transition-fast), border var(--transition-fast);
 }
 
 /* =========================
   HEADER MODES
 ========================= */
 .main-header.minimal {
-  .nav-links,
-  .header-actions { display: none; }
+  background: transparent;
 }
 
 /* =========================
   NAV CONTAINER
 ========================= */
 .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   max-width: var(--container-max);
   width: 100%;
   height: 100%;
   margin: 0 auto;
   padding: 0 var(--space-lg);
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 /* =========================
@@ -120,6 +115,8 @@
   ACTION BUTTON BASE
 ========================= */
 %action-button {
+  display: grid;
+  place-items: center;
   width: var(--action-size);
   height: var(--action-size);
   border-radius: var(--radius-md);
@@ -127,9 +124,6 @@
   background: var(--bg-surface);
   color: var(--brand-accent);
   cursor: pointer;
-
-  display: grid;
-  place-items: center;
 
   transition:
     background var(--transition-fast),

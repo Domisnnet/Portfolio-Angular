@@ -1,26 +1,19 @@
 @if (!isSilent()) {
-  <header class="main-header" [class.minimal]="isMinimal()">
+  <header class="main-header">
     <div class="nav-container">
       <a routerLink="/" class="logo">
         <span class="logo-dot"></span>
         <span class="logo-text">DomisDev</span>
       </a>
-      @if (isFull()) {
-        <nav class="nav-links">
-          <a routerLink="/">Home</a>
-          <a routerLink="/projects">Projetos</a>
-          <a routerLink="/contact" class="btn-contact">Contato</a>
-        </nav>
-        <div class="header-actions">
-          <app-theme-toggle />
-          <button
-            class="hamburger-menu"
-            (click)="toggleMenu()"
-          >
-            ☰
-          </button>
-        </div>
-      }
+      <nav class="nav-links">
+        <a routerLink="/">Home</a>
+        <a routerLink="/projects">Projetos</a>
+        <a routerLink="/contact" class="btn-contact">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <app-theme-toggle />
+        <button class="hamburger-menu" (click)="toggleMenu()">☰</button>
+      </div>
     </div>
   </header>
 }
