@@ -1,0 +1,57 @@
+<section class="easter-egg-wow cosmic-section">
+  <div class="stars-overlay easter-stars"></div>
+  <div class="egg-container">
+    <div class="egg-hint">
+      <h2>🔍 Procurando algo especial?</h2>
+      <p>DomisDev tem um segredo... mas precisa <strong>merecer</strong> pra descobrir!</p>
+    </div>
+    <div class="secret-zone" 
+         (click)="activateEasterEgg()"
+         (keydown.space)="activateEasterEgg()">
+      <div class="egg-animation" *ngIf="eggActive">
+        <div class="egg-explosion">
+          🎉 **EASTER EGG ATIVADO!** 🎉
+        </div>
+        <div class="secret-message">
+          <h3>🕵️‍♂️ SEGREDO DOMISDEV</h3>
+          <p><strong>Stack secreta:</strong> Python Cloud Functions + Matplotlib SVG</p>
+          <p><strong>Projetos escondidos:</strong> 32 + 8 tops = 40 repos totais!</p>
+          <p><strong>Deploy mantra:</strong> <code>ng build && firebase deploy</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="egg-history" *ngIf="eggActive">
+    <div class="terminal-frame">
+      <div class="terminal-header">
+        <span>easter-egg.log</span> <span class="status-magic">✨ ACTIVATED</span>
+      </div>
+      <pre><code>2026-01-30 16:32:47 MERC DETECTED
+2026-01-30 16:32:48 EGG ACTIVATED
+2026-01-30 16:32:49 SECRETS REVEALED
+
+DomisDev Production Secrets:
+├── 40 repos (não só os 8 tops)
+├── Python SVG Generator (GitHub Stats)
+├── Firebase TTL Cache Strategy
+└── ng build --prod mantra</code></pre>
+    </div>
+  </div>
+  <div class="hidden-stats" *ngIf="eggActive">
+    <h3>📊 Stats Completos (Somente Easter Egg)</h3>
+    <div class="total-stats">
+      <div class="stat-magic">
+        <span class="number-magic">40</span>
+        <span>Total Repos</span>
+      </div>
+      <div class="stat-magic">
+        <span class="number-magic">7</span>
+        <span>Firebase Live</span>
+      </div>
+      <div class="stat-magic">
+        <span class="number-magic">5</span>
+        <span>Frameworks Mastered</span>
+      </div>
+    </div>
+  </div>
+</section>

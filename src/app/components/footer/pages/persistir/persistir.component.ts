@@ -9,4 +9,18 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './persistir.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PersistirComponent {}
+export class PersistirComponent {
+  eggActive = false;
+
+  activateEasterEgg() {
+    this.eggClicks++;
+    if (this.eggClicks >= 3 || event?.code === 'Space') {
+      this.eggActive = true;
+      this.eggClicks = 0;
+    }
+  }
+
+  ngOnDestroy() {
+    localStorage.setItem('domisdev-egg', 'activated');
+  }
+}
