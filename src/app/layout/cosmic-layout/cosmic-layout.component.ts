@@ -5,7 +5,7 @@ import { MainFooterComponent } from '../../components/footer/main-footer/main-fo
 import { TerminalFooterComponent } from '../../components/footer/terminal-footer/terminal-footer.component';
 
 export type LayoutMode = 'active' | 'passive';
-export type CosmicMode = 'full' | 'minimal' | 'silent';
+export type CosmicMode = 'full' | 'silent';
 
 @Component({
   selector: 'app-cosmic-layout',
@@ -19,18 +19,14 @@ export type CosmicMode = 'full' | 'minimal' | 'silent';
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss'],
 })
-
 export class CosmicLayoutComponent {
-mode(): import("./cosmic-mode.type").CosmicMode {
-throw new Error('Method not implemented.');
-}
 
   private router = inject(Router);
 
   readonly layoutMode = signal<LayoutMode>('active');
-  readonly cosmicMode = computed<CosmicMode>(() => {
-    return this.layoutMode() === 'active' ? 'full' : 'silent';
-  });
+  readonly cosmicMode = computed<CosmicMode>(() =>
+    this.layoutMode() === 'active' ? 'full' : 'silent'
+  );
 
   readonly routeName = computed(() => {
     const url = this.router.url;
