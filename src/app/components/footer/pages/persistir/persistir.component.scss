@@ -1,0 +1,78 @@
+.easter-egg-wow {
+  .secret-zone {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(45deg, 
+      rgba(var(--cosmic-accent-rgb), 0.1), 
+      rgba(var(--artifact-neon-rgb), 0.1));
+    border: 3px dashed var(--cosmic-accent);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 3rem 0;
+
+    &:hover {
+      border-color: var(--artifact-neon);
+      transform: scale(1.02);
+      box-shadow: 0 0 50px rgba(var(--cosmic-accent-rgb), 0.5);
+    }
+  }
+
+  .egg-animation {
+    position: relative;
+    animation: eggReveal 1s ease-out;
+  }
+
+  .egg-explosion {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.5rem;
+    animation: explode 0.8s ease-out;
+  }
+
+  .secret-message {
+    background: rgba(var(--mono-bg-rgb), 0.98);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 2px solid var(--artifact-neon);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    backdrop-filter: blur(20px);
+  }
+
+  .total-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--cosmic-accent), var(--artifact-neon));
+    border-radius: 16px;
+
+    .stat-magic {
+      text-align: center;
+      color: white;
+
+      .number-magic {
+        font-size: 3.5rem;
+        font-weight: 900;
+        display: block;
+        text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      }
+    }
+  }
+}
+
+@keyframes eggReveal {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes explode {
+  0% { transform: translateX(-50%) scale(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateX(-50%) scale(2) rotate(360deg); opacity: 0; }
+}
