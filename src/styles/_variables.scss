@@ -1,86 +1,153 @@
-/* ========
-  Root
-======== */
+/* =========================
+  ROOT TOKENS
+========================= */
 :root {
-  
-  /* --- Typography --- */
+
+  /* ==============
+    TYPOGRAPHY
+  ============== */
   --font-main: 'Poppins', sans-serif;
   --font-code: 'Fira Code', monospace;
   --font-fancy: 'Dancing Script', cursive;
 
-  /* --- Brand Primitives --- */
+  --font-xs: 0.75rem;
+  --font-sm: 0.85rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
+
+  --font-semibold: 600;
+  --font-bold: 800;
+
+  /* ===================
+    SPACING & SIZES
+  =================== */
+  --space-xs: 6px;
+  --space-sm: 10px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --size-xs: 8px;
+  --size-sm: 12px;
+  --size-md: 16px;
+  --size-lg: 24px;
+
+  --container-max: 1200px;
+
+  /* ================
+    BRAND COLORS
+  ================ */
   --brand-primary: #4f46e5;
   --brand-secondary: #4338ca;
   --brand-accent: #06b6d4;
   --brand-cosmic: #00ffc8;
 
-  /* --- Card Primitive --- */
-  --card-accent: #fff;
-  --card-bg-card: #151515;
+  /* ===============
+    COSMIC CORE
+  =============== */
+  --cosmic-bg: #020205;
+  --cosmic-accent-rgb: 0, 255, 200;
 
-  /* --- Artifact / Terminal Tokens --- */
-  --artifact-bg-dark: rgba(0, 15, 10, 0.78);
-  --artifact-bg-light: rgba(70, 70, 70, 0.85);
-
-  /* --- Artifact Border --- */
-  --artifact-border-dark: rgba(var(--cosmic-accent-rgb), 0.45);
-  --artifact-border-light: rgba(0, 0, 0, 0.15);
-
-  /* --- Artifact Neon & Shadow --- */
-  --artifact-neon: #00ff00; 
-  --artifact-neon-rx: #8a00c4;
-  --artifact-meta: var(--text-muted);
-  --artifact-shadow: rgba(var(--cosmic-accent-rgb), 0.3);
-
-  /* ===================
-    Dark Theme
-  =================== */
+  /* ====================
+    BACKGROUND & TEXT
+  ==================== */
   --bg-body: #111827;
   --bg-surface: rgba(255, 255, 255, 0.05);
-  --bg-surface-alt: rgba(255, 255, 255, 0.08);
+  --bg-surface-hover: rgba(255, 255, 255, 0.08);
+  --bg-header: rgba(2, 2, 5, 0.65);
+
   --text-primary: #f9fafb;
   --text-secondary: #9ca3af;
   --text-muted: #6b7280;
-  --border-color: #374151;
+  --text-inverse: #020205;
 
-  /* =============
-    Stack Pills
-  ============= */
+  --border-color: #374151;
+  --border-color-soft: rgba(255, 255, 255, 0.08);
+
+  /* =================
+    HEADER SYSTEM
+  ================= */
+  --header-height: 72px;
+  --blur-header: 12px;
+
+  /* =================
+    Z-INDEX SCALE
+  ================= */
+  --z-background: 0;
+  --z-cosmic: 1;
+  --z-content: 5;
+  --z-header: 1000;
+  --z-overlay: 1200;
+  --z-modal: 2000;
+
+  /* ==========
+    MOTION
+  ========== */
+  --transition-fast: 0.25s ease;
+  --transition-medium: 0.4s ease;
+
+  --anim-fast: 0.3s;
+  --anim-slow: 2s;
+
+  /* ===========
+    SHADOWS
+  =========== */
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
+
+  /* =====================
+    STACK / TECH PILLS
+  ===================== */
   --pill-fe: #38bdf8;
   --pill-be: #4ade80;
   --pill-db: #f59e0b;
   --pill-do: #ff0026;
   --pill-cms: #f472b6;
+  --pill-tool: #a78bfa;
 
-  /* --- Artifact / Terminal Tokens / Light --- */
+  --pill-text-dark: #020205;
+  --pill-text-light: #ffffff;
+
+  /* ==============================
+    ARTIFACT / TERMINAL SYSTEM
+  ============================== */
+  --artifact-bg-dark: rgba(0, 15, 10, 0.78);
+  --artifact-bg-light: rgba(70, 70, 70, 0.85);
+
+  --artifact-border-dark: rgba(var(--cosmic-accent-rgb), 0.45);
+  --artifact-border-light: rgba(0, 0, 0, 0.15);
+
   --artifact-bg: var(--artifact-bg-dark);
   --artifact-border: var(--artifact-border-dark);
 
-
-  /* ==================
-    Cosmic Helpers 
-  ================== */
-  --cosmic-bg: #020205;
-  --cosmic-accent-rgb: 0, 255, 200;
+  --artifact-neon: #00ff00;
+  --artifact-neon-rx: #8a00c4;
+  --artifact-meta: var(--text-muted);
+  --artifact-shadow: rgba(var(--cosmic-accent-rgb), 0.3);
 }
 
 /* =========================
-  Light Theme Overrides
+  LIGHT THEME OVERRIDES
 ========================= */
 .light-theme {
+
   --bg-body: #ffffff;
   --bg-surface: #f3f4f6;
-  --bg-surface-alt: #e5e7eb;
+  --bg-surface-hover: #e5e7eb;
+  --bg-header: rgba(255, 255, 255, 0.85);
+
   --text-primary: #1f2937;
   --text-secondary: #4b5563;
   --text-muted: #9ca3af;
+  --text-inverse: #ffffff;
+
   --border-color: #e5e7eb;
+  --border-color-soft: rgba(0, 0, 0, 0.08);
 
-  /* Ajuste de saturação */
-  --pill-fe: #0284c7;
-  --pill-be: #16a34a;
-
-  /* --- Artifact / Terminal Tokens / Light --- */
   --artifact-bg: var(--artifact-bg-light);
   --artifact-border: var(--artifact-border-light);
 }

@@ -1,0 +1,20 @@
+.cosmic-section {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+.stars-overlay,
+.cosmic-beam,
+.cosmic-grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-bg);
+  pointer-events: none;
+}
+
+.cosmic-content {
+  position: relative;
+  z-index: var(--z-content);
+  padding-top: var(--header-height);
+}
