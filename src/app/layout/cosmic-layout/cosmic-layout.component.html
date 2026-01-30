@@ -1,17 +1,16 @@
 <app-header [mode]="mode()" />
-<section
-  class="cosmic-section"
-  [attr.data-mode]="mode()"
->
-  <div class="cosmic-beam"></div>
-  <div class="cosmic-grid-overlay"></div>
-  <div class="stars-overlay"></div>
+<section class="cosmic-section" [attr.data-mode]="mode()">
+  @if (mode() !== 'silent') {
+    <div class="stars-overlay"></div>
+  }
   @if (mode() === 'full') {
+    <div class="cosmic-beam"></div>
+    <div class="cosmic-grid-overlay"></div>
     <div class="scanning-artifact">
       <span class="status-line">SYSTEM ONLINE</span>
       <span class="status-line">COSMIC FIELD STABLE</span>
     </div>
-  }  
+  }
   <div class="cosmic-content">
     <router-outlet />
   </div>

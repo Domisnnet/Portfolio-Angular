@@ -51,3 +51,15 @@
 @media (max-width: 768px) {
   .cosmic-section::before { filter: blur(100px); }
 } 
+
+[data-mode='full'] {
+  .cosmic-grid-overlay {
+    display: none;
+
+    @media (max-width: 1024px) { display: block; }
+  }
+
+  .cosmic-beam {
+    @media (max-width: 1024px) { display: none; }
+  }
+}
