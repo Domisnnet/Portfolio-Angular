@@ -1,0 +1,45 @@
+<section class="layers-wow cosmic-section">
+  <div class="stars-overlay layer-animation"></div>
+  <div class="layers-diagram">
+    ```mermaid
+    graph TB
+      UI[UI Layer<br/>Angular/Vue/Bootstrap] 
+      --> BUS[Business Logic<br/>StackPills/Pinia]
+      BUS --> DATA[Data Layer<br/>GitHub API]
+      DATA --> INFRA[Infrastructure<br/>Firebase/CDN]
+      
+      subgraph "DomisDev Stack"
+        UI
+        BUS  
+        DATA
+        INFRA
+      end
+    ```
+  </div>
+  <div class="layers-breakdown">
+    <div class="layer-card">
+      <h4>📱 UI Layer</h4>
+      <div class="tech-stack">
+        Angular Standalone | Vue 3 + Vite | Bootstrap 5
+      </div>
+    </div>
+    <div class="layer-card">
+      <h4>💻 Business Layer</h4>
+      <div class="tech-stack">
+        StackPills System | Pinia State | Vanilla JS Logic
+      </div>
+    </div>
+    <div class="layer-card">
+      <h4>💾 Data Layer</h4>
+      <div class="tech-stack">
+        GitHub REST API | SVG Generation | Cache Strategy
+      </div>
+    </div>
+    <div class="layer-card">
+      <h4>☁️ Infra Layer</h4>
+      <div class="tech-stack">
+        Firebase Hosting | Cloud Functions | GitHub Actions
+      </div>
+    </div>
+  </div>
+</section>

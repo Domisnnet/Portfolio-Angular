@@ -29,20 +29,20 @@
       <div class="terminal-header">
         <span>firebase.json (Produção)</span> <span class="status-green">● LIVE</span>
       </div>
-      <pre><code class="language-json">{
-  "hosting": [{
+      <pre><code class="language-json">{{ '{' }}
+  "hosting": [{{ '{' }}
     "target": "portfolio",
     "public": "dist/portfolio",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "headers": [{
+    "headers": [{{ '{' }}
       "source": "**/*.@(js|css)",
-      "headers": [{
+      "headers": [{{ '{' }}
         "key": "Cache-Control",
         "value": "max-age=31536000"
-      }]
-    }]
-  }]
-}</code></pre>
+      {{ '}' }}]
+    {{ '}' }}]
+  {{ '}' }}]
+{{ '}' }}</code></pre>
     </div>
   </div>
 </section>
