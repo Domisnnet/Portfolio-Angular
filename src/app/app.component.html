@@ -3,7 +3,8 @@
 </div>
 <div class="app-content" [class.visible]="!(loading$ | async)">
   <main>
-    <router-outlet></router-outlet>
+    <app-theme-init />
+    <router-outlet />
   </main>
   <app-terminal-footer></app-terminal-footer>
 </div>
