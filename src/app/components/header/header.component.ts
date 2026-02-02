@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ThemeToggleComponent } from '../../core/theme-toggle.component';
 
@@ -6,15 +6,17 @@ export type HeaderMode = 'full' | 'minimal' | 'silent';
 
 @Component({
   selector: 'app-header',
-  standalone: true,
-  imports: [RouterModule, ThemeToggleComponent],
+  imports: [
+    RouterModule, 
+    ThemeToggleComponent
+  ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
 
-  @Input({ required: true })
-  mode!: HeaderMode;
+  mode = input.required<HeaderMode>();
 
   menuOpen = signal(false);
 
@@ -23,14 +25,14 @@ export class HeaderComponent {
   }
 
   isFull() {
-    return this.mode === 'full';
+    return this.mode() === 'full';
   }
 
   isMinimal() {
-    return this.mode === 'minimal';
+    return this.mode() === 'minimal';
   }
 
   isSilent() {
-    return this.mode === 'silent';
+    return this.mode() === 'silent';
   }
 }
