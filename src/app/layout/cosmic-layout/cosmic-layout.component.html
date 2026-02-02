@@ -1,14 +1,1 @@
-<app-header [mode]="mode()" />
-<section class="cosmic-section" [attr.data-mode]="mode()">
-  @if (mode() !== 'silent') {
-    <div class="stars-overlay"></div>
-  }
-  @if (mode() === 'full') {
-    <div class="cosmic-beam"></div>
-    <div class="cosmic-grid-overlay"></div>
-  }
-  <div class="cosmic-content">
-    <router-outlet />
-  </div>
-  <app-main-footer />
-</section>
+agora, como algumas coisas são globais, minha estilização não está carregando o tema cosmic e solar, por algum motivo,

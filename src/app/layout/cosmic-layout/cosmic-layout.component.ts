@@ -5,8 +5,11 @@ import { MainFooterComponent } from "@app/components/footer/main-footer/main-foo
 
 @Component({
   selector: 'app-cosmic-layout',
-  standalone: true,
-  imports: [HeaderComponent, RouterOutlet, MainFooterComponent],
+  imports: [
+    HeaderComponent, 
+    RouterOutlet, 
+    MainFooterComponent
+  ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss'],
 })
