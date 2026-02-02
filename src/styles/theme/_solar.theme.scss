@@ -1,26 +1,20 @@
 [data-theme='solar'] {
-  /* Background */
   --bg-space: #fff8e1;
   --bg-space-alt: #ffecb3;
 
-  /* Layers */
   --layer-base: #fffdf7;
   --layer-surface: #ffffff;
   --layer-elevated: #fff3cd;
 
-  /* Text */
   --text-primary: #1f1a12;
   --text-secondary: #4a3b24;
   --text-muted: #7a6440;
 
-  /* Energy */
   --energy-main: #ffb300;
   --energy-soft: #ffd54f;
 
-  /* Effects */
   --glow-color: rgba(255, 179, 0, 0.45);
   --shadow-color: rgba(120, 90, 30, 0.25);
 
-  /* Motion */
   --glow-strength: 0.8;
 }

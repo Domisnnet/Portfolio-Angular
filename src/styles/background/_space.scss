@@ -1,13 +1,4 @@
 .app-background {
-  background: radial-gradient(circle at 50% 120%,var(--bg-space-alt),var(--bg-space));
-}
-
-.surface {
-  background: var(--layer-surface);
-  color: var(--text-primary);
-}
-
-.elevated {
-  background: var(--layer-elevated);
-  box-shadow: 0 20px 60px var(--shadow-color);
+  background:
+    radial-gradient(circle at 50% 120%,var(--bg-space-alt),var(--bg-space));
 }

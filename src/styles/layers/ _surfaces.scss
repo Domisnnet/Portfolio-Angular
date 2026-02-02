@@ -1,3 +1,9 @@
 .surface {
-  background: var(--layer-surface); color: var(--text-primary);
+  background: var(--layer-surface);
+  color: var(--text-primary);
+}
+
+.elevated {
+  background: var(--layer-elevated);
+  box-shadow: 0 20px 60px var(--shadow-color);
 }

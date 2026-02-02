@@ -1,38 +1,9 @@
-/* =================
-  Layout base
-================= */
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin-inline: auto;
   padding: 2rem;
 }
 
-.home {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  gap: 2rem;
-  text-align: left;
-}
-
-.home-text {
-  max-width: 600px;
-}
-
-/* ==================
-  Classes de utilitário
-================== */
-.no-padding-top {
-  padding-top: 0 !important; 
-}
-
-
-/* =================
-  Responsivo
-================= */
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-  }
+  .container { padding: 1rem; }
 }

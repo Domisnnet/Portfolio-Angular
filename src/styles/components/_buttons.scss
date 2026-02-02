@@ -1,39 +1,26 @@
-/* =================
-Botões globais
-================= */
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-semibold);
   text-decoration: none;
   background: var(--energy-main);
   color: var(--text-primary);
-
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform var(--transition-fast),box-shadow var(--transition-fast);
 }
 
 .btn:hover {
-  background-color: var(--color-brand-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px var(--color-bg-overlay);
+  box-shadow: 0 6px 16px var(--shadow-color);
 }
 
-/* =================
-Botão outline
-================= */
-
 .btn.outline {
-  background-color: transparent;
-  border-color: var(--energy-main);
-color: var(--energy-main);
+  background: transparent;
+  border: 2px solid var(--energy-main);
+  color: var(--energy-main);
 }
 
 .btn.outline:hover {
-  background-color: var(--color-brand-primary);
-  color: var(--color-text-inverse);
+  background: var(--energy-main);
+  color: var(--text-primary);
 }

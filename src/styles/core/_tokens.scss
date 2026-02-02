@@ -1,46 +1,37 @@
-:root{
+:root {
+  /* Typography */
+  --font-main: 'Poppins', sans-serif;
+  --font-code: 'Fira Code', monospace;
 
-/* ================
-    BRAND COLORS
-  ================ */
-  --brand-primary: #4f46e5;
-  --brand-secondary: #4338ca;
-  --brand-accent: #06b6d4;
-  --brand-cosmic: #00ffc8;
+  --font-sm: 0.85rem;
+  --font-md: 1rem;
+  --font-lg: 1.25rem;
 
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --text-inverse: #020205;
+  --font-semibold: 600;
+  --font-bold: 800;
 
-  --border-color: #374151;
-  --border-color-soft: rgba(255, 255, 255, 0.08);
+  /* Spacing */
+  --space-sm: 10px;
+  --space-md: 16px;
+  --space-lg: 24px;
 
-  /* ====================
-    BACKGROUND
-  ==================== */
-  --bg-body: #111827;
-  --bg-surface: rgba(255, 255, 255, 0.05);
-  --bg-surface-hover: rgba(255, 255, 255, 0.08);
-  --bg-header: rgba(2, 2, 5, 0.65);
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
 
-  /* ===========
-    SHADOW
-  =========== */
-  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
-}  
+  /* Z-index */
+  --z-content: 5;
+  --z-header: 1000;
 
-.light-theme {
-  --bg-body: #ffffff;
-  --bg-surface: #f3f4f6;
-  --bg-surface-hover: #e5e7eb;
-  --bg-header: rgba(255, 255, 255, 0.85);
+  /* Motion */
+  --transition-fast: 0.25s ease;
+  --transition-medium: 0.4s ease;
 
-  --text-primary: #1f2937;
-  --text-secondary: #4b5563;
-  --text-muted: #9ca3af;
-  --text-inverse: #ffffff;
-
-  --border-color: #e5e7eb;
-  --border-color-soft: rgba(0, 0, 0, 0.08);
+  /* Stack pills */
+  --pill-fe: #38bdf8;
+  --pill-be: #4ade80;
+  --pill-db: #f59e0b;
+  --pill-do: #ff0026;
+  --pill-cms: #f472b6;
 }
