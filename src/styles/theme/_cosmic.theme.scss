@@ -1,0 +1,26 @@
+[data-theme='cosmic'] {
+  /* Background */
+  --bg-space: #05070d;
+  --bg-space-alt: #0b1020;
+
+  /* Layers */
+  --layer-base: #0b1020;
+  --layer-surface: #0f162f;
+  --layer-elevated: #162044;
+
+  /* Text */
+  --text-primary: #cfe6ff;
+  --text-secondary: #9fb9e8;
+  --text-muted: #6b86b8;
+
+  /* Energy */
+  --energy-main: #5fa8ff;
+  --energy-soft: #9ad1ff;
+
+  /* Effects */
+  --glow-color: rgba(95, 168, 255, 0.6);
+  --shadow-color: rgba(0, 0, 0, 0.7);
+
+  /* Motion */
+  --glow-strength: 1;
+}

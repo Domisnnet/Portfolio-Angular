@@ -1,0 +1,3 @@
+.glow {
+  box-shadow:0 0 calc(24px * var(--glow-strength))var(--glow-color);
+}

@@ -12,6 +12,11 @@
   100% { transform: translate(-50%, -50%) scale(0.85);opacity: 0.35; }
 }
 
+@keyframes energy-breathe {
+  from { opacity: var(--energy-opacity-low);transform: scale(var(--energy-scale-min)); }
+  to { opacity: var(--energy-opacity-high);transform: scale(var(--energy-scale-max)); }
+}
+
 @keyframes stars-drift {
   from { background-position: 0 0; }
   to { background-position: 900px 1800px; }
@@ -52,10 +57,12 @@
   .cosmic-section::before { filter: blur(100px); }
 } 
 
+/* ============
+  Mode
+============ */  
 [data-mode='full'] {
   .cosmic-grid-overlay {
     display: none;
-
     @media (max-width: 1024px) { display: block; }
   }
 
