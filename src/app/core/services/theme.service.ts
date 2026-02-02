@@ -1,11 +1,9 @@
 import { Injectable, signal, effect, PLATFORM_ID, inject, Renderer2, RendererFactory2, } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-export type Theme = 'light' | 'dark';
+export type Theme = 'cosmic' | 'solar';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ThemeService {
   private readonly storageKey = 'theme';
 
@@ -14,7 +12,7 @@ export class ThemeService {
   private renderer: Renderer2;
   private isBrowser = isPlatformBrowser(this.platformId);
 
-  readonly theme = signal<Theme>('dark');
+  readonly theme = signal<Theme>('cosmic');
 
   constructor() {
     this.renderer = this.rendererFactory.createRenderer(null, null);
@@ -26,34 +24,34 @@ export class ThemeService {
     effect(() => {
       if (!this.isBrowser) return;
 
-      const currentTheme = this.theme();
+      const theme = this.theme();
 
-      if (currentTheme === 'light') {
-        this.renderer.addClass(document.documentElement, 'light-theme');
-      } else {
-        this.renderer.removeClass(document.documentElement, 'light-theme');
-      }
+      this.renderer.setAttribute(
+        document.documentElement,
+        'data-theme',
+        theme
+      );
 
-      localStorage.setItem(this.storageKey, currentTheme);
+      localStorage.setItem(this.storageKey, theme);
     });
   }
 
   toggleTheme(): void {
-    this.theme.update((t) => (t === 'light' ? 'dark' : 'light'));
+    this.theme.update(t => (t === 'cosmic' ? 'solar' : 'cosmic'));
   }
 
-  isLight(): boolean {
-    return this.theme() === 'light';
+  isCosmic(): boolean {
+    return this.theme() === 'cosmic';
   }
 
-  isDark(): boolean {
-    return this.theme() === 'dark';
+  isSolar(): boolean {
+    return this.theme() === 'solar';
   }
 
   private getInitialTheme(): Theme {
-    const storedTheme = localStorage.getItem(this.storageKey) as Theme | null;
-    return storedTheme === 'light' || storedTheme === 'dark'
-      ? storedTheme
-      : 'dark';
+    const stored = localStorage.getItem(this.storageKey) as Theme | null;
+    return stored === 'cosmic' || stored === 'solar'
+      ? stored
+      : 'cosmic';
   }
 }
