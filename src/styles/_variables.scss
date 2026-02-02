@@ -10,13 +10,19 @@
   --font-code: 'Fira Code', monospace;
   --font-fancy: 'Dancing Script', cursive;
 
+  /* --- Tamanhos --- */
   --font-xs: 0.75rem;
   --font-sm: 0.85rem;
   --font-md: 1rem;
   --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-xxl: 2rem;
 
+  /* --- Font Weights --- */
+  --font-regular: 400;
   --font-semibold: 600;
   --font-bold: 800;
+  --font-bolder: 900;
 
   /* ===================
     SPACING & SIZES
@@ -27,41 +33,18 @@
   --space-lg: 24px;
   --space-xl: 32px;
 
+  /* --- Border Radius --- */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-pill: 999px;
 
+  /* --- Tamanhos --- */
   --size-xs: 8px;
   --size-sm: 12px;
   --size-md: 16px;
   --size-lg: 24px;
-
   --container-max: 1200px;
-
-  /* ================
-    BRAND COLORS
-  ================ */
-  --brand-primary: #4f46e5;
-  --brand-secondary: #4338ca;
-  --brand-accent: #06b6d4;
-  --brand-cosmic: #00ffc8;
-
-  /* ====================
-    BACKGROUND & TEXT
-  ==================== */
-  --bg-body: #111827;
-  --bg-surface: rgba(255, 255, 255, 0.05);
-  --bg-surface-hover: rgba(255, 255, 255, 0.08);
-  --bg-header: rgba(2, 2, 5, 0.65);
-
-  --text-primary: #f9fafb;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --text-inverse: #020205;
-
-  --border-color: #374151;
-  --border-color-soft: rgba(255, 255, 255, 0.08);
 
   /* =================
     HEADER SYSTEM
@@ -85,13 +68,9 @@
   --transition-fast: 0.25s ease;
   --transition-medium: 0.4s ease;
 
+  /* --- Animation --- */
   --anim-fast: 0.3s;
   --anim-slow: 2s;
-
-  /* ===========
-    SHADOWS
-  =========== */
-  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.25);
 
   /* =====================
     STACK / TECH PILLS
@@ -102,7 +81,6 @@
   --pill-do: #ff0026;
   --pill-cms: #f472b6;
   --pill-tool: #a78bfa;
-
   --pill-text-dark: #020205;
   --pill-text-light: #ffffff;
 
@@ -128,20 +106,6 @@
   LIGHT THEME OVERRIDES
 ========================= */
 .light-theme {
-
-  --bg-body: #ffffff;
-  --bg-surface: #f3f4f6;
-  --bg-surface-hover: #e5e7eb;
-  --bg-header: rgba(255, 255, 255, 0.85);
-
-  --text-primary: #1f2937;
-  --text-secondary: #4b5563;
-  --text-muted: #9ca3af;
-  --text-inverse: #ffffff;
-
-  --border-color: #e5e7eb;
-  --border-color-soft: rgba(0, 0, 0, 0.08);
-
   --artifact-bg: var(--artifact-bg-light);
   --artifact-border: var(--artifact-border-light);
 }
