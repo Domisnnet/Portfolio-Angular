@@ -74,8 +74,6 @@ export class TerminalFooterComponent implements OnChanges, OnDestroy {
         return '> LOADING CONTACT PAGE...';
       case 'projects':
         return '> LOADING PROJECTS PAGE...  ';
-      case 'blog':
-        return '> LOADING BLOG PAGE...  ';
       default:
         return '> LOADING HOME PAGE...';
     }
