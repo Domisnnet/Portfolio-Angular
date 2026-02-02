@@ -65,6 +65,8 @@
       "timestamp": "TIMESTAMP: CIRCA_1990s",
       "paused": "SYSTEM_PAUSED: REAL_WORLD_RESPONSIBILITIES",
       "reboot": "REBOOT_INITIATED: LATE_2024",
+      "present": "SYSTEM_ACTIVE: PRESENT_DAY",
+      "closing": "PROCESS_COMPLETE",
       "executing": "EXECUTING: angular_portfolio_v1.0"
     },
     "logs": {

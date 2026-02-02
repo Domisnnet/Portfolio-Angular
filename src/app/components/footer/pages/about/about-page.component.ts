@@ -13,8 +13,8 @@ interface AboutContent {
     timestamp: string;
     paused: string;
     reboot: string;
-    present?: string; // Optional property
-    closing?: string; // Optional property
+    present: string; 
+    closing: string; 
     executing: string;
   };
   logs: {

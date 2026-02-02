@@ -32,7 +32,7 @@ export const routes: Routes = [
       {
         path: 'about',
         loadComponent: () =>
-          import('./pages/about/about-page.component').then(
+          import('./components/footer/pages/about/about-page.component').then(
             (m) => m.AboutPageComponent
           ),
         data: { cosmic: 'silent' },
