@@ -1,11 +1,13 @@
 /* =========================
-  HERO SECTION — CONTAINER
+  HERO — CONTAINER
 ========================= */
 .hero {
   padding: 4rem 1.5rem 0;
   display: flex;
   justify-content: center;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease,transform 0.6s ease;
 
   &.hero--enter {
     opacity: 1;
@@ -14,23 +16,18 @@
 }
 
 .hero-container {
-  display: grid;
   position: relative;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
   padding: 2rem;
+  display: grid;
   grid-template-columns: 1fr;
   gap: 4rem;
   align-items: center;
 
-  @media (min-width: 992px) {
-    display: block;
-  }
-
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
+  @media (min-width: 992px) { display: block; }
+  @media (max-width: 768px) { padding: 1rem; }
 }
 
 .hero-content {
@@ -38,14 +35,13 @@
   align-items: center;
   gap: 3rem;
   position: relative;
-  z-index: 5;
+  z-index: var(--z-content);
 
   @media (max-width: 768px) {
     flex-direction: column;
     text-align: center;
   }
 }
-
 
 /* =========================
   AVATAR
@@ -56,55 +52,62 @@
   flex-shrink: 0;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid var(--brand-accent);
-  box-shadow: 0 12px 32px var(--border-color);
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 3px solid var(--energy-main);
+  box-shadow: 0 0 calc(24px * var(--glow-strength))var(--glow-color);
+  opacity: 0;
+  transform: scale(0.85);
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275),opacity 0.6s ease;
 
   @media (max-width: 768px) {
-    width: 180px;
+    width: 160px;
+    height: 160px;
   }
 }
 
 /* =========================
-  TEXTO / APRESENTAÇÃO
+  TEXTO
 ========================= */
 .hero-title {
-  color: var(--text-primary);
   font-size: clamp(2rem, 5vw, 2.8rem);
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 1rem;
-  transform: translateY(15px);
+  color: var(--text-primary);
+  opacity: 0;
+  transform: translateY(16px);
   transition: all 0.6s ease 0.2s;
 }
 
 .hero-subtitle {
-  color: var(--brand-accent);
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  transform: translateY(15px);
+  color: var(--energy-main);
+  opacity: 0;
+  transform: translateY(16px);
   transition: all 0.6s ease 0.3s;
 }
 
 .hero-text {
-  color: var(--text-secondary);
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 2rem;
-  transform: translateY(15px);
+  color: var(--text-secondary);
+  opacity: 0;
+  transform: translateY(16px);
   transition: all 0.6s ease 0.4s;
 }
 
 /* =========================
-  CTA / AÇÕES
+  CTA
 ========================= */
 .hero-cta {
   display: flex;
   gap: 16px;
   justify-content: center;
-  animation: heroFadeUp 0.6s ease forwards 0.6s;
   opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.6s ease 0.5s;
 
   @media (min-width: 992px) {
     justify-content: flex-start;
@@ -112,38 +115,37 @@
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
   padding: 0.75rem 1.75rem;
   border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  background: var(--brand-accent);
-  color: var(--bg-body); 
-  transition: all 0.3s ease;
+  background: var(--energy-main);
+  color: var(--layer-base);
+  transition: transform 0.3s ease,box-shadow 0.3s ease,background 0.3s ease;
 
   &:hover {
-    filter: brightness(1.1);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px var(--border-color);
+    box-shadow: 0 0 calc(20px * var(--glow-strength))var(--glow-color);
   }
 
   &.outline {
     background: transparent;
     color: var(--text-primary);
-    border: 2px solid var(--border-color);
+    border: 3px solid var(--layer-surface);
 
     &:hover {
-      background: var(--bg-surface);
-      border-color: var(--brand-accent);
-      color: var(--brand-accent);
+      background: var(--layer-surface);
+      border-color: var(--energy-main);
+      color: var(--energy-main);
     }
   }
 }
 
 /* =====================
-  ESTADO DE ENTRADA
+  ENTER STATE
 ===================== */
 .hero--enter {
   .hero-avatar {
@@ -151,14 +153,27 @@
     transform: scale(1);
     animation: heroFloat 6s ease-in-out infinite 0.8s;
   }
-  
-  .hero-title, .hero-subtitle, .hero-text, .hero-cta {
+
+  .hero-title,
+  .hero-subtitle,
+  .hero-text,
+  .hero-cta {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* =====================
+  MOTION
+===================== */
 @keyframes heroFloat {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-14px); }
+}
+
+/* =====================
+  THEME MICRO-TUNING
+===================== */
+[data-theme='solar'] .hero-avatar {
+  box-shadow: 0 0 calc(18px * var(--glow-strength))var(--glow-color);
 }
