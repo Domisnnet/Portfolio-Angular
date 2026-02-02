@@ -1,7 +1,11 @@
 [data-theme='cosmic'] {
-  --artifact-bg: rgba(0, 15, 10, 0.78);
-  --artifact-border: rgba(0, 255, 200, 0.45);
-  --artifact-neon: #00ff00;
-  --artifact-meta: var(--text-muted);
-  --artifact-shadow: rgba(0, 255, 200, 0.3);
+  --terminal-bg-strong: rgba(6, 10, 18, 0.85);
+  --terminal-bg-soft: rgba(6, 10, 18, 0.35);
+  --terminal-border: rgba(var(--cosmic-accent-rgb), 0.15);
+  --terminal-blur: 4px;
+  --terminal-text-primary: var(--text-primary);
+  --terminal-text-secondary: var(--text-secondary);
+  --terminal-accent-rgb: var(--cosmic-accent-rgb);
+  --terminal-horizon-energy: 0.55;
+  --terminal-horizon-depth: 36px;
 }
