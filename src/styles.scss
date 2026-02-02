@@ -1,33 +1,67 @@
-/* =============================
-   Configurações de variáveis
-============================= */   
-@use './styles/variables'; 
+/* =====================
+   CORE
+===================== */
+@use 'styles/core/reset';
+@use 'styles/core/tokens';
+@use 'styles/core/mixins';
+@use 'styles/core/animations';
 
+/* =====================
+   THEME CONTRACT
+===================== */
+@use 'styles/theme/semantic.contract';
 
-/* ================
-   Base & Reset
-================ */   
-@use './styles/reset';
-@use './styles/global';
-@use './styles/layout';
+/* =====================
+   ARTIFACT – CONTRACTS
+===================== */
+@use 'styles/artifact/artifact.contract';
+@use 'styles/artifact/footer/footer-contract';
+@use 'styles/artifact/terminal/terminal-contract';
 
-/* ================
-   Componentes
-================ */   
-@use './styles/buttons';
-@use './styles/stack';
-@use './styles/hero';
-@use './styles/cta';
-@use './styles/cosmic-base';
-@use './styles/cosmic-nebula';
-@use './styles/cosmic-stars';
-@use './styles/cosmic-tech'; 
-@use './styles/cosmic-energy';
-@use './styles/cosmic-animations';
+/* =====================
+   ARTIFACT – SYSTEMS
+===================== */
+/* Footer */
+@use 'styles/artifact/footer/footer-base';
+@use 'styles/artifact/footer/footer-about';
+@use 'styles/artifact/footer/footer-state-386';
 
-/* ================
-   Google Fonts
-================ */   
+/* Terminal */
+@use 'styles/artifact/terminal/terminal-base';
+@use 'styles/artifact/terminal/terminal-frame';
+@use 'styles/artifact/terminal/terminal-footer';
+@use 'styles/artifact/terminal/terminal-horizon';
+
+/* =====================
+   LAYERS / SYSTEM
+===================== */
+@use 'styles/layers/surfaces';
+@use 'styles/layers/layout';
+@use 'styles/system/global';
+
+/* =====================
+   BACKGROUND / COMPONENTS
+===================== */
+@use 'styles/background/space';
+@use 'styles/components/buttons';
+@use 'styles/components/cta';
+@use 'styles/components/hero';
+@use 'styles/components/stack';
+
+/* =====================
+   EFFECTS
+===================== */
+@use 'styles/effects/energy';
+
+/* =====================
+   THEMES (cores)
+===================== */
+@use 'styles/theme/cosmic.theme';
+@use 'styles/theme/solar.theme';
+
+/* =====================
+   FONTS
+===================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap');
