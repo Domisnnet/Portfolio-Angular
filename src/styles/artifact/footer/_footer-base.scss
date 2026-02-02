@@ -1,0 +1,26 @@
+.terminal-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 6px 14px;
+  font-size: var(--footer-font-size);
+  opacity: var(--footer-opacity);
+  background: linear-gradient(to top,var(--footer-bg-strong),var(--footer-bg-soft),transparent);
+  border-top: 1px solid var(--footer-border);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  isolation: isolate;
+  z-index: 50;
+}
+
+.terminal-text {
+  letter-spacing: 0.05em;
+  color: var(--footer-text-secondary);
+}
+
+.terminal-text strong { color: var(--footer-text-primary); }
+.cursor { animation: blink 1.6s steps(1) infinite; opacity: 0.6; }
+
+@keyframes blink { 
+  50% { opacity: 0; } 
+}

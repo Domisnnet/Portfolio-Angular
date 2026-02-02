@@ -1,0 +1,15 @@
+.artifact-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 720px;
+  max-height: 85vh;
+  background: var(--artifact-bg);
+  border: 3px solid var(--artifact-border);
+  backdrop-filter: blur(var(--artifact-blur, 8px)) saturate(120%);
+  border-radius: 12px;
+  overflow-y: auto;
+  z-index: var(--z-artifact, 20);
+}
