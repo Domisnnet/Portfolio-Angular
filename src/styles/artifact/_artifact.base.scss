@@ -1,0 +1,9 @@
+.artifact {
+  background: var(--artifact-bg);
+  border: 2px solid var(--artifact-border);
+  box-shadow: 0 0 24px var(--artifact-shadow);
+  color: var(--text-primary);
+}
+
+.artifact-meta { color: var(--artifact-meta); }
+.artifact-neon { color: var(--artifact-neon); }

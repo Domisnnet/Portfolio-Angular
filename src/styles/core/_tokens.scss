@@ -2,31 +2,53 @@
   /* Typography */
   --font-main: 'Poppins', sans-serif;
   --font-code: 'Fira Code', monospace;
+  --font-fancy: 'Dancing Script', cursive;
 
+  /* --- Tamanhos --- */
+  --font-xs: 0.75rem;
   --font-sm: 0.85rem;
   --font-md: 1rem;
   --font-lg: 1.25rem;
+  --font-xl: 1.5rem;
+  --font-xxl: 2rem;
 
+  /* --- Font Weights --- */
+  --font-regular: 400;
   --font-semibold: 600;
   --font-bold: 800;
+  --font-bolder: 900;
 
-  /* Spacing */
-  --space-sm: 10px;
-  --space-md: 16px;
-  --space-lg: 24px;
-
-  /* Radius */
+  /* --- Border Radius --- */
   --radius-sm: 8px;
   --radius-md: 12px;
+  --radius-lg: 20px;
   --radius-pill: 999px;
 
+  /* --- Tamanhos --- */
+  --size-xs: 8px;
+  --size-sm: 12px;
+  --size-md: 16px;
+  --size-lg: 24px;
+  --container-max: 1200px;
+
+  /* --- HEADER SYSTEM --- */
+  --header-height: 72px;
+  --blur-header: 12px;
+
   /* Z-index */
+  --z-background: 0;
+  --z-cosmic: 1;
   --z-content: 5;
   --z-header: 1000;
+  --z-overlay: 1200;
+  --z-modal: 2000;
 
-  /* Motion */
   --transition-fast: 0.25s ease;
   --transition-medium: 0.4s ease;
+
+  /* --- Animation --- */
+  --anim-fast: 0.3s;
+  --anim-slow: 2s;
 
   /* Stack pills */
   --pill-fe: #38bdf8;
@@ -34,4 +56,7 @@
   --pill-db: #f59e0b;
   --pill-do: #ff0026;
   --pill-cms: #f472b6;
+  --pill-tool: #a78bfa;
+  --pill-text-dark: #020205;
+  --pill-text-light: #ffffff;
 }
