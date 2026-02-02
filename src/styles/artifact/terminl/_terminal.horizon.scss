@@ -13,3 +13,7 @@
     rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.7));
   transition: box-shadow 0.6s ease;
 }
+
+.terminal-footer.signal-active::before {
+  box-shadow: 0 0 22px rgba(var(--terminal-accent-rgb), 0.75),0 0 64px rgba(var(--terminal-accent-rgb), 0.45);
+}
