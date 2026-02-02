@@ -4,4 +4,4 @@
 }
 
 .terminal-text strong { color: var(--terminal-text-primary); }
-.cursor { animation: blink 1.6s steps(1) infinite; }
+.cursor { animation: blink 1.6s steps(1) infinite; opacity: 0.6; }

@@ -8,17 +8,8 @@
   pointer-events: none;
 }
 
-.terminal-text {
-  letter-spacing: 0.05em;
-}
-
-.cursor {
-  animation: blink 1.6s steps(1) infinite;
-  opacity: 0.6;
-}
-
+.terminal-text { letter-spacing: 0.05em; }
+.cursor { animation: blink 1.6s steps(1) infinite; opacity: 0.6; }
 @keyframes blink {
-  50% {
-    opacity: 0;
-  }
+  50% { opacity: 0; }
 }

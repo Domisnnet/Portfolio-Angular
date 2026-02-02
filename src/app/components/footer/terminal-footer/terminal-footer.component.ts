@@ -67,11 +67,17 @@ export class TerminalFooterComponent implements OnChanges, OnDestroy {
 
     switch (this.route) {
       case '':
-        return '> INITIALIZING CORE SYSTEMS...';
+        return '> CORE SYSTEMS ONLINE';
+      case 'about':
+        return '> LOADING ABOUT PAGE...';
+      case 'contact':
+        return '> LOADING CONTACT PAGE...';
       case 'projects':
-        return '> INDEXING PROJECTS...';
+        return '> LOADING PROJECTS PAGE...  ';
+      case 'blog':
+        return '> LOADING BLOG PAGE...  ';
       default:
-        return '> SCANNING ARCHIVES...';
+        return '> LOADING HOME PAGE...';
     }
   }
 }
