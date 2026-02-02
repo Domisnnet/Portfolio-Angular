@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: var(--font-main);
-  background-color: var(--bg-body);
+  background: var(--bg-space);
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -12,4 +12,4 @@ p { color: var(--text-secondary); }
 
 /* Helpers de utilidade */
 .text-accent { color: var(--brand-accent); }
-.surface { background: var(--bg-surface); border: 1px solid var(--border-color); }
+.surface { background: var(--layer-surface); }
