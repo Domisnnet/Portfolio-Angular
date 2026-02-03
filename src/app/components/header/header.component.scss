@@ -131,11 +131,6 @@
   color: var(--energy-main);
   cursor: pointer;
   transition: all var(--transition-fast);
-
-  &:hover {
-    background: var(--energy-main);
-    color: var(--text-inverse);
-  }
 }
 
 /* =========================
