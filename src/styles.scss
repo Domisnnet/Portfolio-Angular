@@ -1,58 +1,58 @@
 /* =====================
-   1. RESET
+   RESET
 ===================== */
 @use 'styles/core/reset';
 
 /* =====================
-   2. THEME CONTRACT
-   (NOMES SEM VALOR)
+   THEME CONTRACT
 ===================== */
 @use 'styles/theme/semantic-contract';
 
 /* =====================
-   3. THEMES (VALORES)
+   THEMES
 ===================== */
 @use 'styles/theme/cosmic-theme';
 @use 'styles/theme/solar-theme';
 
 /* =====================
-   4. CORE INFRA
-   (USA VARS, NÃO DEFINE)
+   CORE INFRA
 ===================== */
 @use 'styles/core/tokens';
 @use 'styles/core/mixins';
 @use 'styles/core/animations';
 
 /* =====================
-   5. ARTIFACT – CONTRACTS
+   ARTIFACT – CONTRACTS
 ===================== */
 @use 'styles/artifact/artifact-contract';
 @use 'styles/artifact/footer/footer-contract';
 @use 'styles/artifact/terminal/terminal-contract';
 
 /* =====================
-   6. ARTIFACT – SYSTEMS
+   ARTIFACT – SYSTEMS
 ===================== */
 /* Footer */
 @use 'styles/artifact/footer/footer-base';
 @use 'styles/artifact/footer/footer-about';
 @use 'styles/artifact/footer/footer-state-386';
 
-/* Terminal */
+/* ===========
+   Terminal 
+==========  */
 @use 'styles/artifact/terminal/terminal-base';
 @use 'styles/artifact/terminal/terminal-frame';
 @use 'styles/artifact/terminal/terminal-footer';
 @use 'styles/artifact/terminal/terminal-horizon';
 
 /* =====================
-   7. LAYERS / SYSTEM
+   LAYERS / SYSTEM
 ===================== */
 @use 'styles/layers/surfaces';
 @use 'styles/layers/layout';
 @use 'styles/system/global';
 
 /* =====================
-   8. BACKGROUND / COMPONENTS
+   BACKGROUND / COMPONENTS
 ===================== */
 @use 'styles/background/space';
 @use 'styles/components/buttons';
@@ -61,7 +61,7 @@
 @use 'styles/components/stack';
 
 /* =====================
-   9. EFFECTS
+   EFFECTS
 ===================== */
 @use 'styles/effects/energy';
 
