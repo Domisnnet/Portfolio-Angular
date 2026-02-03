@@ -15,11 +15,6 @@
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease;
-
-  &:hover {
-    border-radius: var(--radius-md);
-    border: 2px solid var(--energy-main);
-  }
 }
 
 .icon-wrapper {
