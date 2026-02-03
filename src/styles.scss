@@ -7,13 +7,13 @@
    2. THEME CONTRACT
    (NOMES SEM VALOR)
 ===================== */
-@use 'styles/theme/semantic.contract';
+@use 'styles/theme/semantic-contract';
 
 /* =====================
    3. THEMES (VALORES)
 ===================== */
-@use 'styles/theme/cosmic.theme';
-@use 'styles/theme/solar.theme';
+@use 'styles/theme/cosmic-theme';
+@use 'styles/theme/solar-theme';
 
 /* =====================
    4. CORE INFRA
@@ -26,7 +26,7 @@
 /* =====================
    5. ARTIFACT – CONTRACTS
 ===================== */
-@use 'styles/artifact/artifact.contract';
+@use 'styles/artifact/artifact-contract';
 @use 'styles/artifact/footer/footer-contract';
 @use 'styles/artifact/terminal/terminal-contract';
 
