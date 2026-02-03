@@ -1,4 +1,4 @@
-/* =========================
+ /* =========================
   HERO — CONTAINER
 ========================= */
 .hero {
@@ -9,10 +9,7 @@
   transform: translateY(24px);
   transition: opacity 0.6s ease,transform 0.6s ease;
 
-  &.hero--enter {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  &.hero--enter { opacity: 1; transform: translateY(0); }
 }
 
 .hero-container {
@@ -91,7 +88,7 @@
 .hero-text {
   font-size: 1.05rem;
   line-height: 1.7;
-  margin-bottom: 2rem;
+  gap: 20px;
   color: var(--text-secondary);
   opacity: 0;
   transform: translateY(16px);
@@ -103,15 +100,14 @@
 ========================= */
 .hero-cta {
   display: flex;
+  margin-top: 20px;
   gap: 16px;
   justify-content: center;
   opacity: 0;
   transform: translateY(16px);
   transition: all 0.6s ease 0.5s;
 
-  @media (min-width: 992px) {
-    justify-content: flex-start;
-  }
+  @media (min-width: 992px) { justify-content: flex-start; }
 }
 
 .btn {
@@ -134,11 +130,12 @@
   &.outline {
     background: transparent;
     color: var(--text-primary);
-    border: 3px solid var(--layer-surface);
+    border: 2px solid var(--energy-main);
+    transition: background 0.3s ease,color 0.3s ease;
 
     &:hover {
       background: var(--layer-surface);
-      border-color: var(--energy-main);
+      border-color: var(--border-subtle);
       color: var(--energy-main);
     }
   }
@@ -167,8 +164,9 @@
   MOTION
 ===================== */
 @keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+  100% { transform: translateY(0); }
 }
 
 /* =====================
