@@ -1,0 +1,25 @@
+/* =========================
+  SEMANTIC TOKENS
+========================= */
+[data-theme] {
+  /* BRAND */
+  --brand-primary: var(--energy-main);
+  --brand-secondary: var(--energy-soft);
+  --brand-accent: var(--energy-main);
+
+  /* BACKGROUNDS */
+  --bg-body: var(--bg-space);
+  --bg-header: var(--layer-surface);
+  --bg-surface: var(--layer-surface);
+  --bg-surface-hover: var(--layer-elevated);
+
+  /* TEXT */
+  --text-inverse: #000;
+
+  /* BORDERS */
+  --border-color: rgba(255, 255, 255, 0.14);
+  --border-color-soft: rgba(255, 255, 255, 0.08);
+
+  /* SHADOWS / GLOW */
+  --shadow-soft: 0 10px 30px var(--shadow-color);
+}
