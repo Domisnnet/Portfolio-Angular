@@ -1,38 +1,26 @@
 :root {
-  /* =========================
-    Background
-  ========================= */
-  --bg-space: #000;
-  --bg-space-alt: #000;
+  /* Background */
+  --bg-space: unset;
+  --bg-space-alt: unset;
 
-  /* =========================
-    Layers
-  ========================= */
-  --layer-base: transparent;
-  --layer-surface: transparent;
-  --layer-elevated: transparent;
+  /* Layers */
+  --layer-base: unset;
+  --layer-surface: unset;
+  --layer-elevated: unset;
 
-  /* =========================
-    Text
-  ========================= */
-  --text-primary: #fff;
-  --text-secondary: #aaa;
-  --text-muted: #777;
+  /* Text */
+  --text-primary: unset;
+  --text-secondary: unset;
+  --text-muted: unset;
 
-  /* =========================
-    Energy
-  ========================= */
-  --energy-main: currentColor;
-  --energy-soft: currentColor;
+  /* Energy */
+  --energy-main: unset;
+  --energy-soft: unset;
 
-  /* =========================
-    Effects
-  ========================= */
-  --glow-color: transparent;
-  --shadow-color: transparent;
+  /* Effects */
+  --glow-color: unset;
+  --shadow-color: unset;
 
-  /* =========================
-    Motion / Intensity
-  ========================= */
-  --glow-strength: 0;
+  /* Motion */
+  --glow-strength: unset;
 }
