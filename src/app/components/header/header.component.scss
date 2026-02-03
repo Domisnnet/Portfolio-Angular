@@ -1,11 +1,9 @@
 /* =========================
-  HOST - HEADER ROOT
+  HOST — HEADER ROOT
 ========================= */
 :host {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0 0 auto 0;
   height: var(--header-height);
   z-index: var(--z-header);
 }
@@ -16,9 +14,10 @@
 .main-header {
   display: flex;
   align-items: center;
-  height: 100%;
   width: 100%;
+  height: 100%;
   background: var(--bg-header);
+  backdrop-filter: blur(6px);
 }
 
 /* =========================
@@ -35,8 +34,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: var(--container-max);
   width: 100%;
+  max-width: var(--container-max);
   height: 100%;
   margin: 0 auto;
   padding: 0 var(--space-lg);
@@ -51,28 +50,32 @@
   gap: var(--space-sm);
   text-decoration: none;
   cursor: pointer;
+}
 
-  .logo-text {
-    font-family: var(--font-main);
-    font-size: var(--font-md);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-    letter-spacing: -0.03em;
-  }
+.logo-text {
+  font-family: var(--font-main);
+  font-size: var(--font-md);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
 
-  .logo-dot {
+.logo-dot {
+  width: var(--size-xs);
+  height: var(--size-xs);
+  border-radius: 50%;
+  background: var(--brand-accent);
+  position: relative;
+  flex-shrink: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: calc(var(--size-xs) * -1);
     border-radius: 50%;
-    background: var(--brand-accent);
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      inset: calc(var(--size-xs) * -1);
-      border-radius: 50%;
-      border: 1px solid var(--brand-accent);
-      animation: pulse var(--anim-slow) infinite;
-    }
+    border: 1px solid var(--brand-accent);
+    animation: pulse var(--anim-slow) infinite;
+    pointer-events: none;
   }
 }
 
@@ -85,7 +88,7 @@
   gap: var(--space-xl);
   list-style: none;
 
-  a {
+  a:not(.btn-contact) {
     font-size: var(--font-xs);
     font-weight: var(--font-semibold);
     letter-spacing: 0.12em;
@@ -99,6 +102,31 @@
       color: var(--brand-accent);
       opacity: 1;
     }
+  }
+}
+
+/* =========================
+  CTA — CONTATO
+========================= */
+.btn-contact {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-pill);
+  background: var(--brand-primary);
+  color: var(--text-inverse);
+  font-size: var(--font-xs);
+  font-weight: var(--font-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    background var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+
+  &:hover {
+    background: var(--brand-secondary);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-soft);
   }
 }
 
@@ -124,7 +152,6 @@
   background: var(--bg-surface);
   color: var(--brand-accent);
   cursor: pointer;
-
   transition:
     background var(--transition-fast),
     border var(--transition-fast),
@@ -146,57 +173,30 @@
 }
 
 /* =========================
-  CTA BUTTON
+  RESPONSIVE — MOBILE / TABLET
 ========================= */
-.btn-contact {
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: var(--radius-pill);
-  background: var(--brand-primary);
-  color: var(--text-inverse);
-  font-size: var(--font-xs);
-  font-weight: var(--font-bold);
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-
-  transition:
-    background var(--transition-fast),
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast);
-
-  &:hover {
-    background: var(--brand-secondary);
-    transform: scale(1.05);
-    box-shadow: var(--shadow-soft);
-  }
-}
-
-/* =========================
-  RESPONSIVE
-========================= */
-@media (max-width: var(--break-md)) {
+@media (max-width: 768px) {
   .nav-links {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--bg-body);
     padding: var(--space-xl);
+    display: none;
     flex-direction: column;
     gap: var(--space-lg);
-    display: none;
+    background: var(--bg-body);
     border-bottom: 1px solid var(--border-color-soft);
-
-    &.open {
-      display: flex;
-      animation: slide-down var(--anim-fast) ease forwards;
-    }
   }
 
-  .hamburger-menu {
-    display: grid;
+  .nav-links.open {
+    display: flex;
+    animation: slide-down 0.25s ease forwards; 
   }
+  
+  .hamburger-menu { display: grid; }
 }
+
 
 /* =========================
   ANIMATIONS
