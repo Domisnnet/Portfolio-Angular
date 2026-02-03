@@ -18,6 +18,7 @@
   align-items: center;
   background: var(--layer-surface);
   backdrop-filter: blur(var(--blur-header));
+  border-bottom: 2px solid var(--border-color-soft);
 }
 
 /* =========================
@@ -31,7 +32,7 @@
   padding: 0 var(--space-lg);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 /* =========================
@@ -40,6 +41,7 @@
 .logo {
   display: flex;
   align-items: center;
+  gap: var(--space-sm);
   text-decoration: none;
 }
 
@@ -70,7 +72,7 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-sm);
 
   a {
     font-size: var(--font-xs);
@@ -78,10 +80,12 @@
     letter-spacing: 0.12em;
     text-decoration: none;
     color: var(--text-secondary);
-    white-space: nowrap;
+    border-radius: var(--radius-pill);
+    transition: all var(--transition-fast);
 
     &:hover {
-      color: var(--energy-main);
+      @extend .glow;
+      
     }
   }
 }
@@ -90,10 +94,19 @@
   CTA — CONTATO
 ========================= */
 .btn-contact {
-  padding: 0.65rem 1.4rem;
+  padding: 0.7rem 1.6rem;
   border-radius: var(--radius-pill);
   background: var(--energy-main);
+  color: var(--text-inverse);
   font-weight: var(--font-bold);
+  text-decoration: none;
+  transition: transform var(--transition-fast);
+
+  &:hover {
+    color: var(--text-inverse);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--glow-color);
+  }
 }
 
 /* =========================
@@ -102,6 +115,7 @@
 .header-actions {
   display: flex;
   align-items: center;
+  gap: var(--space-md);
 }
 
 /* =========================
@@ -111,13 +125,18 @@
   width: 50px;
   height: 50px;
   display: none;
-  font-weight: var(--font-bold);
   place-items: center;
   border-radius: var(--radius-md);
   border: 2px solid var(--energy-main);
   background: transparent;
   color: var(--energy-main);
-  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--energy-main);
+    color: var(--text-inverse);
+  }
 }
 
 /* =========================
@@ -126,20 +145,20 @@
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 100%;
+    top: var(--header-height);
     left: 0;
     width: 100%;
-    padding: var(--space-lg);
+    padding: var(--space-xl) var(--space-lg);
     background: var(--layer-base);
     flex-direction: column;
-    align-items: center;
     gap: var(--space-lg);
     display: none;
+    border-bottom: 2px solid var(--border-color-soft);
   }
 
   .nav-links.open { display: flex; animation: slide-down 0.25s ease forwards; }
-  .nav-links a { width: 30%; text-align: center; }
-  .btn-contact { width: 50%; text-align: center; }
+  .nav-links a { width: 100%; max-width: 250px; text-align: center; }
+  .btn-contact { width: 100%; max-width: 250px; text-align: center; }
   .hamburger-menu { display: grid; }
 }
 
@@ -152,6 +171,6 @@
 }
 
 @keyframes slide-down {
-  from { opacity: 0; transform: translateY(-8px); }
+  from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
