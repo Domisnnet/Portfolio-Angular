@@ -1,55 +1,64 @@
 :host {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 6px 14px;
-  border-radius: 50px;
-  font-family: var(--font-main);
+  border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
+  cursor: default;
   opacity: 0;
   transform: translateY(6px);
   animation: revealPill 0.4s ease forwards;
   animation-delay: calc(var(--delay, 0) * 80ms);
   transition: all 0.25s ease;
-  cursor: default;
+  pointer-events: none;
 
-  /* ==============
-    CATEGORIAS
-  ============== */
-  &[data-category='frontend']  { --current-pill-color: var(--pill-fe); }
-  &[data-category='backend']   { --current-pill-color: var(--pill-be); }
-  &[data-category='databases'] { --current-pill-color: var(--pill-db); }
-  &[data-category='devops']    { --current-pill-color: var(--pill-do); }
-  &[data-category='cms']       { --current-pill-color: var(--pill-cms); }
-  color: var(--current-pill-color);
-  background-color: color-mix(in srgb, var(--current-pill-color) 12%, transparent);
-  border-color: color-mix(in srgb, var(--current-pill-color) 20%, transparent);
+  &[data-category='frontend']  { --pill-color: var(--pill-fe); }
+  &[data-category='backend']   { --pill-color: var(--pill-be); }
+  &[data-category='databases'] { --pill-color: var(--pill-db); }
+  &[data-category='devops']    { --pill-color: var(--pill-do); }
+  &[data-category='cms']       { --pill-color: var(--pill-cms); }
+
+  color: var(--pill-color);
+  background: color-mix(in srgb, var(--pill-color) 10%, transparent);
+  border-color: color-mix(in srgb, var(--pill-color) 22%, transparent);
 
   &:hover {
     transform: translateY(-4px);
-    background-color: color-mix(in srgb, var(--current-pill-color) 20%, transparent);
-    border-color: var(--current-pill-color);
-    box-shadow: 0 8px 20px -4px color-mix(in srgb, var(--current-pill-color) 40%, transparent);
+    background: color-mix(in srgb, var(--pill-color) 18%, transparent);
+    border-color: var(--pill-color);
+    box-shadow: 0 8px 24px -6px color-mix(in srgb, var(--pill-color) 45%, transparent);
   }
-}
 
-.stack-pill-inner {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.stack-pill-logo {
-  width: 22px !important;
-  height: 22px !important;
-  object-fit: contain;
-  flex-shrink: 0;
+  .stack-pill-logo {
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    object-fit: contain;
+  }
 }
 
 @keyframes revealPill {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}  
+
+.stack-pill-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+:host(.highlight) {
+  --glow-color: color-mix(in srgb, var(--pill-color) 80%, transparent);
+  opacity: 1;
+  transform: translateY(0);
+  box-shadow: 
+    0 0 16px var(--pill-color),
+    0 0 32px var(--pill-color),
+    0 12px 28px -6px color-mix(in srgb, var(--pill-color) 55%, transparent);
+  transition: box-shadow 0.6s ease;
 }

@@ -50,13 +50,36 @@
   --anim-fast: 0.3s;
   --anim-slow: 2s;
 
-  /* Stack pills */
-  --pill-fe: #38bdf8;
-  --pill-be: #4ade80;
-  --pill-db: #f59e0b;
-  --pill-do: #ff0026;
-  --pill-cms: #f472b6;
-  --pill-tool: #a78bfa;
-  --pill-text-dark: #020205;
-  --pill-text-light: #ffffff;
+  /* Background */
+  --bg-space: unset;
+  --bg-space-alt: unset;
+
+  /* Layers */
+  --layer-base: unset;
+  --layer-surface: unset;
+  --layer-elevated: unset;
+
+  /* Text */
+  --text-primary: unset;
+  --text-secondary: unset;
+  --text-muted: unset;
+
+  /* Accent / Energy */
+  --energy-main: unset;
+  --energy-soft: unset;
+
+  /* Pill colors (derivados do tema) */
+  --pill-fe: unset;
+  --pill-be: unset;
+  --pill-db: unset;
+  --pill-do: unset;
+  --pill-cms: unset;
+
+  /* Effects */
+  --glow-color: unset;
+  --shadow-color: unset;
+
+  /* Motion */
+  --glow-strength: unset;
+  --transition-theme: 420ms cubic-bezier(0.4, 0, 0.2, 1);
 }

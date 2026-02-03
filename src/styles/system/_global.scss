@@ -1,3 +1,10 @@
+html,
+body {
+  background: radial-gradient(circle at top,var(--bg-space-alt),var(--bg-space));
+  color: var(--text-primary);
+  transition: background var(--transition-theme),color var(--transition-theme);
+}
+
 body {
   margin: 0;
   font-family: var(--font-main);

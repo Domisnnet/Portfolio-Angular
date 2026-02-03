@@ -1,20 +1,26 @@
 [data-theme='cosmic'] {
-  --bg-space: #05070d;
-  --bg-space-alt: #0b1020;
+  --bg-space: #06070a;
+  --bg-space-alt: #0b0f18;
 
-  --layer-base: #0b1020;
-  --layer-surface: #0f162f;
-  --layer-elevated: #162044;
+  --layer-base: #0e1322;
+  --layer-surface: #141b33;
+  --layer-elevated: #1b2550;
 
-  --text-primary: #cfe6ff;
-  --text-secondary: #9fb9e8;
-  --text-muted: #6b86b8;
+  --text-primary: #e6ecff;
+  --text-secondary: #b8c7ff;
+  --text-muted: #7d8bb8;
 
-  --energy-main: #5fa8ff;
-  --energy-soft: #9ad1ff;
+  --energy-main: #6aa9ff;
+  --energy-soft: #a9ccff;
 
-  --glow-color: rgba(95, 168, 255, 0.6);
-  --shadow-color: rgba(0, 0, 0, 0.7);
+  --pill-fe: #6aa9ff;
+  --pill-be: #5fd1a5;
+  --pill-db: #9ad1ff;
+  --pill-do: #7aa2ff;
+  --pill-cms: #ffd773;
+
+  --glow-color: rgba(106, 169, 255, 0.45);
+  --shadow-color: rgba(0, 0, 0, 0.75);
 
   --glow-strength: 1;
 }
