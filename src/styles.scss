@@ -1,69 +1,69 @@
 /* =====================
    RESET
 ===================== */
-@use 'styles/core/reset';
+@forward 'styles/core/reset';
 
 /* =====================
    THEME CONTRACT
 ===================== */
-@use 'styles/theme/semantic-contract';
+@forward 'styles/theme/semantic-contract';
 
 /* =====================
    THEMES
 ===================== */
-@use 'styles/theme/cosmic-theme';
-@use 'styles/theme/solar-theme';
+@forward 'styles/theme/cosmic-theme';
+@forward 'styles/theme/solar-theme';
 
 /* =====================
    CORE INFRA
 ===================== */
-@use 'styles/core/tokens';
-@use 'styles/core/mixins';
-@use 'styles/core/animations';
+@forward 'styles/core/tokens';
+@forward 'styles/core/mixins';
+@forward 'styles/core/animations';
 
 /* =====================
    ARTIFACT – CONTRACTS
 ===================== */
-@use 'styles/artifact/artifact-contract';
-@use 'styles/artifact/footer/footer-contract';
-@use 'styles/artifact/terminal/terminal-contract';
+@forward 'styles/artifact/artifact-contract';
+@forward 'styles/artifact/footer/footer-contract';
+@forward 'styles/artifact/terminal/terminal-contract';
 
 /* =====================
    ARTIFACT – SYSTEMS
 ===================== */
 /* Footer */
-@use 'styles/artifact/footer/footer-base';
-@use 'styles/artifact/footer/footer-about';
-@use 'styles/artifact/footer/footer-state-386';
+@forward 'styles/artifact/footer/footer-base';
+@forward 'styles/artifact/footer/footer-about';
+@forward 'styles/artifact/footer/footer-state-386';
 
 /* ===========
    Terminal 
 ==========  */
-@use 'styles/artifact/terminal/terminal-base';
-@use 'styles/artifact/terminal/terminal-frame';
-@use 'styles/artifact/terminal/terminal-footer';
-@use 'styles/artifact/terminal/terminal-horizon';
+@forward 'styles/artifact/terminal/terminal-base';
+@forward 'styles/artifact/terminal/terminal-frame';
+@forward 'styles/artifact/terminal/terminal-footer';
+@forward 'styles/artifact/terminal/terminal-horizon';
 
 /* =====================
    LAYERS / SYSTEM
 ===================== */
-@use 'styles/layers/surfaces';
-@use 'styles/layers/layout';
-@use 'styles/system/global';
+@forward 'styles/layers/surfaces';
+@forward 'styles/layers/layout';
+@forward 'styles/system/global';
 
 /* =====================
    BACKGROUND / COMPONENTS
 ===================== */
-@use 'styles/background/space';
-@use 'styles/components/buttons';
-@use 'styles/components/cta';
-@use 'styles/components/hero';
-@use 'styles/components/stack';
+@forward 'styles/background/space';
+@forward 'styles/components/buttons';
+@forward 'styles/components/cta';
+@forward 'styles/components/hero';
+@forward 'styles/components/stack';
 
 /* =====================
    EFFECTS
 ===================== */
-@use 'styles/effects/energy';
+@forward 'styles/effects/energy';
 
 /* =====================
    FONTS

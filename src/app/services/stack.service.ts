@@ -11,5 +11,4 @@ export class StackService {
       ...STACK_CONFIG[key],
     }));
   }
-
 }
