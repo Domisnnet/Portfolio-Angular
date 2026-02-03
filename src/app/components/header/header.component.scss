@@ -84,8 +84,7 @@
     transition: all var(--transition-fast);
 
     &:hover {
-      @extend .glow;
-      
+      transform: translateY(-2px);
     }
   }
 }
