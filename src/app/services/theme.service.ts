@@ -4,23 +4,27 @@ export type Theme = 'cosmic' | 'solar';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private readonly key = 'theme';
+  private readonly STORAGE_KEY = 'theme';
 
-  private _theme = signal<Theme>('cosmic');
-  readonly theme = this._theme.asReadonly();
+  constructor() {
+    this.init();
+  }
 
   init() {
-    const saved = (localStorage.getItem(this.key) as Theme) ?? 'cosmic';
+    const saved = localStorage.getItem(this.STORAGE_KEY) ?? 'cosmic';
     this.apply(saved);
   }
 
-  toggleTheme() {
-    this.apply(this._theme() === 'solar' ? 'cosmic' : 'solar');
+  apply(theme: string) {
+    document.documentElement.setAttribute('data-theme', theme);
   }
 
-  apply(theme: Theme) {
-    this._theme.set(theme);
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem(this.key, theme);
+  toggle() {
+    const current =
+      document.documentElement.getAttribute('data-theme') ?? 'cosmic';
+
+    const next = current === 'cosmic' ? 'light' : 'cosmic';
+    this.apply(next);
+    localStorage.setItem(this.STORAGE_KEY, next);
   }
 }
