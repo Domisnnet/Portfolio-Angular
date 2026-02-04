@@ -28,8 +28,8 @@
 }
 
 @keyframes stars-drift {
-  from { background-position: 0 0; }
-  to { background-position: 900px 1800px; }
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
 }
 
 @keyframes stars-twinkle {
