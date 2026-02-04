@@ -1,41 +1,31 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ThemeToggleComponent } from '../../core/theme-toggle.component';
-import { CosmicSectionComponent } from '@app/cosmic/layout/cosmic-section/cosmic-section.component';
-
-export type HeaderMode = 'full' | 'minimal' | 'silent';
+import { Component, inject, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { ThemeToggleComponent } from '@app/core/theme-toggle.component';
+import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer-service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [
-    RouterModule, 
-    CosmicSectionComponent,
+    RouterLink,
     ThemeToggleComponent
   ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
 
-  mode = input.required<HeaderMode>();
+  private cosmicLayer = inject(CosmicLayerService);
 
   menuOpen = signal(false);
 
-  toggleMenu(): void {
+  isSilent = this.cosmicLayer.isSilent;
+
+  toggleMenu() {
     this.menuOpen.update(v => !v);
   }
 
-  isFull() {
-    return this.mode() === 'full';
-  }
-
-  isMinimal() {
-    return this.mode() === 'minimal';
-  }
-
-  isSilent() {
-    return this.mode() === 'silent';
+  toggleCosmicEffects() {
+    this.cosmicLayer.toggleSilent();
   }
 }

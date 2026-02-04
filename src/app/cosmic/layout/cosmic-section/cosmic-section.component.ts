@@ -1,5 +1,5 @@
-import { Component, computed } from '@angular/core';
-import { cosmicLayer } from '../../state/cosmic-layer-signal';
+import { Component, inject } from '@angular/core';
+import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer-service';
 import { LayerIndicatorComponent } from '@app/cosmic/components/layer-indicator/layer-indicator.component';
 
 @Component({
@@ -10,5 +10,7 @@ import { LayerIndicatorComponent } from '@app/cosmic/components/layer-indicator/
   styleUrls: ['./cosmic-section.component.scss']
 })
 export class CosmicSectionComponent {
-  layer = computed(() => cosmicLayer());
+
+  cosmicLayer = inject(CosmicLayerService);
+
 }
