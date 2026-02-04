@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CosmicLayerService } from '../../state/cosmic-layer-service';
 
 @Component({
   selector: 'app-layer-indicator',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './layer-indicator.component.html',
   styleUrls: ['./layer-indicator.component.scss']
 })
-export class LayerIndicatorComponent {}
+export class LayerIndicatorComponent {
+
+  constructor(public cosmic: CosmicLayerService) {}
+}

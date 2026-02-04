@@ -1,10 +1,17 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { CosmicLayerService } from '../../state/cosmic-layer-service';
 
-@Component ({
+@Component({
   selector: 'app-layer-jump',
   standalone: true,
-  imports: [],
   templateUrl: './layer-jump.component.html',
-  styleUrls: ['./layer-jump.component.scss'],
+  styleUrls: ['./layer-jump.component.scss']
 })
-export class LayerJumpComponent {}
+export class LayerJumpComponent {
+
+  constructor(private cosmic: CosmicLayerService) {}
+
+  advance() {
+    this.cosmic.advance();
+  }
+}
