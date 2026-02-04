@@ -2,5 +2,6 @@
   position: relative;
   min-height: 100vh;
   isolation: isolate;
+  contain: layout paint;
   transition: transform 1.2s ease,filter 1.2s ease;
 }
