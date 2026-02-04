@@ -133,18 +133,6 @@
   transition: all var(--transition-fast);
 }
 
-/* ===============
-  Cosmic Toggle
-=============== */ 
-[data-effects='minimal'] .wormhole { opacity: 0.3; }
-[data-effects='silent'] {
-  .wormhole,
-  .stars-overlay,
-  .tractor-beam {
-    display: none !important;
-  }
-}
-
 /* =========================
   RESPONSIVE
 ========================= */

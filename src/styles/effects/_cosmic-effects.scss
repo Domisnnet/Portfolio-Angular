@@ -1,0 +1,17 @@
+/* =========================
+  MINIMAL MODE
+========================= */
+[data-effects='minimal'] {
+  .wormhole { opacity: 0.3; }
+}
+
+/* ==============
+  SILENT MODE
+============== */
+[data-effects='silent'] {
+  .wormhole,
+  .stars-overlay,
+  .tractor-beam {
+    display: none !important;
+  }
+}

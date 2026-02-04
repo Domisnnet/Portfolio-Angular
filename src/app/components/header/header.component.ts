@@ -1,10 +1,7 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeToggleComponent } from '@app/core/theme-toggle.component';
-import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer-service';
 import { CosmicEffectsService } from '@app/cosmic/state/cosmic-effects.service';
-import { computed } from '@angular/core';
-
 
 @Component({
   selector: 'app-header',
@@ -14,13 +11,30 @@ import { computed } from '@angular/core';
     ThemeToggleComponent
   ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  /* =========================
+    SERVICES
+  ========================= */
   constructor(private effects: CosmicEffectsService) {}
+  /* =========================
+    MENU MOBILE
+  ========================= */
+  menuOpen = signal(false);
 
+  toggleMenu() {
+    this.menuOpen.update(v => !v);
+  }
+
+  /* =========================
+    COSMIC EFFECTS
+  ========================= */
   toggleCosmicEffects() {
     this.effects.cycle();
-}
-  isSilent = computed(() => this.effects.isSilent());
+  }
+
+  isSilent = computed(() =>
+    this.effects.isSilent()
+  );
 }
