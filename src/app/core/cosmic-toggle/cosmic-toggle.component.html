@@ -1,8 +1,5 @@
 <button class="cosmic-button" (click)="toggle()">
-  <div
-    class="icon-wrapper"
-    [attr.data-mode]="mode()"
-  >
+  <div class="icon-wrapper" [class.is-dark]="isDark()">
     <svg
       class="icon cosmic"
       xmlns="http://www.w3.org/2000/svg"

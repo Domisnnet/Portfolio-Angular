@@ -1,18 +1,21 @@
-import { Component, computed } from '@angular/core';
-import { CosmicEffectsService } from '@app/cosmic/state/cosmic-effects.service';
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
-  selector: 'app-cosmic-toggle',
+  selector: 'app-theme-toggle',
   standalone: true,
   templateUrl: './cosmic-toggle.component.html',
-  styleUrls: ['./cosmic-toggle.component.scss']
+  styleUrls: ['./cosmic-toggle.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CosmicToggleComponent {
-  constructor(private effects: CosmicEffectsService) {}
+  private themeService = inject(ThemeService);
 
-  mode = computed(() => this.effects.mode());
+  readonly isDark = computed(
+    () => this.themeService.theme() === 'cosmic'
+  );
 
-  toggle() {
-    this.effects.cycle();
+  toggle(): void {
+    this.themeService.toggleTheme();
   }
 }
