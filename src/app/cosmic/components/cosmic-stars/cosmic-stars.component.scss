@@ -1,0 +1,13 @@
+.cosmic-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-cosmic-stars, 0);
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--star-color) 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, var(--star-color-dim) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, var(--star-color-dim) 1px, transparent 1px);
+  background-size: 180px 180px;
+  opacity: var(--stars-opacity, 0.5);
+  animation: stars-drift 120s linear infinite;
+}
