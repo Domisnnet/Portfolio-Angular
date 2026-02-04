@@ -1,0 +1,12 @@
+.cosmic-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-cosmic-grid, 1);
+  background-image:
+    linear-gradient(to right,transparent 98%,var(--grid-line-color) 100% ),
+    linear-gradient(to bottom,transparent 98%,var(--grid-line-color) 100% );
+  background-size: var(--grid-size, 80px) var(--grid-size, 80px);
+  opacity: var(--grid-opacity, 0.15);
+  mix-blend-mode: screen;
+}
