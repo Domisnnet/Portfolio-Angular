@@ -155,16 +155,3 @@
   .btn-contact { width: 100%; max-width: 250px; text-align: center; }
   .hamburger-menu { display: grid; }
 }
-
-/* =========================
-  ANIMATIONS
-========================= */
-@keyframes pulse {
-  0%   { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(2.4); opacity: 0; }
-}
-
-@keyframes slide-down {
-  from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
