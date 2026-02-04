@@ -1,0 +1,32 @@
+[data-layer='surface'] {
+  filter: none;
+}
+
+[data-layer='unstable-orbit'] {
+  animation: orbit-drift 14s ease-in-out infinite alternate;
+}
+
+[data-layer='wormhole'] {
+  animation: wormhole-collapse 1.8s cubic-bezier(0.6, 0, 0.2, 1);
+  filter: blur(1px) contrast(1.4);
+}
+
+[data-layer='deep-echo'] {
+  filter: blur(0.4px) saturate(1.1);
+  transform: scale(1.02);
+}
+
+[data-layer='event-horizon'] {
+  filter: grayscale(1) contrast(1.2);
+}
+
+@keyframes orbit-drift {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(0.6deg); }
+}
+
+@keyframes wormhole-collapse {
+  0% { transform: scale(1); }
+  70% { transform: scale(0.85) rotate(-0.6deg); }
+  100% { transform: scale(1.02); }
+}
