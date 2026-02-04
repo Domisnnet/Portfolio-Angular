@@ -2,7 +2,6 @@ import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeToggleComponent } from '@app/core/theme-toggle/theme-toggle.component';
 import { CosmicEffectsService } from '@app/cosmic/state/cosmic-effects.service';
-import { CosmicIconComponent } from '@app/cosmic/components/cosmic-icon/cosmic-icon.component';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +9,6 @@ import { CosmicIconComponent } from '@app/cosmic/components/cosmic-icon/cosmic-i
   imports: [
     RouterLink,
     ThemeToggleComponent,
-    CosmicIconComponent,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
