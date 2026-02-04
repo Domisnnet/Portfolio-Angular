@@ -1,0 +1,9 @@
+.cosmic-beam {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-cosmic-beam, 2);
+  background: radial-gradient( ellipse at center,transparent 0%,transparent 45%,var(--beam-glow-color) 60%,transparent 75%);
+  opacity: var(--beam-opacity, 0.25);
+  animation: beam-pulse 6s ease-in-out infinite;
+}
