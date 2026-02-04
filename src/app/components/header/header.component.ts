@@ -1,13 +1,16 @@
 import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ThemeToggleComponent } from '../../core/theme-toggle.component';
+import { CosmicSectionComponent } from '@app/cosmic/layout/cosmic-section/cosmic-section.component';
 
 export type HeaderMode = 'full' | 'minimal' | 'silent';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
   imports: [
     RouterModule, 
+    CosmicSectionComponent,
     ThemeToggleComponent
   ],
   templateUrl: './header.component.html',
