@@ -1,0 +1,95 @@
+/* ==================
+  THEME CONTRACT
+================== */
+:root {
+  /* =========================
+    BASE
+  ========================= */
+  --bg-space: #000;
+  --bg-space-alt: #000;
+
+  /* =========================
+    LAYERS
+  ========================= */
+  --layer-base: #000;
+  --layer-surface: #000;
+  --layer-elevated: #000;
+
+  /* =========================
+    TEXT
+  ========================= */
+  --text-primary: #fff;
+  --text-secondary: #ccc;
+  --text-muted: #888;
+  --text-inverse-raw: #000;
+
+  /* =========================
+    ENERGY
+  ========================= */
+  --energy-main: #fff;
+  --energy-soft: #fff;
+
+  /* =========================
+    PILLS
+  ========================= */
+  --pill-fe: #fff;
+  --pill-be: #fff;
+  --pill-db: #fff;
+  --pill-do: #fff;
+  --pill-cms: #fff;
+
+  /* =========================
+    BORDERS
+  ========================= */
+  --border-color-raw: rgba(255,255,255,0.2);
+  --border-color-soft-raw: rgba(255,255,255,0.1);
+
+  /* =========================
+    FX GLOBAL
+  ========================= */
+  --glow-color: rgba(255,255,255,0.2);
+  --shadow-color: rgba(0,0,0,0.7);
+  --glow-strength: 1;
+
+  /* =========================
+    COSMIC STARS
+  ========================= */
+  --star-color: #fff;
+  --star-color-dim: #888;
+  --stars-opacity: 0.3;
+
+  /* =========================
+    GRID
+  ========================= */
+  --grid-line-color: rgba(255,255,255,0.2);
+  --grid-opacity: 0.2;
+  --grid-size: 80px;
+
+  /* =========================
+    BEAM
+  ========================= */
+  --beam-glow-color: rgba(255,255,255,0.2);
+  --beam-opacity: 0.2;
+
+  /* =========================
+    Z INDEX COSMIC
+  ========================= */
+  --z-cosmic-stars: 0;
+  --z-cosmic-grid: 1;
+  --z-cosmic-beam: 2;
+
+  /* =========================
+    LAYER FX
+  ========================= */
+  --cosmic-distortion-strength: 1;
+  --cosmic-blur-strength: 0.4px;
+  --cosmic-saturation-boost: 1;
+
+  /* =========================
+    WORMHOLE
+  ========================= */
+  --wormhole-glow: #fff;
+  --wormhole-core: #fff;
+  --wormhole-speed: 1;
+  --wormhole-contrast-flash: 1;
+}
