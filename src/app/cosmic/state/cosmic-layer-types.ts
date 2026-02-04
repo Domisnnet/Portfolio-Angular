@@ -2,4 +2,5 @@ export type CosmicLayer =
   | 'deep-space'
   | 'stable-orbit'
   | 'unstable-orbit'
-  | 'wormhole';
+  | 'wormhole'
+  | 'transition';
