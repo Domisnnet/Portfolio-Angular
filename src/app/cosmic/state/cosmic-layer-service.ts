@@ -1,4 +1,4 @@
-import { Injectable, computed } from '@angular/core';
+import { Injectable, effect } from '@angular/core';
 import { cosmicLayerSignal } from './cosmic-layer-signal';
 import { CosmicLayer } from './cosmic-layer-types';
 
@@ -7,25 +7,33 @@ import { CosmicLayer } from './cosmic-layer-types';
 })
 export class CosmicLayerService {
 
-  readonly layer = cosmicLayerSignal;
+  readonly layer = cosmicLayerSignal.asReadonly();
 
-  readonly isSilent = computed(() => 
-    this.layer() === CosmicLayer.SILENT
-  );
-
-  readonly isWarp = computed(() => 
-    this.layer() === CosmicLayer.WARP
-  );
-
-  setLayer(layer: CosmicLayer) {
-    this.layer.set(layer);
+  constructor() {
+    effect(() => {
+      document.documentElement.setAttribute(
+        'data-layer',
+        cosmicLayerSignal()
+      );
+    });
   }
 
-  toggleSilent() {
-    if (this.layer() === CosmicLayer.SILENT) {
-      this.layer.set(CosmicLayer.ACTIVE);
-    } else {
-      this.layer.set(CosmicLayer.SILENT);
-    }
+  set(layer: CosmicLayer) {
+    cosmicLayerSignal.set(layer);
+  }
+
+  advance() {
+    const order: CosmicLayer[] = [
+      'deep-space',
+      'stable-orbit',
+      'unstable-orbit',
+      'wormhole'
+    ];
+
+    const current = cosmicLayerSignal();
+    const index = order.indexOf(current);
+    const next = order[(index + 1) % order.length];
+
+    cosmicLayerSignal.set(next);
   }
 }
