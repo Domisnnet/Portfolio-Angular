@@ -2,6 +2,9 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeToggleComponent } from '@app/core/theme-toggle.component';
 import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer-service';
+import { CosmicEffectsService } from '@app/cosmic/state/cosmic-effects.service';
+import { computed } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
@@ -14,18 +17,10 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer-service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
-  private cosmicLayer = inject(CosmicLayerService);
-
-  menuOpen = signal(false);
-
-  isSilent = this.cosmicLayer.isSilent;
-
-  toggleMenu() {
-    this.menuOpen.update(v => !v);
-  }
+  constructor(private effects: CosmicEffectsService) {}
 
   toggleCosmicEffects() {
-    this.cosmicLayer.toggleSilent();
-  }
+    this.effects.cycle();
+}
+  isSilent = computed(() => this.effects.isSilent());
 }
