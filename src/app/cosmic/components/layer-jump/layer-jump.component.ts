@@ -7,4 +7,4 @@ import { Component} from '@angular/core';
   templateUrl: './layer-jump.component.html',
   styleUrls: ['./layer-jump.component.scss'],
 })
-export class LayerJumpComponentComponent {}
+export class LayerJumpComponent {}

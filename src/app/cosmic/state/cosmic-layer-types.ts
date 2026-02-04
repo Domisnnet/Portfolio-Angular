@@ -1,6 +1,6 @@
 export type CosmicLayer =
-  | 'surface'
+  | 'deep-space'
+  | 'stable-orbit'
   | 'unstable-orbit'
   | 'wormhole'
-  | 'deep-echo'
-  | 'event-horizon';
+  | 'transition';

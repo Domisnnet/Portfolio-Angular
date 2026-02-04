@@ -1,0 +1,17 @@
+.wormhole {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-overlay, 40);
+  display: grid;
+  place-items: center;
+}
+
+.wormhole-core {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid var(--energy-main);
+  box-shadow: 0 0 40px var(--glow-color),inset 0 0 60px var(--glow-color);
+  animation: wormhole-spin 4s linear infinite;
+}

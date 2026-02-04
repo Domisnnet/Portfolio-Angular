@@ -1,28 +1,40 @@
-import { Injectable } from '@angular/core';
-import { cosmicLayer } from './cosmic-layer-signal';
-import { CosmicLayer } from './cosmic-layer-type';
+import { Injectable, signal, effect } from '@angular/core';
+import { CosmicLayer } from './cosmic-layer-types';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class CosmicLayerService {
+
+  private readonly _layer = signal<CosmicLayer>('deep-space');
+  readonly layer = this._layer.asReadonly();
+
+  constructor() {
+    effect(() => {
+      document.documentElement.setAttribute(
+        'data-layer',
+        this._layer()
+      );
+    });
+  }
+
+  set(layer: CosmicLayer) {
+    this._layer.set(layer);
+  }
+
   advance() {
-    const current = cosmicLayer();
-
-    if (current === 'unstable-orbit') {
-      cosmicLayer.set('wormhole');
-      setTimeout(() => cosmicLayer.set('deep-echo'), 1800);
-      return;
-    }
-
     const order: CosmicLayer[] = [
-      'surface',
+      'deep-space',
+      'stable-orbit',
       'unstable-orbit',
-      'deep-echo',
-      'event-horizon'
+      'wormhole'
     ];
 
+    const current = this._layer();
     const index = order.indexOf(current);
-    if (index < order.length - 1) {
-      cosmicLayer.set(order[index + 1]);
-    }
+
+    const next = order[(index + 1) % order.length];
+
+    this._layer.set(next);
   }
 }

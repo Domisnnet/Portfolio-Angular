@@ -1,4 +1,4 @@
 import { signal } from '@angular/core';
-import { CosmicLayer } from './cosmic-layer-type';
+import { CosmicLayer } from './cosmic-layer-types';
 
-export const cosmicLayer = signal<CosmicLayer>('surface');
+export const cosmicLayer = signal<CosmicLayer>('deep-space');

@@ -71,6 +71,12 @@
   100% { transform: scale(1.02); }
 }
 
+@keyframes wormhole-spin {
+  from { transform: rotate(0deg) scale(0.8); opacity: 0.6; }
+  50% { transform: rotate(180deg) scale(1); opacity: 1; }
+  to { transform: rotate(360deg) scale(0.8); opacity: 0.6; }
+}
+
 /* ===================
   Media Queries
 =================== */
