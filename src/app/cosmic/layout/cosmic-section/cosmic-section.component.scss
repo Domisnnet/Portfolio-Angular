@@ -1,0 +1,6 @@
+.cosmic-section {
+  position: relative;
+  min-height: 100vh;
+  isolation: isolate;
+  transition: transform 1.2s ease,filter 1.2s ease;
+}

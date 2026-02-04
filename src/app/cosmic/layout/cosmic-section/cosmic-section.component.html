@@ -1,0 +1,9 @@
+<section
+  class="cosmic-section"
+  [attr.data-layer]="layer()"
+>
+  <div class="stars-overlay"></div>
+  <div class="cosmic-grid-overlay"></div>
+  <ng-content></ng-content>
+  <app-layer-indicator [layer]="layer()" />
+</section>
