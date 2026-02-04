@@ -133,6 +133,28 @@
   transition: all var(--transition-fast);
 }
 
+/* ================
+  COSMIC TOGGLE
+================ */
+.cosmic-toggle {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--energy-main);
+  background: transparent;
+  color: var(--energy-main);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 18px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px var(--glow-color);
+  }
+}
+
 /* =========================
   RESPONSIVE
 ========================= */
@@ -154,4 +176,5 @@
   .nav-links a { width: 100%; max-width: 250px; text-align: center; }
   .btn-contact { width: 100%; max-width: 250px; text-align: center; }
   .hamburger-menu { display: grid; }
+  .cosmic-toggle { display: grid;}
 }
