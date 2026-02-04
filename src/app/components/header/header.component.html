@@ -9,12 +9,19 @@
         <a routerLink="/">Home</a>
         <a routerLink="/projects">Projetos</a>
         <a routerLink="/contact" class="btn-contact">Contato</a>
-      </nav>      
+      </nav>
       <div class="header-actions">
         <app-theme-toggle />
-        <button 
-          type="button" 
-          class="hamburger-menu" 
+        <button
+          type="button"
+          class="cosmic-toggle"
+          (click)="toggleCosmicEffects()"
+        >
+          ✦
+        </button>
+        <button
+          type="button"
+          class="hamburger-menu"
           (click)="toggleMenu()"
         >
           ☰
