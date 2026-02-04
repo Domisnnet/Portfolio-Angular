@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { CosmicStarsComponent } from '../cosmic-stars/cosmic-stars.component';
-import { CosmicGridComponent } from '../cosmic-grid/cosmic-grid.component';
-import { CosmicBeamComponent } from '../cosmic-beam/cosmic-beam.component';
-import { LayerJumpComponent } from '../layer-jump/layer-jump.component';
+import { CosmicStarsComponent } from '@app/cosmic/components/cosmic-stars/cosmic-stars.component';
+import { CosmicGridComponent } from '@app/cosmic/components/cosmic-grid/cosmic-grid.component';
+import { CosmicBeamComponent } from '@app/cosmic/components/cosmic-beam/cosmic-beam.component';
+import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump.component';
 
 @Component({
   selector: 'app-cosmic-root',
