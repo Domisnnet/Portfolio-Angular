@@ -6,6 +6,7 @@ import { CosmicMode } from './cosmic-mode.type';
 
 @Component({
   selector: 'app-cosmic-layout',
+  standalone: true,
   imports: [
     HeaderComponent, 
     RouterOutlet, 

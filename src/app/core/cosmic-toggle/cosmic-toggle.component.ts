@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { ThemeService } from '../services/theme.service';
 
 @Component({
-  selector: 'app-theme-toggle',
+  selector: 'app-cosmic-toggle',
   standalone: true,
   templateUrl: './cosmic-toggle.component.html',
   styleUrls: ['./cosmic-toggle.component.scss'],
