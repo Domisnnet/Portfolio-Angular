@@ -1,83 +1,86 @@
 .cosmic-toggle {
+  position: relative;
   width: 50px;
   height: 50px;
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255,255,255,0.05),
+      transparent 60%
+    );
+  border: 2px solid var(--brand-primary);
   display: grid;
   place-items: center;
-  border-radius: var(--radius-md);
-  background: transparent;
-  border: 2px solid var(--brand-primary);
-  color: var(--brand-primary);
   cursor: pointer;
-  transition: transform 0.2s ease,box-shadow 0.2s ease,background-color 0.2s ease;
+  color: var(--brand-primary);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 12px var(--glow-color);
-  }
-
-  &:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px var(--brand-secondary);
+    box-shadow:
+      0 0 14px var(--glow-color),
+      inset 0 0 12px rgba(255,255,255,0.06);
   }
 }
 
-/* =========================
-  ICON BASE
-========================= */
+/* Halo energético */
+.energy-ring {
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(6px);
+  background: radial-gradient(
+    circle,
+    var(--brand-primary),
+    transparent 70%
+  );
+  transition: opacity 0.4s ease;
+}
+
+/* Icon base */
 .cosmic-icon {
-  width: 40px;
-  height: 40px;
+  width: 22px;
+  height: 22px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.6;
-  transition: all 0.4s ease;
 }
 
-.core {
-  fill: currentColor;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.flare {
-  opacity: 0;
-  transform-origin: center;
-  transition: opacity 0.3s ease;
-}
-
-.orbit {
-  opacity: 0;
-  stroke-dasharray: 32;
-  animation: orbit-spin 3s linear infinite;
-}
-
-/* =========================
-  MODES
-========================= */
+/* States */
 .cosmic-toggle[data-mode='full'] {
+  .energy-ring {
+    opacity: 0.9;
+    animation: pulse 2.4s infinite ease-in-out;
+  }
+
   .flare {
     opacity: 1;
-    animation: pulse 2s infinite ease-in-out;
   }
 }
 
 .cosmic-toggle[data-mode='minimal'] {
-  .orbit {
-    opacity: 0.8;
+  .energy-ring {
+    opacity: 0.4;
   }
 
-  .flare {
-    opacity: 0;
+  .orbit {
+    opacity: 0.8;
   }
 }
 
 .cosmic-toggle[data-mode='silent'] {
-  .core {
-    opacity: 0.3;
-    transform: scale(0.85);
+  .energy-ring {
+    opacity: 0.15;
   }
 
-  .flare,
-  .orbit {
-    opacity: 0;
+  .core {
+    opacity: 0.4;
+    transform: scale(0.85);
   }
 }

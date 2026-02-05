@@ -2,17 +2,13 @@
   class="cosmic-toggle"
   type="button"
   (click)="toggle()"
-  [attr.aria-label]="'Cosmic mode: ' + mode()"
   [attr.data-mode]="mode()"
+  [attr.aria-label]="'Cosmic effects: ' + mode()"
 >
-  <svg
-    class="cosmic-icon"
-    viewBox="0 0 24 24"
-    aria-hidden="true"
-  >
+  <span class="energy-ring"></span>
+  <svg class="cosmic-icon" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="2" class="core" />
-    <path
-      class="flare"
+    <path class="flare"
       d="M12 2 L13 6 L17 7 L13 8 L12 12 L11 8 L7 7 L11 6 Z"
     />
     <circle cx="12" cy="12" r="6" class="orbit" />
