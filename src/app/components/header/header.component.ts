@@ -1,7 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ThemeToggleComponent } from '@app/core/theme-toggle/theme-toggle.component';
-import { CosmicEffectsService } from '@app/cosmic/state/cosmic-effects.service';
+import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service';
 import { CosmicToggleComponent } from '@app/core/cosmic-toggle/cosmic-toggle.component';
 
 @Component({

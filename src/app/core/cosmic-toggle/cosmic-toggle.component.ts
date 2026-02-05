@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CosmicEffectsService } from '@app/cosmic/state/cosmic-effects.service';
+import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service';
 
 @Component({
   selector: 'app-cosmic-toggle',
