@@ -1,68 +1,60 @@
-/* =========================
-  FULL
-========================= */
+/* =================
+  COSMIC EFFECTS
+================= */
+.stars-overlay,
+.cosmic-grid-overlay,
+.cosmic-beam,
+.wormhole { pointer-events: none; transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease; }
+
+/* =============================
+  FULL — EXPERIÊNCIA COMPLETA
+============================= */
+html[data-cosmic-effects='full'] {
+  .stars-overlay { opacity: 1; }
+  .cosmic-grid-overlay { opacity: 0.4; }
+  .cosmic-beam { opacity: 0.8; }
+  .wormhole { opacity: 1; filter: blur(0); }
+}
+
+/* =========================================================
+  MINIMAL — CONTIDO / HEADER / UX
+========================================================= */
+html[data-cosmic-effects='minimal'] {
+  .stars-overlay { opacity: 0.4; }
+  .cosmic-grid-overlay { opacity: 0; }
+  .cosmic-beam { opacity: 0; }
+  .wormhole { opacity: 0.2; filter: blur(6px); }
+}
+
+/* =========================================================
+  SILENT — PERFORMANCE / FOOTER
+========================================================= */
+html[data-cosmic-effects='silent'] {
+  .stars-overlay,
+  .cosmic-grid-overlay,
+  .cosmic-beam,
+  .wormhole { opacity: 0 !important; display: none !important; }
+}
+
+/* =========================================================
+  LOCAL OVERRIDE — PRIORIDADE MÁXIMA
+========================================================= */
 [data-cosmic-effects='full'] {
-  --fx-stars-opacity: 1;
-  --fx-grid-opacity: var(--grid-opacity);
-  --fx-wormhole-opacity: 1;
-  --fx-beam-opacity: var(--beam-opacity);
-  --fx-glow-strength: 1;
-  --fx-motion-enabled: 1;
+  .stars-overlay { opacity: 1 !important; }
+  .cosmic-grid-overlay { opacity: 0.4 !important; }
+  .cosmic-beam { opacity: 0.8 !important; }
+  .wormhole { opacity: 1 !important; }
 }
 
-/* =========================
-  MINIMAL
-========================= */
 [data-cosmic-effects='minimal'] {
-  --fx-stars-opacity: 0;
-  --fx-grid-opacity: calc(var(--grid-opacity) * 0.6);
-  --fx-wormhole-opacity: 0;
-  --fx-beam-opacity: 0;
-  --fx-glow-strength: 0.35;
-  --fx-motion-enabled: 0.4;
+  .stars-overlay { opacity: 0.4 !important; }
+  .cosmic-grid-overlay,
+  .cosmic-beam { opacity: 0 !important; }
 }
 
-/* =========================
-  SILENT
-========================= */
 [data-cosmic-effects='silent'] {
-  --fx-stars-opacity: 0;
-  --fx-grid-opacity: 0;
-  --fx-wormhole-opacity: 0;
-  --fx-beam-opacity: 0;
-  --fx-glow-strength: 0;
-  --fx-motion-enabled: 0;
-}
-
-/* =========================
-  APPLY EFFECTS
-========================= */
-.stars-overlay {
-  opacity: var(--fx-stars-opacity);
-  transition: opacity 0.4s ease;
-}
-
-.cosmic-grid {
-  opacity: var(--fx-grid-opacity);
-  transition: opacity 0.4s ease;
-}
-
-.wormhole {
-  opacity: var(--fx-wormhole-opacity);
-  transition: opacity 0.5s ease;
-}
-
-.tractor-beam {
-  opacity: var(--fx-beam-opacity);
-  transition: opacity 0.4s ease;
-}
-
-/* =========================
-  MOTION SAFETY
-========================= */
-@media (prefers-reduced-motion: reduce) {
-  [data-cosmic-effects] {
-    --fx-motion-enabled: 0;
-    --fx-glow-strength: 0;
-  }
+  .stars-overlay,
+  .cosmic-grid-overlay,
+  .cosmic-beam,
+  .wormhole { display: none !important; }
 }
