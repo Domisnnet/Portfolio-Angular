@@ -1,15 +1,24 @@
-import { Injectable, signal, effect, inject, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
+import {
+  Injectable,
+  signal,
+  effect,
+  inject,
+  PLATFORM_ID,
+  Renderer2,
+  RendererFactory2,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 export type CosmicEffectsMode = 'full' | 'minimal' | 'silent';
 
 @Injectable({ providedIn: 'root' })
 export class CosmicEffectsService {
-  private readonly storageKey = 'cosmic-effects';
+  private readonly STORAGE_KEY = 'cosmic-effects';
   private platformId = inject(PLATFORM_ID);
   private rendererFactory = inject(RendererFactory2);
   private renderer: Renderer2;
   private isBrowser = isPlatformBrowser(this.platformId);
+
   readonly mode = signal<CosmicEffectsMode>('full');
   constructor() {
     this.renderer = this.rendererFactory.createRenderer(null, null);
@@ -18,8 +27,17 @@ export class CosmicEffectsService {
     }
     effect(() => {
       if (!this.isBrowser) return;
-      this.renderer.setAttribute( document.documentElement, 'data-cosmic-effects', this.mode() );
-    });    
+      const mode = this.mode();
+      this.renderer.setAttribute(
+        document.documentElement,
+        'data-cosmic-effects',
+        mode
+      );
+      localStorage.setItem(this.STORAGE_KEY, mode);
+    });
+  }
+  set(mode: CosmicEffectsMode): void {
+    this.mode.set(mode);
   }
   cycle(): void {
     this.mode.update(m =>
@@ -30,20 +48,17 @@ export class CosmicEffectsService {
         : 'full'
     );
   }
-  set(mode: CosmicEffectsMode): void {
-    this.mode.set(mode);
-  }
-  isFull(): boolean {
+  isFull() {
     return this.mode() === 'full';
   }
-  isMinimal(): boolean {
+  isMinimal() {
     return this.mode() === 'minimal';
   }
-  isSilent(): boolean {
+  isSilent() {
     return this.mode() === 'silent';
   }
   private getInitialMode(): CosmicEffectsMode {
-    const stored = localStorage.getItem(this.storageKey) as CosmicEffectsMode | null;
+    const stored = localStorage.getItem(this.STORAGE_KEY);
     return stored === 'full' || stored === 'minimal' || stored === 'silent'
       ? stored
       : 'full';
