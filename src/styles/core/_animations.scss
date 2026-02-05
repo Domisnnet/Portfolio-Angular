@@ -87,13 +87,11 @@
 /* ===================
   Media Queries
 =================== */
-@media (min-width: 769px){
-  .cosmic-grid-overlay { display: none !important; }
-}
-
-@media (max-width: 1120px) {
-  .cosmic-beam,
-  .scanning-artifact { display: none; }
+@media (max-width: 1024px) {
+  .wormhole,
+  .tractor-beam,
+  .stars-overlay { display: none; }
+  .grid { opacity: 0.35; }
 }
 
 @media (max-width: 768px) {
@@ -104,12 +102,6 @@
   Mode
 ============ */  
 [data-mode='full'] {
-  .cosmic-grid-overlay {
-    display: none;
-    @media (max-width: 1024px) { display: block; }
-  }
-
-  .cosmic-beam {
-    @media (max-width: 1024px) { display: none; }
-  }
+  .cosmic-grid-overlay { display: none; @media (max-width: 1024px) { display: block; } }
+  .cosmic-beam { @media (max-width: 1024px) { display: none; } }
 }

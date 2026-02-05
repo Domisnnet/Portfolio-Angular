@@ -4,7 +4,6 @@ import { ThemeToggleComponent } from '@app/core/theme-toggle/theme-toggle.compon
 import { CosmicEffectsService } from '@app/cosmic/state/cosmic-effects.service';
 import { CosmicToggleComponent } from '@app/core/cosmic-toggle/cosmic-toggle.component';
 
-
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -25,18 +24,15 @@ export class HeaderComponent {
     MENU MOBILE
   ========================= */
   menuOpen = signal(false);
-
   toggleMenu() {
     this.menuOpen.update(v => !v);
   }
-
   /* =========================
     COSMIC EFFECTS
   ========================= */
   toggleCosmicEffects() {
     this.effects.cycle();
   }
-
   isSilent = computed(() =>
     this.effects.isSilent()
   );
