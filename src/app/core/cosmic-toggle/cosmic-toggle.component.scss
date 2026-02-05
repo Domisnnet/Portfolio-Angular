@@ -1,24 +1,39 @@
+:host {
+  display: block;
+}
+
 .cosmic-toggle {
+  display: flex;
+  position: relative;
+  justify-content: center;
   width: 50px;
   height: 50px;
-  display: grid;
-  place-items: center;
   border-radius: var(--radius-md);
   border: 2px solid var(--energy-main);
   background: transparent;
   color: var(--energy-main);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
-.cosmic-toggle[data-effects='full'] {
-  .energy-ring { opacity: 0.9; animation: pulse 2.4s infinite ease-in-out; }
-}
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: var(--font-bold);
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 15px;
 
-.cosmic-toggle[data-effects='minimal'] {
-  .energy-ring { opacity: 0.4; }
-}
-
-.cosmic-toggle[data-effects='silent'] {
-  .energy-ring { opacity: 0.15; }
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    color: var(--energy-main);
+    flex-shrink: 0;
+    animation: pulse 6s ease-in-out infinite 0.8s;
+  }
 }
