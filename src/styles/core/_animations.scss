@@ -82,7 +82,7 @@
   50% { transform: scale(1.2); opacity: 0.7; } 
 }
 
-@keyframes orbitSpin { to { stroke-dashoffset: -40; } }
+@keyframes orbitSpin { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 64; } }
 
 /* ===================
   Media Queries
