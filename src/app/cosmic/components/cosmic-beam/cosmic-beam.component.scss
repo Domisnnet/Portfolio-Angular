@@ -1,9 +1,15 @@
-.cosmic-beam {
+:host {
   position: absolute;
-  inset: 0;
+  inset: -40%;
   pointer-events: none;
-  z-index: var(--z-cosmic-beam, 2);
-  background: radial-gradient( ellipse at center,transparent 0%,transparent 45%,var(--beam-glow-color) 60%,transparent 75%);
-  opacity: var(--beam-opacity, 0.25);
-  animation: beam-pulse 6s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity var(--motion-slow);
+}
+
+html[data-cosmic-effects='full'] app-cosmic-beam {
+  opacity: var(--cosmic-beam-opacity);
+}
+
+html[data-cosmic-effects='minimal'] app-cosmic-beam {
+  opacity: 0;
 }

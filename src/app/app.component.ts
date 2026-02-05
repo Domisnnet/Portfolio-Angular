@@ -5,6 +5,7 @@ import { TerminalFooterComponent } from './components/footer/terminal-footer/ter
 import { LoaderComponent } from './loader/loader.component';
 import { LoaderService } from './core/services/loader.service';
 import { ThemeService } from './core/services/theme.service'; 
+import { CosmicRouteSyncService } from './core/services/cosmic-route-sync.service';
 import { ThemeInitComponent } from './core/services/theme-init.component';
 
 @Component({
@@ -23,6 +24,7 @@ import { ThemeInitComponent } from './core/services/theme-init.component';
 export class AppComponent {
   private loader = inject(LoaderService);
   private theme = inject(ThemeService); 
+  private _cosmicSync = inject(CosmicRouteSyncService);
   loading$ = this.loader.loading$;
   constructor() {
     this.loader.show();
