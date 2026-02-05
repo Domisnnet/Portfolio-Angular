@@ -6,9 +6,6 @@ import { PERSONAL_STACK } from '../constants/personal-stack.config';
 export class StackService {
 
   getPersonalStack(category: PillCategory) {
-    return PERSONAL_STACK[category].map(key => ({
-      key,
-      ...STACK_CONFIG[key],
-    }));
+    return PERSONAL_STACK[category].map(key => ({ key, ...STACK_CONFIG[key], }));
   }
 }

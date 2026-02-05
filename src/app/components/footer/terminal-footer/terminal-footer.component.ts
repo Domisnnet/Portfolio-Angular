@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CosmicMode } from '../../../layout/cosmic-layout/cosmic-mode.type';
+import { CosmicMode } from '../../../layout/cosmic-layout/cosmic-mode-type';
 
 @Component({
   selector: 'app-terminal-footer',
