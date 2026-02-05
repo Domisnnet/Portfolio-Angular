@@ -1,14 +1,10 @@
-<app-header /> 
-<section class="cosmic-section" [attr.data-mode]="mode()"> 
-  @if (mode() !== 'silent') { 
-    <div class="stars-overlay"></div> 
-  } 
-  @if (mode() === 'full') { 
-    <div class="cosmic-beam"></div> 
-    <div class="cosmic-grid-overlay"></div> 
-  } 
-  <div class="cosmic-content"> 
-    <router-outlet /> 
-  </div> 
-    <app-main-footer /> 
+<app-header />
+<section class="cosmic-section">
+  <div class="stars-overlay"></div>
+  <div class="cosmic-beam"></div>
+  <div class="cosmic-grid-overlay"></div>
+  <div class="cosmic-content">
+    <router-outlet />
+  </div>
+  <app-main-footer />
 </section>

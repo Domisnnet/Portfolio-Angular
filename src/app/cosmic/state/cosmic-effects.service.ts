@@ -18,10 +18,13 @@ export class CosmicEffectsService {
     }
     effect(() => {
       if (!this.isBrowser) return;
-      const mode = this.mode();
-      this.renderer.setAttribute( document.documentElement, 'data-cosmic-effects', mode );
-      localStorage.setItem(this.storageKey, mode);
-    });
+    
+      this.renderer.setAttribute(
+        document.documentElement,
+        'data-cosmic-effects',
+        this.mode()
+      );
+    });    
   }
   cycle(): void {
     this.mode.update(m =>
