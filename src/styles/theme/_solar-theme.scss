@@ -1,92 +1,29 @@
+/* ===============
+  SOLAR THEME
+=============== */
 [data-theme='solar'] {
-  /* =========================
-    BASE
-  ========================= */
   --bg-space: #12100b;
   --bg-space-alt: #1a170f;
 
-  /* =========================
-    LAYERS
-  ========================= */
   --layer-base: #1e1a12;
   --layer-surface: #262115;
   --layer-elevated: #2f291a;
 
-  /* =========================
-    TEXT
-  ========================= */
   --text-primary: #f5f1e8;
   --text-secondary: #d6cbb3;
   --text-muted: #a89a7a;
-  --text-inverse-raw: #1a150b;
 
-  /* =========================
-    ENERGY
-  ========================= */
   --energy-main: #f2b705;
   --energy-soft: #ffd773;
 
-  /* =========================
-    STACK PILLS
-  ========================= */
-  --pill-fe: #f2b705;
-  --pill-be: #e0b84c;
-  --pill-db: #9fd3a1;
-  --pill-do: #ffd773;
-  --pill-cms: #ffcf5a;
-
-  /* =========================
-    FX GLOBAL
-  ========================= */
   --glow-color: rgba(242, 183, 5, 0.35);
   --shadow-color: rgba(0, 0, 0, 0.65);
-  --glow-strength: 0.75;
 
-  /* =========================
-    BORDERS
-  ========================= */
-  --border-color-raw: rgba(255, 220, 140, 0.22);
-  --border-color-soft-raw: rgba(255, 220, 140, 0.12);
-
-  /* =========================
-    SOLAR — STARS
-  ========================= */
   --star-color: rgba(255, 240, 190, 0.85);
   --star-color-dim: rgba(255, 220, 140, 0.35);
-  --stars-opacity: 0.35;
 
-  /* =========================
-    SOLAR — GRID
-  ========================= */
   --grid-line-color: rgba(255, 210, 120, 0.2);
-  --grid-opacity: 0.12;
   --grid-size: 80px;
 
-  /* =========================
-    SOLAR — BEAM
-  ========================= */
   --beam-glow-color: rgba(255, 210, 120, 0.35);
-  --beam-opacity: 0.18;
-
-  /* =========================
-    SOLAR — Z INDEX
-  ========================= */
-  --z-cosmic-stars: 0;
-  --z-cosmic-grid: 1;
-  --z-cosmic-beam: 2;
-
-  /* =========================
-    SOLAR — LAYER FX
-  ========================= */
-  --cosmic-distortion-strength: 0.6;
-  --cosmic-blur-strength: 0.2px;
-  --cosmic-saturation-boost: 1.05;
-
-  /* =========================
-    SOLAR — WORMHOLE
-  ========================= */
-  --wormhole-glow: rgba(255, 200, 120, 0.55);
-  --wormhole-core: #fff7dc;
-  --wormhole-speed: 0.85;
-  --wormhole-contrast-flash: 1.1;
 }

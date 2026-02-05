@@ -1,9 +1,8 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-@Component ({
+@Component({
   selector: 'app-cosmic-stars',
   standalone: true,
-  imports: [],
   templateUrl: './cosmic-stars.component.html',
   styleUrls: ['./cosmic-stars.component.scss'],
 })

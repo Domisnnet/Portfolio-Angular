@@ -1,14 +1,17 @@
-/* =================
-  COSMIC EFFECTS
-================= */
+/* ========================
+  COSMIC EFFECTS — BASE
+======================== */
 .stars-overlay,
 .cosmic-grid-overlay,
 .cosmic-beam,
-.wormhole { pointer-events: none; transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease; }
+.wormhole {
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+}
 
-/* =============================
+/* ==============================
   FULL — EXPERIÊNCIA COMPLETA
-============================= */
+============================== */
 html[data-cosmic-effects='full'] {
   .stars-overlay { opacity: 1; }
   .cosmic-grid-overlay { opacity: 0.4; }
@@ -16,45 +19,25 @@ html[data-cosmic-effects='full'] {
   .wormhole { opacity: 1; filter: blur(0); }
 }
 
-/* =========================================================
-  MINIMAL — CONTIDO / HEADER / UX
-========================================================= */
+/* =========================
+  MINIMAL — HEADER / UX
+========================= */
 html[data-cosmic-effects='minimal'] {
   .stars-overlay { opacity: 0.4; }
-  .cosmic-grid-overlay { opacity: 0; }
+  .cosmic-grid-overlay,
   .cosmic-beam { opacity: 0; }
   .wormhole { opacity: 0.2; filter: blur(6px); }
 }
 
-/* =========================================================
-  SILENT — PERFORMANCE / FOOTER
-========================================================= */
+/* ========================
+  SILENT — PERFORMANCE
+======================== */
 html[data-cosmic-effects='silent'] {
   .stars-overlay,
   .cosmic-grid-overlay,
   .cosmic-beam,
-  .wormhole { opacity: 0 !important; display: none !important; }
-}
-
-/* =========================================================
-  LOCAL OVERRIDE — PRIORIDADE MÁXIMA
-========================================================= */
-[data-cosmic-effects='full'] {
-  .stars-overlay { opacity: 1 !important; }
-  .cosmic-grid-overlay { opacity: 0.4 !important; }
-  .cosmic-beam { opacity: 0.8 !important; }
-  .wormhole { opacity: 1 !important; }
-}
-
-[data-cosmic-effects='minimal'] {
-  .stars-overlay { opacity: 0.4 !important; }
-  .cosmic-grid-overlay,
-  .cosmic-beam { opacity: 0 !important; }
-}
-
-[data-cosmic-effects='silent'] {
-  .stars-overlay,
-  .cosmic-grid-overlay,
-  .cosmic-beam,
-  .wormhole { display: none !important; }
+  .wormhole {
+    display: none;
+    opacity: 0;
+  }
 }

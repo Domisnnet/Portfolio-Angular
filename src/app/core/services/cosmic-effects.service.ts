@@ -5,7 +5,7 @@ import {
   inject,
   PLATFORM_ID,
   Renderer2,
-  RendererFactory2,
+  RendererFactory2
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -18,49 +18,33 @@ export class CosmicEffectsService {
   private rendererFactory = inject(RendererFactory2);
   private renderer: Renderer2;
   private isBrowser = isPlatformBrowser(this.platformId);
-
   readonly mode = signal<CosmicEffectsMode>('full');
   constructor() {
     this.renderer = this.rendererFactory.createRenderer(null, null);
     if (this.isBrowser) {
-      this.mode.set(this.getInitialMode());
+      const saved = localStorage.getItem(this.STORAGE_KEY) as CosmicEffectsMode;
+      this.mode.set(saved ?? 'full');
     }
     effect(() => {
       if (!this.isBrowser) return;
-      const mode = this.mode();
+      const value = this.mode();
       this.renderer.setAttribute(
         document.documentElement,
         'data-cosmic-effects',
-        mode
+        value
       );
-      localStorage.setItem(this.STORAGE_KEY, mode);
+      localStorage.setItem(this.STORAGE_KEY, value);
     });
   }
-  set(mode: CosmicEffectsMode): void {
+  set(mode: CosmicEffectsMode) {
     this.mode.set(mode);
   }
-  cycle(): void {
+  cycle() {
     this.mode.update(m =>
-      m === 'full'
-        ? 'minimal'
-        : m === 'minimal'
-        ? 'silent'
-        : 'full'
+      m === 'full' ? 'minimal' : m === 'minimal' ? 'silent' : 'full'
     );
-  }
-  isFull() {
-    return this.mode() === 'full';
-  }
-  isMinimal() {
-    return this.mode() === 'minimal';
   }
   isSilent() {
     return this.mode() === 'silent';
-  }
-  private getInitialMode(): CosmicEffectsMode {
-    const stored = localStorage.getItem(this.STORAGE_KEY);
-    return stored === 'full' || stored === 'minimal' || stored === 'silent'
-      ? stored
-      : 'full';
   }
 }

@@ -1,85 +1,37 @@
+/* ================
+  COSMIC THEME
+================ */
 [data-theme='cosmic'] {
-  /* =========================
-    BASE
-  ========================= */
+  /* BASE */
   --bg-space: #06070a;
   --bg-space-alt: #0b0f18;
 
-  /* =========================
-    LAYERS
-  ========================= */
+  /* LAYERS */
   --layer-base: #0e1322;
   --layer-surface: #141b33;
   --layer-elevated: #1b2550;
 
-  /* =========================
-    TEXT
-  ========================= */
+  /* TEXT */
   --text-primary: #e6ecff;
   --text-secondary: #b8c7ff;
   --text-muted: #7d8bb8;
 
-  /* =========================
-    ENERGY
-  ========================= */
+  /* ENERGY */
   --energy-main: #6aa9ff;
   --energy-soft: #a9ccff;
 
-  /* =========================
-    STACK PILLS
-  ========================= */
-  --pill-fe: #6aa9ff;
-  --pill-be: #5fd1a5;
-  --pill-db: #9ad1ff;
-  --pill-do: #7aa2ff;
-  --pill-cms: #ffd773;
-
-  /* =========================
-    FX GLOBAL
-  ========================= */
+  /* FX */
   --glow-color: rgba(106, 169, 255, 0.45);
   --shadow-color: rgba(0, 0, 0, 0.75);
-  --glow-strength: 1;
 
-  /* =========================
-    COSMIC — STARS
-  ========================= */
+  /* STARS */
   --star-color: rgba(255, 255, 255, 0.85);
   --star-color-dim: rgba(255, 255, 255, 0.35);
-  --stars-opacity: 0.5;
 
-  /* =========================
-    COSMIC — GRID
-  ========================= */
+  /* GRID */
   --grid-line-color: rgba(120, 150, 255, 0.25);
-  --grid-opacity: 0.15;
   --grid-size: 80px;
 
-  /* =========================
-    COSMIC — BEAM
-  ========================= */
+  /* BEAM */
   --beam-glow-color: rgba(120, 150, 255, 0.4);
-  --beam-opacity: 0.25;
-
-  /* =========================
-    COSMIC — Z INDEX
-  ========================= */
-  --z-cosmic-stars: 0;
-  --z-cosmic-grid: 1;
-  --z-cosmic-beam: 2;
-
-  /* =========================
-    COSMIC — LAYER FX
-  ========================= */
-  --cosmic-distortion-strength: 1;
-  --cosmic-blur-strength: 0.4px;
-  --cosmic-saturation-boost: 1.1;
-
-  /* =========================
-    COSMIC — WORMHOLE
-  ========================= */
-  --wormhole-glow: rgba(120, 150, 255, 0.6);
-  --wormhole-core: #ffffff;
-  --wormhole-speed: 1;
-  --wormhole-contrast-flash: 1.2;
 }
