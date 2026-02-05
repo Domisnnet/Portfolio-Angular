@@ -21,12 +21,9 @@ import { ThemeInitComponent } from './core/services/theme-init.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-
   private loader = inject(LoaderService);
   private theme = inject(ThemeService); 
-
   loading$ = this.loader.loading$;
-
   constructor() {
     this.loader.show();
     setTimeout(() => {
