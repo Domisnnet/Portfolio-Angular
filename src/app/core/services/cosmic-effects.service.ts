@@ -18,12 +18,7 @@ export class CosmicEffectsService {
     }
     effect(() => {
       if (!this.isBrowser) return;
-    
-      this.renderer.setAttribute(
-        document.documentElement,
-        'data-cosmic-effects',
-        this.mode()
-      );
+      this.renderer.setAttribute( document.documentElement, 'data-cosmic-effects', this.mode() );
     });    
   }
   cycle(): void {
