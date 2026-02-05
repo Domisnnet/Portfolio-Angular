@@ -7,7 +7,6 @@ export type CosmicEffectsMode =
   | 'full'
   | 'minimal'
   | 'silent';
-
 /* =========================
   CONSTANTS
 ========================= */
@@ -18,7 +17,6 @@ const ORDER: CosmicEffectsMode[] = [
   'minimal',
   'silent'
 ];
-
 /* =========================
   SERVICE
 ========================= */
@@ -29,35 +27,24 @@ export class CosmicEffectsService {
   /* -------------------------
     STATE
   ------------------------- */
-  private readonly _mode = signal<CosmicEffectsMode>(
-    this.loadInitialMode()
-  );
-
+  private readonly _mode = signal<CosmicEffectsMode>( this.loadInitialMode());
   readonly mode = this._mode.asReadonly();
-
   /* -------------------------
     SIDE EFFECTS
   ------------------------- */
   constructor() {
     effect(() => {
       const mode = this._mode();
-
-      document.documentElement.setAttribute(
-        'data-effects',
-        mode
-      );
-
+      document.documentElement.setAttribute( 'data-effects', mode );
       localStorage.setItem(STORAGE_KEY, mode);
     });
   }
-
   /* -------------------------
     PUBLIC API
   ------------------------- */
   set(mode: CosmicEffectsMode) {
     this._mode.set(mode);
   }
-
   cycle() {
     const current = this._mode();
     const index = ORDER.indexOf(current);
@@ -66,27 +53,22 @@ export class CosmicEffectsService {
     this._mode.set(next);
 
   }
-
   /* -------------------------
     HELPERS
   ------------------------- */
   isFull() {
     return this._mode() === 'full';
   }
-
   isMinimal() {
     return this._mode() === 'minimal';
   }
-
   isSilent() {
     return this._mode() === 'silent';
   }
-
   /* -------------------------
     INITIAL LOAD
   ------------------------- */
   private loadInitialMode(): CosmicEffectsMode {
-
     try {
 
       const saved = localStorage.getItem(
