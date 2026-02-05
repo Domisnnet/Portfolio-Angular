@@ -3,6 +3,7 @@ import { CosmicStarsComponent } from '@app/cosmic/components/cosmic-stars/cosmic
 import { CosmicGridComponent } from '@app/cosmic/components/cosmic-grid/cosmic-grid.component';
 import { CosmicBeamComponent } from '@app/cosmic/components/cosmic-beam/cosmic-beam.component';
 import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump.component';
+import { WormholeComponent } from '../wormhole/wormhole.component';
 
 @Component({
   selector: 'app-cosmic-root',
@@ -11,7 +12,8 @@ import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump
     CosmicStarsComponent,
     CosmicGridComponent,
     CosmicBeamComponent,
-    LayerJumpComponent
+    LayerJumpComponent,
+    WormholeComponent,
   ],
   templateUrl: './cosmic-root.component.html',
   styleUrls: ['./cosmic-root.component.scss'],
