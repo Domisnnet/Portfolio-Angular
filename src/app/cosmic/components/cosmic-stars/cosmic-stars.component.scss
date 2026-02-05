@@ -1,12 +1,19 @@
+.cosmic-section {
+  position: relative;
+  z-index: var(--z-background);
+  background: radial-gradient(circle at top, var(--bg-space-alt), var(--bg-space));
+}
+
 .stars-overlay {
   position: absolute;
   inset: 0;
-  z-index: var(--z-cosmic-stars, 0);
-  background-image:
-    radial-gradient(1px 1px at 20% 30%, var(--star-color), transparent),
-    radial-gradient(1px 1px at 70% 80%, var(--star-color-dim), transparent),
-    radial-gradient(1px 1px at 40% 60%, var(--star-color), transparent);
-  background-repeat: repeat;
-  background-size: 300px 300px;
-  opacity: 0;
+  z-index: var(--z-cosmic);
+  pointer-events: none;
+  background:
+    radial-gradient( 1px 1px at 20% 30%, var(--star-color), transparent 60% ),
+    radial-gradient( 1px 1px at 70% 80%, var(--star-color-dim), transparent 60% ),
+    radial-gradient( 1px 1px at 40% 60%, var(--star-color), transparent 60% );
+  background-size: 200px 200px;
+  opacity: var(--stars-opacity);
+  animation: stars-drift 120s linear infinite;
 }

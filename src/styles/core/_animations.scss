@@ -32,8 +32,8 @@
 }
 
 @keyframes stars-drift {
-  from { transform: translateY(0); }
-  to { transform: translateY(-200px); }
+  from { background-position: 0 0; }
+  to { background-position: -400px 800px; }
 }
 
 @keyframes stars-twinkle {
@@ -90,7 +90,6 @@
 @media (max-width: 1024px) {
   .wormhole,
   .tractor-beam,
-  .stars-overlay { display: none; }
   .grid { opacity: 0.35; }
 }
 
@@ -102,6 +101,13 @@
   Mode
 ============ */  
 [data-mode='full'] {
-  .cosmic-grid-overlay { display: none; @media (max-width: 1024px) { display: block; } }
-  .cosmic-beam { @media (max-width: 1024px) { display: none; } }
+  .cosmic-grid-overlay { 
+    display: none; 
+
+    @media (max-width: 1024px) { display: block; } 
+  }
+
+  .cosmic-beam { 
+    @media (max-width: 1024px) { display: none; } 
+  }
 }

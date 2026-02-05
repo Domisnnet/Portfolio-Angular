@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet, ActivatedRoute } from '@angular/router';
 import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service';
+import { HeaderComponent } from '@app/components/header/header.component';
+import { MainFooterComponent } from '@app/components/footer/main-footer/main-footer.component';
 
 @Component({
   selector: 'app-cosmic-layout',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    MainFooterComponent
+  ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss'],
 })
