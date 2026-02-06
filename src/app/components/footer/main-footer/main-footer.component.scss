@@ -4,7 +4,7 @@
 .main-footer {
   background-color: var(--bg-body);
   border-top: 2px solid var(--border-color);
-  color: var(--text-primary);
+  padding: var(--space-md)0;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -14,17 +14,16 @@
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2.5rem;
+  gap: var(--space-xl);
   grid-template-areas: "Jornada TechReal Explorar tech contact";
 
-  @media (max-width: 1200px) {
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr); 
     grid-template-areas: 
       "Jornada TechReal Explorar"
       "tech tech tech"     
       "contact contact contact"; 
     text-align: center;
-    row-gap: 3rem;
   }
 
   @media (max-width: 768px) {
@@ -33,19 +32,7 @@
       "Jornada TechReal Explorar"
       "tech tech tech"     
       "contact contact contact"; 
-    text-align: center;
-    row-gap: 3.5rem; 
-  }
-
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
-      "Jornada TechReal Explorar"
-      "tech"
-      "contact";
-    text-align: center;
-    row-gap: 3.5rem;
+    text-align: center; 
   }
 }
 
@@ -62,19 +49,18 @@
   FOOTER COLUMN & LISTS
 ========================= */
 .footer-column h4 {
-  color: var(--text-muted);
+  color: var(--text-primary);
   font-size: 0.8rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 1.5rem;
 }
 
 .footer-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  list-style: none;
+  gap: var(--space-sm);
 
   a {
     color: var(--text-secondary);
@@ -84,43 +70,66 @@
     display: inline-block;
 
     &:hover {
-      color: var(--brand-accent);
+      color: var(--text-secondary);
       transform: translateX(4px);
     }
   }
-
-  .footer-link {
-    color: var(--text-primary);
-    text-decoration: none;
-  }  
 }
 
 /* ====================
   Estilos Especiais
 ==================== */  
 .jornada-link {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  font-weight: bold;
-  gap: 0.5rem;
-  
-  .mono {
-    color: var(--artifact-neon) !important;
+  font-weight: var(--font-bolder);
+
+  .deploy {
+    color: var(--footer-text-deploy);
+    font-family: var(--font-code);
+    &:hover {
+      .frb { color: var(--footer-text-deploy); }
+    }
   }
 
-  &:hover {
-    .mono {
-      color: var(--artifact-neon) !important;
+  .finish {
+    color: var(--footer-text-finish);
+    font-family: var(--font-code);
+    &:hover {
+      .finish { color: var(--footer-text-finish); }
+    }
+  }
+
+  .framework {
+    color: var(--footer-text-framework);
+    font-family: var(--font-code);
+    &:hover {
+      .ang { color: var(--footer-text-framework); }
     }
   }
 
   .highlight {
-    color: var(--artifact-neon-rx) !important;
+    color: var(--footer-text-neon-rx);
+    font-family: var(--font-code);
+    &:hover {
+      .highlight { color: var(--footer-text-neon-rx); }
+    }
   }
 
-  &:hover {
-    .highlight {
-      color: var(--artifact-neon-rx) !important;
+  .mono {
+    color: var(--footer-text-neon);
+    font-family: var(--font-code);
+    &:hover {
+      .mono { color: var(--footer-text-neon); }
+    }
+  }
+
+  .prod {
+    color: var(--footer-text-prod);
+    font-family: var(--font-code);
+    &:hover {
+      .prod { color: var(--footer-text-prod); }
     }
   }
 }
@@ -130,13 +139,13 @@
 ================ */
 .social-icons {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-md);
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: var(--space-xs);
 
   @media (max-width: 768px) {
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: var(--space-lg);
   }
 
   .social-link {
@@ -190,7 +199,7 @@
   align-items: center;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-xs);
 
   @media (max-width: 768px) {
     justify-content: center;
@@ -217,13 +226,13 @@
   align-items: center;
   padding-top: 2rem;
   margin-top: 2rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 2px solid var(--border-color);
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: var(--font-sm);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--space-md);
   }
 }
 
