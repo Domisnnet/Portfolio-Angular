@@ -40,7 +40,7 @@
       },
       "closing": {
         "text": "Hoje, este portfólio em Angular representa mais do que projetos organizados:",
-        "highlight": "ele é a prova de que nunca ",
+        "neon": "ele é a prova de que nunca ",
         "neonrx": "é tarde para retomar um sonho,",
         "suffix": " — aprender algo novo, evoluir constantemente e colocar a mão no código."
       }
@@ -97,7 +97,7 @@
       },
       "closing": {
         "text": "Today, this Angular portfolio represents more than just organized projects:",
-        "highlight": "it proves that it’s never ",
+        "neon": "it proves that it’s never ",
         "neonrx": "too late to pursue a dream",
         "suffix": " — learn something new, evolve continuously, and get your hands dirty with code."
       }
