@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './main-footer.component.html',
-  styleUrls: ['./main-footer.component.scss']
+  styleUrls: ['./main-footer.component.scss'],
 })
 export class MainFooterComponent {
   status = 'SYSTEM ONLINE';
