@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectionStrategy,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, RouterLink } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-main-footer',
@@ -9,26 +10,24 @@ import { filter } from 'rxjs/operators';
   imports: [CommonModule, RouterLink],
   templateUrl: './main-footer.component.html',
   styleUrls: ['./main-footer.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainFooterComponent {
-  status = 'SYSTEM ONLINE';
+  private router = inject(Router);
   routeLabel = 'ORBIT STABLE';
-
-  constructor(private router: Router) {
+  constructor() {
     this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(event => {
-        this.updateStatus((event as NavigationEnd).urlAfterRedirects);
+      .pipe(
+        filter(e => e instanceof NavigationEnd),
+        takeUntilDestroyed()
+      )
+      .subscribe((e: NavigationEnd) => {
+        this.routeLabel = this.resolveRouteLabel(e.urlAfterRedirects);
       });
   }
-
-  private updateStatus(url: string) {
-    if (url.includes('projects')) {
-      this.routeLabel = 'SCANNING SECTORS';
-    } else if (url.includes('contact')) {
-      this.routeLabel = 'OPEN CHANNEL';
-    } else {
-      this.routeLabel = 'ORBIT STABLE';
-    }
+  private resolveRouteLabel(url: string): string {
+    if (url.includes('projects')) return 'SCANNING SECTORS';
+    if (url.includes('contact')) return 'OPEN CHANNEL';
+    return 'ORBIT STABLE';
   }
 }
