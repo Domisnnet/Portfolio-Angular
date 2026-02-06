@@ -1,21 +1,58 @@
-.terminal-section {
-  position: relative;
-  min-height: 100vh;
-  background: var(--bg-terminal);
-  color: var(--text-terminal);
-  overflow: hidden;
+/* =========================
+  BASE
+========================= */
+:host {
+  display: block;
+  color: var(--text-primary);
+  font-family: var(--font-body);
 }
 
-.scanning-artifact {
-  position: absolute;
-  top: 12%;
-  left: 50%;
-  transform: translateX(-50%);
+/* =========================
+  TEXTOS
+========================= */
+.mono {
+  font-family: var(--font-code);
+  color: var(--text-primary);
 }
 
-.artifact-frame {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.status {
+  font-family: var(--font-code);
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+/* =========================
+  NEON (SEM MIXIN)
+========================= */
+.neon {
+  color: var(--footer-text-neon);
+  font-family: var(--font-code);
+}
+
+/* =========================
+  NEON RX (caso use)
+========================= */
+.neonrx {
+  color: var(--footer-text-neon-rx);
+  font-family: var(--font-code);
+}
+
+/* =========================
+  HIGHLIGHT (SIMPLES)
+========================= */
+.highlight {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* =========================
+  BLOCKS
+========================= */
+.section {
+  margin-bottom: 3rem;
+}
+
+p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
 }

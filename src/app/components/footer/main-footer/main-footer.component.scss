@@ -5,7 +5,6 @@
   background-color: var(--bg-body);
   border-top: 2px solid var(--border-color);
   padding: var(--space-md)0;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* ===============
@@ -85,11 +84,11 @@
   align-items: center;
   font-weight: var(--font-bolder);
 
-  .deploy {
-    color: var(--footer-text-deploy);
+  .status {
+    color: var(--footer-text-status);
     font-family: var(--font-code);
     &:hover {
-      .frb { color: var(--footer-text-deploy); }
+      .frb { color: var(--footer-text-status); }
     }
   }
 
@@ -109,7 +108,7 @@
     }
   }
 
-  .highlight {
+  .neonrx {
     color: var(--footer-text-neon-rx);
     font-family: var(--font-code);
     &:hover {
@@ -117,7 +116,7 @@
     }
   }
 
-  .mono {
+  .neon {
     color: var(--footer-text-neon);
     font-family: var(--font-code);
     &:hover {

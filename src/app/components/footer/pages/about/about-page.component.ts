@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
-import aboutContent from '../../../../../assets/content/about-content.json';
+import aboutContent from '@assets/content/about-content.json';
 
 type Language = 'pt' | 'en';
 
@@ -13,8 +13,8 @@ interface AboutContent {
     timestamp: string;
     paused: string;
     reboot: string;
-    present: string; 
-    closing: string; 
+    present: string;
+    closing: string;
     executing: string;
   };
   logs: {
@@ -22,7 +22,7 @@ interface AboutContent {
       intro: string;
       details: {
         text: string;
-        highlight: string;
+        neon: string;
         suffix: string;
       }[];
     };
@@ -34,6 +34,7 @@ interface AboutContent {
     };
     reboot: {
       text: string;
+      neonrx: string;
       course: string;
       details: string;
     };
@@ -45,7 +46,7 @@ interface AboutContent {
     };
     closing: {
       text: string;
-      highlight: string;
+      neon: string;
       suffix: string;
     };
   };
@@ -69,18 +70,12 @@ interface AboutContent {
   styleUrls: ['./about-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
-    trigger('panelEnter', [
+    trigger('cardEnter', [
       transition(':enter', [
-        style({
-          transform: 'translate(-50%, 100%) scale(0.85)',
-          opacity: 0
-        }),
+        style({ opacity: 0, transform: 'translateY(40px) scale(0.95)' }),
         animate(
-          '900ms cubic-bezier(0.34, 1.56, 0.64, 1)',
-          style({
-            transform: 'translate(-50%, -50%) scale(1)',
-            opacity: 1
-          })
+          '700ms cubic-bezier(0.34, 1.56, 0.64, 1)',
+          style({ opacity: 1, transform: 'translateY(0) scale(1)' })
         )
       ])
     ])
@@ -89,14 +84,12 @@ interface AboutContent {
 export class AboutPageComponent {
   isTextMode = false;
   language: Language = 'pt';
-
   content: AboutContent = aboutContent[this.language];
-
   toggleMode(): void {
     this.isTextMode = !this.isTextMode;
   }
-
   toggleLanguage(lang: Language): void {
+    if (this.language === lang) return;
     this.language = lang;
     this.content = aboutContent[this.language];
   }
