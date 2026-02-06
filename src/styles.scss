@@ -1,75 +1,102 @@
+/* =========================================================
+   CSS GOVERNANCE — LAYERS
+   Ordem é LEI, não depende de import
+========================================================= */
+@layer reset, contract, tokens, mixins, theme, artifact, system, component, effect, override;
+
 /* =====================
    RESET
 ===================== */
-@forward 'styles/core/reset';
+@layer reset {
+  @forward 'styles/core/reset';
+}
 
 /* =====================
-   THEME CONTRACT
+   CONTRACTS (NUNCA DEFINEM VALOR)
 ===================== */
-@forward 'styles/core/theme-contract';
-@forward 'styles/core/semantic';
+@layer contract {
+  @forward 'styles/core/theme-contract';
+  @forward 'styles/core/semantic';
+
+  @forward 'styles/artifact/artifact-contract';
+  @forward 'styles/artifact/footer/footer-contract';
+  @forward 'styles/artifact/terminal/terminal-contract';
+}
 
 /* =====================
-   THEMES
+   TOKENS / CORE INFRA
 ===================== */
-@forward 'styles/theme/cosmic-theme';
-@forward 'styles/theme/solar-theme';
+@layer tokens {
+  @forward 'styles/core/tokens';
+}
+
+@layer mixins {
+  @forward 'styles/core/mixins';
+  @forward 'styles/core/animations';
+  @forward 'styles/core/utilities';
+}
 
 /* =====================
-   CORE INFRA
+   THEMES (SETAM VALORES)
 ===================== */
-@forward 'styles/core/tokens';
-@forward 'styles/core/mixins';
-@forward 'styles/core/animations';
-@forward 'styles/core/utilities';
-
+@layer theme {
+  @forward 'styles/theme/cosmic-theme';
+  @forward 'styles/theme/solar-theme';
+}
 
 /* =====================
-   ARTIFACT – CONTRACTS
+   ARTIFACT SYSTEMS
 ===================== */
-@forward 'styles/artifact/footer/footer-contract';
-@forward 'styles/artifact/terminal/terminal-contract';
+@layer artifact {
+  /* Footer */
+  @forward 'styles/artifact/footer/footer-base';
+  @forward 'styles/artifact/footer/footer-about';
+  @forward 'styles/artifact/footer/footer-state-386';
+
+  /* Terminal */
+  @forward 'styles/artifact/terminal/terminal-base';
+  @forward 'styles/artifact/terminal/terminal-frame';
+  @forward 'styles/artifact/terminal/terminal-footer';
+  @forward 'styles/artifact/terminal/terminal-horizon';
+}
 
 /* =====================
-   ARTIFACT – SYSTEMS
+   SYSTEM / LAYOUT
 ===================== */
-/* Footer */
-@forward 'styles/artifact/footer/footer-base';
-@forward 'styles/artifact/footer/footer-about';
-@forward 'styles/artifact/footer/footer-state-386';
-
-/* ===========
-   Terminal 
-==========  */
-@forward 'styles/artifact/terminal/terminal-base';
-@forward 'styles/artifact/terminal/terminal-frame';
-@forward 'styles/artifact/terminal/terminal-footer';
-@forward 'styles/artifact/terminal/terminal-horizon';
+@layer system {
+  @forward 'styles/layers/surfaces';
+  @forward 'styles/layers/layout';
+  @forward 'styles/system/global';
+}
 
 /* =====================
-   LAYERS / SYSTEM
+   COMPONENTS
 ===================== */
-@forward 'styles/layers/surfaces';
-@forward 'styles/layers/layout';
-@forward 'styles/system/global';
-
-/* =====================
-   BACKGROUND / COMPONENTS
-===================== */
-@forward 'styles/background/space';
-@forward 'styles/components/buttons';
-@forward 'styles/components/cta';
-@forward 'styles/components/hero';
-@forward 'styles/components/stack';
+@layer component {
+  @forward 'styles/background/space';
+  @forward 'styles/components/buttons';
+  @forward 'styles/components/cta';
+  @forward 'styles/components/hero';
+  @forward 'styles/components/stack';
+}
 
 /* =====================
    EFFECTS
 ===================== */
-@forward 'styles/effects/energy';
-@forward 'styles/effects/cosmic-effects';
+@layer effect {
+  @forward 'styles/effects/energy';
+  @forward 'styles/effects/cosmic-effects';
+}
 
 /* =====================
-   FONTS
+   OVERRIDES (SE UM DIA PRECISAR)
+===================== */
+@layer override {
+  /* vazio por design */
+}
+
+/* =====================
+   FONTS (FORA DE LAYER)
 ===================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
