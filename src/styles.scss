@@ -1,7 +1,6 @@
-/* =========================================================
-   CSS GOVERNANCE — LAYERS
-   Ordem é LEI, não depende de import
-========================================================= */
+/* ===================
+   CSS GOVERNANCE
+=================== */
 @layer reset, contract, tokens, mixins, theme, artifact, system, component, effect, override;
 
 /* =====================
