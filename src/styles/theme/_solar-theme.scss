@@ -19,11 +19,13 @@
   --glow-color: rgba(242, 183, 5, 0.35);
   --shadow-color: rgba(0, 0, 0, 0.65);
 
-  --star-color: rgba(255, 240, 190, 0.85);
-  --star-color-dim: rgba(255, 220, 140, 0.35);
+  /* =========================
+    ABOUT / 386 – VERDE
+  ========================= */
+  --about-text-neon: #3dff2f;
+  --about-text-neon-rx: #ff7a00;
+  --about-text-mono: #f5f1e8;
+  --about-text-status: #f2b705;
 
-  --grid-line-color: rgba(255, 210, 120, 0.2);
-  --grid-size: 80px;
-
-  --beam-glow-color: rgba(255, 210, 120, 0.35);
+  --about-neon-glow: rgba(61, 255, 47, 0.55);
 }

@@ -32,4 +32,12 @@
     SHADOWS / GLOW
   ========================= */
   --shadow-soft: 0 10px 30px var(--shadow-color);
+
+  /* =========================
+  ABOUT / 386
+  ========================= */
+  --about-neon: var(--about-text-neon);
+  --about-neon-rx: var(--about-text-neon-rx);
+  --about-mono: var(--about-text-mono);
+  --about-status: var(--about-text-status);
 }
