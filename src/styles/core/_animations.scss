@@ -89,11 +89,13 @@
 =================== */
 @media (max-width: 1024px) {
   .wormhole,
-  .tractor-beam,
+  .tractor-beam { display: none; }
   .grid { opacity: 0.35; }
 }
 
 @media (max-width: 768px) {
+  .wormhole,
+  .tractor-beam { display: none; }
   .cosmic-section::before { filter: blur(100px); }
 } 
 
@@ -103,11 +105,6 @@
 [data-mode='full'] {
   .cosmic-grid-overlay { 
     display: none; 
-
     @media (max-width: 1024px) { display: block; } 
-  }
-
-  .cosmic-beam { 
-    @media (max-width: 1024px) { display: none; } 
   }
 }

@@ -3,13 +3,10 @@
   bottom: 0;
   width: 100%;
   padding: 6px 14px;
-  font-size: 0.75rem;
+  font-size: var(--space-sm);
   opacity: 0.75;
   pointer-events: none;
 }
 
 .terminal-text { letter-spacing: 0.05em; }
 .cursor { animation: blink 1.6s steps(1) infinite; opacity: 0.6; }
-@keyframes blink {
-  50% { opacity: 0; }
-}
