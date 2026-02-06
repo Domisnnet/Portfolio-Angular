@@ -1,58 +1,90 @@
-/* =========================
-  BASE
-========================= */
-:host {
-  display: block;
-  color: var(--text-primary);
-  font-family: var(--font-body);
+.terminal-section {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: var(--bg-body);
+  padding: var(--space-xl);
 }
 
-/* =========================
-  TEXTOS
-========================= */
+.terminal-card,
+.about-card {
+  width: 100%;
+  max-width: 860px;
+  background: var(--footer-bg-strong);
+  border: 2px solid var(--footer-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: var(--space-xl);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-code);
+  font-weight: var(--font-bolder);
+  color: var(--footer-text-secondary);
+  margin-bottom: var(--space-lg);
+
+  .pulse-icon {
+    color: var(--about-neon);
+    animation: pulse 1.6s infinite;
+  }
+}
+
+.terminal-body {
+  .log-block {
+    margin-bottom: var(--space-lg);
+  }
+
+  .meta-tag {
+    font-size: var(--font-sm);
+    opacity: 0.5;
+    color: var(--footer-text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+}
+
+.content {
+  margin: var(--space-sm) 0;
+  line-height: 1.7;
+  color: var(--footer-text-primary);
+}
+
+.cmd {
+  font-family: var(--font-code);
+}
+
+.neon {
+  color: var(--about-neon);
+}
+
+.neonrx {
+  color: var(--about-neon-rx);
+}
+
 .mono {
   font-family: var(--font-code);
-  color: var(--text-primary);
+  opacity: 0.85;
 }
 
-.status {
-  font-family: var(--font-code);
-  color: var(--text-muted);
-  letter-spacing: 1px;
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-lg);
 }
 
-/* =========================
-  NEON (SEM MIXIN)
-========================= */
-.neon {
+.alt-mode-btn {
+  background: transparent;
+  border: 2px solid var(--about-neon);
   color: var(--footer-text-neon);
-  font-family: var(--font-code);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
 }
 
-/* =========================
-  NEON RX (caso use)
-========================= */
-.neonrx {
-  color: var(--footer-text-neon-rx);
-  font-family: var(--font-code);
-}
-
-/* =========================
-  HIGHLIGHT (SIMPLES)
-========================= */
-.highlight {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
-/* =========================
-  BLOCKS
-========================= */
-.section {
-  margin-bottom: 3rem;
-}
-
-p {
-  line-height: 1.7;
-  margin-bottom: 1rem;
+.lang-badge {
+  align-self: flex-end;
+  margin-bottom: var(--space-md);
 }

@@ -17,10 +17,11 @@
           </p>
           <p class="content">{{ content.logs.origin.intro }}</p>
           @for (item of content.logs.origin.details; track item) {
-            <p>
+            <p class="content">
               {{ item.text }}
-              <span class="neon">{{ item.neon }}</span>{{ item.suffix }}
-            </p>            
+              <span class="neon">{{ item.neon }}</span>
+              {{ item.suffix }}
+            </p>
           }
         </div>
         <div class="log-block">
