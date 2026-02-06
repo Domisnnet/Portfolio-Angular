@@ -61,7 +61,7 @@ interface AboutContent {
     p3: string;
   };
 }
-
+const CONTENT = aboutContent as Record<Language, AboutContent>;
 @Component({
   selector: 'app-about-page',
   standalone: true,
@@ -84,13 +84,14 @@ interface AboutContent {
 export class AboutPageComponent {
   isTextMode = false;
   language: Language = 'pt';
-  content: AboutContent = aboutContent[this.language];
+  content: AboutContent = CONTENT[this.language];
   toggleMode(): void {
     this.isTextMode = !this.isTextMode;
   }
   toggleLanguage(lang: Language): void {
     if (this.language === lang) return;
+
     this.language = lang;
-    this.content = aboutContent[this.language];
+    this.content = CONTENT[this.language];
   }
 }
