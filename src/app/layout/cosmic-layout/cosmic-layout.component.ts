@@ -3,6 +3,7 @@ import { RouterOutlet, ActivatedRoute } from '@angular/router';
 import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service';
 import { HeaderComponent } from '@app/components/header/header.component';
 import { MainFooterComponent } from '@app/components/footer/main-footer/main-footer.component';
+import { CosmicStarsComponent } from '@app/cosmic/components/cosmic-stars/cosmic-stars.component';
 
 @Component({
   selector: 'app-cosmic-layout',
@@ -10,7 +11,8 @@ import { MainFooterComponent } from '@app/components/footer/main-footer/main-foo
   imports: [
     RouterOutlet,
     HeaderComponent,
-    MainFooterComponent
+    MainFooterComponent,
+    CosmicStarsComponent
   ],
   templateUrl: './cosmic-layout.component.html',
   styleUrls: ['./cosmic-layout.component.scss'],
