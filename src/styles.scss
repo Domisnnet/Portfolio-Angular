@@ -1,94 +1,73 @@
-/* ===================
-   CSS GOVERNANCE
-=================== */
-@layer reset, contract, tokens, mixins, theme, artifact, system, component, effect, override;
-
-/* =====================
+/* =========
    RESET
-===================== */
-@layer reset {
-  @forward 'styles/core/reset';
-}
+========= */
+@forward 'styles/core/reset';
 
-/* =====================
-   CONTRACTS (NUNCA DEFINEM VALOR)
-===================== */
-@layer contract {
-  @forward 'styles/core/theme-contract';
-  @forward 'styles/core/semantic';
+/* =============
+   CONTRACTS
+============= */
+@forward 'styles/core/theme-contract';
+@forward 'styles/core/semantic';
 
-  @forward 'styles/artifact/artifact-contract';
-  @forward 'styles/artifact/footer/footer-contract';
-  @forward 'styles/artifact/terminal/terminal-contract';
-}
+@forward 'styles/artifact/artifact-contract';
+@forward 'styles/artifact/footer/footer-contract';
+@forward 'styles/artifact/terminal/terminal-contract';
 
 /* =====================
    TOKENS / CORE INFRA
 ===================== */
-@layer tokens {
-  @forward 'styles/core/tokens';
-}
+@forward 'styles/core/tokens';
+@forward 'styles/core/mixins';
 
-@layer mixins {
-  @forward 'styles/core/mixins';
-  @forward 'styles/core/animations';
-  @forward 'styles/core/utilities';
-}
+@forward 'styles/core/animations';
+@forward 'styles/core/utilities';
 
 /* =====================
-   THEMES (SETAM VALORES)
+   THEMES 
 ===================== */
-@layer theme {
   @forward 'styles/theme/cosmic-theme';
   @forward 'styles/theme/solar-theme';
-}
+
 
 /* =====================
    ARTIFACT SYSTEMS
 ===================== */
-@layer artifact {
-  /* Footer */
-  @forward 'styles/artifact/footer/footer-base';
-  @forward 'styles/artifact/footer/footer-about';
-  @forward 'styles/artifact/footer/footer-state-386';
+@forward 'styles/artifact/footer/footer-base';
+@forward 'styles/artifact/footer/footer-about';
+@forward 'styles/artifact/footer/footer-state-386';
 
-  /* Terminal */
-  @forward 'styles/artifact/terminal/terminal-base';
-  @forward 'styles/artifact/terminal/terminal-frame';
-  @forward 'styles/artifact/terminal/terminal-footer';
-  @forward 'styles/artifact/terminal/terminal-horizon';
-}
+/* =============
+   Terminal 
+============= */
+@forward 'styles/artifact/terminal/terminal-base';
+@forward 'styles/artifact/terminal/terminal-frame';
+@forward 'styles/artifact/terminal/terminal-footer';
+@forward 'styles/artifact/terminal/terminal-horizon';
 
 /* =====================
    SYSTEM / LAYOUT
 ===================== */
-@layer system {
-  @forward 'styles/layers/surfaces';
-  @forward 'styles/layers/layout';
-  @forward 'styles/system/global';
-}
+@forward 'styles/layers/surfaces';
+@forward 'styles/layers/layout';
+@forward 'styles/system/global';
 
 /* =====================
    COMPONENTS
 ===================== */
-@layer component {
-  @forward 'styles/background/space';
-  @forward 'styles/components/buttons';
-  @forward 'styles/components/cta';
-  @forward 'styles/components/hero';
-  @forward 'styles/components/stack';
-}
+@forward 'styles/background/space';
+@forward 'styles/components/buttons';
+@forward 'styles/components/cta';
+@forward 'styles/components/hero';
+@forward 'styles/components/stack';
 
 /* =====================
    EFFECTS
 ===================== */
-@layer effect {
-  @forward 'styles/effects/energy';
-  @forward 'styles/effects/cosmic-effects';
-}
+@forward 'styles/effects/energy';
+@forward 'styles/effects/cosmic-effects';
 
 /* =====================
-   FONTS (FORA DE LAYER)
+   FONTS
 ===================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
