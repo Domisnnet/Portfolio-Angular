@@ -24,6 +24,25 @@
   --glow-color: rgba(106, 169, 255, 0.45);
   --shadow-color: rgba(0, 0, 0, 0.75);
 
+  /* STACK-PILLS */
+  --pill-fe: #38bdf8;
+  --pill-be: #4ade80;    
+  --pill-db: #f59e0b;    
+  --pill-do: #ff0026;   
+  --pill-cms: #f472b6;    
+  --pill-tool: #a78bfa;  
+
+  /* Pills text (auto contrast) */
+  --pill-text-dark: #020205;
+  --pill-text-light: #ffffff;
+
+  /* Pills shape & motion */
+  --pill-radius: 999px;
+  --pill-font-size: var(--font-xs);
+  --pill-font-weight: var(--font-semibold);
+  --pill-padding-y: 6px;
+  --pill-padding-x: 14px;
+
   /* =========================
     ABOUT / 386 – VERDE
   ========================= */
