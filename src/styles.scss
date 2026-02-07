@@ -1,10 +1,10 @@
 /* =========
-   RESET
+  RESET
 ========= */
 @forward 'styles/core/reset';
 
 /* =============
-   CONTRACTS
+  CONTRACTS
 ============= */
 @forward 'styles/core/theme-contract';
 @forward 'styles/core/semantic';
@@ -14,7 +14,7 @@
 @forward 'styles/artifact/terminal/terminal-contract';
 
 /* =====================
-   TOKENS / CORE INFRA
+  TOKENS / CORE INFRA
 ===================== */
 @forward 'styles/core/tokens';
 @forward 'styles/core/mixins';
@@ -23,21 +23,21 @@
 @forward 'styles/core/utilities';
 
 /* =====================
-   THEMES 
+  THEMES 
 ===================== */
   @forward 'styles/theme/cosmic-theme';
   @forward 'styles/theme/solar-theme';
 
 
 /* =====================
-   ARTIFACT SYSTEMS
+  ARTIFACT SYSTEMS
 ===================== */
 @forward 'styles/artifact/footer/footer-base';
 @forward 'styles/artifact/footer/footer-about';
 @forward 'styles/artifact/footer/footer-state-386';
 
 /* =============
-   Terminal 
+  Terminal 
 ============= */
 @forward 'styles/artifact/terminal/terminal-base';
 @forward 'styles/artifact/terminal/terminal-frame';
@@ -45,14 +45,14 @@
 @forward 'styles/artifact/terminal/terminal-horizon';
 
 /* =====================
-   SYSTEM / LAYOUT
+  SYSTEM / LAYOUT
 ===================== */
 @forward 'styles/layers/surfaces';
 @forward 'styles/layers/layout';
 @forward 'styles/system/global';
 
 /* =====================
-   COMPONENTS
+  COMPONENTS
 ===================== */
 @forward 'styles/background/space';
 @forward 'styles/components/buttons';
@@ -61,13 +61,13 @@
 @forward 'styles/components/stack';
 
 /* =====================
-   EFFECTS
+  EFFECTS
 ===================== */
 @forward 'styles/effects/energy';
 @forward 'styles/effects/cosmic-effects';
 
 /* =====================
-   FONTS
+  FONTS
 ===================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
