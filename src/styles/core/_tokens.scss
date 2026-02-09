@@ -46,22 +46,28 @@
   --blur-header: 12px;
 
   /* Z-index */
-  --z-background: 0;
-  --z-cosmic: 1;
-  --z-artifact: 2;
-  --z-artifact-back: 3;
-  --z-content: 5;
-  --z-scanning: 10;
-  --z-card: 200;
+  --z-back: -1;
+  --z-base: 1;
+  --z-card: 10;
+  --z-pill: 20;
+  --z-overlay: 30;
+  --z-scanning: 40;
   --z-header: 1000;
   --z-overlay: 1200;
   --z-modal: 2000;
+
+  /* --- OPACITY SYSTEM --- */
+  --op-hidden: 0;    
+  --op-subtle: 0.4;  
+  --op-active: 0.8; 
+  --op-visible: 1;   
 
   /* Transition */
   --transition-fast: 0.25s ease;
   --transition-medium: 0.4s ease;
 
   /* Glow System */
+  --glow-strength: 1;
   --glow-unit: 24px;
   --glow-radius: calc(var(--glow-unit) * var(--glow-strength));
   --glow-shadow: 0 0 var(--glow-radius) var(--glow-color);

@@ -11,13 +11,15 @@
   width: 100%;
   height: 100%;
   position: relative;
-  perspective: var(--container-max);
-  border-radius: var(--radius-xs);
-  z-index: var(--z-card);
+  perspective: 1200px;
+  border-radius: var(--space-sm);
+  z-index: 200;
   animation: zero-gravity-float 18s ease-in-out infinite;
   will-change: transform;
 
-  &.is-flipped .artifact-inner { transform: rotateY(180deg); }
+  &.is-flipped .artifact-inner {
+    transform: rotateY(180deg);
+  }
 }
 
 .artifact-inner {
@@ -28,41 +30,41 @@
   transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* =====================
-  FACES – BASE
-===================== */
+/* =============
+  FACES BASE
+============= */
 .artifact-face {
   position: absolute;
-  inset: var(--z-background);
+  inset: 0;
   width: 100%;
   height: 100%;
-  border-radius: var(--radius-xs);
+  border-radius: var(--space-xs);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   overflow: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-/* =====================
+/* =========
   FRONT
-===================== */
+========= */
 .artifact-front {
   display: flex;
   flex-direction: column;
+  background-color: var(--card-brand);
   padding: var(--space-xs);
-  z-index: var(--z-artifact);
+  z-index: 2;
   transform: rotateY(0deg);
-  background: var(--card-brand);
 }
 
 .artifact-photo {
   position: relative;
   height: calc(100% - 50px);
-
+  
   img {
     width: 100%;
     height: 100%;
-    border-radius: var(--radius-xs);
+    border-radius: 4px;
     object-fit: cover;
     filter: grayscale(20%) contrast(1.1);
   }
@@ -73,100 +75,91 @@
   padding: 10px 0;
   text-align: center;
   font-family: var(--font-fancy);
-  font-size: var(--space-md);
-  font-weight: var(--font-semibold);
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--text-card);
 }
 
-/* =====================
+/* ==========
   BACK
-===================== */
+========== */
 .artifact-back {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: var(--space-md);
-  z-index: var(--z-cosmic);
-  background: var(--card-verse);
+  background-color: var(--card-verse);
   color: var(--text-primary);
-  opacity: var(--z-background);
+  padding: var(--space-md);
+  z-index: 1;
+  opacity: 0;
   visibility: hidden;
   transform: rotateY(180deg) translateZ(1px);
 }
 
 .is-flipped {
   .artifact-front {
-    opacity: var(--z-background);
+    opacity: 0;
     visibility: hidden;
   }
-
   .artifact-back {
-    opacity: var(--z-cosmic);
+    opacity: 1;
     visibility: visible;
-    z-index: var(--z-artifact-back);
-    transform: rotateY(0deg);
+    z-index: 3;
   }
 }
 
-/* =====================
-  STACK
-===================== */
-.artifact-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
-
-/* =====================
+/* ==============
   CTA BUTTON
-===================== */
+============== */
 .artifact-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
   padding: 10px 15px;
+  margin-top: auto;
   border-radius: 50px;
-  border: 2px solid var(--energy-main);
-  background: transparent;
-  font-size: var(--font-xs);
-  font-weight: var(--font-semibolder);
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--energy-main);
   cursor: pointer;
+  color: var(--card-accent);
+  background-color: transparent;
+  border: 2px solid var(--brand-accent);
   transition: all 0.3s ease;
 
   &:hover {
-    background: var(--energy-main);
-    color: var(--layer-base);
-    box-shadow: 0 0 calc(20px * var(--glow-strength))var(--glow-color);
+    background-color: var(--brand-accent);
+    box-shadow: 0 4px 15px var(--brand-accent);
   }
 }
 
-/* ==========================
-  DECORATIVE – ALIEN SCAN
-========================== */
+.artifact-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* =======================
+  DECORATIVE ELEMENTS
+======================= */
 .alien-scan-marker {
   position: absolute;
   top: 15px;
   right: 15px;
   width: 24px;
   height: 24px;
-  opacity: var(--z-background);
+  color: var(--brand-accent);
+  filter: drop-shadow(0 0 4px var(--brand-accent));
+  opacity: 0;
   visibility: hidden;
   transform: scale(0.8);
   pointer-events: none;
   transition: opacity 0.3s ease,transform 0.3s ease,visibility 0.3s ease;
-
-  .alien-scan-svg {
-    stroke: var(--energy-main);
-    filter: drop-shadow(0 0 calc(6px * var(--glow-strength))var(--glow-color));
-  }
 }
 
 .artifact-card:hover .alien-scan-marker {
-  opacity: var(--z-cosmic);
+  opacity: 1;
   visibility: visible;
   transform: scale(1) rotate(90deg);
 }
