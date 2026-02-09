@@ -2,22 +2,50 @@
   SOLAR THEME
 =============== */
 [data-theme='solar'] {
+  /* BASE */
   --bg-space: #12100b;
   --bg-space-alt: #1a170f;
 
+  /* LAYERS */
   --layer-base: #1e1a12;
   --layer-surface: #262115;
   --layer-elevated: #2f291a;
 
+  /* TEXT */
   --text-primary: #f5f1e8;
   --text-secondary: #d6cbb3;
   --text-muted: #a89a7a;
 
+  /* STAR */
+  --stars-df: #fff; 
+  --stars-bg: #888;
+
+  /* ENERGY */
   --energy-main: #f2b705;
   --energy-soft: #ffd773;
 
+  /* FX */
   --glow-color: rgba(242, 183, 5, 0.35);
   --shadow-color: rgba(0, 0, 0, 0.65);
+
+  /* STACK-PILLS */
+  --pill-fe: #3855f8;
+  --pill-be: #419100;    
+  --pill-db: #f59e0b;    
+  --pill-do: #ff0026;   
+  --pill-cms: #ff399f;    
+  --pill-tool: #1b1b1b;  
+
+  /* Pills text (auto contrast) */
+  --pill-text-dark: #020205;
+  --pill-text-light: #ffffff;
+
+  /* Pills shape & motion */
+  --pill-radius: 999px;
+  --pill-font-size: var(--font-xs);
+  --pill-font-weight: var(--font-semibold);
+  --pill-padding-y: 6px;
+  --pill-padding-x: 14px;
 
   /* =========================
     ABOUT / 386 – VERDE
@@ -27,5 +55,6 @@
   --about-text-mono: #f5f1e8;
   --about-text-status: #f2b705;
 
+  /* GLOW específico do about */
   --about-neon-glow: rgba(61, 255, 47, 0.55);
 }
