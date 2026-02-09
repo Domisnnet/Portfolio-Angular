@@ -1,11 +1,11 @@
 [data-theme='cosmic'] {
   --terminal-bg-strong: rgba(6, 10, 18, 0.85);
   --terminal-bg-soft: rgba(6, 10, 18, 0.35);
-  --terminal-border: rgba(var(--cosmic-accent-rgb), 0.15);
+  --terminal-border: rgba(var(--artifact-brand-rgb), 0.15);
   --terminal-blur: 4px;
   --terminal-text-primary: var(--text-primary);
   --terminal-text-secondary: var(--text-secondary);
-  --terminal-accent-rgb: var(--cosmic-accent-rgb);
+  --terminal-accent-rgb: var(--artifact-brand-rgb);
   --terminal-horizon-energy: 0.55;
   --terminal-horizon-depth: 36px;
 }
