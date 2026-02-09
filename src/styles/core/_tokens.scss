@@ -15,6 +15,7 @@
   /* --- Font Weights --- */
   --font-regular: 400;
   --font-semibold: 600;
+  --font-semibolder: 700;
   --font-bold: 800;
   --font-bolder: 900;
 
@@ -27,6 +28,7 @@
   --space-xxl: 3rem;     
 
   /* --- Border Radius --- */
+  --radius-xs: 4px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -46,12 +48,16 @@
   /* Z-index */
   --z-background: 0;
   --z-cosmic: 1;
+  --z-artifact: 2;
+  --z-artifact-back: 3;
   --z-content: 5;
   --z-scanning: 10;
+  --z-card: 200;
   --z-header: 1000;
   --z-overlay: 1200;
   --z-modal: 2000;
 
+  /* Transition */
   --transition-fast: 0.25s ease;
   --transition-medium: 0.4s ease;
 

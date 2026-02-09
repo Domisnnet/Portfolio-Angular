@@ -14,7 +14,15 @@
 @keyframes revealPill {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
-}  
+} 
+
+@keyframes zero-gravity-float {
+  0% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
+  25% { transform: translate3d(6px, -10px, 0) rotateZ(0.6deg); }
+  50% { transform: translate3d(-6px, -14px, 0) rotateZ(-0.6deg); }
+  75% { transform: translate3d(4px, -8px, 0) rotateZ(0.4deg); }
+  100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
+}
 
 @keyframes nebula-drift {
   from { transform: scale(1) rotate(0deg); opacity: 0.85; }
