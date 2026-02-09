@@ -1,16 +1,11 @@
 :host {
-  display: block;
-  position: fixed; 
-  top: 0;
-  left: 0;
-  width: 100vw;    
-  height: 100vh;    
+  position: fixed;
+  inset: 0;
   pointer-events: none;
-  overflow: hidden;
-  z-index: var(--z-cosmic, 1); 
+  z-index: var(--z-cosmic-stars, 0);
 }
 
-.stars-canvas {
+canvas {
   display: block;
   width: 100%;
   height: 100%;

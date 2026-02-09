@@ -18,7 +18,7 @@ export class ThemeService {
   toggle() {
     const current =
       document.documentElement.getAttribute('data-theme') ?? 'cosmic';
-    const next = current === 'cosmic' ? 'light' : 'cosmic';
+    const next = current === 'cosmic' ? 'solar' : 'cosmic';
     this.apply(next);
     localStorage.setItem(this.STORAGE_KEY, next);
   }

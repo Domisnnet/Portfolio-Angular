@@ -1,7 +1,7 @@
 /* ========================
   COSMIC EFFECTS — BASE
 ======================== */
-.stars-overlay,
+.stars-canvas,
 .cosmic-grid-overlay,
 .cosmic-beam,
 .wormhole {
@@ -13,7 +13,7 @@
   FULL — EXPERIÊNCIA COMPLETA
 ============================== */
 html[data-cosmic-effects='full'] {
-  .stars-overlay { opacity: 1; }
+  .stars-canvas { opacity: 1; }
   .cosmic-grid-overlay { opacity: 0.4; }
   .cosmic-beam { opacity: 0.8; }
   .wormhole { opacity: 1; filter: blur(0); }
@@ -23,7 +23,7 @@ html[data-cosmic-effects='full'] {
   MINIMAL — HEADER / UX
 ========================= */
 html[data-cosmic-effects='minimal'] {
-  .stars-overlay { opacity: 0.4; }
+  .stars-canvas { opacity: 0.4; }
   .cosmic-grid-overlay,
   .cosmic-beam { opacity: 0; }
   .wormhole { opacity: 0.2; filter: blur(6px); }
@@ -33,7 +33,7 @@ html[data-cosmic-effects='minimal'] {
   SILENT — PERFORMANCE
 ======================== */
 html[data-cosmic-effects='silent'] {
-  .stars-overlay,
+  .stars-canvas,
   .cosmic-grid-overlay,
   .cosmic-beam,
   .wormhole {

@@ -30,8 +30,3 @@
     animation: flow-line 3s linear infinite;
   }
 }
-
-@keyframes flow-line {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
