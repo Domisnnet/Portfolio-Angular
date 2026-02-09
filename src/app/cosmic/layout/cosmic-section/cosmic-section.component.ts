@@ -7,10 +7,8 @@ import { LayerIndicatorComponent } from '@app/cosmic/components/layer-indicator/
   standalone: true,
   imports: [LayerIndicatorComponent],
   templateUrl: './cosmic-section.component.html',
-  styleUrls: ['./cosmic-section.component.scss']
+  styleUrls: ['./cosmic-section.component.scss'],
 })
 export class CosmicSectionComponent {
-
   cosmicLayer = inject(CosmicLayerService);
-
 }

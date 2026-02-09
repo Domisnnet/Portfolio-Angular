@@ -1,7 +1,7 @@
 .cosmic-section {
   position: relative;
-  min-height: 100vh;
-  isolation: isolate;
-  contain: layout paint;
+  width: 100vh;
+  height: 100vh;
   transition: transform 1.2s ease,filter 1.2s ease;
+  z-index: var(--z-background, 0);
 }
