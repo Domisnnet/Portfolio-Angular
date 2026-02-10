@@ -1,15 +1,26 @@
-<section class="projects-container cosmic-section" data-cosmic-effects="full">
-  <header class="page-header">
-    <h1>Meus Trabalhos</h1>
-    <p>Artefatos tecnológicos recuperados.</p>
-  </header>
-  <div class="projects-grid">
-    @for (project of projects(); track project.title; let i = $index) {
-      <app-project-card
-        [project]="project"
-        [index]="i"
-        [style.--rotation]="i % 2 === 0 ? '2deg' : '-2deg'"
-      ></app-project-card>
-    }
-  </div>
+<section class="projects-container" data-cosmic-effects="full">
+  <app-cosmic-root>
+    <app-cosmic-nebula />
+    <app-cosmic-beam />
+    <app-cosmic-grid />
+    <div class="scanning-artifact">
+      <app-scanning-artifact />
+      <span class="status-line">SCANNING_ARTIFACTS...</span> 
+      <span class="status-line">ENERGY_LEVEL: 98%</span> 
+      <span class="status-line">TARGET_LOCKED</span>
+    </div> 
+    <header class="page-header">
+      <h1>Meus Trabalhos</h1>
+      <p>Artefatos tecnológicos recuperados.</p>
+    </header>
+    <div class="projects-grid">
+      @for (project of projects(); track project.title; let i = $index) {
+        <app-project-card
+          [project]="project"
+          [index]="i"
+          [style.--rotation]="i % 2 === 0 ? '2deg' : '-2deg'"
+        ></app-project-card>
+      }
+    </div>
+  </app-cosmic-root>  
 </section>

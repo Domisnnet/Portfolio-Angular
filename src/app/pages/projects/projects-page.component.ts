@@ -1,5 +1,10 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScanningArtifactComponent } from '@app/cosmic/components/scanning-artifact/scanning-artifact.component';
+import { CosmicNebulaComponent } from '@app/cosmic/components/cosmic-nebula/cosmic-nebula.component';
+import { CosmicBeamComponent } from '@app/cosmic/components/cosmic-beam/cosmic-beam.component';
+import { CosmicGridComponent } from '@app/cosmic/components/cosmic-grid/cosmic-grid.component';
+import { CosmicRootComponent } from '@app/cosmic/components/cosmic-root/cosmic-root.component';
 import { ProjectCardComponent } from '@app/components/project-card/project-card.component';
 import { TagKey } from '@app/constants/project-tags.config';
 
@@ -14,7 +19,15 @@ export interface Project {
 @Component({
   selector: 'app-projects-page',
   standalone: true,
-  imports: [CommonModule, ProjectCardComponent],
+  imports: [
+    CommonModule, 
+    CosmicRootComponent,
+    ScanningArtifactComponent,
+    CosmicNebulaComponent,
+    CosmicBeamComponent,
+    CosmicGridComponent,
+    ProjectCardComponent
+  ],
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
