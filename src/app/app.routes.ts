@@ -54,7 +54,7 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'domisdev-v1.0',
+        path: 'domisdev',
         loadComponent: () =>
           import('./components/footer/pages/domisdev/domisdev.component').then(
             (m) => m.DomisdevComponent),
