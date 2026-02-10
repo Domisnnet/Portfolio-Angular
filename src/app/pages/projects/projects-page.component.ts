@@ -1,7 +1,7 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectCardComponent } from '../../components/project-card/project-card.component';
-import { TagKey } from '../../constants/project-tags.config';
+import { ProjectCardComponent } from '@app/components/project-card/project-card.component';
+import { TagKey } from '@app/constants/project-tags.config';
 
 export interface Project {
   title: string;
