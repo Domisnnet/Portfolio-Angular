@@ -14,7 +14,6 @@ export class WormholeComponent {
   layer = computed(() => this.cosmic.layer());
 
   isActive = computed(() =>
-    this.layer() === 'wormhole' ||
-    this.layer() === 'transition'
+    this.layer() === 'wormhole' 
   );
 }
