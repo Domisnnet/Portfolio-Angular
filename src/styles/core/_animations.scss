@@ -24,6 +24,12 @@
   100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
 }
 
+@keyframes heroFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-24px); }
+  100% { transform: translateY(0); }
+}
+
 @keyframes nebula-drift {
   from { transform: translate3d(0, 0, 0) scale(1); }
   to { transform: translate3d(-12%, -8%, 0) scale(1.15); }
