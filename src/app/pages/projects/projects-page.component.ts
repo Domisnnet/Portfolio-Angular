@@ -1,5 +1,6 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CosmicStarsComponent } from '@app/cosmic/components/cosmic-stars/cosmic-stars.component';
 import { ScanningArtifactComponent } from '@app/cosmic/components/scanning-artifact/scanning-artifact.component';
 import { CosmicNebulaComponent } from '@app/cosmic/components/cosmic-nebula/cosmic-nebula.component';
 import { CosmicBeamComponent } from '@app/cosmic/components/cosmic-beam/cosmic-beam.component';
@@ -22,6 +23,7 @@ export interface Project {
   imports: [
     CommonModule, 
     CosmicRootComponent,
+    CosmicStarsComponent,
     ScanningArtifactComponent,
     CosmicNebulaComponent,
     CosmicBeamComponent,

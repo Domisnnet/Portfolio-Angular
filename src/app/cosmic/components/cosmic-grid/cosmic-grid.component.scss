@@ -4,18 +4,7 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity var(--motion-slow);
-}
-
-html[data-cosmic-effects='full'] app-cosmic-grid {
-  opacity: 1;
-}
-
-html[data-cosmic-effects='minimal'] app-cosmic-grid {
-  opacity: 0.25;
-}
-
-html[data-cosmic-effects='silent'] app-cosmic-grid {
-  opacity: 0;
+  z-index: 3;
 }
 
 .cosmic-grid {
@@ -44,4 +33,16 @@ html[data-cosmic-effects='silent'] app-cosmic-grid {
     radial-gradient(circle at center,var(--glow-color),transparent 70%);
   opacity: 0.15;
   animation: grid-pulse 12s ease-in-out infinite;
+}
+
+html[data-cosmic-effects='full'] app-cosmic-grid {
+  opacity: 1;
+}
+
+html[data-cosmic-effects='minimal'] app-cosmic-grid {
+  opacity: 0.25;
+}
+
+html[data-cosmic-effects='silent'] app-cosmic-grid {
+  opacity: 0;
 }
