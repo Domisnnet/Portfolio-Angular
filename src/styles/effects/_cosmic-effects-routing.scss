@@ -1,0 +1,159 @@
+/* =========================
+  BASE — TODOS OS EFEITOS
+========================= */
+.stars-canvas,
+.scanning-artifact,
+.cosmic-beam,
+.cosmic-grid,
+.wormhole {
+  pointer-events: none;
+  transition: opacity 0.6s ease,transform 0.6s ease,filter 0.6s ease;
+}
+
+/* ==============================
+  FULL — EXPERIÊNCIA COMPLETA
+============================== */
+html[data-cosmic-effects='full'] {
+  .stars-canvas,
+  .scanning-artifact
+  .cosmic-beam,
+  .cosmic-grid {
+    opacity: 1;
+  }
+}
+
+/* =========================
+  MINIMAL — UX / HEADER
+========================= */
+html[data-cosmic-effects='minimal'] {
+  .stars-canvas,
+  .stars-overlay {
+    opacity: 0.35;
+  }
+
+  .scanning-artifact,
+  .cosmic-beam,
+  .cosmic-grid,
+  .wormhole {
+    opacity: 0;
+  }
+}
+
+/* ========================
+  SILENT — PERFORMANCE
+======================== */
+html[data-cosmic-effects='silent'] {
+  .stars-canvas,
+  .scanning-artifact,
+  .cosmic-beam,
+  .cosmic-grid,
+  .wormhole {
+    display: none;
+    opacity: 0;
+  }
+}
+
+/* =========================
+  Deep Space - Estável
+========================= */
+html[data-layer='deep-space'] {
+  .stars-canvas,
+  .stars-overlay {
+    opacity: 1;
+  }
+
+  .scanning-artifact {
+    opacity: 1;
+  }
+
+  .cosmic-beam,
+  .cosmic-grid {
+    opacity: 0.12;
+  }
+
+  .wormhole {
+    opacity: 0;
+  }
+}
+
+/* ============================
+  Stable Orbit - Exploração
+============================ */
+html[data-layer='stable-orbit'] {
+  .scanning-artifact {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .cosmic-grid {
+    opacity: 0.18;
+  }
+
+  .cosmic-beam {
+    opacity: 0.25;
+  }
+
+  .wormhole {
+    opacity: 0;
+  }
+}
+
+/* =============================
+  Unstable Orbit — PRÉ-SALTO
+============================= */
+html[data-layer='unstable-orbit'] {
+  .scanning-artifact {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  .cosmic-beam,
+  .cosmic-grid {
+    opacity: 0;
+    filter: blur(4px);
+  }
+
+  .stars-canvas {
+    opacity: 0.6;
+  }
+
+  .wormhole {
+    opacity: 0.35;
+  }
+}
+
+/* =========================
+  WORMHOLE — EVENTO
+========================= */
+html[data-layer='wormhole'] {
+  .stars-canvas {
+    opacity: 0.25;
+  }
+
+  .scanning-artifact,
+  .cosmic-beam,
+  .cosmic-grid {
+    opacity: 0;
+  }
+
+  .wormhole {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* =========================
+  DESKTOP — BEAM ATIVO
+========================= */
+@media (min-width: 1024px) {
+  .cosmic-beam { display: block; }
+  .cosmic-grid { display: none; }
+}
+
+/* =========================
+  TABLET / MOBILE — GRID
+========================= */
+@media (max-width: 1023px) {
+  .cosmic-beam { display: none; }
+  .cosmic-grid { display: block; }
+}
