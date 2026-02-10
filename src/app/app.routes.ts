@@ -7,7 +7,7 @@ export const routes: Routes = [
     component: CosmicLayoutComponent,
     children: [
       {
-        path: '',
+        path: 'home',
         loadComponent: () =>
           import('./pages/home/home.component').then(
             (m) => m.HomeComponent),
@@ -28,6 +28,22 @@ export const routes: Routes = [
             (m) => m.ContactPageComponent
           ),
         data: { cosmic: 'minimal' },
+      },
+      {
+        path: 'main-footer',
+        loadComponent: () =>
+          import('./components/footer/main-footer/main-footer.component').then(
+            (m) => m.MainFooterComponent
+          ),
+        data: { cosmic: 'silent' },
+      },
+      {
+        path: 'terminal-footer',
+        loadComponent: () =>
+          import('./components/footer/terminal-footer/terminal-footer.component').then(
+            (m) => m.TerminalFooterComponent
+          ),
+        data: { cosmic: 'silent' },
       },
       {
         path: 'about',

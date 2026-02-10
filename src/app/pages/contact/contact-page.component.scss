@@ -3,13 +3,12 @@
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 15;
 }
 
-.cosmic-section {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
+.projects-container {
+  position: fixed;
+  width: 100%;
 }
 
 .main-contct {
