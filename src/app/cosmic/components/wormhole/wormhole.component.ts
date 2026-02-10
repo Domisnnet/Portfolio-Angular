@@ -1,5 +1,5 @@
 import { Component, computed } from '@angular/core';
-import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer-service';
+import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 
 @Component({
   selector: 'app-wormhole',

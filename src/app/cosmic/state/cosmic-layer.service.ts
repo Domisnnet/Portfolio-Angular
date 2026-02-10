@@ -1,6 +1,6 @@
 import { Injectable, effect } from '@angular/core';
-import { cosmicLayerSignal } from './cosmic-layer-signal';
-import { CosmicLayer } from './cosmic-layer-types';
+import { cosmicLayerSignal } from './cosmic-layer.signal';
+import { CosmicLayer } from './cosmic-layer.types';
 
 @Injectable({
   providedIn: 'root'
