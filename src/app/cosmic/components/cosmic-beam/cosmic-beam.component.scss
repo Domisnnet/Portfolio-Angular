@@ -15,10 +15,14 @@ html[data-cosmic-effects='minimal'] app-cosmic-beam {
   opacity: 0;
 }
 
+html[data-cosmic-effects='silent'] app-cosmic-beam {
+  opacity: 0;
+}
+
 .cosmic-beam {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center,var(--glow-color),transparent 65%);
+  background: radial-gradient(circle at center,var(--artifact-brand-rgb-neon),transparent 65%);
   filter: blur(40px);
   animation: cosmic-pulse 12s ease-in-out infinite;
 }
@@ -27,7 +31,7 @@ html[data-cosmic-effects='minimal'] app-cosmic-beam {
   position: absolute;
   inset: 20%;
   border-radius: 50%;
-  background: radial-gradient(circle,var(--energy-main),transparent 70%);
-  box-shadow: 0 0 60px var(--glow-color),0 0 140px var(--glow-color);
+  background: radial-gradient(circle,var(--artifact-brand-neon),transparent 70%);
+  box-shadow: 0 0 60px var(--artifact-brand-rgb-neon),0 0 140px var(--artifact-brand-rgb-neon);
   animation: beam-breathe 6s ease-in-out infinite;
 }

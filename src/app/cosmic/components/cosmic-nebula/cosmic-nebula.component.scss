@@ -14,6 +14,10 @@ html[data-cosmic-effects='minimal'] app-cosmic-nebula {
   opacity: 0.15;
 }
 
+html[data-cosmic-effects='silent'] app-cosmic-nebula {
+  opacity: 0;
+}
+
 .nebula-layer {
   position: absolute;
   inset: 0;
