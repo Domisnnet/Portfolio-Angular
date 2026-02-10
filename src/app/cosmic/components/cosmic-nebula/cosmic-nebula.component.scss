@@ -1,0 +1,51 @@
+:host {
+  position: absolute;
+  inset: -30%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--motion-slow);
+}
+
+html[data-cosmic-effects='full'] app-cosmic-nebula {
+  opacity: 0.55;
+}
+
+html[data-cosmic-effects='minimal'] app-cosmic-nebula {
+  opacity: 0.15;
+}
+
+.nebula-layer {
+  position: absolute;
+  inset: 0;
+  filter: blur(80px);
+  mix-blend-mode: screen;
+}
+
+.nebula {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle,rgba(var(--artifact-brand-rgb), 0.35),transparent 70%);
+  animation: nebula-drift 90s linear infinite;
+}
+
+.nebula-a {
+  top: 10%;
+  left: 15%;
+  animation-duration: 120s;
+}
+
+.nebula-b {
+  top: 40%;
+  left: 55%;
+  background: radial-gradient(circle,var(--energy-soft),transparent 75%);
+  animation-duration: 160s;
+}
+
+.nebula-c {
+  top: 65%;
+  left: 25%;
+  background: radial-gradient(circle,var(--glow-color),transparent 80%);
+  animation-duration: 200s;
+}
