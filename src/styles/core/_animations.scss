@@ -29,6 +29,16 @@
   to { transform: scale(1.14) rotate(6deg); opacity: 1; }
 }
 
+@keyframes cosmic-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.45; }
+  50% { transform: scale(1.08); opacity: 0.7; }
+}
+
+@keyframes beam-breathe {
+  0%, 100% { transform: scale(0.95); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
 @keyframes beam-pulse {
   0%, 100% { opacity: calc(var(--beam-opacity, 0.25) * 0.6);transform: scale(1); }
   50% { opacity: var(--beam-opacity, 0.25);transform: scale(1.05); }

@@ -4,12 +4,30 @@
   pointer-events: none;
   opacity: 0;
   transition: opacity var(--motion-slow);
+  mix-blend-mode: screen;
 }
 
 html[data-cosmic-effects='full'] app-cosmic-beam {
-  opacity: var(--cosmic-beam-opacity);
+  opacity: var(--cosmic-beam-opacity, 0.55);
 }
 
 html[data-cosmic-effects='minimal'] app-cosmic-beam {
   opacity: 0;
+}
+
+.cosmic-beam {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,var(--glow-color),transparent 65%);
+  filter: blur(40px);
+  animation: cosmic-pulse 12s ease-in-out infinite;
+}
+
+.beam-core {
+  position: absolute;
+  inset: 20%;
+  border-radius: 50%;
+  background: radial-gradient(circle,var(--energy-main),transparent 70%);
+  box-shadow: 0 0 60px var(--glow-color),0 0 140px var(--glow-color);
+  animation: beam-breathe 6s ease-in-out infinite;
 }
