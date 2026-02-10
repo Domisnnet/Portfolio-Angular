@@ -64,6 +64,19 @@
   to { opacity: 0.6; }
 }
 
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 
+    calc(var(--grid-size, 40px) * -1)
+    calc(var(--grid-size, 40px) * -1); 
+  }
+}
+
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.22; }
+}
+
 @keyframes grid-move {
   from { background-position: 0 0; }
   to { background-position: 600px 600px; }
