@@ -30,22 +30,6 @@ export const routes: Routes = [
         data: { cosmic: 'minimal' },
       },
       {
-        path: 'main-footer',
-        loadComponent: () =>
-          import('./components/footer/main-footer/main-footer.component').then(
-            (m) => m.MainFooterComponent
-          ),
-        data: { cosmic: 'silent' },
-      },
-      {
-        path: 'terminal-footer',
-        loadComponent: () =>
-          import('./components/footer/terminal-footer/terminal-footer.component').then(
-            (m) => m.TerminalFooterComponent
-          ),
-        data: { cosmic: 'silent' },
-      },
-      {
         path: 'about',
         loadComponent: () =>
           import('./components/footer/pages/about/about-page.component').then(
