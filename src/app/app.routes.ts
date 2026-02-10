@@ -7,7 +7,7 @@ export const routes: Routes = [
     component: CosmicLayoutComponent,
     children: [
       {
-        path: 'home',
+        path: '',
         loadComponent: () =>
           import('./pages/home/home.component').then(
             (m) => m.HomeComponent),
