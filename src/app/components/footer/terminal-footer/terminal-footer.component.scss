@@ -3,10 +3,11 @@
   bottom: 0;
   width: 100%;
   padding: 6px 14px;
-  font-size: var(--space-sm);
+  font-size: var(--font-xs);
   opacity: 0.75;
   pointer-events: none;
 }
 
+.mono { font-family: var(--font-mono); }
 .terminal-text { letter-spacing: 0.05em; }
 .cursor { animation: blink 1.6s steps(1) infinite; opacity: 0.6; }
