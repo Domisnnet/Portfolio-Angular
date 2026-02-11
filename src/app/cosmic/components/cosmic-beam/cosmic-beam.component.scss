@@ -1,23 +1,55 @@
 :host {
   position: absolute;
-  inset: -30%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
   pointer-events: none;
-  mix-blend-mode: screen;
   z-index: var(--z-beam);
 }
 
-.cosmic-beam {
+/* ==================
+  Disco Principal
+================== */
+.cosmic-tractor-beam {
   position: relative;
-  background: radial-gradient(circle at center,rgba(var(--artifact-brand-rgb-neon), 0.6),transparent 65%);
-  filter: blur(40px);
-  animation: cosmic-pulse 12s ease-in-out infinite;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  background: radial-gradient(circle at center,
+    rgba(var(--artifact-brand-rgb-neon), 0.6) 0%,
+    rgba(var(--artifact-brand-rgb-neon), 0.45) 10%,
+    rgba(var(--artifact-brand-rgb-neon), 0.35) 22%,
+    rgba(var(--artifact-brand-rgb-neon), 0.25) 40%,
+    rgba(var(--artifact-brand-rgb-neon), 0.18) 55%,
+    rgba(var(--artifact-brand-rgb-neon), 0.1) 70%, transparent 82% );
+  filter: blur(12px);
+  animation: beam-pulse-expand 6s ease-in-out infinite;
 }
 
+/* ===========================
+  Núcleo Alienígena
+=========================== */
 .beam-core {
   position: absolute;
-  inset: 20%;
+  inset: 46%;
   border-radius: 50%;
-  background: radial-gradient(circle,var(--artifact-brand-neon),transparent 70%);
-  box-shadow: 0 0 60px rgba(var(--artifact-brand-rgb-neon), 0.7), 0 0 140px rgba(var(--artifact-brand-rgb-neon), 0.5);
-  animation: beam-breathe 6s ease-in-out infinite;
+  background: radial-gradient(circle, var(--artifact-brand-neon) 0%,
+    rgba(var(--artifact-brand-rgb-neon), 0.9) 25%,
+    rgba(var(--artifact-brand-rgb-neon), 0.5) 45%, transparent 65% );
+  filter: blur(18px);
+  animation: beam-core-breathe 3.5s ease-in-out infinite;
+}
+
+/* ===========================
+  Onda de Expansão
+=========================== */
+.beam-wave {
+  position: absolute;
+  inset: -8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 58%,
+    rgba(var(--artifact-brand-rgb-neon), 0.6) 62%,
+    rgba(var(--artifact-brand-rgb-neon), 0.4) 66%, transparent 72% );
+  animation: beam-wave-expand 6s cubic-bezier(.22,.61,.36,1) infinite;
 }

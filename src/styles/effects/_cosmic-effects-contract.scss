@@ -4,7 +4,7 @@
 app-scanning-artifact,
 app-cosmic-stars,
 app-cosmic-nebula,
-app-cosmic-beam,
+app-cosmic-tractor-beam,
 app-cosmic-grid,
 app-wormhole {
   pointer-events: none;
@@ -18,7 +18,7 @@ html[data-cosmic-effects='full'] {
   app-scanning-artifact { opacity: 1; }
   app-cosmic-stars { opacity: 1; }
   app-cosmic-nebula { opacity: 0.55; }
-  app-cosmic-beam { opacity: 0.55; }
+  app-cosmic-tractor-beam { opacity: 0.55; }
   app-cosmic-grid { opacity: 1; }
 }
 
@@ -29,7 +29,7 @@ html[data-cosmic-effects='minimal'] {
   app-scanning-artifact { opacity: 0.5; }
   app-cosmic-stars { opacity: 0.5; }
   app-cosmic-nebula { opacity: 0.15; }
-  app-cosmic-beam { opacity: 0; }
+  app-cosmic-tractor-beam { opacity: 0; }
   app-cosmic-grid { opacity: 0.25; }
 }
 
@@ -40,7 +40,7 @@ html[data-cosmic-effects='silent'] {
   app-scanning-artifact,
   app-cosmic-stars,
   app-cosmic-nebula,
-  app-cosmic-beam,
+  app-cosmic-tractor-beam,
   app-cosmic-grid,
   app-wormhole {
     opacity: 0;

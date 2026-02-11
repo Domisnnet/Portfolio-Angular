@@ -4,7 +4,7 @@
 .stars-canvas,
 .nebula-layer,
 .scanning-artifact,
-.cosmic-beam,
+.cosmic-tractor-beam,
 .cosmic-grid,
 .wormhole {
   pointer-events: none;
@@ -18,7 +18,7 @@ html[data-cosmic-effects='full'] {
   .stars-canvas,
   .nebula-layer,
   .scanning-artifact
-  .cosmic-beam,
+  .cosmic-tractor-beam,
   .cosmic-grid {
     opacity: 1;
   }
@@ -35,7 +35,7 @@ html[data-cosmic-effects='minimal'] {
   }
 
   .scanning-artifact,
-  .cosmic-beam,
+  .cosmic-tractor-beam,
   .cosmic-grid,
   .wormhole {
     opacity: 0;
@@ -49,7 +49,7 @@ html[data-cosmic-effects='silent'] {
   .stars-canvas,
   .nebula-layer,
   .scanning-artifact,
-  .cosmic-beam,
+  .cosmic-tractor-beam,
   .cosmic-grid,
   .wormhole {
     display: none;
@@ -71,7 +71,7 @@ html[data-layer='deep-space'] {
     opacity: 1;
   }
 
-  .cosmic-beam,
+  .cosmic-tractor-beam,
   .cosmic-grid {
     opacity: 0.12;
   }
@@ -95,7 +95,7 @@ html[data-layer='stable-orbit'] {
   }
 
   .nebula-layer,
-  .cosmic-beam {
+  .cosmic-tractor-beam {
     opacity: 0.25;
   }
 
@@ -114,7 +114,7 @@ html[data-layer='unstable-orbit'] {
   }
 
   .nebula-layer,
-  .cosmic-beam,
+  .cosmic-tractor-beam,
   .cosmic-grid {
     opacity: 0;
     filter: blur(4px);
@@ -139,7 +139,7 @@ html[data-layer='wormhole'] {
 
   .nebula-layer,
   .scanning-artifact,
-  .cosmic-beam,
+  .cosmic-tractor-beam,
   .cosmic-grid {
     opacity: 0;
   }
@@ -154,7 +154,7 @@ html[data-layer='wormhole'] {
   DESKTOP — BEAM ATIVO
 ========================= */
 @media (min-width: 1024px) {
-  .cosmic-beam { display: block; }
+  .cosmic-tractor-beam { display: block; }
   .nebula-layer { display: none; }
   .scanning-artifact { display: none; }
   .cosmic-grid { display: none; }
@@ -166,6 +166,6 @@ html[data-layer='wormhole'] {
 @media (max-width: 1023px) {
   .status-line,
   .nebula-layer,
-  .cosmic-beam { display: none; }
+  .cosmic-tractor-beam { display: none; }
   .cosmic-grid { display: block; }
 }
