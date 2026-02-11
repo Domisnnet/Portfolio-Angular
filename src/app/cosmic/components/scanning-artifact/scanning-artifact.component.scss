@@ -26,3 +26,11 @@
   backdrop-filter: blur(4px);
   animation: statusBlink 2s ease-in-out infinite;
 }
+
+html[data-cosmic-effects='minimal'] app-scanning-artifact {
+  opacity: 0.4;
+}
+
+html[data-cosmic-effects='silent'] app-scanning-artifact {
+  display: none;
+}
