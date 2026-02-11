@@ -1,6 +1,6 @@
 :host {
-  position: fixed;
-  top: 140px;
+  position: absolute;
+  top: 0px;
   left: 60px;
   z-index: var(--z-scanning);
   pointer-events: none;
@@ -20,11 +20,12 @@
   letter-spacing: 0.05em;
   color: var(--artifact-brand);
   background: rgba(var(--artifact-brand-rgb), 0.09);
+  box-shadow: 0 0 12px rgba(var(--artifact-brand-rgb), 0.3);
   border-left: 3px solid var(--artifact-brand);
   border-radius: 0 10px 10px 0;
   padding: 8px 12px;
   backdrop-filter: blur(4px);
-  animation: statusBlink 2s ease-in-out infinite;
+  animation: statusBlink 3s ease-in-out infinite;
 }
 
 html[data-cosmic-effects='minimal'] app-scanning-artifact {
