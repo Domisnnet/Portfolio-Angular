@@ -30,7 +30,7 @@
   100% { transform: translateY(0); }
 }
 
-@keyframes nebula-drift {
+@keyframes nebulaDrift {
   from { transform: translate3d(0, 0, 0) scale(1); }
   to   { transform: translate3d(-12%, -8%, 0) scale(1.15); }
 }
@@ -46,25 +46,13 @@
 }
 
 @keyframes beam-pulse {
-  0%, 100% {
-    opacity: calc(var(--beam-opacity, 0.25) * 0.6);
-    transform: scale(1);
-  }
-  50% {
-    opacity: var(--beam-opacity, 0.25);
-    transform: scale(1.05);
-  }
+  0%, 100% { opacity: calc(var(--beam-opacity, 0.25) * 0.6); transform: scale(1); }
+  50% { opacity: var(--beam-opacity, 0.25); transform: scale(1.05); }
 }
 
 @keyframes energy-breathe {
-  from {
-    opacity: var(--energy-opacity-low);
-    transform: scale(var(--energy-scale-min));
-  }
-  to {
-    opacity: var(--energy-opacity-high);
-    transform: scale(var(--energy-scale-max));
-  }
+  from { opacity: var(--energy-opacity-low); transform: scale(var(--energy-scale-min)); }
+  to { opacity: var(--energy-opacity-high); transform: scale(var(--energy-scale-max)); }
 }
 
 @keyframes stars-drift {
@@ -79,11 +67,7 @@
 
 @keyframes grid-drift {
   from { background-position: 0 0; }
-  to {
-    background-position:
-      calc(var(--grid-size, 40px) * -1)
-      calc(var(--grid-size, 40px) * -1);
-  }
+  to { background-position: calc(var(--grid-size, 40px) * -1) calc(var(--grid-size, 40px) * -1); }
 }
 
 @keyframes statusBlink {
