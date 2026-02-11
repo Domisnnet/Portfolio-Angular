@@ -1,7 +1,6 @@
 :host {
   position: absolute;
   inset: -30%;
-  opacity: 0;
   transition: opacity var(--motion-slow);
   pointer-events: none;
   z-index: var(--z-nebula);
