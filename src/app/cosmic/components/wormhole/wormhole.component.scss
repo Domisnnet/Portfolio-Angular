@@ -1,3 +1,16 @@
+:host {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: var(--z-wormhole);
+  opacity: 0;
+  transition: opacity var(--motion-slow);
+}
+
+:host(.active) {
+  opacity: 1;
+}
+
 .wormhole {
   position: fixed;
   inset: 0;
