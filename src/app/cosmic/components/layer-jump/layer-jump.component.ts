@@ -10,7 +10,6 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 export class LayerJumpComponent {
 
   constructor(private cosmic: CosmicLayerService) {}
-
   advance() {
     this.cosmic.advance();
   }

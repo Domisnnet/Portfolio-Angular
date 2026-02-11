@@ -1,5 +1,7 @@
 .layer-jump {
-  position: fixed;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%);

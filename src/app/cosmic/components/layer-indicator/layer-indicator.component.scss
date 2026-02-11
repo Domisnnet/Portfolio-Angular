@@ -1,12 +1,13 @@
 .layer-indicator {
-  position: fixed;
+  display: flex;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
   bottom: 42px;
   right: 18px;
-  display: flex;
   gap: 6px;
   opacity: 0.6;
-  pointer-events: none;
-  z-index: 50;
+  z-index: var(--z-indicator);
 
   span {
     width: 8px;
