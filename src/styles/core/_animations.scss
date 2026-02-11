@@ -1,9 +1,9 @@
-/* ===============
-  Animations
-=============== */
+/* =========================
+  ANIMATIONS ONLY
+========================= */
 @keyframes pulse {
-  0%, 50% { transform: scale(1); opacity: 0.6; }
-  100% { transform: scale(2.4); opacity: 0; }
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.15); opacity: 0.6; }
 }
 
 @keyframes slide-down {
@@ -13,8 +13,8 @@
 
 @keyframes revealPill {
   from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-} 
+  to   { opacity: 1; transform: translateY(0); }
+}
 
 @keyframes zero-gravity-float {
   0% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
@@ -32,7 +32,7 @@
 
 @keyframes nebula-drift {
   from { transform: translate3d(0, 0, 0) scale(1); }
-  to { transform: translate3d(-12%, -8%, 0) scale(1.15); }
+  to   { transform: translate3d(-12%, -8%, 0) scale(1.15); }
 }
 
 @keyframes cosmic-pulse {
@@ -46,35 +46,43 @@
 }
 
 @keyframes beam-pulse {
-  0%, 100% { opacity: calc(var(--beam-opacity, 0.25) * 0.6);transform: scale(1); }
-  50% { opacity: var(--beam-opacity, 0.25);transform: scale(1.05); }
-}
-
-@keyframes delay-pulse {
-  0%, 60%, 100% { transform: translateX(-50%) scale(1); opacity: 0.6; }
-  30% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+  0%, 100% {
+    opacity: calc(var(--beam-opacity, 0.25) * 0.6);
+    transform: scale(1);
+  }
+  50% {
+    opacity: var(--beam-opacity, 0.25);
+    transform: scale(1.05);
+  }
 }
 
 @keyframes energy-breathe {
-  from { opacity: var(--energy-opacity-low);transform: scale(var(--energy-scale-min)); }
-  to { opacity: var(--energy-opacity-high);transform: scale(var(--energy-scale-max)); }
+  from {
+    opacity: var(--energy-opacity-low);
+    transform: scale(var(--energy-scale-min));
+  }
+  to {
+    opacity: var(--energy-opacity-high);
+    transform: scale(var(--energy-scale-max));
+  }
 }
 
 @keyframes stars-drift {
   from { background-position: 0 0; }
-  to { background-position: -400px 800px; }
+  to   { background-position: -400px 800px; }
 }
 
 @keyframes stars-twinkle {
   from { opacity: 0.25; }
-  to { opacity: 0.6; }
+  to   { opacity: 0.6; }
 }
 
 @keyframes grid-drift {
   from { background-position: 0 0; }
-  to { background-position: 
-    calc(var(--grid-size, 40px) * -1)
-    calc(var(--grid-size, 40px) * -1); 
+  to {
+    background-position:
+      calc(var(--grid-size, 40px) * -1)
+      calc(var(--grid-size, 40px) * -1);
   }
 }
 
@@ -95,7 +103,7 @@
 
 @keyframes orbit-drift {
   from { transform: rotate(0deg); }
-  to { transform: rotate(0.6deg); }
+  to   { transform: rotate(0.6deg); }
 }
 
 @keyframes wormhole-collapse {
@@ -106,40 +114,11 @@
 
 @keyframes wormhole-spin {
   from { transform: rotate(0deg) scale(0.8); opacity: 0.6; }
-  50% { transform: rotate(180deg) scale(1); opacity: 1; }
-  to { transform: rotate(360deg) scale(0.8); opacity: 0.6; }
+  50%  { transform: rotate(180deg) scale(1); opacity: 1; }
+  to   { transform: rotate(360deg) scale(0.8); opacity: 0.6; }
 }
 
-@keyframes pulse { 
-  0%, 100% { transform: scale(1); opacity: 0.9; } 
-  50% { transform: scale(1.15); opacity: 0.6; } 
-}
-
-@keyframes orbitSpin { from { stroke-dashoffset: 0; } to { stroke-dashoffset: 64; } }
-
-/* ===================
-  Media Queries
-=================== */
-@media (max-width: 1024px) {
-  .status-line,
-  .wormhole,
-  .tractor-beam { display: none; }
-  .grid { opacity: 0.55; }
-}
-
-@media (max-width: 768px) {
-  .status-line,
-  .wormhole,
-  .tractor-beam { display: none; }
-  .cosmic-section::before { filter: blur(100px); }
-} 
-
-/* ============
-  Mode
-============ */  
-[data-cosmic-effects='full'] {
-  .cosmic-grid-overlay { 
-    display: none; 
-    @media (max-width: 1024px) { display: block; } 
-  }
+@keyframes orbitSpin {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 64; }
 }
