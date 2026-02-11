@@ -2,6 +2,7 @@
   BASE — TODOS OS EFEITOS
 ========================= */
 .stars-canvas,
+.nebula-layer,
 .scanning-artifact,
 .cosmic-beam,
 .cosmic-grid,
@@ -15,6 +16,7 @@
 ============================== */
 html[data-cosmic-effects='full'] {
   .stars-canvas,
+  .nebula-layer,
   .scanning-artifact
   .cosmic-beam,
   .cosmic-grid {
@@ -27,6 +29,7 @@ html[data-cosmic-effects='full'] {
 ========================= */
 html[data-cosmic-effects='minimal'] {
   .stars-canvas,
+  .nebula-layer,
   .stars-overlay {
     opacity: 0.35;
   }
@@ -44,6 +47,7 @@ html[data-cosmic-effects='minimal'] {
 ======================== */
 html[data-cosmic-effects='silent'] {
   .stars-canvas,
+  .nebula-layer,
   .scanning-artifact,
   .cosmic-beam,
   .cosmic-grid,
@@ -58,6 +62,7 @@ html[data-cosmic-effects='silent'] {
 ========================= */
 html[data-layer='deep-space'] {
   .stars-canvas,
+  .nebula-layer,
   .stars-overlay {
     opacity: 1;
   }
@@ -89,6 +94,7 @@ html[data-layer='stable-orbit'] {
     opacity: 0.18;
   }
 
+  .nebula-layer,
   .cosmic-beam {
     opacity: 0.25;
   }
@@ -107,6 +113,7 @@ html[data-layer='unstable-orbit'] {
     transform: translateX(-12px);
   }
 
+  .nebula-layer,
   .cosmic-beam,
   .cosmic-grid {
     opacity: 0;
@@ -130,6 +137,7 @@ html[data-layer='wormhole'] {
     opacity: 0.25;
   }
 
+  .nebula-layer,
   .scanning-artifact,
   .cosmic-beam,
   .cosmic-grid {
@@ -146,6 +154,7 @@ html[data-layer='wormhole'] {
   DESKTOP — BEAM ATIVO
 ========================= */
 @media (min-width: 1024px) {
+  .nebula-layer,
   .cosmic-beam { display: block; }
   .cosmic-grid { display: none; }
 }
@@ -154,6 +163,7 @@ html[data-layer='wormhole'] {
   TABLET / MOBILE — GRID
 ========================= */
 @media (max-width: 1023px) {
+  .status-line,
   .cosmic-beam { display: none; }
   .cosmic-grid { display: block; }
 }
