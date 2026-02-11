@@ -27,6 +27,30 @@
   --space-lg: 1.5rem;
   --space-xl: 2.5rem;
 
+  /* ===============
+    Border Radius
+  =============== */ 
+  --radius-xs: 4px; 
+  --radius-sm: 8px; 
+  --radius-md: 12px; 
+  --radius-lg: 20px; 
+  --radius-pill: 999px; 
+  
+  /* ============
+    Tamanhos
+  ============ */ 
+  --size-xs: 8px; 
+  --size-sm: 12px; 
+  --size-md: 16px; 
+  --size-lg: 24px; 
+  --container-max: 1200px; 
+  
+  /* ===============
+    HEADER SYSTEM
+  =============== */ 
+  --header-height: 72px; 
+  --blur-header: 12px;
+
   /* =====================
     Z-INDEX SYSTEM
   ===================== */
@@ -38,6 +62,7 @@
   --z-content: 20;
   --z-layer-ui: 30;
   --z-wormhole: 100;
+  --z-footer: 1000;
   --z-header: 1100;
   --z-modal: 2000;
 
