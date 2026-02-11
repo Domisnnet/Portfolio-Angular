@@ -1,6 +1,7 @@
 /* ===========================
   BASE CONTRACT
 =========================== */
+app-scanning-artifact,
 app-cosmic-stars,
 app-cosmic-nebula,
 app-cosmic-beam,
@@ -14,6 +15,7 @@ app-wormhole {
   FULL MODE
 =========================== */
 html[data-cosmic-effects='full'] {
+  app-scanning-artifact { opacity: 1; }
   app-cosmic-stars { opacity: 1; }
   app-cosmic-nebula { opacity: 0.55; }
   app-cosmic-beam { opacity: 0.55; }
@@ -24,6 +26,7 @@ html[data-cosmic-effects='full'] {
   MINIMAL MODE
 =========================== */
 html[data-cosmic-effects='minimal'] {
+  app-scanning-artifact { opacity: 0.5; }
   app-cosmic-stars { opacity: 0.5; }
   app-cosmic-nebula { opacity: 0.15; }
   app-cosmic-beam { opacity: 0; }
@@ -34,6 +37,7 @@ html[data-cosmic-effects='minimal'] {
   SILENT MODE
 =========================== */
 html[data-cosmic-effects='silent'] {
+  app-scanning-artifact,
   app-cosmic-stars,
   app-cosmic-nebula,
   app-cosmic-beam,
