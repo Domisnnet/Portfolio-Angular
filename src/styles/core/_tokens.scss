@@ -1,10 +1,11 @@
 :root {
-  /* Typography */
+  /* =====================
+    TYPOGRAPHY
+  ===================== */
   --font-main: 'Poppins', sans-serif;
   --font-code: 'Fira Code', monospace;
   --font-fancy: 'Dancing Script', cursive;
 
-  /* --- Tamanhos de Fonte --- */
   --font-xs: 0.75rem;
   --font-sm: 0.85rem;
   --font-md: 1rem;
@@ -12,71 +13,46 @@
   --font-xl: 1.5rem;
   --font-xxl: 2rem;
 
-  /* --- Font Weights --- */
   --font-regular: 400;
   --font-semibold: 600;
-  --font-semibolder: 700;
   --font-bold: 800;
   --font-bolder: 900;
 
-  /* --- Espaçamentos --- */
-  --space-xs: 0.5rem;  
-  --space-sm: 0.75rem;  
-  --space-md: 1rem;    
-  --space-lg: 1.5rem;   
-  --space-xl: 2.5rem;   
-  --space-xxl: 3rem;     
+  /* =====================
+    SPACING
+  ===================== */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
 
-  /* --- Border Radius --- */
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
-  --radius-pill: 999px;
-
-  /* --- Tamanhos --- */
-  --size-xs: 8px;
-  --size-sm: 12px;
-  --size-md: 16px;
-  --size-lg: 24px;
-  --container-max: 1200px;
-
-  /* --- HEADER SYSTEM --- */
-  --header-height: 72px;
-  --blur-header: 12px;
-
-  /* Z-index */
-  --z-back: -1;
-  --z-base: 1;
-  --z-card: 10;
-  --z-pill: 20;
-  --z-overlay: 30;
-  --z-scanning: 40;
-  --z-terminal: 50;
+  /* =====================
+    Z-INDEX SYSTEM
+  ===================== */
+  --z-stars: 1;
+  --z-nebula: 2;
+  --z-beam: 3;
+  --z-grid: 4;
+  --z-scanning: 10;
+  --z-content: 20;
+  --z-layer-ui: 30;
+  --z-wormhole: 100;
   --z-header: 1100;
-  --z-footer: 1000;
-  --z-overlay: 1200;
   --z-modal: 2000;
 
-  /* --- OPACITY SYSTEM --- */
-  --op-hidden: 0;    
-  --op-subtle: 0.4;  
-  --op-active: 0.8; 
-  --op-visible: 1;   
+  /* =====================
+    OPACITY
+  ===================== */
+  --op-hidden: 0;
+  --op-subtle: 0.4;
+  --op-active: 0.8;
+  --op-visible: 1;
 
-  /* Transition */
-  --transition-fast: 0.25s ease;
-  --transition-medium: 0.4s ease;
-
-  /* Glow System */
-  --glow-strength: 1;
-  --glow-unit: 24px;
-  --glow-radius: calc(var(--glow-unit) * var(--glow-strength));
-  --glow-shadow: 0 0 var(--glow-radius) var(--glow-color);
-
-  /* Gradients */
-  --energy-gradient: linear-gradient(90deg, transparent, var(--energy-main), transparent);
-
-  /* MOTION */
-  --transition-theme: 420ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* =====================
+    MOTION
+  ===================== */
+  --motion-fast: 0.25s ease;
+  --motion-medium: 0.4s ease;
+  --motion-slow: 0.6s ease;
 }
