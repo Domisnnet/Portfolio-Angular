@@ -8,10 +8,7 @@
 
 .cosmic-root {
   position: relative;
-  width: 100%;
-  min-height: 100vh;
   overflow: hidden;
-  isolation: isolate;
 }
 
 .cosmic-root > ng-content {

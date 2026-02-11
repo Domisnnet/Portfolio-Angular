@@ -12,9 +12,6 @@
     linear-gradient(to right,transparent 97%,var(--energy-soft) 100%),
     linear-gradient(to bottom,transparent 97%,var(--energy-soft) 100%);
   background-size: 60px 60px;
-  opacity: 0.12;
   mix-blend-mode: screen;
-  transform: perspective(900px) rotateX(55deg) scale(1.2);
-  transform-origin: center top;
   animation: grid-drift 80s linear infinite;
 }
