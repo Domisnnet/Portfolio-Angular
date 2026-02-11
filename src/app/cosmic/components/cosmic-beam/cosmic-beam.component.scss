@@ -1,17 +1,17 @@
 :host {
   position: absolute;
-  inset: -40%;
+  inset: -30%;
   pointer-events: none;
   opacity: 0;
   transition: opacity var(--motion-slow);
   mix-blend-mode: screen;
-  z-index: 3;
+  z-index: var(--z-beam);
 }
 
 .cosmic-beam {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center,var(--artifact-brand-rgb-neon),transparent 65%);
+  background: radial-gradient(circle at center,rgba(var(--artifact-brand-rgb-neon), 0.6),transparent 65%);
   filter: blur(40px);
   animation: cosmic-pulse 12s ease-in-out infinite;
 }
@@ -21,18 +21,6 @@
   inset: 20%;
   border-radius: 50%;
   background: radial-gradient(circle,var(--artifact-brand-neon),transparent 70%);
-  box-shadow: 0 0 60px var(--artifact-brand-rgb-neon),0 0 140px var(--artifact-brand-rgb-neon);
+  box-shadow: 0 0 60px rgba(var(--artifact-brand-rgb-neon), 0.7), 0 0 140px rgba(var(--artifact-brand-rgb-neon), 0.5);
   animation: beam-breathe 6s ease-in-out infinite;
-}
-
-html[data-cosmic-effects='full'] app-cosmic-beam {
-  opacity: var(--cosmic-beam-opacity, 0.55);
-}
-
-html[data-cosmic-effects='minimal'] app-cosmic-beam {
-  opacity: 0;
-}
-
-html[data-cosmic-effects='silent'] app-cosmic-beam {
-  opacity: 0;
 }
