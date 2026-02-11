@@ -119,7 +119,6 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
         '[CosmicStars] Missing CSS contract: --stars-df or --star-color'
       );
     }
-  
     return color;
   }  
 
