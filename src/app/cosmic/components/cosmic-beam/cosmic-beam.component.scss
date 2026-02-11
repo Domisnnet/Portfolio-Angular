@@ -2,8 +2,6 @@
   position: absolute;
   inset: -30%;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--motion-slow);
   mix-blend-mode: screen;
   z-index: var(--z-beam);
 }
