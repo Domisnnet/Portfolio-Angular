@@ -17,18 +17,22 @@
 .cosmic-tractor-beam {
   position: relative;
   width: 800px;
-  height: 760px;
+  height: 800px;
   border-radius: 50%;
   mix-blend-mode: screen;
-  background: radial-gradient(circle at center,
-    rgba(var(--artifact-brand-rgb-neon), 0.6) 0%,
-    rgba(var(--artifact-brand-rgb-neon), 0.45) 10%,
-    rgba(var(--artifact-brand-rgb-neon), 0.35) 22%,
-    rgba(var(--artifact-brand-rgb-neon), 0.25) 40%,
-    rgba(var(--artifact-brand-rgb-neon), 0.18) 55%,
-    rgba(var(--artifact-brand-rgb-neon), 0.1) 70%, transparent 82% );
   filter: blur(12px);
   animation: beam-pulse-expand 6s ease-in-out infinite;
+}
+
+.cosmic-tractor-beam::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(var(--artifact-brand-rgb-neon), 0.45) 0%,
+    rgba(var(--artifact-brand-rgb-neon), 0.25) 35%, transparent 70%);
+  filter: blur(18px);
 }
 
 /* ===========================
