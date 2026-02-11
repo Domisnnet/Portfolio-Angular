@@ -154,8 +154,9 @@ html[data-layer='wormhole'] {
   DESKTOP — BEAM ATIVO
 ========================= */
 @media (min-width: 1024px) {
-  .nebula-layer,
   .cosmic-beam { display: block; }
+  .nebula-layer { display: none; }
+  .scanning-artifact { display: none; }
   .cosmic-grid { display: none; }
 }
 
@@ -164,6 +165,7 @@ html[data-layer='wormhole'] {
 ========================= */
 @media (max-width: 1023px) {
   .status-line,
+  .nebula-layer,
   .cosmic-beam { display: none; }
   .cosmic-grid { display: block; }
 }
