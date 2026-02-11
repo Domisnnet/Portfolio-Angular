@@ -79,13 +79,8 @@
 }
 
 @keyframes grid-pulse {
-  0%, 100% { opacity: 0.08; }
+  0%, 100% { opacity: 1; }
   50% { opacity: 0.22; }
-}
-
-@keyframes grid-move {
-  from { background-position: 0 0; }
-  to { background-position: 600px 600px; }
 }
 
 @keyframes statusBlink {
