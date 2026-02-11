@@ -1,10 +1,14 @@
 :host {
-  position: absolute;
+  position: fixed;
+  inset: 0;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -60%);
   pointer-events: none;
   z-index: var(--z-beam);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ==================
@@ -13,7 +17,7 @@
 .cosmic-tractor-beam {
   position: relative;
   width: 800px;
-  height: 800px;
+  height: 760px;
   border-radius: 50%;
   mix-blend-mode: screen;
   background: radial-gradient(circle at center,
