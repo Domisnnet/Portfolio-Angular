@@ -121,7 +121,6 @@
   Media Queries
 =================== */
 @media (max-width: 1024px) {
-  .scanning-artifact,
   .status-line,
   .wormhole,
   .tractor-beam { display: none; }
@@ -129,7 +128,6 @@
 }
 
 @media (max-width: 768px) {
-  .scanning-artifact,
   .status-line,
   .wormhole,
   .tractor-beam { display: none; }

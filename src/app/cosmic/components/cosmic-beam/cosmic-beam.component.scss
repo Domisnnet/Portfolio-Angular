@@ -7,8 +7,7 @@
 }
 
 .cosmic-beam {
-  position: absolute;
-  inset: 0;
+  position: relative;
   background: radial-gradient(circle at center,rgba(var(--artifact-brand-rgb-neon), 0.6),transparent 65%);
   filter: blur(40px);
   animation: cosmic-pulse 12s ease-in-out infinite;
