@@ -4,17 +4,9 @@
   min-height: 100vh;
   overflow: hidden;
   isolation: isolate;
-  pointer-events: none;
+}
 
-  > * {
-    position: absolute;
-    inset: 0;
-  }
-
-  .page-header,
-  .projects-grid {
-    position: relative;
-    z-index: 20;
-    pointer-events: auto;
-  }
+.cosmic-root > ng-content {
+  position: relative;
+  z-index: var(--z-content);
 }
