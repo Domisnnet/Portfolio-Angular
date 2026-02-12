@@ -7,7 +7,7 @@
       "reboot": "REBOOT_INITIATED: LATE_2024",
       "present": "SYSTEM_ACTIVE: PRESENT_DAY",
       "closing": "PROCESS_COMPLETE",
-      "executing": "EXECUTING: angular_portfolio_v1.0"
+      "executing": "EXECUTING: Portfolio_v1.0"
     },
     "logs": {
       "origin": {
@@ -28,7 +28,7 @@
       },
       "reboot": {
         "text": "Até que, no final de 2024, algo simples",
-        "neonrx": "reacendeu a chama:",
+        "neonrx": "reacendeu a chama ",
         "course": "um curso gratuito do professor Gustavo Guanabara",
         "details": "Foi ali que redescobri o prazer pelo raciocínio lógico, pelos fundamentos e pelos porquês. HTML, CSS… e de repente minha cabeça estava fervendo de ideias novamente."
       },
@@ -64,7 +64,7 @@
       "reboot": "REBOOT_INITIATED: LATE_2024",
       "present": "SYSTEM_ACTIVE: PRESENT_DAY",
       "closing": "PROCESS_COMPLETE",
-      "executing": "EXECUTING: angular_portfolio_v1.0"
+      "executing": "EXECUTING: Portfolio_v1.0"
     },
     "logs": {
       "origin": {
@@ -85,7 +85,7 @@
       },
       "reboot": {
         "text": "Then, at the end of 2024, something simple ",
-        "neonrx": "reignited the flame:",
+        "neonrx": "reignited the flame ",
         "course": "a free course by Professor Gustavo Guanabara",
         "details": "That was when I rediscovered the pleasure of logical reasoning, fundamentals, and the whys. HTML, CSS… and suddenly my mind was buzzing with ideas again."
       },

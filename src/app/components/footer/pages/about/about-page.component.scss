@@ -1,90 +1,32 @@
-.terminal-section {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  background: var(--bg-body);
-  padding: var(--space-xl);
-}
-
-.terminal-card,
-.about-card {
-  width: 100%;
-  max-width: 860px;
-  background: var(--footer-bg-strong);
-  border: 2px solid var(--footer-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: var(--space-xl);
-}
-
-.terminal-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-family: var(--font-code);
-  font-weight: var(--font-bolder);
-  color: var(--footer-text-secondary);
-  margin-bottom: var(--space-lg);
-
-  .pulse-icon {
-    color: var(--about-neon);
-    animation: pulse 1.6s infinite;
-  }
-}
-
-.terminal-body {
-  .log-block {
+/* ===============================
+  ABOUT PAGE STYLES
+================================= */
+.footer-body {
+  .footer-block {
     margin-bottom: var(--space-lg);
   }
-
-  .meta-tag {
-    font-size: var(--font-sm);
-    opacity: 0.5;
-    color: var(--footer-text-secondary);
-    margin-bottom: var(--space-sm);
-  }
 }
 
-.content {
-  margin: var(--space-sm) 0;
-  line-height: 1.7;
-  color: var(--footer-text-primary);
+.about-pulse {
+  color: var(--footer-accent-primary);
+  animation: pulse 1.6s infinite;
 }
 
-.cmd {
-  font-family: var(--font-code);
-}
-
-.neon {
-  color: var(--about-neon);
-}
-
-.neonrx {
-  color: var(--about-neon-rx);
-}
-
-.mono {
-  font-family: var(--font-code);
-  opacity: 0.85;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: var(--space-lg);
-}
-
-.alt-mode-btn {
+.about-lang-badge {
+  align-self: flex-end;
+  margin-bottom: var(--space-md);
   background: transparent;
-  border: 2px solid var(--about-neon);
-  color: var(--footer-text-neon);
-  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--footer-border-strong);
+  padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-pill);
   cursor: pointer;
 }
 
-.lang-badge {
-  align-self: flex-end;
+.footer-card-simple {
+  text-align: left;
+}
+
+.about-text p {
+  line-height: 1.7;
   margin-bottom: var(--space-md);
 }

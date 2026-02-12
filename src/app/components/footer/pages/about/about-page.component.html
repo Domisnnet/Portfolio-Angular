@@ -1,90 +1,141 @@
 <section
-  class="terminal-section"
+  class="footer-layout"
+  data-footer-theme="narrative"
   aria-labelledby="about-title"
-  data-cosmic-effects="silent"
 >
   @if (!isTextMode) {
-    <article class="terminal-card" @cardEnter role="article">
-      <header class="terminal-header">
-        <span class="pulse-icon">●</span>
+    <article
+      class="footer-card footer-card--about"
+      @cardEnter
+      role="article"
+    >
+      <header class="footer-header">
+        <span class="about-pulse">●</span>
         LOG_FILE_RECOVERED.bin
       </header>
-      <div class="terminal-body">
-        <div class="log-block">
-          <span class="meta-tag">[{{ content.meta.timestamp }}]</span>
-          <p class="content">
-            <span class="cmd">&gt; {{ content.cmd.whoami }}</span>
+      <div class="footer-body">
+        <div class="footer-block">
+          <span class="footer-meta">
+            [{{ content.meta.timestamp }}]
+          </span>
+          <p class="footer-content">
+            <span class="footer-code">
+              &gt; {{ content.cmd.whoami }}
+            </span>
           </p>
-          <p class="content">{{ content.logs.origin.intro }}</p>
+          <p class="footer-content">
+            {{ content.logs.origin.intro }}
+          </p>
           @for (item of content.logs.origin.details; track item) {
-            <p class="content">
+            <p class="footer-content">
               {{ item.text }}
-              <span class="neon">{{ item.neon }}</span>
+              <span class="footer-accent">
+                {{ item.neon }}
+              </span>
               {{ item.suffix }}
             </p>
           }
         </div>
-        <div class="log-block">
-          <span class="meta-tag">[{{ content.meta.paused }}]</span>
-          <p class="content">
+        <div class="footer-block">
+          <span class="footer-meta">
+            [{{ content.meta.paused }}]
+          </span>
+          <p class="footer-content">
             {{ content.logs.pause.text }}
-            <span class="mono">{{ content.logs.pause.mono }}</span>
+            <span class="footer-code">
+              {{ content.logs.pause.mono }}
+            </span>
             {{ content.logs.pause.suffix }}
-            <span class="mono">{{ content.logs.pause.dna }}</span>
+            <span class="footer-code">
+              {{ content.logs.pause.dna }}
+            </span>
           </p>
         </div>
-        <div class="log-block">
-          <span class="meta-tag">[{{ content.meta.reboot }}]</span>
-          <p class="content">
+        <div class="footer-block">
+          <span class="footer-meta">
+            [{{ content.meta.reboot }}]
+          </span>
+          <p class="footer-content">
             {{ content.logs.reboot.text }}
-            <span class="neonrx">{{ content.logs.reboot.neonrx }}</span>
-            <span class="mono">{{ content.logs.reboot.course }}</span>
+            <span class="footer-accent-secondary">
+              {{ content.logs.reboot.neonrx }}
+            </span>
+            <span class="footer-code">
+              {{ content.logs.reboot.course }}
+            </span>
           </p>
-          <p class="content">{{ content.logs.reboot.details }}</p>
+          <p class="footer-content">
+            {{ content.logs.reboot.details }}
+          </p>
         </div>
-        <div class="log-block">
-          <span class="meta-tag">[{{ content.meta.present }}]</span>
-          <p class="content">{{ content.logs.present.text }}</p>
-          <p class="content">
+        <div class="footer-block">
+          <span class="footer-meta">
+            [{{ content.meta.present }}]
+          </span>
+          <p class="footer-content">
+            {{ content.logs.present.text }}
+          </p>
+          <p class="footer-content">
             {{ content.logs.present.details }}
-            <span class="mono">{{ content.logs.present.commitment }}</span>
+            <span class="footer-code">
+              {{ content.logs.present.commitment }}
+            </span>
             {{ content.logs.present.suffix }}
           </p>
         </div>
-        <div class="log-block">
-          <span class="meta-tag">[{{ content.meta.closing }}]</span>
-          <p class="content">
+        <div class="footer-block">
+          <span class="footer-meta">
+            [{{ content.meta.closing }}]
+          </span>
+          <p class="footer-content">
             {{ content.logs.closing.text }}
-            <span class="neon">{{ content.logs.closing.neon }}</span>
+            <span class="footer-accent">
+              {{ content.logs.closing.neon }}
+            </span>
             {{ content.logs.closing.suffix }}
           </p>
         </div>
-        <footer class="card-footer">
-          <button class="alt-mode-btn" (click)="toggleMode()">
+        <footer class="footer-actions">
+          <button
+            class="footer-btn"
+            (click)="toggleMode()"
+          >
             {{ content.actions.simple }}
           </button>
-          <span class="status-msg">{{ content.meta.executing }}</span>
+          <span class="footer-meta">
+            {{ content.meta.executing }}
+          </span>
         </footer>
       </div>
     </article>
   }
   @else {
-    <article class="about-card" @cardEnter>
+    <article
+      class="footer-card footer-card--about footer-card--simple"
+      @cardEnter
+    >
       <button
-        class="lang-badge"
+        class="about-lang-badge"
         (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')"
       >
         {{ language === 'pt' ? 'EN' : 'PT' }}
       </button>
       <div class="about-text">
-        <h2 id="about-title">{{ content.simple.title }}</h2>
+        <h2 id="about-title">
+          {{ content.simple.title }}
+        </h2>
         <p>{{ content.simple.p1 }}</p>
         <p>{{ content.simple.p2 }}</p>
         <p>{{ content.simple.p3 }}</p>
       </div>
-      <button class="alt-mode-btn" (click)="toggleMode()">
-        {{ content.actions.technical }}
-      </button>
+      <div class="footer-actions">
+        <button
+          class="footer-btn"
+          (click)="toggleMode()"
+        >
+          {{ content.actions.technical }}
+        </button>
+      </div>
     </article>
   }
 </section>

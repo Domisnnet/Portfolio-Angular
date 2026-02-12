@@ -1,8 +1,11 @@
 .footer-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   width: 100%;
   max-width: var(--footer-max-width);
   background: var(--footer-bg-surface);
-  border: 2px solid var(--footer-border-strong);
+  border: 3px solid var(--footer-border-strong);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   padding: var(--space-xl);
@@ -49,7 +52,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: var(--space-lg);
+  margin-top: var(--space-lg) auto;
 }
 
 .footer-btn {
