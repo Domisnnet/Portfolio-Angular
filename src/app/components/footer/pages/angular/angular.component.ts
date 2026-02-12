@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './angular.component.html',
-  styleUrl: './angular.component.scss',
+  styleUrls: ['./angular.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AngularComponent {
@@ -24,31 +24,29 @@ export class AngularComponent {
       }
     </app-hero-layout>
   \`
-})
-export class AppComponent {
-  portfolioStack = [
-    {name: 'Angular', category: 'core'},
-    {name: 'Firebase', category: 'backend'},
-    {name: 'SCSS', category: 'style'}
-  ];
-}`;
+  })
+  export class AppComponent {
+    portfolioStack = [
+      {name: 'Angular', category: 'core'},
+      {name: 'Firebase', category: 'backend'},
+      {name: 'SCSS', category: 'style'}
+    ];
+  }`;
 
   stackPillComponentCode = `tag = input.required<string>();
-category = input.required<PillCategory>();
+  category = input.required<PillCategory>();
+  isFlipped = signal(false);
+  pillConfig = computed(() => {
+    const config = TAG_CONFIG[this.tag()] ?? {
+      label: this.tag(),
+      iconPath: \`assets/icons/\${this.tag().toLowerCase()}.svg\`,
+      category: 'frontend' as const
+    };
+    return config;
+  });
 
-isFlipped = signal(false);
-
-pillConfig = computed(() => {
-  const config = TAG_CONFIG[this.tag()] ?? {
-    label: this.tag(),
-    iconPath: \`assets/icons/\${this.tag().toLowerCase()}.svg\`,
-    category: 'frontend' as const
-  };
-  return config;
-});
-
-flipPill() {
-  this.isFlipped.update(flipped => !flipped);
-  // Animation trigger
-}`;
+  flipPill() {
+    this.isFlipped.update(flipped => !flipped);
+    // Animation trigger
+  }`;
 }
