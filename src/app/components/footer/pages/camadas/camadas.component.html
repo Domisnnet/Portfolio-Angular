@@ -1,23 +1,29 @@
-<section class="layers-wow cosmic-section">
-  <div class="stars-overlay layer-animation"></div>
-  <div class="layers-diagram">
-    ```mermaid
-    graph TB
-      UI[UI Layer<br/>Angular/Vue/Bootstrap] 
-      --> BUS[Business Logic<br/>StackPills/Pinia]
-      BUS --> DATA[Data Layer<br/>GitHub API]
-      DATA --> INFRA[Infrastructure<br/>Firebase/CDN]
-      
-      subgraph "DomisDev Stack"
-        UI
-        BUS  
-        DATA
-        INFRA
-      end
-    ```
-  </div>
-  <div class="layers-breakdown">
-    <div class="layer-card">
+<section class="footer-layout" data-footer-theme="layers">
+  <article class="footer-card footer-card--layers" @cardEnter role="article">
+    <header class="footer-header">
+      SYSTEM_LAYERS_DIAGRAM.log
+    </header>
+    <div class="footer-body">
+      <div class="footer-block">
+        <div class="layers-diagram">
+          ```mermaid
+          graph TB
+          UI[UI Layer<br/>Angular/Vue/Bootstrap] 
+          --> BUS[Business Logic<br/>StackPills/Pinia]
+          BUS --> DATA[Data Layer<br/>GitHub API]
+          DATA --> INFRA[Infrastructure<br/>Firebase/CDN]
+          subgraph "DomisDev Stack"
+            UI
+            BUS  
+            DATA
+            INFRA
+          end
+          ```
+        </div>
+      </div>
+      <div class="footer-block">
+        <div class="layers-breakdown">
+          <div class="layer-card">
       <h4>📱 UI Layer</h4>
       <div class="tech-stack">
         Angular Standalone | Vue 3 + Vite | Bootstrap 5
@@ -41,5 +47,8 @@
         Firebase Hosting | Cloud Functions | GitHub Actions
       </div>
     </div>
-  </div>
+        </div>
+      </div>
+    </div>
+  </article>
 </section>
