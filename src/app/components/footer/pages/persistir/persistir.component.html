@@ -1,7 +1,12 @@
-<section class="easter-egg-wow cosmic-section">
-  <div class="stars-overlay easter-stars"></div>
-  <div class="egg-container">
-    <div class="egg-hint">
+<section class="footer-layout" data-footer-theme="persist">
+  <article class="footer-card footer-card--persist" @cardEnter role="article">
+    <header class="footer-header">
+      EASTER_EGG_PROTOCOL.log
+    </header>
+    <div class="footer-body">
+      <div class="footer-block">
+        <div class="egg-container">
+          <div class="egg-hint">
       <h2>🔍 Procurando algo especial?</h2>
       <p>DomisDev tem um segredo... mas precisa <strong>merecer</strong> pra descobrir!</p>
     </div>
@@ -20,16 +25,18 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="egg-history" *ngIf="eggActive">
-    <div class="terminal-frame">
+        </div>
+      </div>
+      @if (eggActive) {
+        <div class="footer-block">
+          <div class="egg-history">
+            <div class="terminal-frame">
       <div class="terminal-header">
         <span>easter-egg.log</span> <span class="status-magic">✨ ACTIVATED</span>
       </div>
       <pre><code>2026-01-30 16:32:47 MERC DETECTED
 2026-01-30 16:32:48 EGG ACTIVATED
 2026-01-30 16:32:49 SECRETS REVEALED
-
 DomisDev Production Secrets:
 ├── 40 repos (não só os 8 tops)
 ├── Python SVG Generator (GitHub Stats)
@@ -53,5 +60,9 @@ DomisDev Production Secrets:
         <span>Frameworks Mastered</span>
       </div>
     </div>
-  </div>
+          </div>
+        </div>
+      }
+    </div>
+  </article>
 </section>
