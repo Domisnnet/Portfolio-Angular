@@ -1,14 +1,11 @@
-<section class="cosmic-section">
-  <div class="stars-overlay"></div>
-  <div class="artifact-frame">
-    <div class="terminal-header">
-      <span class="pulse-icon">●</span> PORTFOLIO_V1.log
-    </div>
-    <div class="terminal-body">
-      <div class="log-block">
-        <span class="meta-tag">[TECHNICAL_STACK]</span>
-        <div class="content">
-          <p>
+<section class="footer-layout" data-footer-theme="domisdev">
+  <article class="footer-card footer-card--domisdev" @cardEnter role="article">
+    <header class="footer-header">
+      PORTFOLIO_V1.log
+    </header>
+    <div class="footer-body">
+      <div class="footer-block">
+        <p>
             O resultado é este portfólio: <span class="mono">Angular 18</span> standalone, 
             roteamento lazy-loaded, animações nativas e design system próprio com SCSS. 
             Cosmic theme com partículas animadas e HUD elements em tempo real.
@@ -27,12 +24,15 @@
             Este é o <span class="highlight">v1.0</span>: base sólida para expansão em 
             <span class="mono">v2.0</span> (PWA, SSR, API própria).
           </p>
-        </div>
       </div>
-      <div class="footer-status">
-        <a routerLink="/projetos" class="alt-mode-btn">&gt;&gt; Projetos</a>
-        <p class="status-msg">STACK: ANGULAR+FIREBASE | READY_FOR_SCALE</p>
-      </div>
+      <footer class="footer-actions">
+        <a routerLink="/projetos" class="footer-btn">
+          &gt;&gt;PROJETOS
+        </a>
+        <span class="footer-meta">
+          STACK: ANGULAR+FIREBASE
+        </span>
+      </footer>
     </div>
-  </div>
+  </article>
 </section>
