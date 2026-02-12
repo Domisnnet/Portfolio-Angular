@@ -1,27 +1,31 @@
-<section class="architecture-wow">
-  <div class="terminal-footer"></div>
-  <div class="infra-diagram">
-    ```mermaid
-    graph TD
-      A[DomisDev Frontend] --> B[Firebase Hosting CDN]
-      A --> C[GitHub Actions CI/CD]
-      C --> D[ng build --prod]
-      D --> B
-      E[GitHub API] --> F[Cloud Functions Python]
-      F --> G[Firestore Cache]
-      G --> A
-      H[5 Live Projects] --> B
-    ```
-  </div>
+<section class="footer-layout" data-footer-theme="architecture">
+  <article class="footer-card footer-card--architecture" @cardEnter role="article">
+    <header class="footer-header">
+      INFRASTRUCTURE_ARCHITECTURE.log
+    </header>
+    <div class="footer-body">
+      <div class="footer-block">
+        <div class="infra-diagram">
+```mermaid
+graph TD
+  A[DomisDev Frontend] --> B[Firebase Hosting CDN]
+  A --> C[GitHub Actions CI/CD]
+  C --> D[ng build --prod]
+  D --> B
+  E[GitHub API] --> F[Cloud Functions Python]
+  F --> G[Firestore Cache]
+  G --> A
+  H[5 Live Projects] --> B
+</div>
+</div>
+<div class="footer-block">
   <div class="tech-specs-complete">
-    <div class="spec-group">
-      <h4>🔥 Firebase Deployments</h4>
-      <div class="deploy-list">
-        <code>portfolio-23948217-d156e.web.app</code>
-        <code>github-stats-68157678-42e04.web.app</code>
-        <code>drakonik-nexus-75177593-75741.web.app</code>
-        <code>shadow-flip-oh-86570817-f8cc4.web.app</code>
-      </div>
+    <h4>🔥 Firebase Deployments</h4>
+    <div class="deploy-list">
+      <code>portfolio-23948217-d156e.web.app</code>
+      <code>github-stats-68157678-42e04.web.app</code>
+      <code>drakonik-nexus-75177593-75741.web.app</code>
+      <code>shadow-flip-oh-86570817-f8cc4.web.app</code>
     </div>
     <div class="spec-group">
       <h4>⚡ Performance Metrics</h4>
@@ -32,12 +36,16 @@
       </div>
     </div>
   </div>
+</div>
+<div class="footer-block">
   <div class="deploy-commands">
     <pre><code class="language-bash"># DOMISDEV DEPLOY PIPELINE
 ng build --configuration production
 firebase deploy --only hosting:portfolio
 firebase deploy --only functions:stats-generator
-# GitHub Actions Trigger
+GitHub Actions Trigger
 git push origin main → LIVE</code></pre>
-  </div>
+</div>
+</div>
+</div> </article>
 </section>
