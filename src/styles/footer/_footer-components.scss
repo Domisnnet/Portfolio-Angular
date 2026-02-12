@@ -57,14 +57,16 @@
 
 .footer-btn {
   background: transparent;
-  border: 2px solid var(--footer-accent-primary);
-  color: var(--footer-accent-primary);
+  border: 2px solid var( --footer-text-tertiary);
+  color: var(--footer-accent-tertiary);
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-pill);
   cursor: pointer;
   transition: opacity 0.2s ease;
-}
 
-.footer-btn:hover {
-  opacity: 0.8;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 calc(20px * var(--glow-strength))var(--glow-color);
+    opacity: 0.8;
+  }
 }
