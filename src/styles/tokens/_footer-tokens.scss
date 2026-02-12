@@ -1,0 +1,20 @@
+:root {
+  /* Background */
+  --footer-bg-page: var(--bg-body);
+  --footer-bg-surface: var(--footer-bg-strong);
+
+  /* Borders */
+  --footer-border-strong: var(--footer-border);
+
+  /* Text */
+  --footer-text-primary: #e6ecff;
+  --footer-text-secondary: #9aa3c7;
+  --footer-text-muted: rgba(255,255,255,0.5);
+
+  /* Accent */
+  --footer-accent-primary: var(--about-neon);
+  --footer-accent-secondary: var(--about-neon-rx);
+
+  /* Layout */
+  --footer-max-width: 860px;
+}
