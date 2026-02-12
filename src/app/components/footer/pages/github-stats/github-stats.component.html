@@ -1,25 +1,31 @@
-<section class="stats-wow cosmic-section">
-  <div class="stars-overlay stats-particles"></div>
-  <div class="stats-diagram">
-    ```mermaid
-    sequenceDiagram
-      User->>Frontend: /generate?user=Domisnnet
-      Frontend->>CloudFunction: POST /stats
-      CloudFunction->>GitHubAPI: GET /users/Domisnnet
-      GitHubAPI->>CloudFunction: JSON Data
-      CloudFunction->>PythonMatplotlib: Generate SVG
-      PythonMatplotlib->>CloudFunction: stats.svg
-      CloudFunction->>Firestore: Cache 1h
-      CloudFunction->>Frontend: SVG Response
-      Frontend->>User: Display Stats
-    ```
-  </div>
-  <div class="stats-code">
-    <div class="terminal-frame">
-      <div class="terminal-header">
-        <span>cloud-functions/stats.py</span> <span class="status-green">● PRODUCTION</span>
-      </div>
-      <pre><code class="language-python"># SEU GITHUB STATS REAL
+<section class="footer-layout" data-footer-theme="github-stats">
+  <article class="footer-card footer-card--github-stats" @cardEnter role="article">
+    <header class="footer-header">
+      GITHUB_STATS_PIPELINE.log
+    </header>
+    <div class="footer-body">
+      <div class="footer-block">
+        <div class="stats-diagram">
+          ```mermaid
+          sequenceDiagram
+            User->>Frontend: /generate?user=Domisnnet
+            Frontend->>CloudFunction: POST /stats
+            CloudFunction->>GitHubAPI: GET /users/Domisnnet
+            GitHubAPI->>CloudFunction: JSON Data
+            CloudFunction->>PythonMatplotlib: Generate SVG
+            PythonMatplotlib->>CloudFunction: stats.svg
+            CloudFunction->>Firestore: Cache 1h
+            CloudFunction->>Frontend: SVG Response
+            Frontend->>User: Display Stats
+          ```
+        </div>
+        <div class="stats-code">
+          <div class="terminal-frame">
+            <div class="terminal-header">
+              <span>cloud-functions/stats.py</span> 
+              <span class="status-green">● PRODUCTION</span>
+            </div>
+            <pre><code class="language-python"># SEU GITHUB STATS REAL
 def generate_stats(request):
     user = request.args.get('username')
     # GitHub API
@@ -32,11 +38,19 @@ def generate_stats(request):
     # Cache Firestore
     cache_stats(user, fig)
     return send_svg(fig)</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="footer-block">
+        <div class="stats-code"></div>
+      </div>
+      <footer class="footer-actions">
+        <a href="https://github-stats-68157678-42e04.web.app/"
+           target="_blank"
+           class="footer-btn">
+          🔴 LIVE DEMO
+        </a>
+      </footer>
     </div>
-  </div>
-  <div class="live-stats">
-    <a href="https://github-stats-68157678-42e04.web.app/" target="_blank" class="stats-demo">
-      🔴 LIVE DEMO → github-stats-68157678-42e04.web.app
-    </a>
-  </div>
+  </article>
 </section>
