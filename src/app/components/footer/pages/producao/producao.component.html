@@ -1,48 +1,46 @@
-<section class="production-wow cosmic-section">
-  <div class="stars-overlay production-lines"></div>
-  <div class="pipeline-diagram">
-    ```mermaid
-    graph LR
-      A[Code Push] --> B[GitHub Actions]
-      B --> C[ng build --prod]
-      C --> D[Firebase Hosting]
-      D --> E[CDN Global Edge]
-      E --> F[5 Live Projects]
-      G[Monitoring] --> D
-    ```
-  </div>
-  <div class="production-metrics">
-    <div class="metric-group">
-      <h3>🏭 Production Deployments</h3>
-      <div class="deploy-status-grid">
-        <div class="deploy-status">
-          <span class="status-live">●</span> Portfolio
-          <code>portfolio-23948217-d156e.web.app</code>
+<section class="footer-layout" data-footer-theme="production">
+  <article class="footer-card footer-card--production" @cardEnter role="article">
+    <header class="footer-header">
+      PRODUCTION_PIPELINE.log
+    </header>
+    <div class="footer-body">
+      <div class="footer-block">
+        <div class="pipeline-diagram">
+          <pre><code>
+graph LR
+  A[Code Push] --> B[GitHub Actions]
+  B --> C[ng build --prod]
+  C --> D[Firebase Hosting]
+  D --> E[CDN Global Edge]
+  E --> F[5 Live Projects]
+  G[Monitoring] --> D
+          </code></pre>
         </div>
-        <div class="deploy-status">
-          <span class="status-live">●</span> GitHub Stats
-          <code>github-stats-68157678-42e04.web.app</code>
+      </div>
+      <div class="footer-block">
+        <div class="production-metrics">
+          <div class="metric-group">
+            <h3>🏭 Production Deployments</h3>
+            <div class="deploy-status-grid">
+              <div class="deploy-status">
+                <span class="status-live">●</span> Portfolio
+                <code>portfolio-23948217-d156e.web.app</code>
+              </div>
+              <div class="deploy-status">
+                <span class="status-live">●</span> GitHub Stats
+                <code>github-stats-68157678-42e04.web.app</code>
+              </div>
+            </div>
+          </div>
+          <div class="terminal-frame">
+            <div class="terminal-header">
+              <span>firebase.json (Produção)</span>
+              <span class="status-green">● LIVE</span>
+            </div>
+            <pre><code class="language-json">{{ firebaseConfig }}</code></pre>
+          </div>
         </div>
       </div>
     </div>
-    <div class="terminal-frame">
-      <div class="terminal-header">
-        <span>firebase.json (Produção)</span> <span class="status-green">● LIVE</span>
-      </div>
-      <pre><code class="language-json">{{ '{' }}
-  "hosting": [{{ '{' }}
-    "target": "portfolio",
-    "public": "dist/portfolio",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-    "headers": [{{ '{' }}
-      "source": "**/*.@(js|css)",
-      "headers": [{{ '{' }}
-        "key": "Cache-Control",
-        "value": "max-age=31536000"
-      {{ '}' }}]
-    {{ '}' }}]
-  {{ '}' }}]
-{{ '}' }}</code></pre>
-    </div>
-  </div>
+  </article>
 </section>

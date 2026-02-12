@@ -9,4 +9,23 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './producao.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProducaoComponent {}
+export class ProducaoComponent {
+  firebaseConfig = `{
+    "hosting": [{
+      "target": "portfolio",
+      "public": "dist/portfolio",
+      "ignore": [
+        "firebase.json",
+        "/**/.*",
+        "/**/node_modules/**"
+      ],
+      "headers": [{
+        "source": "/**.@",
+        "headers": [{
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        }]
+      }]
+    }]
+  }`;
+}
