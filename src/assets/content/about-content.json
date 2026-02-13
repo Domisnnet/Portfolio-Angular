@@ -2,12 +2,12 @@
   "pt": {
     "cmd": { "whoami": " whoami: " },
     "meta": {
-      "timestamp": "TIMESTAMP: CIRCA_1990s",
-      "paused": "SYSTEM_PAUSED: RESPONSABILIDADES_REAIS",
-      "reboot": "REBOOT_INITIATED: LATE_2024",
-      "present": "SYSTEM_ACTIVE: PRESENT_DAY",
-      "closing": "PROCESS_COMPLETE",
-      "executing": "EXECUTING: Portfolio_v1.0"
+      "timestamp": " TIMESTAMP: CIRCA_1990s ",
+      "paused": " SYSTEM_PAUSED: RESPONSABILIDADES_REAIS ",
+      "reboot": " REBOOT_INITIATED: LATE_2024 ",
+      "present": " SYSTEM_ACTIVE: PRESENT_DAY ",
+      "closing": " PROCESS_COMPLETE ",
+      "executing": " EXECUTING: Portfolio_v1.0 "
     },
     "logs": {
       "origin": {
@@ -60,12 +60,12 @@
   "en": {
     "cmd": { "whoami": " whoami: " },
     "meta": {
-      "timestamp": "TIMESTAMP: CIRCA_1990s",
-      "paused": "SYSTEM_PAUSED: REAL_WORLD_RESPONSIBILITIES",
-      "reboot": "REBOOT_INITIATED: LATE_2024",
-      "present": "SYSTEM_ACTIVE: PRESENT_DAY",
-      "closing": "PROCESS_COMPLETE",
-      "executing": "EXECUTING: Portfolio_v1.0"
+      "timestamp": " TIMESTAMP: CIRCA_1990s ",
+      "paused": " SYSTEM_PAUSED: REAL_WORLD_RESPONSIBILITIES ",
+      "reboot": " REBOOT_INITIATED: LATE_2024 ",
+      "present": " SYSTEM_ACTIVE: PRESENT_DAY ",
+      "closing": " PROCESS_COMPLETE ",
+      "executing": " EXECUTING: Portfolio_v1.0 "
     },
     "logs": {
       "origin": {

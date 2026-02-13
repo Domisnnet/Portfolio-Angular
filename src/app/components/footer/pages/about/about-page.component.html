@@ -5,13 +5,13 @@
 >
   @if (!isTextMode) {
     <article
-    class="footer-card footer-card--about footer-card--glass-holographic"
+      class="footer-card footer-card--about footer-card--glass-holographic"
       @cardEnter
       role="article"
     >
       <header class="footer-header">
         <span class="about-pulse">●</span>
-          LOG_FILE_RECOVERED.bin
+        LOG_FILE_RECOVERED.bin
       </header>
       <div class="footer-body">
         <div class="footer-block">
@@ -19,7 +19,7 @@
             [{{ content.meta.timestamp }}]
           </span>
           <p class="footer-content">
-            <span class="footer-code">
+            <span class="t-mono">
               &gt; {{ content.cmd.whoami }}
             </span>
           </p>
@@ -29,10 +29,12 @@
           @for (item of content.logs.origin.details; track item) {
             <p class="footer-content">
               {{ item.text }}
-              <span class="footer-accent">
+              <span class="t-neon">
                 {{ item.neon }}
               </span>
-              {{ item.suffix }}
+              <span class="t-suffix">
+                {{ item.suffix }}
+              </span>
             </p>
           }
         </div>
@@ -42,11 +44,13 @@
           </span>
           <p class="footer-content">
             {{ content.logs.pause.text }}
-            <span class="footer-code">
+            <span class="t-mono">
               {{ content.logs.pause.mono }}
             </span>
-            {{ content.logs.pause.suffix }}
-            <span class="footer-code">
+            <span class="t-suffix">
+              {{ content.logs.pause.suffix }}
+            </span>
+            <span class="t-dna">
               {{ content.logs.pause.dna }}
             </span>
           </p>
@@ -57,11 +61,14 @@
           </span>
           <p class="footer-content">
             {{ content.logs.reboot.text }}
-            <span class="footer-accent-secondary">
+            <span class="t-neonrx">
               {{ content.logs.reboot.neonrx }}
             </span>
-            <span class="footer-code">
+            <span class="t-course">
               {{ content.logs.reboot.course }}
+            </span>
+            <span class="t-neon">
+              {{ content.logs.reboot.neon }}
             </span>
           </p>
           <p class="footer-content">
@@ -77,10 +84,12 @@
           </p>
           <p class="footer-content">
             {{ content.logs.present.details }}
-            <span class="footer-code">
+            <span class="t-commitment">
               {{ content.logs.present.commitment }}
             </span>
-            {{ content.logs.present.suffix }}
+            <span class="t-suffix">
+              {{ content.logs.present.suffix }}
+            </span>
           </p>
         </div>
         <div class="footer-block">
@@ -89,10 +98,15 @@
           </span>
           <p class="footer-content">
             {{ content.logs.closing.text }}
-            <span class="footer-accent">
+            <span class="t-neon">
               {{ content.logs.closing.neon }}
             </span>
-            {{ content.logs.closing.suffix }}
+            <span class="t-neonrx">
+              {{ content.logs.closing.neonrx }}
+            </span>
+            <span class="t-suffix">
+              {{ content.logs.closing.suffix }}
+            </span>
           </p>
         </div>
         <footer class="footer-actions">
@@ -108,8 +122,7 @@
         </footer>
       </div>
     </article>
-  }
-  @else {
+  } @else {
     <article
       class="footer-card footer-card--about footer-card--glass-holographic"
       @cardEnter

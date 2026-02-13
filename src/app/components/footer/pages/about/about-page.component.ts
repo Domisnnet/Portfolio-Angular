@@ -1,11 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
-import aboutContent from '@assets/content/about-content.json';
+import aboutData from '@assets/content/about-content.json';
 
-type Language = 'pt' | 'en';
+export type Language = 'pt' | 'en';
 
-interface AboutContent {
+export interface AboutContent {
   cmd: {
     whoami: string;
   };
@@ -30,12 +30,13 @@ interface AboutContent {
       text: string;
       mono: string;
       suffix: string;
-      dna: string;
+      dna?: string;
     };
     reboot: {
       text: string;
       neonrx: string;
       course: string;
+      neon: string;
       details: string;
     };
     present: {
@@ -47,6 +48,7 @@ interface AboutContent {
     closing: {
       text: string;
       neon: string;
+      neonrx: string;
       suffix: string;
     };
   };
@@ -61,7 +63,8 @@ interface AboutContent {
     p3: string;
   };
 }
-const CONTENT = aboutContent as Record<Language, AboutContent>;
+
+const CONTENT = aboutData as Record<Language, AboutContent>;
 @Component({
   selector: 'app-about-page',
   standalone: true,
