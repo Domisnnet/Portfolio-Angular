@@ -1,0 +1,44 @@
+/* Neon base */
+.t-neon {
+  color: var(--text-neon-color);
+  text-shadow: var(--text-neon-glow);
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Neon RX */
+.t-neonrx {
+  color: var(--text-neonrx-color);
+  text-shadow: var(--text-neonrx-glow);
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Mono fragment */
+.t-mono {
+  font-family: var(--text-font-mono);
+  font-size: 0.95em;
+  opacity: 0.95;
+}
+
+/* DNA emphasis */
+.t-dna {
+  font-weight: var(--text-weight-strong);
+  letter-spacing: var(--text-dna-letter-spacing);
+  text-transform: uppercase;
+}
+
+/* Commitment emphasis */
+.t-commitment {
+  font-weight: var(--text-weight-strong);
+  color: var(--text-emphasis-primary);
+}
+
+/* Course highlight */
+.t-course {
+  font-style: var(--text-course-style);
+  color: var(--text-emphasis-secondary);
+}
+
+/* Suffix fragment */
+.t-suffix {
+  opacity: var(--text-suffix-opacity);
+}
