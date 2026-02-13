@@ -24,11 +24,11 @@
   cursor: pointer;
 }
 
-.footer-card-simple {
+.footer-card--glass-holographic {
   text-align: left;
-}
 
-.about-text p {
-  line-height: 1.7;
-  margin-bottom: var(--space-md);
+  .about-text p {
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+  }
 }
