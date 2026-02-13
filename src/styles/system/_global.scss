@@ -6,6 +6,5 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   background: radial-gradient(circle at top,var(--bg-space-alt),var(--bg-space));
-  color: var(--text-primary);
   transition: background var(--transition-theme),color var(--transition-theme);
 }
