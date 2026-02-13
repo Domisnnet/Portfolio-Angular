@@ -1,5 +1,6 @@
 .footer-card {
   position: relative;
+  isolation: isolate; 
   overflow: hidden;
   background: rgba(18, 24, 48, var(--footer-glass-opacity));
   backdrop-filter: blur(var(--footer-glass-blur))saturate(var(--footer-glass-saturation));

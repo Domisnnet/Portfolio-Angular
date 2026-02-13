@@ -12,10 +12,21 @@
   --footer-text-tertiary: #6b7280;
   --footer-text-muted: rgba(255,255,255,0.5);
 
+  /* Texto sobre glass */
+  --footer-glass-text-primary: rgba(255, 255, 255, 0.92);
+  --footer-glass-text-secondary: rgba(255, 255, 255, 0.68);
+
   /* Accent */
   --footer-accent-primary: var(--about-neon);
   --footer-accent-secondary: var(--about-neon-rx);
 
   /* Layout */
   --footer-max-width: 860px;
+
+  /* Divisores internos */
+  --footer-glass-divider: rgba(255, 255, 255, 0.06);
+
+  /* Botão glass */
+  --footer-glass-btn-bg: rgba(255, 255, 255, 0.06);
+  --footer-glass-btn-border: rgba(255, 255, 255, 0.14);
 }
