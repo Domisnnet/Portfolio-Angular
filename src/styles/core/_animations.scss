@@ -108,3 +108,9 @@
   from { stroke-dashoffset: 0; }
   to   { stroke-dashoffset: 64; }
 }
+
+@keyframes holoShift {
+  0% { transform: translateX(-5%); }
+  50% { transform: translateX(5%); }
+  100% { transform: translateX(-5%); }
+}
