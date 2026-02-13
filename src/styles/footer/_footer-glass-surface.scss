@@ -4,7 +4,7 @@
   background: rgba(18, 24, 48, var(--footer-glass-opacity));
   backdrop-filter: blur(var(--footer-glass-blur))saturate(var(--footer-glass-saturation));
   -webkit-backdrop-filter: blur(var(--footer-glass-blur))saturate(var(--footer-glass-saturation));
-  border: 1px solid var(--footer-glass-border-color);
+  border: 3px solid var(--footer-glass-border-color);
   box-shadow: var(--footer-glass-shadow),var(--footer-glass-inner-glow);
 }
 

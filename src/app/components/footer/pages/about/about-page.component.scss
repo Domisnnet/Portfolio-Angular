@@ -16,8 +16,10 @@
   align-self: flex-end;
   margin-bottom: var(--space-md);
   background: transparent;
-  border: 1px solid var(--footer-border-strong);
-  padding: var(--space-xs) var(--space-sm);
+  font-weight: bolder;
+  color: var(--footer-accent-primary);
+  border: 3px solid var(--footer-border-strong);
+  padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-pill);
   cursor: pointer;
 }
