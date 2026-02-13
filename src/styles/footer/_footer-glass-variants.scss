@@ -1,0 +1,32 @@
+.footer-card--glass-soft {
+  --footer-glass-opacity: 0.45;
+  --footer-glass-blur: 14px;
+  --footer-glass-saturation: 140%;
+  --footer-glass-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  --footer-glass-inner-glow: inset 0 0 40px rgba(255, 255, 255, 0.02);
+}
+
+.footer-card--glass-strong {
+  --footer-glass-opacity: 0.6;
+  --footer-glass-blur: 20px;
+  --footer-glass-saturation: 180%;
+  --footer-glass-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
+  --footer-glass-inner-glow: inset 0 0 80px rgba(255, 255, 255, 0.05);
+}
+
+.footer-card--glass-holographic {
+  --footer-glass-opacity: 0.55;
+  --footer-glass-blur: 22px;
+  --footer-glass-saturation: 200%;
+  position: relative;
+}
+
+.footer-card--glass-holographic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient( 120deg,rgba(0,255,255,0.15),rgba(255,0,200,0.12),rgba(0,150,255,0.15));
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+  pointer-events: none;
+}
