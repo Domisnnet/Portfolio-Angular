@@ -1,0 +1,25 @@
+:root {
+  /* =========================
+    GLASS CORE
+  ========================== */
+  --footer-glass-opacity: 0.55;
+  --footer-glass-blur: 16px;
+  --footer-glass-saturation: 160%;
+
+  /* =========================
+    BORDER
+  ========================== */
+  --footer-glass-border-opacity: 0.08;
+  --footer-glass-border-color: rgba(255, 255, 255, var(--footer-glass-border-opacity));
+
+  /* =========================
+    DEPTH
+  ========================== */
+  --footer-glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --footer-glass-inner-glow: inset 0 0 60px rgba(255, 255, 255, 0.03);
+
+  /* =========================
+    HOVER INTENSITY
+  ========================== */
+  --footer-glass-hover-boost: 1.08;
+}
