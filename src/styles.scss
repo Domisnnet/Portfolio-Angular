@@ -7,6 +7,7 @@
   TOKENS / CORE INFRA
 ============= */
 @forward 'styles/core/tokens';
+@forward 'styles/tokens/text-tokens';
 @forward 'styles/core/mixins';
 @forward 'styles/core/animations';
 @forward 'styles/core/utilities';
@@ -33,6 +34,7 @@
 @forward 'styles/layers/layout';
 @forward 'styles/layers/layer-states';
 @forward 'styles/system/global';
+@forward 'styles/text/text-emphasis';
 
 /* =====================
   COMPONENTS BASE
