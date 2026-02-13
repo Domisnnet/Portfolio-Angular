@@ -114,3 +114,14 @@
   50% { transform: translateX(5%); }
   100% { transform: translateX(-5%); }
 }
+
+@keyframes eggReveal {
+  0% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes explode {
+  0% { transform: translateX(-50%) scale(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateX(-50%) scale(2) rotate(360deg); opacity: 0; }
+}

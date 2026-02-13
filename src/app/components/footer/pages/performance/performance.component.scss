@@ -1,7 +1,37 @@
-.performance-wow {
+:host {
+  display: block;
+}
+
+.footer-card--glass-holographic {
+  .footer-header {
+    letter-spacing: 1px;
+    opacity: 0.9;
+
+    .about-pulse {
+      color: var(--footer-accent-primary);
+      animation: pulse 1.6s infinite;
+    }
+
+    .footer-content {
+      color: var(--footer-glass-text-primary);
+    }
+  
+    .footer-meta {
+      color: var(--footer-glass-text-secondary);
+    }
+  
+    .footer-block {
+      padding: var(--space-md);
+      border-bottom: 2px solid var(--footer-glass-divider);
+    }
+  
+    .footer-block:last-child {
+      border-bottom: none;
+    }
+  }
+
   .radar-chart {
     background: linear-gradient(135deg, rgba(var(--cosmic-accent-rgb), 0.1), rgba(var(--artifact-neon-rgb), 0.1));
-    padding: 3rem;
     border-radius: 20px;
     border: 2px solid var(--cosmic-accent);
     margin: 3rem 0;
@@ -88,7 +118,7 @@
     background: linear-gradient(135deg, var(--cosmic-accent), var(--artifact-neon));
     padding: 3rem;
     border-radius: 20px;
-    color: white;
+    color: var(--cosmic-accent);
     margin: 3rem 0;
 
     .stat {
@@ -100,5 +130,5 @@
         margin-bottom: 0.5rem;
       }
     }
-  }
-}
+  }   
+}      

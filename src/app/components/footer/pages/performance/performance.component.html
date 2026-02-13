@@ -1,14 +1,24 @@
-<section class="performance-wow">
-  <div class="terminal-footer speed-lines"></div>
+<section class="footer-layout">
+  <article 
+    class="footer-card footer-card--about footer-card--glass-holographic"
+    @cardEnter role="article"
+  >
+  <header class="footer-header">
+    <span class="about-pulse">●</span>
+      PERFORMANCE.log
+  </header>
   <div class="radar-chart">
-    ```mermaid
-    radarChart
+    
+    ```
+    mermaid
+      radarChart
       title Portfolio Performance
       "Performance" : 98
       "Accessibility" : 100
       "Best Practices" : 95
       "SEO" : 92
       "Bundle Size" : 97
+
     ```
   </div>
   <div class="metrics-dashboard">
@@ -46,11 +56,12 @@
         <span>ng build --prod ANALYSIS</span> <span class="status-green">● OPTIMIZED</span>
       </div>
       <pre><code class="language-text">Bundle Analysis (Portfolio):
-├── main.js     42kb (gzipped)
-├── styles.css  18kb (gzipped) 
-├── polyfills  12kb (gzipped)
-└── Total:     72kb 🚀
-Lazy Chunks (Jornada): 15kb each</code></pre>
+        ├── main.js     42kb (gzipped)
+        ├── styles.css  18kb (gzipped) 
+        ├── polyfills  12kb (gzipped)
+        └── Total:     72kb 🚀
+        Lazy Chunks (Jornada): 15kb each</code>
+      </pre>
     </div>
   </div>
   <div class="opti-strategies">
@@ -88,7 +99,8 @@ Lazy Chunks (Jornada): 15kb each</code></pre>
       <div class="stat">
         <div class="stat-number">47ms</div>
         <div>Avg TTFB</div>
+        </div>
       </div>
     </div>
-  </div>
+  </article>
 </section>

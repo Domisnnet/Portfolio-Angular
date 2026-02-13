@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+.footer-card--glass-holographic {
+  .footer-header {
+    letter-spacing: 1px;
+    opacity: 0.9;
+
+    .about-pulse {
+      color: var(--footer-accent-primary);
+      animation: pulse 1.6s infinite;
+    }
+    
+    .about-lang-badge {
+      align-self: flex-end;
+      margin-bottom: var(--space-md);
+      background: transparent;
+      font-weight: bolder;
+      color: var(--footer-accent-primary);
+      border: 3px solid var(--footer-border-strong);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+    }
+  }
+
+  .footer-content {
+    color: var(--footer-glass-text-primary);
+  }
+
+  .footer-meta {
+    color: var(--footer-glass-text-secondary);
+  }
+
+  .footer-block {
+    padding: var(--space-md);
+    border-bottom: 2px solid var(--footer-glass-divider);
+  }
+
+  .footer-block:last-child {
+    border-bottom: none;
+  }
+
+  .footer-btn {
+    background: var(--footer-glass-btn-bg);
+    border: 3px solid var(--footer-glass-btn-border);
+    color: var(--footer-glass-btn-text);
+    border-radius: var(--radius-pill);
+    margin-top: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    cursor: pointer;
+    text-decoration: none;
+  }
+}

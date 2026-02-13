@@ -1,56 +1,32 @@
-.production-wow, .layers-wow, .stats-wow, .persist-wow {
-  .pipeline-diagram, .layers-diagram, .stats-diagram, .persist-diagram {
-    background: linear-gradient(135deg, rgba(var(--cosmic-accent-rgb), 0.15), rgba(var(--artifact-neon-rgb), 0.15));
-    padding: 3rem;
-    border-radius: 20px;
-    border: 2px solid var(--cosmic-accent);
-    margin: 3rem 0;
-  }
-
-  .deploy-status-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  .deploy-status {
-    background: rgba(var(--mono-bg-rgb), 0.9);
-    padding: 2rem;
-    border-radius: 12px;
-    border-left: 5px solid var(--cosmic-accent);
-
-    .status-live {
-      color: #10b981;
-      font-size: 1.2rem;
-      margin-right: 1rem;
-    }
-  }
-
-  .layers-breakdown {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-  }
-
-  .layer-card {
-    background: linear-gradient(135deg, rgba(var(--cosmic-accent-rgb), 0.1), rgba(var(--artifact-neon-rgb), 0.1));
-    padding: 2.5rem;
-    border-radius: 16px;
-    border: 1px solid var(--cosmic-accent);
-    text-align: center;
-  }
-
-  .live-stats {
-    .stats-demo {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--cosmic-accent), var(--artifact-neon));
-      color: white;
-      padding: 1.5rem 3rem;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      text-decoration: none;
-      box-shadow: 0 10px 30px rgba(var(--cosmic-accent-rgb), 0.4);
-    }
-  }
+:host {
+  display: block;
 }
+
+.footer-card--glass-holographic {
+  .footer-header {
+    letter-spacing: 1px;
+    opacity: 0.9;
+
+    .about-pulse {
+      color: var(--footer-accent-primary);
+      animation: pulse 1.6s infinite;
+    }
+
+    .footer-content {
+      color: var(--footer-glass-text-primary);
+    }
+  
+    .footer-meta {
+      color: var(--footer-glass-text-secondary);
+    }
+  
+    .footer-block {
+      padding: var(--space-md);
+      border-bottom: 2px solid var(--footer-glass-divider);
+    }
+  
+    .footer-block:last-child {
+      border-bottom: none;
+    }
+  }
+}   

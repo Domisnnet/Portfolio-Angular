@@ -1,74 +1,32 @@
-.wow-premium {
-  .architecture-diagram {
-    background: rgba(var(--mono-bg-rgb), 0.95);
-    padding: 2.5rem;
-    border-radius: 16px;
-    border: 1px solid var(--cosmic-accent);
-    margin: 3rem 0;
-    overflow: hidden;
-  }
-
-  .lighthouse-metrics {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin: 3rem 0;
-
-    .metric-card {
-      background: linear-gradient(135deg, var(--cosmic-accent), var(--artifact-neon));
-      padding: 2rem;
-      border-radius: 16px;
-      text-align: center;
-      color: white;
-
-      .score {
-        font-size: 4rem;
-        font-weight: 900;
-        line-height: 1;
-        margin-bottom: 0.5rem;
-      }
-    }
-  }
-
-  .terminal-frame {
-    background: rgba(var(--mono-bg-rgb), 0.9);
-    border-radius: 12px;
-    margin: 2rem 0;
-    overflow: hidden;
-    border: 1px solid var(--artifact-neon);
-
-    .terminal-header {
-      background: var(--cosmic-accent);
-      padding: 1rem 1.5rem;
-      color: white;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-
-  .project-matrix table {
-    width: 100%;
-    border-collapse: collapse;
-    background: rgba(var(--mono-bg-rgb), 0.95);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-
-    th {
-      background: var(--cosmic-accent);
-      color: white;
-      padding: 1.5rem;
-      text-align: left;
-    }
-
-    td {
-      padding: 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    tr:hover {
-      background: rgba(var(--cosmic-accent-rgb), 0.1);
-    }
-  }
+:host {
+  display: block;
 }
+
+.footer-card--glass-holographic {
+  .footer-header {
+    letter-spacing: 1px;
+    opacity: 0.9;
+
+    .about-pulse {
+      color: var(--footer-accent-primary);
+      animation: pulse 1.6s infinite;
+    }
+
+    .footer-content {
+      color: var(--footer-glass-text-primary);
+    }
+  
+    .footer-meta {
+      color: var(--footer-glass-text-secondary);
+    }
+  
+    .footer-block {
+      padding: var(--space-md);
+      border-bottom: 2px solid var(--footer-glass-divider);
+    }
+  
+    .footer-block:last-child {
+      border-bottom: none;
+    }
+  }
+}      

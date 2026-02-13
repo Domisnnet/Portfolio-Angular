@@ -1,52 +1,61 @@
-<section class="footer-layout" data-footer-theme="layers">
-  <article class="footer-card footer-card--layers" @cardEnter role="article">
+<section class="footer-layout">
+  <article 
+    class="footer-card footer-card--about footer-card--glass-holographic" 
+    @cardEnter role="article"
+  >
     <header class="footer-header">
-      SYSTEM_LAYERS_DIAGRAM.log
+      <span class="about-pulse">●</span>
+        SYSTEM_LAYERS_DIAGRAM.log
     </header>
     <div class="footer-body">
       <div class="footer-block">
         <div class="layers-diagram">
-          ```mermaid
-          graph TB
-          UI[UI Layer<br/>Angular/Vue/Bootstrap] 
-          --> BUS[Business Logic<br/>StackPills/Pinia]
-          BUS --> DATA[Data Layer<br/>GitHub API]
-          DATA --> INFRA[Infrastructure<br/>Firebase/CDN]
-          subgraph "DomisDev Stack"
-            UI
-            BUS  
-            DATA
-            INFRA
-          end
-          ```
+          <pre><code>
+          
+            ```
+            mermaid
+              graph TB
+              UI[UI Layer<br/>Angular/Vue/Bootstrap] 
+              BUS --> [Business Logic<br/>StackPills/Pinia]
+              BUS --> DATA[Data Layer<br/>GitHub API]
+              DATA --> INFRA[Infrastructure<br/>Firebase/CDN]
+              subgraph "DomisDev Stack"
+              UI
+              BUS  
+              DATA
+              INFRA
+              end</code>
+
+            ```
+          </pre>  
         </div>
       </div>
       <div class="footer-block">
         <div class="layers-breakdown">
           <div class="layer-card">
-      <h4>📱 UI Layer</h4>
-      <div class="tech-stack">
-        Angular Standalone | Vue 3 + Vite | Bootstrap 5
-      </div>
-    </div>
-    <div class="layer-card">
-      <h4>💻 Business Layer</h4>
-      <div class="tech-stack">
-        StackPills System | Pinia State | Vanilla JS Logic
-      </div>
-    </div>
-    <div class="layer-card">
-      <h4>💾 Data Layer</h4>
-      <div class="tech-stack">
-        GitHub REST API | SVG Generation | Cache Strategy
-      </div>
-    </div>
-    <div class="layer-card">
-      <h4>☁️ Infra Layer</h4>
-      <div class="tech-stack">
-        Firebase Hosting | Cloud Functions | GitHub Actions
-      </div>
-    </div>
+          <h4>📱 UI Layer</h4>
+          <div class="tech-stack">
+            Angular Standalone | Vue 3 + Vite | Bootstrap 5
+          </div>
+        </div>
+        <div class="layer-card">
+          <h4>💻 Business Layer</h4>
+          <div class="tech-stack">
+            StackPills System | Pinia State | Vanilla JS Logic
+          </div>
+        </div>
+        <div class="layer-card">
+          <h4>💾 Data Layer</h4>
+          <div class="tech-stack">
+            GitHub REST API | SVG Generation | Cache Strategy
+          </div>
+        </div>
+        <div class="layer-card">
+          <h4>☁️ Infra Layer</h4>
+          <div class="tech-stack">
+            Firebase Hosting | Cloud Functions | GitHub Actions
+          </div>
+        </div>
         </div>
       </div>
     </div>
