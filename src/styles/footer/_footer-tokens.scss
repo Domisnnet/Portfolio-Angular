@@ -3,37 +3,36 @@
   --footer-bg-page: #06070a;
   --footer-bg-surface: #0e1322;
   --footer-glass-bg: #141b33;
+  --footer-bg-strong: rgba(6, 12, 10, 0.9);
+  --footer-bg-soft: rgba(6, 12, 10, 0.4);
 
   /* BORDERS */
+  --footer-border: rgba(0, 255, 180, 0.25);
   --footer-border-strong: #1f2a44;
   --footer-glass-border: rgba(255,255,255,0.08);
   --footer-glass-border-width: 3px;
 
   /* TEXT */
-  --footer-text-primary: #e6ecff;
-  --footer-text-secondary: #9aa3c7;
-  --footer-text-tertiary: #6b7280;
+  --footer-text-primary: #c9ffe8;
+  --footer-text-secondary: #7fb2ff;
+  --footer-text-framework: #C3002F;
+  --footer-text-finish: #7000FF;
+  --footer-text-prod: #FF00FF;
+  --footer-text-highlight: #7fb2ff;
   --footer-text-mono: #c9ffe8;
-  --footer-text-muted: rgba(255,255,255,0.5);
   --footer-text-neon: #26ff00;
   --footer-text-neon-rx:#b700ff;
+  --footer-text-status: #ffc400;
 
   /* Glass readability */
   --footer-glass-text-primary: rgba(255,255,255,0.92);
   --footer-glass-text-secondary: rgba(255,255,255,0.68);
 
   /* ACCENTS */
+  --footer-accent-rgb: 0, 255, 180;
   --footer-accent-primary: #00ffff;
-  --footer-accent-secondary: #ff00c8;
+  --footer-accent-secondary: #ff00c8; 
   --footer-accent-tertiary: #7df9ff;
-
-  /* LAYOUT */
-  --footer-max-width: 860px;
-
-  /* BLUR LEVELS */
-  --footer-glass-blur: 18px;
-  --footer-glass-blur-soft: 10px;
-  --footer-glass-blur-strong: 26px;
 
   /* GLOW BACKGROUND */
   --footer-glow-cyan: 0, 255, 255;
@@ -54,6 +53,9 @@
   --footer-glass-btn-bg: rgba(255,255,255,0.06);
   --footer-glass-btn-border: rgba(255,255,255,0.14);
 
-  /* divider */
+  /* DIVIDER */
   --footer-glass-divider: rgba(255,255,255,0.06);
+
+  /* OPACITY */
+  --footer-opacity: 0.75;
 }

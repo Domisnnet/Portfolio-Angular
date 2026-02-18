@@ -35,6 +35,13 @@
   --radius-md: 12px; 
   --radius-lg: 20px; 
   --radius-pill: 999px; 
+
+  /* =============
+    BLUR LEVELS 
+  ============= */
+  --footer-glass-blur: 18px;
+  --footer-glass-blur-soft: 10px;
+  --footer-glass-blur-strong: 26px;
   
   /* ============
     Tamanhos
@@ -44,6 +51,7 @@
   --size-md: 16px; 
   --size-lg: 24px; 
   --container-max: 1200px; 
+  --footer-max-width: 860px;
   
   /* ===============
     HEADER SYSTEM

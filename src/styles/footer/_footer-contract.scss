@@ -1,18 +1,68 @@
 :root {
+  /* BACKGROUND */
+  --footer-bg-page: ;
+  --footer-bg-surface: ;
+  --footer-glass-bg: ;
   --footer-bg-strong: ;
   --footer-bg-soft: ;
+
+  /* BORDERS */
   --footer-border: ;
+  --footer-border-strong: ;
+  --footer-glass-border: ;
+  --footer-glass-border-width: ;
+
+  /* TEXT */
   --footer-text-primary: ;
   --footer-text-secondary: ;
+  --footer-text-tertiary: ;
   --footer-text-framework: ;
   --footer-text-finish: ;
   --footer-text-prod: ;
   --footer-text-highlight: ;
   --footer-text-mono: ;
+  --footer-text-muted: ;
   --footer-text-neon: ;
   --footer-text-neon-rx: ;
   --footer-text-status: ;
+
+  /* Glass readability */
+  --footer-glass-text-primary: ;
+  --footer-glass-text-secondary: ;
+
+  /* ACCENTS */
   --footer-accent-rgb: ;
+  --footer-accent-primary: ;
+  --footer-accent-secondary: ;
+  --footer-accent-tertiary: ;
+
+  /* BLUR LEVELS */
+  --footer-glass-blur: ;
+  --footer-glass-blur-soft: ;
+  --footer-glass-blur-strong: ;
+
+  /* GLOW BACKGROUND */
+  --footer-glow-cyan: ;
+  --footer-glow-magenta: ;
+  --footer-glow-blue: ;
+  --footer-glow-cyan-opacity: ;
+  --footer-glow-magenta-opacity: ;
+  --footer-glow-blue-opacity: ;
+  --footer-glow-intensity: ;
+
+  /* GLASS SHADOW SYSTEM */
+  --footer-glass-shadow-color: ;
+  --footer-glass-shadow-opacity: ;
+  --footer-glass-inner-glow-color: ;
+  --footer-glass-inner-glow-opacity: ;
+
+  /* GLASS BUTTON */
+  --footer-glass-btn-bg: ;
+  --footer-glass-btn-border: ;
+
+  /* DIVIDER */
+  --footer-glass-divider: ;
+
+  /* OPACITY */
   --footer-opacity: ;
-  --footer-font-size: ;
 }
