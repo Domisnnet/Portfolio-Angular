@@ -13,18 +13,6 @@
       color: var(--footer-accent-primary);
       animation: pulse 1.6s infinite;
     }
-    
-    .about-lang-badge {
-      align-self: flex-end;
-      margin-bottom: var(--space-md);
-      background: transparent;
-      font-weight: bolder;
-      color: var(--footer-accent-primary);
-      border: 3px solid var(--footer-border-strong);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-pill);
-      cursor: pointer;
-    }
   }
 
   .footer-content {
@@ -32,7 +20,8 @@
   }
 
   .footer-meta {
-    color: var(--footer-glass-text-secondary);
+    color: var(--footer-text-primary);
+    font-weight: var(--font-semibold);
   }
 
   .footer-block {
@@ -42,6 +31,27 @@
 
   .footer-block:last-child {
     border-bottom: none;
+  }
+
+  .t-mono {
+    background-color: var(--footer-bg-strong);
+    width: var(--space-xl);
+    color: var(--footer-text-mono);
+    font-style: italic;
+    font-weight: var(--font-semibold);
+  }
+
+  .t-neonrx {
+    color: var(--footer-text-neon-rx);
+    font-style: italic;
+    font-weight: var(--font-semibold);
+  }
+
+  .executing {
+    color: var(--footer-accent-secondary);
+    font-style: italic;
+    font-weight: var(--font-bolder);
+    padding-left: 15px;
   }
 
   .footer-btn {

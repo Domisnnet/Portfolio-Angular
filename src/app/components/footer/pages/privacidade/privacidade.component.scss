@@ -8,36 +8,26 @@
   .footer-header {
     letter-spacing: 1px;
     opacity: 0.9;
-
-    .about-pulse {
-      color: var(--footer-accent-primary);
-      animation: pulse 1.6s infinite;
-    }
-    
-    .about-lang-badge {
-      align-self: flex-end;
-      margin-bottom: var(--space-md);
-      background: transparent;
-      font-weight: bolder;
-      color: var(--footer-accent-primary);
-      border: 3px solid var(--footer-border-strong);
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-pill);
-      cursor: pointer;
-    }
   }
 
   .footer-content {
     color: var(--footer-glass-text-primary);
+    padding-bottom: var(--space-sm);
   }
 
   .footer-meta {
-    color: var(--footer-glass-text-secondary);
+    color: var(--footer-text-primary);
   }
 
   .footer-block {
     padding: var(--space-md);
     border-bottom: 2px solid var(--footer-glass-divider);
+  }
+
+  .footer-divisor {
+    padding: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-top: 2px solid var(--footer-glass-divider);
   }
 
   .footer-block:last-child {

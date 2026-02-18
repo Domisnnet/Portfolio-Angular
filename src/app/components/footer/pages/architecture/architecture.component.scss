@@ -13,22 +13,29 @@
       color: var(--footer-accent-primary);
       animation: pulse 1.6s infinite;
     }
-
-    .footer-content {
-      color: var(--footer-glass-text-primary);
-    }
-  
-    .footer-meta {
-      color: var(--footer-glass-text-secondary);
-    }
-  
-    .footer-block {
-      padding: var(--space-md);
-      border-bottom: 2px solid var(--footer-glass-divider);
-    }
-  
-    .footer-block:last-child {
-      border-bottom: none;
-    }
   }
-}      
+
+  .footer-content {
+    color: var(--footer-glass-text-primary);
+  }
+
+  .footer-meta {
+    color: var(--footer-text-primary);
+  }
+
+  .footer-block {
+    padding: var(--space-md);
+    border-bottom: 2px solid var(--footer-glass-divider);
+  }
+
+  .footer-block:last-child {
+    border-bottom: none;
+  }
+
+  .executing {
+    color: var(--footer-accent-secondary);
+    font-style: italic;
+    font-weight: var(--font-bolder);
+    padding-left: 15px;
+  }
+}
