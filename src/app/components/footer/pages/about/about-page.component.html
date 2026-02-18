@@ -15,7 +15,7 @@
       <div class="footer-body">
         <div class="footer-block">
           <span class="footer-meta">
-            [{{ content.meta.timestamp }}]
+            {{ content.meta.timestamp }}
           </span>
           <p class="footer-content">
             <span class="t-mono">
@@ -39,7 +39,7 @@
         </div>
         <div class="footer-block">
           <span class="footer-meta">
-            [{{ content.meta.paused }}]
+            {{ content.meta.paused }}
           </span>
           <p class="footer-content">
             {{ content.logs.pause.text }}
@@ -56,7 +56,7 @@
         </div>
         <div class="footer-block">
           <span class="footer-meta">
-            [{{ content.meta.reboot }}]
+            {{ content.meta.reboot }}
           </span>
           <p class="footer-content">
             {{ content.logs.reboot.text }}
@@ -76,7 +76,7 @@
         </div>
         <div class="footer-block">
           <span class="footer-meta">
-            [{{ content.meta.present }}]
+            {{ content.meta.present }}
           </span>
           <p class="footer-content">
             {{ content.logs.present.text }}
@@ -93,7 +93,7 @@
         </div>
         <div class="footer-block">
           <span class="footer-meta">
-            [{{ content.meta.closing }}]
+            {{ content.meta.closing }}
           </span>
           <p class="footer-content">
             {{ content.logs.closing.text }}
@@ -115,7 +115,7 @@
           >
             {{ content.actions.simple }}
           </button>
-          <span class="footer-meta">
+          <span class="footer-meta executing">
             {{ content.meta.executing }}
           </span>
         </footer>
