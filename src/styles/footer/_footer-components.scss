@@ -8,7 +8,7 @@
   border: 3px solid var(--footer-border-strong);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
-  padding: var(--space-xl);
+  padding: var(--space-lg);
 }
 
 .footer-header {
@@ -52,21 +52,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: var(--space-lg) auto;
+  margin-top: var(--space-lg);
 }
 
 .footer-btn {
-  background: transparent;
-  border: 2px solid var( --footer-text-tertiary);
+  background: var(--footer-glass-btn-bg);
+  border: 2px solid var(--footer-glass-btn-border);
   color: var(--footer-accent-tertiary);
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 calc(20px * var(--glow-strength))var(--glow-color);
-    opacity: 0.8;
+    box-shadow: 0 0 calc(20px * var(--glow-strength)) var(--glow-color);
+    opacity: 0.85;
   }
 }

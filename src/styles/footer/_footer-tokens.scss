@@ -1,32 +1,56 @@
 :root {
-  /* Background */
-  --footer-bg-page: var(--bg-body);
-  --footer-bg-surface: var(--footer-bg-strong);
+  /* BACKGROUND */
+  --footer-bg-page: #06070a;
+  --footer-bg-surface: #0e1322;
+  --footer-glass-bg: #141b33;
 
-  /* Borders */
-  --footer-border-strong: var(--footer-border);
+  /* BORDERS */
+  --footer-border-strong: #1f2a44;
+  --footer-glass-border: rgba(255,255,255,0.08);
+  --footer-glass-border-width: 3px;
 
-  /* Text */
+  /* TEXT */
   --footer-text-primary: #e6ecff;
   --footer-text-secondary: #9aa3c7;
   --footer-text-tertiary: #6b7280;
   --footer-text-muted: rgba(255,255,255,0.5);
 
-  /* Texto sobre glass */
-  --footer-glass-text-primary: rgba(255, 255, 255, 0.92);
-  --footer-glass-text-secondary: rgba(255, 255, 255, 0.68);
+  /* Glass readability */
+  --footer-glass-text-primary: rgba(255,255,255,0.92);
+  --footer-glass-text-secondary: rgba(255,255,255,0.68);
 
-  /* Accent */
-  --footer-accent-primary: var(--about-neon);
-  --footer-accent-secondary: var(--about-neon-rx);
+  /* ACCENTS */
+  --footer-accent-primary: #00ffff;
+  --footer-accent-secondary: #ff00c8;
+  --footer-accent-tertiary: #7df9ff;
 
-  /* Layout */
+  /* LAYOUT */
   --footer-max-width: 860px;
 
-  /* Divisores internos */
-  --footer-glass-divider: rgba(255, 255, 255, 0.06);
+  /* BLUR LEVELS */
+  --footer-glass-blur: 18px;
+  --footer-glass-blur-soft: 10px;
+  --footer-glass-blur-strong: 26px;
 
-  /* Botão glass */
-  --footer-glass-btn-bg: rgba(255, 255, 255, 0.06);
-  --footer-glass-btn-border: rgba(255, 255, 255, 0.14);
+  /* GLOW BACKGROUND */
+  --footer-glow-cyan: 0, 255, 255;
+  --footer-glow-magenta: 255, 0, 200;
+  --footer-glow-blue: 0, 150, 255;
+  --footer-glow-cyan-opacity: 0.12;
+  --footer-glow-magenta-opacity: 0.10;
+  --footer-glow-blue-opacity: 0.08;
+  --footer-glow-intensity: 1;
+
+  /* GLASS SHADOW SYSTEM */
+  --footer-glass-shadow-color: 0, 0, 0;
+  --footer-glass-shadow-opacity: 0.45;
+  --footer-glass-inner-glow-color: 255, 255, 255;
+  --footer-glass-inner-glow-opacity: 0.03;
+
+  /* GLASS BUTTON */
+  --footer-glass-btn-bg: rgba(255,255,255,0.06);
+  --footer-glass-btn-border: rgba(255,255,255,0.14);
+
+  /* divider */
+  --footer-glass-divider: rgba(255,255,255,0.06);
 }

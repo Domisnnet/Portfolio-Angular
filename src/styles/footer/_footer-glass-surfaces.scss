@@ -1,19 +1,19 @@
 .footer-card {
   position: relative;
-  isolation: isolate; 
+  isolation: isolate;
   overflow: hidden;
-  background: rgba(18, 24, 48, var(--footer-glass-opacity));
-  backdrop-filter: blur(var(--footer-glass-blur))saturate(var(--footer-glass-saturation));
-  -webkit-backdrop-filter: blur(var(--footer-glass-blur))saturate(var(--footer-glass-saturation));
-  border: 3px solid var(--footer-glass-border-color);
-  box-shadow: var(--footer-glass-shadow),var(--footer-glass-inner-glow);
+  background: rgba(var(--footer-glow-blue), 0.08);
+  backdrop-filter: blur(var(--footer-glass-blur)) saturate(var(--footer-glass-saturation));
+  -webkit-backdrop-filter: blur(var(--footer-glass-blur)) saturate(var(--footer-glass-saturation));
+  border: var(--footer-glass-border-width) solid var(--footer-glass-border);
+  box-shadow: var(--footer-glass-shadow), var(--footer-glass-inner-glow);
 }
 
 .footer-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient( 120deg,rgba(255,255,255,0.15),transparent 40% );
+  background: linear-gradient( 120deg, rgba(var(--footer-grid-dot-color), 0.12), transparent 40% );
   opacity: 0.35;
   pointer-events: none;
 }

@@ -1,32 +1,23 @@
 .footer-card--glass-soft {
   --footer-glass-opacity: 0.45;
-  --footer-glass-blur: 14px;
-  --footer-glass-saturation: 140%;
-  --footer-glass-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-  --footer-glass-inner-glow: inset 0 0 40px rgba(255, 255, 255, 0.02);
+  --footer-glass-blur: var(--footer-glass-blur-soft);
 }
 
 .footer-card--glass-strong {
-  --footer-glass-opacity: 0.6;
-  --footer-glass-blur: 20px;
-  --footer-glass-saturation: 180%;
-  --footer-glass-shadow: 0 12px 48px rgba(0, 0, 0, 0.55);
-  --footer-glass-inner-glow: inset 0 0 80px rgba(255, 255, 255, 0.05);
+  --footer-glass-opacity: 0.65;
+  --footer-glass-blur: var(--footer-glass-blur-strong);
 }
 
 .footer-card--glass-holographic {
-  --footer-glass-opacity: 0.55;
-  --footer-glass-blur: 22px;
-  --footer-glass-saturation: 200%;
-  box-shadow: 0 0 80px rgba(0, 255, 255, 0.12),0 0 120px rgba(255, 0, 200, 0.08),var(--footer-glass-shadow),var(--footer-glass-inner-glow);
   position: relative;
+  box-shadow: 0 0 80px rgba(var(--footer-glow-cyan), 0.12), 0 0 120px rgba(var(--footer-glow-magenta), 0.08), var(--footer-glass-shadow), var(--footer-glass-inner-glow);
 }
 
 .footer-card--glass-holographic::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient( 120deg,rgba(0,255,255,0.18),rgba(255,0,200,0.15),rgba(0,150,255,0.18));
+  background: linear-gradient( 120deg, rgba(var(--footer-glow-cyan), 0.18), rgba(var(--footer-glow-magenta), 0.15), rgba(var(--footer-glow-blue), 0.18));
   mix-blend-mode: overlay;
   opacity: 0.35;
   animation: holoShift 12s linear infinite;
