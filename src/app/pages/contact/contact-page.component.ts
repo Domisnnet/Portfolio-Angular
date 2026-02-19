@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-contact-page',
@@ -10,7 +11,24 @@ import { FormsModule } from '@angular/forms';
   ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('cardEnter', [
+      transition(':enter', [
+        style({
+          opacity: 0,
+          transform: 'translateY(12px)'
+        }),
+        animate(
+          '280ms cubic-bezier(.2,.8,.2,1)',
+          style({
+            opacity: 1,
+            transform: 'none'
+          })
+        )
+      ])
+    ])
+  ]
 })
 export class ContactPageComponent {
   private firestore: Firestore = inject(Firestore);

@@ -21,6 +21,11 @@
   --text-muted: #7d8bb8;
   --text-card: #000;
 
+  /* ACCENT */
+  --accent-primary: #6ae3ff;
+  --accent-secondary: #ff6ad5;
+  --accent-rgb: 106, 227, 255;
+
   /* STAR */
   --stars-df: #fff; 
   --stars-bg: #888;
@@ -75,6 +80,15 @@
 
   /* GLOW específico do about */
   --about-neon-glow: rgba(38, 255, 0, 0.6);
+
+  /* GLASS SURFACES */
+  --glass-bg: rgba(15, 18, 32, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 14px;
+  --glass-shadow-color: 0, 0, 0;
+  --glass-shadow-opacity: 0.35;
+  --glass-inner-glow-color: 255, 255, 255;
+  --glass-inner-glow-opacity: 0.04;
 
   /* GLASS */
   --footer-glass-opacity: 0.62;
