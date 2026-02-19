@@ -1,77 +1,90 @@
-<section class="footer-layout">
-  <article 
-    class="footer-card footer-card--about footer-card--glass-holographic" 
-    @cardEnter role="article"
+<section
+  class="footer-layout"
+  aria-labelledby="angular-title"
+>
+  <article
+    class="footer-card footer-card--about footer-card--glass-holographic"
+    @cardEnter
+    role="article"
   >
     <header class="footer-header">
-      <span class="about-pulse">●</span> 
-        ANGULAR_18_ARCHITECTURE.log
+      <span class="about-pulse">●</span>
+      SYSTEM_ARCHITECTURE.log
+      <span class="status">LIVE</span>
     </header>
     <div class="footer-body">
       <div class="footer-block">
-        <div class="architecture-diagram">
-          
-          ```
-          mermaid 
-            graph TB 
-            A[Angular 18 Standalone] 
-            A --> B[StackPillsComponent<br/>input() tag/category] 
-            A --> C[HeroLayoutComponent<br/>PC→Mobile Adaptive] 
-            A --> D[CosmicThemeService<br/>SCSS Variables] 
-            B --> E[SVG Icons Dynamic<br/>assets/icons/] 
-            C --> F[FirebaseHostingModule<br/>CDN Global] 
-            D --> G[OnPush ChangeDetection<br/>60fps Animations] 
-
-          ```
-        </div>
-      </div>
-      <div class="footer-block">
-        <div class="lighthouse-metrics">
-          <div class="metric-card">
-            <div class="score">98</div>
-            <div>Performance</div>
-            <div>TTI: 1.2s | FCP: 0.8s</div>
+        <div class="architecture-core">
+          <div class="core-node">
+            <span class="core-title">Angular 18</span>
+            <span class="core-sub"> Standalone + App Routes</span>
           </div>
-          <div class="metric-card">
-            <div class="score">100</div>
-            <div>Accessibility</div>
-            <div>ARIA Labels Complete</div>
+          <div class="core-layer">
+            <span>UI Layer</span>
+            <small> Signals • Adaptive Layout</small>
           </div>
-          <div class="score-card">
-            <div class="score">95</div>
-            <div>Best Practices</div>
-            <div>0 Errors Lighthouse</div>
+          <div class="core-layer">
+            <span>Design System</span>
+            <small> Tokens • Themes • Contracts</small>
+          </div>
+          <div class="core-layer">
+            <span>Component Strategy</span>
+            <small> OnPush • Smart/Dumb Pattern</small>
           </div>
         </div>
       </div>
       <div class="footer-block">
-        <div class="code-architecture">
-          <div class="terminal-header">
-            <span>app.component.ts</span> <span class="status-live">● LIVE</span>
+        <div class="infra-grid">
+          <div class="infra-item">
+            <span class="infra-title"> Performance : </span>
+            <small> 60fps • Lazy Load • Bundle Optimization</small>
           </div>
-          <pre><code class="language-ts">{{ appComponentCode }}</code></pre>
-          <div class="terminal-header">
-            <span>stack-pill.component.ts</span> <span class="status-live">● LIVE</span>
+          <div class="infra-item">
+            <span class="infra-title"> Assets : </span>
+            <small> Dynamic SVG • Optimized Delivery</small>
           </div>
-          <pre><code class="language-ts">{{ stackPillComponentCode }}</code></pre>
+          <div class="infra-item">
+            <span class="infra-title"> Hosting : </span>
+            <small> Firebase CDN • Edge Delivery</small>
+          </div>
         </div>
       </div>
       <div class="footer-block">
-        <div class="deploy-pipeline">
-          <h4>🚀 CI/CD Pipeline (GitHub Actions)</h4>
-          <div class="pipeline-steps">
-            <div class="step active">git push main</div>
-            <div class="step active">ng build --prod</div>
-            <div class="step active">firebase deploy</div>
-            <div class="step active">CDN Live <span>portfolio-23948217-d156e.web.app</span></div>
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="metric-value"> 98</span>
+            <span class="metric-label"> Performance</span>
+            <span class="metric-detail"> FCP 0.8s</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value"> 100</span>
+            <span class="metric-label"> Accessibility</span>
+            <span class="metric-detail"> WCAG AA</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value"> 95</span>
+            <span class="metric-label"> Best Practices</span>
+            <span class="metric-detail">  0 Critical Issues</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-block">
+        <div class="pipeline">
+          <h4> CI/CD PIPELINE</h4>
+          <div class="pipeline-flow">
+            <span> commit</span>
+            <span> build</span>
+            <span> test</span>
+            <span> deploy</span>
+            <span class="active"> live</span>
           </div>
         </div>
       </div>
       <footer class="footer-actions">
         <span class="footer-meta executing">
-          ANGULAR_18_ARCHITECTURE.bin
+          ARCHITECTURE_STATUS: OPERATIONAL
         </span>
       </footer>
-    </div> 
+    </div>
   </article>
 </section>
