@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-github-stats',
+  selector: 'app-system',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './github-stats.component.html',
-  styleUrl: './github-stats.component.scss',
+  templateUrl: './system.component.html',
+  styleUrl: './system.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GithubStatsComponent {}
+export class SystemComponent {}

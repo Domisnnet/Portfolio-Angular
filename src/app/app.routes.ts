@@ -109,18 +109,18 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'github-stats',
+        path: 'system',
         loadComponent: () =>
-          import('./components/footer/pages/github-stats/github-stats.component').then(
-            (m) => m.GithubStatsComponent
+          import('./components/footer/pages/system/system.component').then(
+            (m) => m.SystemComponent
           ),
         data: { cosmic: 'silent' },
       },
       {
-        path: 'persistir',
+        path: 'signal',
         loadComponent: () =>
-          import('./components/footer/pages/persistir/persistir.component').then(
-            (m) => m.PersistirComponent
+          import('./components/footer/pages/signal/signal.component').then(
+            (m) => m.SignalComponent
           ),
         data: { cosmic: 'silent' }, 
       },
