@@ -61,7 +61,7 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'stack-page',
+        path: 'stack',
         loadComponent: () =>
           import('./components/footer/pages/stack/stack.component').then(
             (m) => m.StackComponent
@@ -69,7 +69,7 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'architecture-page',
+        path: 'architecture',
         loadComponent: () =>
           import('./components/footer/pages/architecture/architecture.component').then(
             (m) => m.ArchitectureComponent
@@ -77,7 +77,7 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'performance-page',
+        path: 'performance',
         loadComponent: () =>
           import('./components/footer/pages/performance/performance.component').then(
             (m) => m.PerformanceComponent
@@ -85,7 +85,7 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'access-page',
+        path: 'access',
         loadComponent: () =>
           import('./components/footer/pages/access/access.component').then(
             (m) => m.AccessComponent
@@ -93,10 +93,10 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'producao',
+        path: 'future',
         loadComponent: () =>
-          import('./components/footer/pages/producao/producao.component').then(
-            (m) => m.ProducaoComponent
+          import('./components/footer/pages/future/future.component').then(
+            (m) => m.FutureComponent
           ),
         data: { cosmic: 'silent' },
       },

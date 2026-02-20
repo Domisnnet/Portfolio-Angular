@@ -1,0 +1,112 @@
+:host {
+  display: block;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-card--glass-holographic {
+  .footer-header {
+    letter-spacing: 1px;
+    opacity: 0.9;
+
+    .about-pulse {
+      color: var(--footer-accent-primary);
+      animation: pulse 1.6s infinite;
+    }
+
+    .about-status {
+      color: var(--footer-text-status);
+      animation: pulse 1.6s infinite;
+    }
+  }
+
+  .footer-content {
+    color: var(--footer-glass-text-primary);
+  }
+
+  .footer-meta {
+    color: var(--footer-text-muted);
+  }
+
+  .footer-block {
+    padding: var(--space-md);
+    border-bottom: 2px solid var(--footer-glass-divider);
+  }
+
+  .footer-block:last-child {
+    border-bottom: none;
+  }
+
+  .architecture-core {
+    display: inline-flex;       
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: 500px;    
+  }
+
+  .core-node {
+    display: inline-block;      
+    width: fit-content;
+    max-width: 100%;
+    border: var(--footer-glass-border-width) solid var(--footer-glass-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    background: var(--footer-bg-soft);
+
+    .core-title {
+      font-weight: var(--font-bolder);
+      color: var(--footer-accent-primary);
+    }
+
+    .core-sub {
+      font-size: var(--text-lg);
+      color: var(--footer-glass-text-secondary);
+    }
+  }
+
+  .core-layer {
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--footer-glass-divider);
+
+    span {
+      color: var(--footer-glass-text-primary);
+    }
+
+    small {
+      display: block;
+      color: var(--footer-text-muted);
+    }
+  }
+
+  .infra-grid {
+    display: grid;
+    gap: var(--space-md);
+    justify-content: start; 
+  }
+
+  .infra-item {
+    display: inline-flex;      
+    flex-direction: column;
+    width: fit-content;
+    max-width: 100%;
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    background: var(--footer-bg-soft);
+
+    .infra-title {
+      color: var(--footer-accent-tertiary);
+      font-weight: var(--font-semibold);
+    }
+
+    small {
+      color: var(--footer-glass-text-secondary);
+    }
+  }
+
+  .executing {
+    color: var(--footer-accent-secondary);
+    font-style: italic;
+    font-weight: var(--font-bolder);
+    padding-left: 15px;
+  }
+}
