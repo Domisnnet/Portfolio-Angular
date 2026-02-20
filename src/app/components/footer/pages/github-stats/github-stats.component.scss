@@ -38,15 +38,4 @@
     font-weight: var(--font-bolder);
     padding-left: 15px;
   }
-
-  .footer-btn {
-    background: var(--footer-glass-btn-bg);
-    border: 3px solid var(--footer-glass-btn-border);
-    color: var(--footer-glass-btn-text);
-    border-radius: var(--radius-pill);
-    margin-top: var(--space-md);
-    padding: var(--space-sm) var(--space-md);
-    cursor: pointer;
-    text-decoration: none;
-  }
 }
