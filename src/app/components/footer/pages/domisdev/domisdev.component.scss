@@ -13,6 +13,11 @@
       color: var(--footer-accent-primary);
       animation: pulse 1.6s infinite;
     }
+
+    .about-status {
+      color: var(--footer-text-status);
+      animation: pulse 1.6s infinite;
+    }
   }
 
   .footer-content {
@@ -20,12 +25,10 @@
   }
 
   .footer-meta {
-    color: var(--footer-text-primary);
-    font-weight: var(--font-semibold);
+    color: var(--footer-text-muted);
   }
 
   .footer-block {
-    display: inline-block;
     padding: var(--space-md);
     border-bottom: 2px solid var(--footer-glass-divider);
   }
@@ -61,27 +64,6 @@
     letter-spacing: 1px;
     color: var(--footer-accent-tertiary);
     text-transform: uppercase;
-  }
-  
-  .footer-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: var(--space-md);
-  
-    li {
-      display: flex;
-      flex-direction: column;
-      padding: var(--space-xs);
-      border-radius: var(--radius-sm);
-      background: var(--footer-bg-soft);
-    }
-  
-    small {
-      color: var(--footer-glass-text-secondary);
-      font-size: var(--text-md);
-    }
   }
   
   .stack-grid {
