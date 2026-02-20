@@ -40,7 +40,7 @@ export const routes: Routes = [
       {
         path: 'ano2024',
         loadComponent: () =>
-          import('./components/footer/pages/Ano2024/Ano-2024.component').then(
+          import('./components/footer/pages/ano2024/ano-2024.component').then(
             (m) => m.Ano2024Component
           ),
         data: { cosmic: 'silent' },
@@ -61,7 +61,7 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'angular-page',
+        path: 'stack-page',
         loadComponent: () =>
           import('./components/footer/pages/stack/stack.component').then(
             (m) => m.StackComponent
