@@ -77,7 +77,7 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'architecture-page',
+        path: 'perfil-page',
         loadComponent: () =>
           import('./components/footer/pages/architecture/architecture.component').then(
             (m) => m.ArchitectureComponent
