@@ -3,13 +3,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
-  selector: 'app-angular',
+  selector: 'app-stack',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './angular.component.html',
-  styleUrls: ['./angular.component.scss'],
+  templateUrl: './stack.component.html',
+  styleUrls: ['./stack.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-
   animations: [
     trigger('cardEnter', [
       transition(':enter', [
@@ -28,4 +27,4 @@ import { trigger, transition, style, animate } from '@angular/animations';
     ])
   ]
 })
-export class AngularComponent {}
+export class StackComponent {}

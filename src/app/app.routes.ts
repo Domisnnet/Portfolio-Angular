@@ -63,8 +63,8 @@ export const routes: Routes = [
       {
         path: 'angular-page',
         loadComponent: () =>
-          import('./components/footer/pages/angular/angular.component').then(
-            (m) => m.AngularComponent
+          import('./components/footer/pages/stack/stack.component').then(
+            (m) => m.StackComponent
           ),
         data: { cosmic: 'silent' },
       },
