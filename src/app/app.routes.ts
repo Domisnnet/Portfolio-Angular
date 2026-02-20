@@ -69,10 +69,10 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'footer-projects',
+        path: 'architecture-page',
         loadComponent: () =>
-          import('./components/footer/pages/projects/projects.component').then(
-            (m) => m.FooterProjectsComponent
+          import('./components/footer/pages/architecture/architecture.component').then(
+            (m) => m.ArchitectureComponent
           ),
         data: { cosmic: 'silent' },
       },
@@ -85,10 +85,10 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'performance-page',
+        path: 'access-page',
         loadComponent: () =>
-          import('./components/footer/pages/performance/performance.component').then(
-            (m) => m.PerformanceComponent
+          import('./components/footer/pages/access/access.component').then(
+            (m) => m.AccessComponent
           ),
         data: { cosmic: 'silent' },
       },

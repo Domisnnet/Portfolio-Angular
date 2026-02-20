@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-performance',
+  selector: 'app-access',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './performance.component.html',
-  styleUrl: './performance.component.scss',
+  templateUrl: './access.component.html',
+  styleUrl: './access.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PerformanceComponent {}
+export class AccessComponent {}

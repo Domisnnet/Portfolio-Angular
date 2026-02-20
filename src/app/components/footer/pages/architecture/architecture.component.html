@@ -1,35 +1,54 @@
-<section class="footer-layout">
-  <article 
+<section class="footer-layout" aria-labelledby="architecture-title">
+  <article
     class="footer-card footer-card--about footer-card--glass-holographic"
     [@cardEnter]
     role="article"
   >
     <header class="footer-header">
       <span class="about-pulse">●</span>
-      ARCHITECTURE_STATUS.map
+        SYSTEM_ARCHITECTURE.log
+      <span class="status"> | STRUCTURED </span>
     </header>
     <div class="footer-body">
-      <div class="footer-block core-grid">
-        <div class="core-item">
-          <h4> Modular </h4>
-          <p> Componentes independentes </p>
+      <div class="footer-block">
+        <div class="architecture-core">
+          <div class="core-node">
+            <span class="core-title"> Frontend </span>
+            <span class="core-sub"> - Angular • Vue • Bootstrap </span>
+          </div>
+          <div class="core-layer">
+            <span> Routing </span>
+            <small> Lazy modules • route isolation </small>
+          </div>
+          <div class="core-layer">
+            <span> State & Logic </span>
+            <small> Signals • Pinia • service orchestration </small>
+          </div>
+          <div class="core-layer">
+            <span> Data Flow </span>
+            <small> API → cache → UI hydration </small>
+          </div>
         </div>
-        <div class="core-item">
-          <h4> Design System </h4>
-          <p> Tokens e contratos semânticos </p>
-        </div>
-        <div class="core-item">
-          <h4> Camadas </h4>
-          <p> Semantic → Contract → Theme </p>
-        </div>
-        <div class="core-item">
-          <h4> Escalável </h4>
-          <p> Preparado para expansão </p>
+      </div>
+      <div class="footer-block">
+        <div class="infra-grid">
+          <div class="infra-item">
+            <span class="infra-title"> Build : </span>
+            <small> Optimized production bundles </small>
+          </div>
+          <div class="infra-item">
+            <span class="infra-title"> CI/CD : </span>
+            <small> GitHub Actions automation </small>
+          </div>
+          <div class="infra-item">
+            <span class="infra-title"> Delivery : </span>
+            <small> Firebase hosting pipeline </small>
+          </div>
         </div>
       </div>
       <footer class="footer-actions">
         <span class="footer-meta executing">
-          STRUCTURE STABLE | LAYERS SYNCHRONIZED.bin
+          ARCH_FLOW: STABLE.bin
         </span>
       </footer>
     </div>
