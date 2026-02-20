@@ -101,10 +101,10 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'camadas',
+        path: 'laboratory',
         loadComponent: () =>
-          import('./components/footer/pages/camadas/camadas.component').then(
-            (m) => m.CamadasComponent
+          import('./components/footer/pages/laboratory/lab.component').then(
+            (m) => m.LabComponent
           ),
         data: { cosmic: 'silent' },
       },

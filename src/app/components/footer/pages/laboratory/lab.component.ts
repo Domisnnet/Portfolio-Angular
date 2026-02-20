@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-camadas',
+  selector: 'app-lab',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './camadas.component.html',
-  styleUrl: './camadas.component.scss',
+  templateUrl: './lab.component.html',
+  styleUrl: './lab.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CamadasComponent {}
+export class LabComponent {}
