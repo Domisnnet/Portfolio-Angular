@@ -77,10 +77,10 @@ export const routes: Routes = [
         data: { cosmic: 'silent' },
       },
       {
-        path: 'perfil-page',
+        path: 'performance-page',
         loadComponent: () =>
-          import('./components/footer/pages/architecture/architecture.component').then(
-            (m) => m.ArchitectureComponent
+          import('./components/footer/pages/performance/performance.component').then(
+            (m) => m.PerformanceComponent
           ),
         data: { cosmic: 'silent' },
       },
