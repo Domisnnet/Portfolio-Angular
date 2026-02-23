@@ -1,4 +1,9 @@
 .terminal-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
   font-family: var(--font-terminal, monospace);
   letter-spacing: 0.08em;
   color: var(--terminal-text-secondary);
