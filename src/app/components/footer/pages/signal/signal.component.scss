@@ -6,60 +6,8 @@
 
 .footer-card--glass-holographic {
   .footer-header {
-    letter-spacing: 1px;
-    opacity: 0.9;
-
-    .about-pulse {
-      color: var(--footer-accent-primary);
-      animation: pulse 1.6s infinite;
-    }
-
-    .about-status {
-      color: var(--footer-text-status);
-      animation: pulse 1.6s infinite;
-    }
-  }
-
-  .footer-content {
-    color: var(--footer-glass-text-primary);
-  }
-
-  .footer-meta {
-    color: var(--footer-text-muted);
-  }
-
-  .footer-block {
-    padding: var(--space-md);
-    border-bottom: 2px solid var(--footer-glass-divider);
-  }
-
-  .footer-block:last-child {
-    border-bottom: none;
-  }
-
-  .infra-grid {
-    display: grid;
-    gap: var(--space-md);
-    justify-content: start; 
-  }
-
-  .infra-item {
-    display: inline-flex;      
-    flex-direction: column;
-    width: fit-content;
-    max-width: 100%;
-    padding: var(--space-sm);
-    border-radius: var(--radius-sm);
-    background: var(--footer-bg-soft);
-
-    .infra-title {
-      color: var(--footer-accent-tertiary);
-      font-weight: var(--font-semibold);
-    }
-
-    small {
-      color: var(--footer-glass-text-secondary);
-    }
+    .about-pulse { color: var(--footer-accent-primary); animation: pulse 1.6s infinite; }
+    .about-status { color: var(--footer-text-status); animation: pulse 1.6s infinite; }
   }
 
   .executing {

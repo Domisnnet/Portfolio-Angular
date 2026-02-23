@@ -6,45 +6,8 @@
 
 .footer-card--glass-holographic {
   .footer-header {
-    letter-spacing: 1px;
-    opacity: 0.9;
-
-    .about-pulse {
-      color: var(--footer-accent-primary);
-      animation: pulse 1.6s infinite;
-    }
-  }
-
-  .footer-content {
-    color: var(--footer-glass-text-primary);
-  }
-
-  .footer-meta {
-    color: var(--footer-text-primary);
-    font-weight: var(--font-semibold);
-  }
-
-  .footer-block {
-    padding: var(--space-md);
-    border-bottom: 2px solid var(--footer-glass-divider);
-  }
-
-  .footer-block:last-child {
-    border-bottom: none;
-  }
-
-  .t-mono {
-    background-color: var(--footer-bg-strong);
-    width: var(--space-xl);
-    color: var(--footer-text-mono);
-    font-style: italic;
-    font-weight: var(--font-semibold);
-  }
-
-  .t-neonrx {
-    color: var(--footer-text-neon-rx);
-    font-style: italic;
-    font-weight: var(--font-semibold);
+    .about-pulse { color: var(--footer-accent-primary); animation: pulse 1.6s infinite; }
+    .about-status { color: var(--footer-text-status); animation: pulse 1.6s infinite; }
   }
 
   .executing {
@@ -52,15 +15,5 @@
     font-style: italic;
     font-weight: var(--font-bolder);
     padding-left: 15px;
-  }
-
-  .footer-btn {
-    background: var(--footer-glass-btn-bg);
-    border: 3px solid var(--footer-glass-btn-border);
-    color: var(--footer-glass-btn-text);
-    border-radius: var(--radius-pill);
-    margin-top: var(--space-md);
-    padding: var(--space-sm) var(--space-md);
-    cursor: pointer;
   }
 }
