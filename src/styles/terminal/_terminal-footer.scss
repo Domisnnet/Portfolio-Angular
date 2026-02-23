@@ -3,8 +3,7 @@
   bottom: 0;
   width: 100%;
   padding: 10px 16px;
-  background: linear-gradient( to top, var(--terminal-bg-soft), transparent );
-  border-top: 1.5px solid var(--terminal-border);
+  background: linear-gradient( to top, var(--terminal-bg-strong), transparent );
   backdrop-filter: blur(var(--terminal-blur));
   pointer-events: none;
   isolation: isolate;
