@@ -1,4 +1,4 @@
-import { Component,Input,OnChanges,ChangeDetectionStrategy,inject } from '@angular/core';
+import { Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,9 +10,12 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TerminalFooterComponent implements OnChanges {
-  @Input() message = '> CORE SYSTEMS ONLINE';
+  @Input() message = ' > CORE SYSTEMS ONLINE ';
   displayText = '';
+  isActive = false;
   ngOnChanges() {
     this.displayText = this.message;
+    this.isActive = true;
+    setTimeout(() => { this.isActive = false; }, 600);
   }
 }

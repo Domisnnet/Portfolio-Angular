@@ -1,5 +1,9 @@
-<footer  class="terminal-footer" data-cosmic-effects="silent">
+<footer 
+  class="terminal-footer" 
+  [class.signal-active]="isActive"
+  data-cosmic-effects="silent"
+>
   <span class="terminal-text">
-    {{ displayText }}<span class="cursor"> ▍</span>
+    {{ displayText }}<span class="cursor">▍</span>
   </span>
 </footer>

@@ -1,13 +1,18 @@
 import { Component,ChangeDetectionStrategy,inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, RouterLink } from '@angular/router';
+import { TerminalFooterComponent } from '../terminal-footer/terminal-footer.component';
 import { filter } from 'rxjs/operators';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-main-footer',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [
+    CommonModule, 
+    RouterLink,
+    TerminalFooterComponent
+  ],
   templateUrl: './main-footer.component.html',
   styleUrls: ['./main-footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
