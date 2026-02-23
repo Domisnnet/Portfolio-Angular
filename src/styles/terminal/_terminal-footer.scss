@@ -3,8 +3,12 @@
   bottom: 0;
   width: 100%;
   padding: 6px 14px;
-  background: linear-gradient( to top, var(--terminal-bg-strong),var(--terminal-bg-soft),transparent );
+  background: linear-gradient( to top, var(--terminal-bg-strong), var(--terminal-bg-soft), transparent );
   border-top: 1px solid var(--terminal-border);
   backdrop-filter: blur(var(--terminal-blur));
   pointer-events: none;
+  isolation: isolate;
+  z-index: var(--z-terminal);
+  position: fixed;
+  overflow: visible;
 }
