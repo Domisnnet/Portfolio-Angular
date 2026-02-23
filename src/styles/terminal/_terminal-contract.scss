@@ -4,7 +4,7 @@
   --terminal-bg-strong: var(--footer-bg-strong);
   --terminal-bg-soft: var(--footer-bg-soft);
 
-  /* BORDER & GLASS */
+  /* BORDER / GLASS */
   --terminal-border: var(--footer-border);
   --terminal-blur: 6px;
 
@@ -15,7 +15,8 @@
   /* ACCENT */
   --terminal-accent-rgb: var(--footer-accent-rgb);
 
-  /* HORIZON ENERGY */
-  --terminal-horizon-energy: 0.45;
+  /* ENERGY CONTROL */
+  --terminal-horizon-energy: 0.9;
   --terminal-horizon-depth: 48px;
+  --terminal-grid-opacity: 0.06;
 }
