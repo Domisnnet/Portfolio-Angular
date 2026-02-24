@@ -1,6 +1,13 @@
 import { Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+export type TerminalTone =
+  | 'neon'
+  | 'system'
+  | 'signal'
+  | 'success'
+  | 'warning';
+
 @Component({
   selector: 'app-terminal-footer',
   standalone: true,
@@ -10,7 +17,8 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TerminalFooterComponent implements OnChanges {
-  @Input() message = 'CORE SYSTEMS ONLINE';
+  @Input() message: string = 'CORE SYSTEMS ONLINE';
+  @Input() tone: TerminalTone = 'system';
   displayText = '';
   isActive = false;
   ngOnChanges(): void {

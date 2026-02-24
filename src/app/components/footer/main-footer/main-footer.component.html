@@ -1,6 +1,5 @@
 <footer 
   class="main-footer" 
-  [class.signal-active]="routeLabel !== ' ORBIT STABLE '"
   role="contentinfo"
   data-cosmic-effects="silent"
 >
@@ -42,11 +41,13 @@
           <li>
             <a routerLink="/architecture" class="jornada-link">
               <span class="framework">Architecture</span>
-            </a></li>
+            </a>
+          </li>
           <li>
             <a routerLink="/performance" class="jornada-link">
               <span class="status">Performance</span>
-            </a></li>
+            </a>
+          </li>
           <li>
             <a routerLink="/access" class="jornada-link">
               <span class="status">Accessibility</span>
@@ -113,6 +114,3 @@
     </div>
   </div>
 </footer>
-<app-terminal-footer
-  [message]="' > STATUS: ' + routeLabel">
-</app-terminal-footer>

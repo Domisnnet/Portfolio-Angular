@@ -1,5 +1,7 @@
 :host {
+  display: block;
   position: relative;
+  text-align: center;
   z-index: var(--z-terminal);
 }
 
@@ -9,7 +11,7 @@
   width: 100%;
   display: grid;
   place-items: center;
-  padding: 10px 16px; 
+  padding: 16px; 
   text-align: center;
   pointer-events: none;
   isolation: isolate;
@@ -19,6 +21,9 @@
   opacity: var(--footer-opacity);
   background: linear-gradient( to top, var(--footer-bg-strong), var(--footer-bg-soft), transparent );
   backdrop-filter: blur(4px);
+  font-family: var(--font-terminal, monospace);
+  letter-spacing: 0.08em;
+  color: var(--footer-text-secondary);
 }
 
 .terminal-footer.signal-active::before {
@@ -44,4 +49,24 @@
   background: var(--terminal-text-primary);
   animation: statusBlink 1.6s steps(1) infinite;
   opacity: 0.9;
+}
+
+.terminal-footer.system {
+  --terminal-accent-rgb: 120,160,255;
+}
+
+.terminal-footer.neon {
+  --terminal-accent-rgb: 0,255,170;
+}
+
+.terminal-footer.signal {
+  --terminal-accent-rgb: 255,90,220;
+}
+
+.terminal-footer.success {
+  --terminal-accent-rgb: 120,255,160;
+}
+
+.terminal-footer.warning {
+  --terminal-accent-rgb: 255,120,120;
 }

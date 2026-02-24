@@ -1,9 +1,10 @@
-<footer 
-  class="terminal-footer" 
+<footer
+  class="terminal-footer"
+  [ngClass]="tone"
   [class.signal-active]="isActive"
 >
   <span class="terminal-text">
-    &gt; {{ displayText }}
+    &gt; &gt; {{ displayText }}
     <span class="cursor" aria-hidden="true"></span>
   </span>
 </footer>
