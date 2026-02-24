@@ -10,12 +10,10 @@
   box-shadow:
     0 0 8px rgba(var(--terminal-accent-rgb), var(--terminal-horizon-energy)),
     0 0 22px rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.7)),
-    0 0 var(--terminal-horizon-depth) rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.4));
+    0 0 var(--terminal-horizon-depth) rgba(var(--terminal-accent-rgb), 
+    calc(var(--terminal-horizon-energy) * 0.4));
   opacity: 0.95;
   transition: box-shadow 0.4s ease, opacity 0.4s ease;
 }
 
-.terminal-footer.signal-active::before {
-  opacity: 1;
-  box-shadow: 0 0 16px rgba(var(--terminal-accent-rgb), 1),0 0 40px rgba(var(--terminal-accent-rgb), 0.8),0 0 80px rgba(var(--terminal-accent-rgb), 0.45);
-}
+.terminal-footer.signal-active::before { opacity: 1; }
