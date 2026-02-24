@@ -17,8 +17,8 @@ export type TerminalTone =
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TerminalFooterComponent implements OnChanges {
-  @Input() message: string = 'CORE SYSTEMS ONLINE';
-  @Input() tone: TerminalTone = 'system';
+  @Input() message!: string;
+  @Input() tone: 'neon' | 'system' | 'warning' | 'signal' | 'success' = 'system';
   displayText = '';
   isActive = false;
   ngOnChanges(): void {
