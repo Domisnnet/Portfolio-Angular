@@ -3,24 +3,50 @@
 ========================= */
 :host {
   position: relative;
-  inset: 0;
   z-index: var(--z-terminal);
 }
 
+/* =========================
+  FOOTER CONTAINER
+========================= */
 .terminal-footer {
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
-  display: flex;
-  justify-content: center;   
-  align-items: center;
-  padding: 10px 16px;
+  display: grid;
+  place-items: center;
+  padding: 10px 16px 18px;
   text-align: center;
-  backdrop-filter: blur(var(--terminal-blur));
+  border-top: 1px solid var(--terminal-border);
   pointer-events: none;
   isolation: isolate;
-  overflow: visible;
   z-index: var(--z-terminal);
 }
 
-.terminal-text { letter-spacing: 0.05em; }
+/* =========================
+  TEXTO
+========================= */
+.terminal-text {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-terminal);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* =========================
+  CURSOR
+========================= */
+.cursor {
+  display: inline-block;
+  width: 5px;
+  height: 1em;
+  margin-left: 6px;
+  background: var(--terminal-text-primary);
+  animation: statusBlink 1.6s steps(1) infinite;
+  opacity: 0.9;
+}
