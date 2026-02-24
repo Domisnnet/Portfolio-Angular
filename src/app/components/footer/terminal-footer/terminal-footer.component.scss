@@ -1,18 +1,13 @@
-/* =========================
-  HOST
-========================= */
 :host {
   position: relative;
   z-index: var(--z-terminal);
 }
 
-/* =========================
-  FOOTER CONTAINER
-========================= */
 .terminal-footer {
   position: fixed;
-  inset-inline: 0;
   bottom: 0;
+  left: 0;
+  width: 100%;
   display: grid;
   place-items: center;
   padding: 10px 16px 18px;
@@ -20,58 +15,59 @@
   pointer-events: none;
   isolation: isolate;
   z-index: var(--z-terminal);
+  overflow: visible;
+  font-size: var(--footer-font-size);
+  opacity: var(--footer-opacity);
+  background: linear-gradient(to top, var(--footer-bg-strong), var(--footer-bg-soft), transparent);
+  backdrop-filter: blur(4px);
 }
 
-/* ================
-  HORIZON LINE
-================ */
 .terminal-footer::before {
   content: '';
   position: absolute;
-  inset-inline: 0;
-  top: 0;
-  height: 2px;
+  inset: 0;
+  height: 2.5px;
   background: linear-gradient( 90deg, transparent,
     rgba(var(--terminal-accent-rgb), 0.35),
     rgba(var(--terminal-accent-rgb), var(--terminal-horizon-energy)),
     rgba(var(--terminal-accent-rgb), 0.35), transparent );
-  box-shadow:
-    0 0 8px rgba(var(--terminal-accent-rgb), var(--terminal-horizon-energy)),
-    0 0 22px rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.7)),
-    0 0 var(--terminal-horizon-depth)
-    rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.4));
+  box-shadow: 
+    0 0 8px rgba(var(--terminal-accent-rgb), var(--terminal-horizon-energy)), 
+    0 0 22px rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.7)), 
+    0 0 var(--terminal-horizon-depth) rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.4));
   opacity: 0.95;
-  transition: opacity .35s ease, box-shadow .35s ease;
+  transition: box-shadow 0.4s ease, opacity 0.4s ease;
 }
+
+.terminal-footer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 .terminal-footer.signal-active::before {
   opacity: 1;
 }
 
-/* ================
-  TERMINAL TEXT
-================ */
 .terminal-text {
   position: relative;
   z-index: 2;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-terminal);
-  letter-spacing: 0.06em;
+  font-family: var(--font-terminal, monospace);
+  letter-spacing: 0.08em;
   white-space: nowrap;
-  color: var(--terminal-text-primary);
+  color: var(--footer-text-secondary);
 }
 
-/* ==========
-  CURSOR 
-========== */
-.terminal-text::after {
-  content: '';
-  width: 0.55ch;
+.cursor {
+  display: inline-block;
+  width: 5px;
   height: 1em;
-  margin-left: 0.45ch;
+  margin-left: 6px;
   background: var(--terminal-text-primary);
-  opacity: 0.9;
   animation: statusBlink 1.6s steps(1) infinite;
-  transform: translateY(0.05em);
+  opacity: 0.9;
 }
