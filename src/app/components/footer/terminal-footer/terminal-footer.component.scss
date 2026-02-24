@@ -11,9 +11,8 @@
 ========================= */
 .terminal-footer {
   position: fixed;
+  inset-inline: 0;
   bottom: 0;
-  left: 0;
-  width: 100%;
   display: grid;
   place-items: center;
   padding: 10px 16px 18px;
@@ -23,9 +22,34 @@
   z-index: var(--z-terminal);
 }
 
-/* =========================
-  TEXTO
-========================= */
+/* ================
+  HORIZON LINE
+================ */
+.terminal-footer::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 2px;
+  background: linear-gradient( 90deg, transparent,
+    rgba(var(--terminal-accent-rgb), 0.35),
+    rgba(var(--terminal-accent-rgb), var(--terminal-horizon-energy)),
+    rgba(var(--terminal-accent-rgb), 0.35), transparent );
+  box-shadow:
+    0 0 8px rgba(var(--terminal-accent-rgb), var(--terminal-horizon-energy)),
+    0 0 22px rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.7)),
+    0 0 var(--terminal-horizon-depth)
+    rgba(var(--terminal-accent-rgb), calc(var(--terminal-horizon-energy) * 0.4));
+  opacity: 0.95;
+  transition: opacity .35s ease, box-shadow .35s ease;
+}
+.terminal-footer.signal-active::before {
+  opacity: 1;
+}
+
+/* ================
+  TERMINAL TEXT
+================ */
 .terminal-text {
   position: relative;
   z-index: 2;
@@ -35,17 +59,19 @@
   font-family: var(--font-terminal);
   letter-spacing: 0.06em;
   white-space: nowrap;
+  color: var(--terminal-text-primary);
 }
 
-/* =========================
-  CURSOR
-========================= */
-.cursor {
-  display: inline-block;
-  width: 5px;
+/* ==========
+  CURSOR 
+========== */
+.terminal-text::after {
+  content: '';
+  width: 0.55ch;
   height: 1em;
-  margin-left: 6px;
+  margin-left: 0.45ch;
   background: var(--terminal-text-primary);
-  animation: statusBlink 1.6s steps(1) infinite;
   opacity: 0.9;
+  animation: statusBlink 1.6s steps(1) infinite;
+  transform: translateY(0.05em);
 }
