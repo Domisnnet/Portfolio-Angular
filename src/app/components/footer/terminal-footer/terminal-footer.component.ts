@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TerminalFooterComponent implements OnChanges {
-  @Input() message = '> CORE SYSTEMS ONLINE';
+  @Input() message = 'CORE SYSTEMS ONLINE';
   displayText = '';
   isActive = false;
   ngOnChanges(): void {
