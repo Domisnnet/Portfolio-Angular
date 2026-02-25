@@ -1,8 +1,12 @@
 <footer
   class="terminal-footer"
-  [ngClass]="tone"
-  *ngIf="displayText"
+  [class.system]="tone === 'system'"
+  [class.neon]="tone === 'neon'"
+  [class.signal]="tone === 'signal'"
+  [class.success]="tone === 'success'"
+  [class.warning]="tone === 'warning'"
   [class.signal-active]="isActive"
+  *ngIf="displayText"
 >
   <span class="terminal-text">
     &gt; {{ displayText }}
