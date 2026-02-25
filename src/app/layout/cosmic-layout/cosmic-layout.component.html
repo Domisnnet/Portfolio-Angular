@@ -6,7 +6,10 @@
   </div>
 </section>
 <app-main-footer />
-<div class="terminal-horizon">
+<div 
+  class="terminal-horizon" 
+  [attr.data-tone]="tone"
+>
   <app-terminal-footer
     [message]="routeLabel"
     [tone]="tone">

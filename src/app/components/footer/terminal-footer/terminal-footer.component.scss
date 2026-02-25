@@ -23,7 +23,7 @@
   backdrop-filter: blur(4px);
   font-family: var(--font-terminal, monospace);
   letter-spacing: 1.5px;
-  color: var(--footer-text-secondary);
+  color: rgba(var(--terminal-accent-rgb), 0.9);
 }
 
 .terminal-footer.signal-active::before {
@@ -46,7 +46,7 @@
   width: var(--space-xxs);
   height: 1em;
   margin-left: var(--size-cursor);
-  background: var(--terminal-text-primary);
+  background: rgba(var(--terminal-accent-rgb), 1);
   animation: statusBlink 1.6s steps(1) infinite;
   opacity: var(--op-hover);
 }
