@@ -185,6 +185,7 @@
   padding: var(--space-sm) var(--space-lg);
   border-radius: var(--radius-pill);
   cursor: pointer;
+  text-decoration: none;
   transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
 
   &:hover {
