@@ -13,6 +13,10 @@ interface TerminalState {
   tone: TerminalTone;
 }
 const ROUTE_TERMINAL_MAP: Record<string, TerminalState> = {
+  home:         { label: 'ORBIT STABLE', tone: 'system' },
+  projects:     { label: 'PROJECTS LOADED', tone: 'neon' },
+  contact:      { label: 'CONTACT INFO LOADED', tone: 'neon' },
+
   about:        { label: 'VECTOR 386 ENGAGED', tone: 'neon' },
   background:   { label: 'ORIGIN TRACE LOADED', tone: 'neon' },
   ano2024:      { label: 'TIMELINE NODE 2024', tone: 'signal' },
@@ -40,7 +44,7 @@ const ROUTE_TERMINAL_MAP: Record<string, TerminalState> = {
     TerminalFooterComponent
   ],
   templateUrl: './cosmic-layout.component.html',
-  styleUrls: ['./cosmic-layout.component.scss']
+  styleUrls: ['./cosmic-layout.component.scss'],
 })
 export class CosmicLayoutComponent {
   private cosmic = inject(CosmicEffectsService);
@@ -52,18 +56,14 @@ export class CosmicLayoutComponent {
       const mode = data['cosmic'];
       if (mode) this.cosmic.set(mode);
     });
-
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => this.updateRouteLabel());
   }
-
   private updateRouteLabel(): void {
     const url = this.router.url.toLowerCase();
-
     const match = Object.keys(ROUTE_TERMINAL_MAP)
       .find(route => url.includes(route));
-
     if (match) {
       const state = ROUTE_TERMINAL_MAP[match];
       this.routeLabel = state.label;
