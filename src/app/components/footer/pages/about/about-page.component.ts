@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { cardEnterAnimation } from '@app/components/card/card.animations';
 import aboutData from '@assets/content/about-content.json';
 
 export type Language = 'pt' | 'en';
@@ -72,17 +72,7 @@ const CONTENT = aboutData as Record<Language, AboutContent>;
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('cardEnter', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(40px) scale(0.95)' }),
-        animate(
-          '700ms cubic-bezier(0.34, 1.56, 0.64, 1)',
-          style({ opacity: 1, transform: 'translateY(0) scale(1)' })
-        )
-      ])
-    ])
-  ]
+  animations: [ cardEnterAnimation ]
 })
 export class AboutPageComponent {
   isTextMode = false;
