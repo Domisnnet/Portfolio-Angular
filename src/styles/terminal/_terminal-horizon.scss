@@ -1,8 +1,8 @@
 .terminal-horizon {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  left: var(--space-none);
+  right: var(--space-none);
+  bottom: var(--space-none);
   height: 2.5px;
   pointer-events: none;
   z-index: var(--z-horizon);
