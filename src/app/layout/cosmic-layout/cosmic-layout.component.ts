@@ -7,15 +7,22 @@ import { MainFooterComponent } from '@app/components/footer/main-footer/main-foo
 import { CosmicStarsComponent } from '@app/cosmic/components/cosmic-stars/cosmic-stars.component';
 import { TerminalFooterComponent } from '@app/components/footer/terminal-footer/terminal-footer.component';
 
-type TerminalTone = 'neon' | 'system' | 'signal' | 'success' | 'warning';
+type TerminalTone =
+  | 'neon'
+  | 'system'
+  | 'signal'
+  | 'success'
+  | 'warning';
+
 interface TerminalState {
   label: string;
   tone: TerminalTone;
 }
+
 const ROUTE_TERMINAL_MAP: Record<string, TerminalState> = {
   home:         { label: 'ORBIT STABLE', tone: 'system' },
   projects:     { label: 'PROJECTS LOADED', tone: 'neon' },
-  contact:      { label: 'CONTACT INFO LOADED', tone: 'neon' },
+  contact:      { label: 'CONTACT CHANNEL READY', tone: 'neon' },
 
   about:        { label: 'VECTOR 386 ENGAGED', tone: 'neon' },
   background:   { label: 'ORIGIN TRACE LOADED', tone: 'neon' },
@@ -51,26 +58,34 @@ export class CosmicLayoutComponent {
   private router = inject(Router);
   routeLabel = 'ORBIT STABLE';
   tone: TerminalTone = 'system';
-  constructor(route: ActivatedRoute) {
-    route.firstChild?.data.subscribe(data => {
+
+  constructor(private route: ActivatedRoute) {
+    this.route.firstChild?.data.subscribe(data => {
       const mode = data['cosmic'];
       if (mode) this.cosmic.set(mode);
     });
+    this.updateRouteLabel();
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe(() => this.updateRouteLabel());
   }
+
   private updateRouteLabel(): void {
-    const url = this.router.url.toLowerCase();
-    const match = Object.keys(ROUTE_TERMINAL_MAP)
-      .find(route => url.includes(route));
-    if (match) {
-      const state = ROUTE_TERMINAL_MAP[match];
+    const primarySegment = this.router.url
+      .toLowerCase()
+      .split('?')[0]
+      .split('#')[0]
+      .split('/')
+      .filter(Boolean)[0] || 'home';
+    const state = ROUTE_TERMINAL_MAP[primarySegment];
+    if (state) {
       this.routeLabel = state.label;
       this.tone = state.tone;
     } else {
       this.routeLabel = 'ORBIT STABLE';
       this.tone = 'system';
     }
+    // debug opcional
+    // console.log('[terminal]', primarySegment, this.routeLabel, this.tone);
   }
 }
