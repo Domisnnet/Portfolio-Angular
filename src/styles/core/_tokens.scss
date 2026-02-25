@@ -8,6 +8,8 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-terminal: 'Orbitron', monospace;
 
+  /* FONTS */
+  --font-xxs: 0.5rem;
   --font-xs: 0.75rem;
   --font-sm: 0.85rem;
   --font-md: 1rem;
@@ -15,6 +17,7 @@
   --font-xl: 1.5rem;
   --font-xxl: 2rem;
 
+  /* WEIGHT */
   --font-regular: 400;
   --font-semibold: 600;
   --font-bold: 800;
@@ -23,6 +26,8 @@
   /* =====================
     SPACING
   ===================== */
+  --space-none: 0;
+  --space-xxs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
   --space-md: 1rem;
@@ -49,10 +54,12 @@
   /* ============
     Tamanhos
   ============ */ 
+  --size-xxs: 4px; 
   --size-xs: 8px; 
   --size-sm: 12px; 
   --size-md: 16px; 
   --size-lg: 24px; 
+  --size-cursor: 6px;
   --container-max: 1200px; 
   --footer-max-width: 860px;
   
@@ -87,6 +94,7 @@
   --op-hidden: 0;
   --op-subtle: 0.4;
   --op-active: 0.8;
+  --op-hover: 0.9;
   --op-visible: 1;
 
   /* =====================

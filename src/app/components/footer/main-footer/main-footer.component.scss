@@ -13,7 +13,7 @@
 .main-footer {
   background: var(--footer-primary);
   border-top: 2px solid var(--border-color);
-  padding: var(--space-md)0;
+  padding: var(--space-md);
 }
 
 /* ===============
@@ -58,10 +58,10 @@
 ========================= */
 .footer-column h4 {
   color: var(--text-primary);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  margin-bottom: 1.5rem;
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--font-letter);
+  margin-bottom: var(--font-xl);
 }
 
 .footer-list {
@@ -73,7 +73,7 @@
   a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: var(--font-md);
     transition: all 0.3s ease;
     display: inline-block;
 
@@ -117,7 +117,7 @@
     }
   }
 
-  .t-neonrx {
+  .t-neon-rx {
     color: var(--footer-text-neon-rx);
     font-family: var(--font-code);
     &:hover {
@@ -160,8 +160,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
     background-color: var(--bg-surface);
     border: 3px solid var(--border-color);
     border-radius: 50%;
@@ -189,9 +189,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    margin-top: 10px;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+    margin-top: var(--space-sm);
 
     &:hover {
       transform: translateY(-5px);
@@ -214,8 +214,8 @@
   }
 
   .tech-icon {
-    width: 50px;
-    height: 50px;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
     transition: all 0.3s ease;
 
     &:hover {
@@ -232,8 +232,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem;
-  margin: 1.5rem;
+  padding-top: var(--space-md);
+  margin-top: var(--space-md);
   border-top: 2px solid var(--border-color);
   color: var(--text-muted);
   font-size: var(--font-sm);
@@ -246,12 +246,12 @@
 
 .bottom-links {
   display: flex;
-  gap: 2rem;
+  gap: var(--space-lg);
 
   a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: var(--font-sm);
     position: relative;
     transition: color 0.3s ease;
 
