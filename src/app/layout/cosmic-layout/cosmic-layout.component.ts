@@ -87,7 +87,5 @@ export class CosmicLayoutComponent {
       this.routeLabel = 'ORBIT STABLE';
       this.tone = 'system';
     }
-    // debug opcional
-    // console.log('[terminal]', primarySegment, this.routeLabel, this.tone);
   }
 }
