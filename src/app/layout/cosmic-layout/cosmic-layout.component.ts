@@ -37,7 +37,9 @@ const ROUTE_TERMINAL_MAP: Record<string, TerminalState> = {
   future:       { label: 'FUTURE SIGNAL DETECTED', tone: 'signal' },
   laboratory:   { label: 'LAB ENVIRONMENT ACTIVE', tone: 'signal' },
   system:       { label: 'CORE SYSTEM SYNCHRONIZED', tone: 'system' },
-  signal:       { label: 'DEEP SIGNAL LOCKED', tone: 'neon' }
+  signal:       { label: 'DEEP SIGNAL LOCKED', tone: 'neon' },
+
+  privacidade:  { label: 'PRIVACY POLICY', tone: 'warning' },
 };
 
 @Component({
