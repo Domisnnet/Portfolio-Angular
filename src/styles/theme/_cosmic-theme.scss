@@ -1,97 +1,122 @@
-/* ================
-  COSMIC THEME
-================ */
 [data-theme='cosmic'] {
-  /* BASE */
-  --bg-space: #060a14;
-  --bg-space-alt: #0b0f18;
-  --bg-deep-space: #000;
+  /* ABOUT */
+  --about-neon-glow: rgba(38, 255, 0, 0.6);
+  --about-text-mono: #c9ffe8;
+  --about-text-neon: #26ff00;
+  --about-text-neon-rx: #b700ff;
+  --about-text-status: #ffc400;
 
-  /* LAYERS */
-  --layer-base: #0e1322;
-  --layer-surface: #141b33;
-  --layer-elevated: #1b2550;
-
-  /* CARD */
-  --card-brand: #ffffffc4;
-  --card-verse: #000;
-
-  /* TEXT */
-  --text-primary: #e6ecff;
-  --text-secondary: #b8c7ff;
-  --text-muted: #7d8bb8;
-  --text-card: #000;
-
-  /* ACCENT */
+  /* ACCENTS */
   --accent-primary: #6ae3ff;
   --accent-secondary: #ff6ad5;
   --accent-rgb: 106, 227, 255;
+  --footer-accent-primary: #00ffff;
+  --footer-accent-secondary: #ff00c8;
+  --footer-accent-tertiary: #7df9ff;
+  --footer-accent-rgb: 0, 255, 180;
+  --terminal-accent-rgb: 120, 160, 255;
 
-  /* STAR */
-  --stars-df: #fff; 
-  --stars-bg: #888;
-
-  /* ENERGY */
-  --energy-main: #6aa9ff;
-  --energy-soft: #a9ccff;
-
-  /* FX */
-  --glow-color: rgba(106, 169, 255, 0.45);
-  --shadow-color: rgba(0, 0, 0, 0.75);
-
-  /* STACK-PILLS */
-  --pill-fe: #3855f8;
-  --pill-be: #419100;    
-  --pill-db: #f59e0b;    
-  --pill-do: #ff0026;   
-  --pill-cms: #ff399f;    
-  --pill-tool: #1b1b1b;  
-
-  /* Pills text (auto contrast) */
-  --pill-text-dark: #020205;
-  --pill-text-light: #ffffff;
-
-  /* Pills shape & motion */
-  --pill-radius: 999px;
-  --pill-font-size: var(--font-xs);
-  --pill-font-weight: var(--font-semibold);
-  --pill-padding-y: 6px;
-  --pill-padding-x: 14px;
-
-  /* ===========
-    Footer
-  =========== */  
-  --footer-primary: #141b33;
-
-  /* ============
-    Artifact
-  ============ */  
+  /* ARTIFACT */
+  --artifact-bg: rgba(0, 0, 0, 0.85);
+  --artifact-border: rgba(255, 255, 255, 0.15);
   --artifact-brand: #06b6d4;
   --artifact-brand-neon: #00ff00;
   --artifact-brand-rgb: 0, 255, 200;
   --artifact-brand-rgb-neon: 0, 255, 0;
+  --artifact-meta: #7d8bb8;
+  --artifact-neon: #ffb300;
+  --artifact-shadow: rgba(0, 179, 0, 0.25);
 
-  /* =========================
-    ABOUT / 386 – VERDE
-  ========================= */
-  --about-text-neon: #26ff00;
-  --about-text-neon-rx: #b700ff;
-  --about-text-mono: #c9ffe8;
-  --about-text-status: #ffc400;
+  /* BACKGROUNDS & LAYERS */
+  --bg-deep-space: #000;
+  --bg-space: #060a14;
+  --bg-space-alt: #0b0f18;
+  --layer-base: #0e1322;
+  --layer-surface: #141b33;
+  --layer-elevated: #1b2550;
+  --footer-bg-page: #06070a;
+  --footer-bg-soft: rgba(6, 12, 10, 0.5);
+  --footer-bg-strong: rgba(6, 12, 10, 0.9);
+  --footer-bg-surface: #0e1322;
 
-  /* GLOW específico do about */
-  --about-neon-glow: rgba(38, 255, 0, 0.6);
+  /* BORDERS */
+  --footer-border: rgba(0, 255, 180, 0.25);
+  --footer-border-strong: #1f2a44;
 
-  /* GLASS SURFACES */
+  /* CARD & TEXT */
+  --card-brand: #ffffffc4;
+  --card-verse: #000;
+  --text-card: #000;
+  --text-muted: #7d8bb8;
+  --text-primary: #e6ecff;
+  --text-secondary: #b8c7ff;
+
+  /* ENERGY & STARS */
+  --energy-main: #6aa9ff;
+  --energy-soft: #a9ccff;
+  --stars-bg: #888;
+  --stars-df: #fff;
+
+  /* FX & GLOW SYSTEM */
+  --glow-color: rgba(106, 169, 255, 0.45);
+  --shadow-color: rgba(0, 0, 0, 0.75);
+  --footer-glow-blue: 0, 150, 255;
+  --footer-glow-blue-opacity: 0.08;
+  --footer-glow-cyan: 0, 255, 255;
+  --footer-glow-cyan-opacity: 0.12;
+  --footer-glow-intensity: 1;
+  --footer-glow-magenta: 255, 0, 200;
+  --footer-glow-magenta-opacity: 0.10;
+
+  /* GLASS SYSTEM */
   --glass-bg: rgba(15, 18, 32, 0.45);
-  --glass-border: rgba(255, 255, 255, 0.08);
   --glass-blur: 14px;
-  --glass-shadow-color: 0, 0, 0;
-  --glass-shadow-opacity: 0.35;
+  --glass-border: rgba(255, 255, 255, 0.08);
   --glass-inner-glow-color: 255, 255, 255;
   --glass-inner-glow-opacity: 0.04;
-
-  /* GLASS */
-  --footer-glass-opacity: 0.62;
+  --glass-shadow-color: 0, 0, 0;
+  --glass-shadow-opacity: 0.35;
+  --footer-glass-bg: #141b33;
   --footer-glass-blur: 22px;
+  --footer-glass-border: rgba(255, 255, 255, 0.08);
+  --footer-glass-border-width: 3px;
+  --footer-glass-btn-bg: rgba(255, 255, 255, 0.06);
+  --footer-glass-btn-border: rgba(255, 255, 255, 0.14);
+  --footer-glass-divider: rgba(255, 255, 255, 0.06);
+  --footer-glass-inner-glow-color: 255, 255, 255;
+  --footer-glass-inner-glow-opacity: 0.03;
+  --footer-glass-opacity: 0.62;
+  --footer-glass-shadow-color: 0, 0, 0;
+  --footer-glass-shadow-opacity: 0.45;
+  --footer-glass-text-primary: rgba(255, 255, 255, 0.92);
+  --footer-glass-text-secondary: rgba(255, 255, 255, 0.68);
+  --footer-opacity: 0.75;
+
+  /* PILLS */
+  --pill-be: #419100;
+  --pill-cms: #ff399f;
+  --pill-db: #f59e0b;
+  --pill-do: #ff0026;
+  --pill-fe: #3855f8;
+  --pill-font-size: var(--font-xs);
+  --pill-font-weight: var(--font-semibold);
+  --pill-padding-x: 14px;
+  --pill-padding-y: 6px;
+  --pill-radius: 999px;
+  --pill-text-dark: #020205;
+  --pill-text-light: #ffffff;
+  --pill-tool: #1b1b1b;
+
+  /* TEXT FOOTER SPECIFIC */
+  --footer-text-finish: #7000FF;
+  --footer-text-framework: #C3002F;
+  --footer-text-mono: #c9ffe8;
+  --footer-text-muted: #000;
+  --footer-text-neon: #26ff00;
+  --footer-text-neon-rx: #b700ff;
+  --footer-text-primary: #c9ffe8;
+  --footer-text-prod: #FF00FF;
+  --footer-text-secondary: #7fb2ff;
+  --footer-text-status: #ffc400;
+  --footer-text-suffix: #7fb2ff;
 }

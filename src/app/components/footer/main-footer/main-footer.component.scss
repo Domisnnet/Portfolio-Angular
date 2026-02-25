@@ -11,7 +11,7 @@
   MAIN FOOTER
 =============== */
 .main-footer {
-  background: var(--footer-primary);
+  background: var(--layer-surface);
   border-top: 2px solid var(--border-color);
   padding: var(--space-md);
 }
@@ -71,7 +71,7 @@
   gap: var(--space-sm);
 
   a {
-    color: var(--text-secondary);
+    color: var(--footer-text-secondary);
     text-decoration: none;
     font-size: var(--font-md);
     transition: all 0.3s ease;
