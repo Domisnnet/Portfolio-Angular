@@ -1,6 +1,7 @@
 <footer
   class="terminal-footer"
   [ngClass]="tone"
+  *ngIf="displayText"
   [class.signal-active]="isActive"
 >
   <span class="terminal-text">
