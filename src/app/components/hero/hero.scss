@@ -113,20 +113,18 @@
 /* =====================
   ENTER STATE
 ===================== */
-.hero--enter {
-  .hero-avatar {
-    opacity: 1;
-    transform: scale(1);
-    animation: heroFloat 6s ease-in-out infinite 0.8s;
-  }
+.hero--enter .hero-avatar {
+  opacity: 1;
+  transform: scale(1);
+  animation: heroFloat 6s ease-in-out infinite 0.8s;
+}
 
-  .hero-title,
-  .hero-subtitle,
-  .hero-text,
-  .hero-cta {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.hero--enter .hero-title,
+.hero--enter .hero-subtitle,
+.hero--enter .hero-text,
+.hero--enter .hero-cta {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* =====================
