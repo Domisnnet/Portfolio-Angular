@@ -8,7 +8,12 @@
       <nav class="nav-links" [class.open]="menuOpen()">
         <a routerLink="/">Home</a>
         <a routerLink="/projects">Projetos</a>
-        <a routerLink="/contact" class="btn outline">Contato</a>
+        <app-button 
+          variant="outline"
+          [routerLink]="['/contact']"
+        >
+          Contato
+        </app-button>
       </nav>
       <div class="header-actions">
         <app-theme-toggle />

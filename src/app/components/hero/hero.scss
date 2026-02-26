@@ -1,4 +1,4 @@
- /* =========================
+/* =========================
   HERO — CONTAINER
 ========================= */
 .hero {
@@ -110,37 +110,6 @@
   @media (min-width: 992px) { justify-content: flex-start; }
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.75rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  background: var(--energy-main);
-  color: var(--layer-base);
-  transition: transform 0.3s ease,box-shadow 0.3s ease,background 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 calc(20px * var(--glow-strength))var(--glow-color);
-  }
-
-  &.outline {
-    background: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--energy-main);
-    transition: background 0.3s ease,color 0.3s ease;
-
-    &:hover {
-      background: var(--layer-surface);
-      border-color: var(--border-subtle);
-      color: var(--energy-main);
-    }
-  }
-}
-
 /* =====================
   ENTER STATE
 ===================== */
@@ -158,15 +127,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* =====================
-  MOTION
-===================== */
-@keyframes heroFloat {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-24px); }
-  100% { transform: translateY(0); }
 }
 
 /* =====================

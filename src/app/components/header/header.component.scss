@@ -87,40 +87,6 @@
 }
 
 /* =========================
-  CTA — CONTATO
-========================= */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.75rem 1.75rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  background: var(--energy-main);
-  color: var(--layer-base);
-  transition: transform 0.3s ease,box-shadow 0.3s ease,background 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 calc(20px * var(--glow-strength))var(--glow-color);
-  }
-
-  &.outline {
-    background: transparent;
-    color: var(--text-primary);
-    border: 2px solid var(--energy-main);
-    transition: background 0.3s ease,color 0.3s ease;
-
-    &:hover {
-      background: var(--layer-surface);
-      border-color: var(--border-subtle);
-      color: var(--energy-main);
-    }
-  }
-}
-
-/* =========================
   HEADER ACTIONS
 ========================= */
 .header-actions {
@@ -186,7 +152,6 @@
 
   .nav-links.open { display: flex; animation: slide-down 0.25s ease forwards; }
   .nav-links a { width: 100%; max-width: 250px; text-align: center; }
-  .btn-contact { width: 100%; max-width: 250px; text-align: center; }
   .hamburger-menu { display: grid; }
   .cosmic-toggle { display: grid;}
 }

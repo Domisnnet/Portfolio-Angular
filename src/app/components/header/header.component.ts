@@ -1,5 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ButtonComponent } from '@app/components/button/button.component';
 import { ThemeToggleComponent } from '@app/core/theme-toggle/theme-toggle.component';
 import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service';
 import { CosmicToggleComponent } from '@app/core/cosmic-toggle/cosmic-toggle.component';
@@ -8,6 +9,7 @@ import { CosmicToggleComponent } from '@app/core/cosmic-toggle/cosmic-toggle.com
   selector: 'app-header',
   standalone: true,
   imports: [
+    ButtonComponent,
     RouterLink,
     ThemeToggleComponent,
     CosmicToggleComponent

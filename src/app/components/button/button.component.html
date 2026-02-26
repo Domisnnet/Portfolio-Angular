@@ -1,0 +1,41 @@
+<!-- 🔹 Button -->
+<button
+  *ngIf="isButton"
+  class="btn"
+  [ngClass]="[variant, size, loading ? 'loading' : '']"
+  [disabled]="disabled || loading"
+  [attr.type]="type"
+>
+  <span class="btn-content" *ngIf="!loading">
+    <ng-content></ng-content>
+  </span>
+  <span class="btn-loader" *ngIf="loading" aria-hidden="true"></span>
+</button>
+
+<!-- 🔹 External Link -->
+<a
+  *ngIf="isExternalLink"
+  class="btn"
+  [ngClass]="[variant, size, loading ? 'loading' : '']"
+  [attr.href]="href"
+  [attr.target]="target"
+  [attr.rel]="computedRel"
+>
+  <span class="btn-content" *ngIf="!loading">
+    <ng-content></ng-content>
+  </span>
+  <span class="btn-loader" *ngIf="loading" aria-hidden="true"></span>
+</a>
+
+<!-- 🔹 Router Link -->
+<a
+  *ngIf="isRouterLink"
+  class="btn"
+  [ngClass]="[variant, size, loading ? 'loading' : '']"
+  [routerLink]="routerLink"
+>
+  <span class="btn-content" *ngIf="!loading">
+    <ng-content></ng-content>
+  </span>
+  <span class="btn-loader" *ngIf="loading" aria-hidden="true"></span>
+</a>
