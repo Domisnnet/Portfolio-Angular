@@ -8,14 +8,14 @@
       <nav class="nav-links" [class.open]="menuOpen()">
         <a routerLink="/">Home</a>
         <a routerLink="/projects">Projetos</a>
-        <a routerLink="/contact" class="btn-contact">Contato</a>
+        <a routerLink="/contact" class="btn outline">Contato</a>
       </nav>
       <div class="header-actions">
         <app-theme-toggle />
         <app-cosmic-toggle />       
         <button
           type="button"
-          class="hamburger-menu"
+          class="hamburger-menu outline"
           (click)="toggleMenu()"
         >
           ☰

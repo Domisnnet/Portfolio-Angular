@@ -89,19 +89,34 @@
 /* =========================
   CTA — CONTATO
 ========================= */
-.btn-contact {
-  padding: 0.7rem 1.6rem;
-  border-radius: var(--radius-pill);
-  background: var(--energy-main);
-  color: var(--bg-space-alt);
-  font-weight: var(--font-bold);
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
   text-decoration: none;
-  transition: transform var(--transition-fast);
+  background: var(--energy-main);
+  color: var(--layer-base);
+  transition: transform 0.3s ease,box-shadow 0.3s ease,background 0.3s ease;
 
   &:hover {
-    color: var(--bg-space-alt);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px var(--glow-color);
+    box-shadow: 0 0 calc(20px * var(--glow-strength))var(--glow-color);
+  }
+
+  &.outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--energy-main);
+    transition: background 0.3s ease,color 0.3s ease;
+
+    &:hover {
+      background: var(--layer-surface);
+      border-color: var(--border-subtle);
+      color: var(--energy-main);
+    }
   }
 }
 
