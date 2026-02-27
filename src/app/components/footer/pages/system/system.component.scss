@@ -1,5 +1,4 @@
 :host {
-  display: block;
   display: flex;
   flex-direction: column;
 }
@@ -14,6 +13,6 @@
     color: var(--footer-accent-secondary);
     font-style: italic;
     font-weight: var(--font-bolder);
-    padding-left: 15px;
+    margin-left: var(--space-md);
   }
 }
