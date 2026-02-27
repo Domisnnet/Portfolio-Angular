@@ -54,9 +54,9 @@
   AVATAR
 ========================= */
 .hero-avatar {
-  width: 240px;
-  height: 240px;
-  flex-shrink: 0;
+  width: var(--size-avatar);
+  height: var(--size-avatar);
+  flex-shrink: var(--op-hidden);
   border-radius: var(--radius-pill);
   object-fit: contain;
   border: var(--border-thick) solid var(--energy-main);
