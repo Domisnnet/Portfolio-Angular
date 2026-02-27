@@ -2,35 +2,45 @@
   HERO — CONTAINER
 ========================= */
 .hero {
-  padding: 1rem 1.5rem 2rem;
+  font-family: var(--font-main);
+  padding: var(--space-md) var(--space-lg) var(--space-lgx);
   display: flex;
   justify-content: center;
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease,transform 0.6s ease;
+  align-items: center;
+  opacity: var(--op-hidden);
+  transform: translateY(var(--size-lg));
+  transition: opacity var(--motion-slow), transform var(--motion-slow);
 
-  &.hero--enter { opacity: 1; transform: translateY(0); }
+  &.hero--enter {
+    opacity: var(--op-visible);
+    transform: translateY(var(--space-none));
+  }
 }
 
 .hero-container {
   position: relative;
-  max-width: 1200px;
+  max-width: var(--container-max);
   width: 100%;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: var(--space-none) auto;
+  padding: var(--space-lgx);
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: var(--space-xxxl);
   align-items: center;
 
-  @media (min-width: 992px) { display: block; }
-  @media (max-width: 768px) { padding: 1rem; }
+  @media (min-width: 992px) {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    padding: var(--space-md);
+  }
 }
 
 .hero-content {
   display: flex;
   align-items: center;
-  gap: 3rem;
+  gap: var(--space-xxl);
   position: relative;
   z-index: var(--z-content);
 
@@ -44,16 +54,16 @@
   AVATAR
 ========================= */
 .hero-avatar {
-  width: 180px;
-  height: 180px;
+  width: 240px;
+  height: 240px;
   flex-shrink: 0;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--energy-main);
-  box-shadow: 0 0 calc(24px * var(--glow-strength))var(--glow-color);
-  opacity: 0;
+  border-radius: var(--radius-pill);
+  object-fit: contain;
+  border: var(--border-thick) solid var(--energy-main);
+  box-shadow: 0 0 calc(var(--size-lg) * var(--glow-strength)) var(--glow-color);
+  opacity: var(--op-hidden);
   transform: scale(0.85);
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275),opacity 0.6s ease;
+  transition: transform var(--motion-slow), opacity var(--motion-slow);
 
   @media (max-width: 768px) {
     width: 160px;
@@ -66,33 +76,35 @@
 ========================= */
 .hero-title {
   font-size: clamp(2rem, 5vw, 2.8rem);
-  font-weight: 800;
+  font-weight: var(--font-bold);
   line-height: 1.2;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-md);
   color: var(--text-primary);
-  opacity: 0;
-  transform: translateY(16px);
-  transition: all 0.6s ease 0.2s;
+  opacity: var(--op-hidden);
+  transform: translateY(var(--size-md));
+  transition: all var(--motion-slow) var(--motion-delay-sm);
 }
 
 .hero-subtitle {
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: var(--font-lg);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-md);
   color: var(--energy-main);
-  opacity: 0;
-  transform: translateY(16px);
-  transition: all 0.6s ease 0.3s;
+  opacity: var(--op-hidden);
+  transform: translateY(var(--size-md));
+  transition: all var(--motion-slow) var(--motion-delay-md);
 }
 
 .hero-text {
-  font-size: 1.05rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  font-size: var(--font-md);
   line-height: 1.7;
-  gap: 20px;
   color: var(--text-secondary);
-  opacity: 0;
-  transform: translateY(16px);
-  transition: all 0.6s ease 0.4s;
+  opacity: var(--op-hidden);
+  transform: translateY(var(--size-md));
+  transition: all var(--motion-slow) var(--motion-delay-lg);
 }
 
 /* =========================
@@ -100,21 +112,23 @@
 ========================= */
 .hero-cta {
   display: flex;
-  margin-top: 20px;
-  gap: 16px;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
   justify-content: center;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: all 0.6s ease 0.5s;
+  opacity: var(--op-hidden);
+  transform: translateY(var(--size-md));
+  transition: all var(--motion-slow) var(--motion-delay-xl);
 
-  @media (min-width: 992px) { justify-content: flex-start; }
+  @media (min-width: 992px) {
+    justify-content: flex-start;
+  }
 }
 
 /* =====================
   ENTER STATE
 ===================== */
 .hero--enter .hero-avatar {
-  opacity: 1;
+  opacity: var(--op-visible);
   transform: scale(1);
   animation: heroFloat 6s ease-in-out infinite 0.8s;
 }
@@ -123,13 +137,12 @@
 .hero--enter .hero-subtitle,
 .hero--enter .hero-text,
 .hero--enter .hero-cta {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: var(--op-visible); transform: translateY(var(--space-none));
 }
 
 /* =====================
   THEME MICRO-TUNING
 ===================== */
 [data-theme='solar'] .hero-avatar {
-  box-shadow: 0 0 calc(18px * var(--glow-strength))var(--glow-color);
+  box-shadow: 0 0 calc(var(--size-md) * var(--glow-strength)) var(--glow-color);
 }
