@@ -7,36 +7,27 @@
 
 .terminal-footer {
   position: relative;
-  margin-top: var(--space-xxs) auto;
+  margin: var(--space-xxs) auto;
   width: 100%;
   display: grid;
   place-items: center;
-  padding: var(--space-md); 
-  text-align: center;
+  padding: var(--space-md);
   pointer-events: none;
   isolation: isolate;
-  z-index: var(--z-terminal);
   overflow: visible;
   font-size: var(--footer-font-size);
   opacity: var(--footer-opacity);
+  font-family: var(--font-terminal, monospace);
+  letter-spacing: var(--letter-wide);
+  color: rgba(var(--terminal-accent-rgb), 0.9);
   background: linear-gradient( to top, var(--footer-bg-strong), var(--footer-bg-soft), transparent );
   backdrop-filter: blur(4px);
-  font-family: var(--font-terminal, monospace);
-  letter-spacing: 1.5px;
-  color: rgba(var(--terminal-accent-rgb), 0.9);
-}
-
-.terminal-footer.signal-active::before {
-  opacity: var(--op-visible);
 }
 
 .terminal-text {
   display: inline-flex;
-  position: relative;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-terminal, monospace);
-  letter-spacing: 1.5px;
   white-space: nowrap;
   color: var(--footer-text-secondary);
 }
@@ -51,14 +42,19 @@
   opacity: var(--op-hover);
 }
 
-.terminal-footer.system  { --terminal-accent-rgb: 120,160,255; }
-.terminal-footer.neon    { --terminal-accent-rgb: 0,255,170; }
-.terminal-footer.signal  { --terminal-accent-rgb: 255,90,220; }
-.terminal-footer.success { --terminal-accent-rgb: 120,255,160; }
+/* Tonalidades  */
+[data-tone="system"]  { --terminal-accent-rgb: 120,160,255; }
+[data-tone="neon"]    { --terminal-accent-rgb: 0,255,170; }
+[data-tone="signal"]  { --terminal-accent-rgb: 255,90,220; }
+[data-tone="success"] { --terminal-accent-rgb: 120,255,160; }
+[data-tone="warning"] { --terminal-accent-rgb: 255,120,120; }
+
+.terminal-footer.system { --terminal-accent-rgb: 120,160,255; } 
+.terminal-footer.neon { --terminal-accent-rgb: 0,255,170; } 
+.terminal-footer.signal { --terminal-accent-rgb: 255,90,220; } 
+.terminal-footer.success { --terminal-accent-rgb: 120,255,160; } 
 .terminal-footer.warning { --terminal-accent-rgb: 255,120,120; }
 
-.terminal-horizon[data-tone="system"] { --terminal-accent-rgb: 120,160,255; }
-.terminal-horizon[data-tone="neon"] { --terminal-accent-rgb: 0,255,170; }
-.terminal-horizon[data-tone="signal"] { --terminal-accent-rgb: 255,90,220; }
-.terminal-horizon[data-tone="success"] { --terminal-accent-rgb: 120,255,160; }
-.terminal-horizon[data-tone="warning"] { --terminal-accent-rgb: 255,120,120; }
+.terminal-footer.signal-active::before {
+  opacity: var(--op-visible);
+}
