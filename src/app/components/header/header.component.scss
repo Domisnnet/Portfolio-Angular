@@ -15,7 +15,7 @@
   align-items: center;
   background: var(--layer-surface);
   backdrop-filter: blur(var(--blur-header));
-  border-bottom: 2px solid var(--border-color-soft);
+  border-bottom: var(--border-medium) solid var(--border-color-soft);
 }
 
 /* =========================
@@ -49,16 +49,16 @@
 }
 
 .logo-dot {
-  border-radius: 50%;
+  border-radius: var(--radius-pill);
   background: var(--energy-main);
   position: relative;
 
   &::after {
     content: '';
     position: absolute;
-    inset: -10px;
-    border-radius: 50%;
-    border: 2px solid var(--energy-main);
+    inset: calc(var(--size-sm) * -1);
+    border-radius: var(--radius-pill);
+    border: var(--border-medium) solid var(--energy-main);
     animation: pulse 2.4s ease-out infinite;
   }
 }
@@ -74,14 +74,14 @@
   a {
     font-size: var(--font-xs);
     font-weight: var(--font-bold);
-    letter-spacing: 0.12em;
+    letter-spacing: var(--letter-wide);
     text-decoration: none;
     color: var(--text-muted);
     border-radius: var(--radius-pill);
-    transition: all var(--transition-fast);
+    transition: transform var(--motion-fast);
 
     &:hover {
-      transform: translateY(-2px);
+      transform: translateY(calc(var(--size-2xs) * -1));
     }
   }
 }
@@ -99,37 +99,37 @@
   HAMBURGER
 ========================= */
 .hamburger-menu {
-  width: var(--space-xxl);
-  height: var(--space-xxl);
+  width: var(--size-xl);
+  height: var(--size-xl);
   display: none;
   place-items: center;
   border-radius: var(--radius-md);
-  border: 2px solid var(--energy-main);
+  border: var(--border-medium) solid var(--energy-main);
   background: transparent;
   color: var(--energy-main);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: transform var(--motion-fast);
 }
 
-/* ================
+/* =========================
   COSMIC TOGGLE
-================ */
+========================= */
 .cosmic-toggle {
-  width: 44px;
-  height: 44px;
+  width: var(--size-2xl);
+  height: var(--size-2xl);
   display: grid;
   place-items: center;
   border-radius: var(--radius-md);
-  border: 2px solid var(--energy-main);
+  border: var(--border-medium) solid var(--energy-main);
   background: transparent;
   color: var(--energy-main);
   cursor: pointer;
-  transition: all var(--transition-fast);
   font-size: var(--font-lg);
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast);
 
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px var(--glow-color);
+    transform: translateY(calc(var(--size-2xs) * -1));
+    box-shadow: 0 0 var(--size-sm) var(--glow-color);
   }
 }
 
@@ -147,11 +147,25 @@
     flex-direction: column;
     gap: var(--space-lg);
     display: none;
-    border-bottom: 2px solid var(--border-color-soft);
+    border-bottom: var(--border-medium) solid var(--border-color-soft);
   }
 
-  .nav-links.open { display: flex; animation: slide-down 0.25s ease forwards; }
-  .nav-links a { width: 100%; max-width: 250px; text-align: center; }
-  .hamburger-menu { display: grid; }
-  .cosmic-toggle { display: grid;}
+  .nav-links.open {
+    display: flex;
+    animation: slide-down var(--motion-fast) forwards;
+  }
+
+  .nav-links a {
+    width: 100%;
+    max-width: var(--size-nav-max);
+    text-align: center;
+  }
+
+  .hamburger-menu {
+    display: grid;
+  }
+
+  .cosmic-toggle {
+    display: grid;
+  }
 }

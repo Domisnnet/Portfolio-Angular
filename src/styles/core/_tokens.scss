@@ -1,87 +1,79 @@
 :root {
-  /* =====================
-    TYPOGRAPHY
-  ===================== */
+  /* TYPOGRAPHY */
   --font-main: 'Poppins', sans-serif;
   --font-code: 'Fira Code', monospace;
   --font-fancy: 'Dancing Script', cursive;
   --font-mono: 'JetBrains Mono', monospace;
   --font-terminal: 'Orbitron', monospace;
 
-  /* FONTS */
+  /* Font Sizes */
   --font-xxs: 0.5rem;
   --font-xs: 0.75rem;
-  --font-sm: 0.85rem;
+  --font-sm: 0.875rem;
   --font-md: 1rem;
   --font-lg: 1.25rem;
   --font-xl: 1.5rem;
   --font-xxl: 2rem;
+  --font-display: 2.8rem;
 
-  /* WEIGHT */
+  /* Font Weight */
   --font-regular: 400;
   --font-semibold: 600;
   --font-bold: 800;
   --font-bolder: 900;
 
-  /* =====================
-    SPACING
-  ===================== */
+  /* Letter Spacing */
+  --letter-tight: -0.02em;
+  --letter-normal: 0;
+  --letter-wide: 0.12em;
+  --letter-ultra: 0.2em;
+
+  /* SPACING SYSTEM */
   --space-none: 0;
   --space-xxs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
-  --space-lgx: 2rem;
+  --space-lg-plus: 2rem;
   --space-xl: 2.5rem;
   --space-xxl: 3rem;
   --space-xxxl: 4rem;
 
+  /* SIZE SYSTEM */
+  --size-2xs: 2px;
+  --size-xxs: 4px;
+  --size-xs: 8px;
+  --size-sm: 12px;
+  --size-md: 16px;
+  --size-lg: 24px;
+  --size-xl: 32px;
+  --size-2xl: 44px;
+  --size-cursor: 6px;
+  --size-nav-max: 250px;
 
-  /* ===============
-    Border Radius
-  =============== */ 
-  --radius-xs: 4px; 
-  --radius-sm: 8px; 
-  --radius-md: 12px; 
-  --radius-lg: 20px; 
-  --radius-pill: 999px; 
-
-  /* =====================
-    BORDER SYSTEM
-  ===================== */
+  /* BORDER SYSTEM */
   --border-thin: 1px;
   --border-medium: 2px;
   --border-thick: 3px;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
 
-  /* =============
-    BLUR LEVELS 
-  ============= */
-  --footer-glass-blur: 18px;
-  --footer-glass-blur-soft: 10px;
-  --footer-glass-blur-strong: 26px;
-  
-  /* ============
-    Tamanhos
-  ============ */ 
-  --size-xxs: 4px; 
-  --size-xs: 8px; 
-  --size-sm: 12px; 
-  --size-md: 16px; 
-  --size-lg: 24px; 
-  --size-cursor: 6px;
-  --container-max: 1200px; 
+  /* LAYOUT SYSTEM */
+  --container-max: 1200px;
   --footer-max-width: 860px;
-  
-  /* ===============
-    HEADER SYSTEM
-  =============== */ 
-  --header-height: 72px; 
-  --blur-header: 12px;
+  --header-height: 72px;
 
-  /* =====================
-    Z-INDEX SYSTEM
-  ===================== */
+  /* Blur */
+  --blur-header: 12px;
+  --blur-soft: 10px;
+  --blur-medium: 18px;
+  --blur-strong: 26px;
+
+  /* Z-INDEX SYSTEM */
   --z-stars: 1;
   --z-nebula: 2;
   --z-beam: 3;
@@ -98,28 +90,33 @@
   --z-header: 1100;
   --z-modal: 2000;
 
-  /* =====================
-    OPACITY
-  ===================== */
+  /* OPACITY SYSTEM */
   --op-hidden: 0;
   --op-subtle: 0.4;
   --op-active: 0.8;
   --op-hover: 0.9;
   --op-visible: 1;
 
-  /* =====================
-    MOTION
-  ===================== */
+  /* MOTION SYSTEM */
   --motion-fast: 0.25s ease;
   --motion-medium: 0.4s ease;
   --motion-slow: 0.6s ease;
 
-  /* =====================
-    MOTION DELAY
-  ===================== */
+  /* Motion Delays */
   --motion-delay-xs: 0.1s;
   --motion-delay-sm: 0.2s;
   --motion-delay-md: 0.3s;
   --motion-delay-lg: 0.4s;
   --motion-delay-xl: 0.5s;
+
+  /* Transition Aliases */
+  --transition-fast: var(--motion-fast);
+  --transition-medium: var(--motion-medium);
+  --transition-slow: var(--motion-slow);
+
+  /* SHADOW SYSTEM */
+  --shadow-xs: 0 0 var(--size-xs) rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px var(--size-sm) rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px var(--size-md) rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px var(--size-lg) rgba(0, 0, 0, 0.18);
 }

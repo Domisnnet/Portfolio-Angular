@@ -3,7 +3,7 @@
 ========================= */
 .hero {
   font-family: var(--font-main);
-  padding: var(--space-md) var(--space-lg) var(--space-lgx);
+  padding: var(--space-md) var(--space-lg) var(--space-lg-plus);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
   max-width: var(--container-max);
   width: 100%;
   margin: var(--space-none) auto;
-  padding: var(--space-lgx);
+  padding: var(--space-lg-plus);
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-xxxl);
