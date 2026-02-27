@@ -2,17 +2,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--radius-sm) var(--radius-md);
+  padding: var(--space-xs);
   border-radius: var(--radius-pill);
-  font-size: var(--space-sm);
+  font-size: var(--font-sm);
   font-weight: var(--font-semibold);
-  border: 2px solid transparent;
+  border: var(--border-thick) solid transparent;
   cursor: pointer;
-  opacity: 0;
+  opacity: var(--op-hidden);
   transform: translateY(6px);
-  animation: revealPill 0.4s ease forwards;
+  animation: revealPill var(--motion-medium) forwards;
   animation-delay: calc(var(--delay, 0) * 80ms);
-  transition: all 0.25s ease;
+  transition: transform var(--motion-fast), background var(--motion-fast), border-color var(--motion-fast), box-shadow var(--motion-fast), opacity var(--motion-fast);
 
   &[data-category='frontend']  { --pill-color: var(--pill-fe); }
   &[data-category='backend']   { --pill-color: var(--pill-be); }
@@ -29,12 +29,17 @@
     background: color-mix(in srgb, var(--pill-color) 18%, transparent);
     border-color: var(--pill-color);
     box-shadow: 0 8px 24px -6px color-mix(in srgb, var(--pill-color) 45%, transparent);
+    opacity: var(--op-hover);
+  }
+
+  &:active {
+    opacity: var(--op-active);
   }
 
   .stack-pill-logo {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: var(--size-pill);
+    height: var(--size-pill);
     flex-shrink: 0;
     object-fit: contain;
   }
@@ -43,17 +48,13 @@
 .stack-pill-inner {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--size-xs);
 }
 
 :host(.highlight) {
   --glow-color: color-mix(in srgb, var(--pill-color) 80%, transparent);
-  opacity: 1;
+  opacity: var(--op-visible);
   transform: translateY(0);
-  box-shadow: 
-    0 0 16px var(--pill-color),
-    0 0 32px var(--pill-color),
-    0 12px 28px -6px color-mix(in srgb, 
-    var(--pill-color) 55%, transparent);
-  transition: box-shadow 0.6s ease;
+  box-shadow: 0 0 16px var(--pill-color), 0 0 32px var(--pill-color), 0 12px 28px -6px color-mix(in srgb, var(--pill-color) 55%, transparent);
+  transition: box-shadow var(--motion-slow);
 }
