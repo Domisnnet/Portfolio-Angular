@@ -10,12 +10,6 @@ import { ThemeService } from '../services/theme.service';
 })
 export class ThemeToggleComponent {
   private themeService = inject(ThemeService);
-
-  readonly isDark = computed(
-    () => this.themeService.theme() === 'cosmic'
-  );
-
-  toggle(): void {
-    this.themeService.toggleTheme();
-  }
+  readonly isDark = computed( () => this.themeService.theme() === 'cosmic' );
+  toggle(): void { this.themeService.toggleTheme(); }
 }

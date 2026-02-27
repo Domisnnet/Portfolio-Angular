@@ -16,6 +16,7 @@ export class ThemeService {
     if (this.isBrowser) {
       this.theme.set(this.getInitialTheme());
     }
+    
     effect(() => {
       if (!this.isBrowser) return;
       const theme = this.theme();
@@ -23,19 +24,13 @@ export class ThemeService {
       localStorage.setItem(this.storageKey, theme);
     });
   }
-  toggleTheme(): void {
-    this.theme.update(t => (t === 'cosmic' ? 'solar' : 'cosmic'));
-  }
-  isCosmic(): boolean {
-    return this.theme() === 'cosmic';
-  }
-  isSolar(): boolean {
-    return this.theme() === 'solar';
-  }
+
+  toggleTheme(): void { this.theme.update(t => (t === 'cosmic' ? 'solar' : 'cosmic')); }
+  isCosmic(): boolean { return this.theme() === 'cosmic'; }
+  isSolar(): boolean { return this.theme() === 'solar'; }
+
   private getInitialTheme(): Theme {
     const stored = localStorage.getItem(this.storageKey) as Theme | null;
-    return stored === 'cosmic' || stored === 'solar'
-      ? stored
-      : 'cosmic';
+    return stored === 'cosmic' || stored === 'solar' ? stored : 'cosmic';
   }
 }

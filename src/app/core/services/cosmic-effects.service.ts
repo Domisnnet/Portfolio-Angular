@@ -1,12 +1,4 @@
-import {
-  Injectable,
-  signal,
-  effect,
-  inject,
-  PLATFORM_ID,
-  Renderer2,
-  RendererFactory2
-} from '@angular/core';
+import { Injectable, signal, effect, inject, PLATFORM_ID, Renderer2, RendererFactory2 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 export type CosmicEffectsMode = 'full' | 'minimal' | 'silent';
@@ -25,26 +17,22 @@ export class CosmicEffectsService {
       const saved = localStorage.getItem(this.STORAGE_KEY) as CosmicEffectsMode;
       this.mode.set(saved ?? 'full');
     }
+
     effect(() => {
       if (!this.isBrowser) return;
       const value = this.mode();
-      this.renderer.setAttribute(
-        document.documentElement,
-        'data-cosmic-effects',
-        value
-      );
+      this.renderer.setAttribute( document.documentElement, 'data-cosmic-effects', value );
       localStorage.setItem(this.STORAGE_KEY, value);
     });
   }
+
   set(mode: CosmicEffectsMode) {
     this.mode.set(mode);
   }
+
   cycle() {
-    this.mode.update(m =>
-      m === 'full' ? 'minimal' : m === 'minimal' ? 'silent' : 'full'
-    );
+    this.mode.update(m => m === 'full' ? 'minimal' : m === 'minimal' ? 'silent' : 'full' );
   }
-  isSilent() {
-    return this.mode() === 'silent';
-  }
+
+  isSilent() { return this.mode() === 'silent'; }
 }

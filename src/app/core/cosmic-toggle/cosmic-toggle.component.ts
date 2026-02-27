@@ -10,7 +10,5 @@ import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service'
 export class CosmicToggleComponent {
   private effects = inject(CosmicEffectsService);
   mode = this.effects.mode;
-  toggle() {
-    this.effects.cycle();
-  }
+  toggle() { this.effects.cycle(); }
 }
