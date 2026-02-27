@@ -9,9 +9,6 @@ import { ThemeService } from './theme.service';
 export class ThemeInitComponent {
   constructor() {
     inject(ThemeService).init();
-    document.documentElement.setAttribute(
-      'data-cosmic-effects',
-      'full'
-    );    
+    document.documentElement.setAttribute( 'data-cosmic-effects', 'full' );    
   }
 }
