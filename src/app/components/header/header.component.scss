@@ -99,8 +99,8 @@
   HAMBURGER
 ========================= */
 .hamburger-menu {
-  width: var(--size-xl);
-  height: var(--size-xl);
+  width: var(--size-toggle);
+  height: var(--size-toggle);
   display: none;
   place-items: center;
   border-radius: var(--radius-md);
@@ -109,14 +109,28 @@
   color: var(--energy-main);
   cursor: pointer;
   transition: transform var(--motion-fast);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 var(--border-thick) rgba(var(--accent-rgb), 0.4);
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(calc(var(--size-2xs) * -1));
+    box-shadow: 0 0 var(--size-lg) var(--glow-color);
+  }
+
+  &:disabled {
+    opacity: var(--op-subtle);
+    cursor: not-allowed;
+  }
 }
 
 /* =========================
   COSMIC TOGGLE
 ========================= */
 .cosmic-toggle {
-  width: var(--size-2xl);
-  height: var(--size-2xl);
+  width: var(--size-toggle);
+  height: var(--size-toggle);
   display: grid;
   place-items: center;
   border-radius: var(--radius-md);
@@ -127,9 +141,18 @@
   font-size: var(--font-lg);
   transition: transform var(--motion-fast), box-shadow var(--motion-fast);
 
-  &:hover {
+  &:focus-visible {
+    box-shadow: 0 0 0 var(--border-thick) rgba(var(--accent-rgb), 0.4);
+  }
+
+  &:hover:not(:disabled) {
     transform: translateY(calc(var(--size-2xs) * -1));
-    box-shadow: 0 0 var(--size-sm) var(--glow-color);
+    box-shadow: 0 0 var(--size-lg) var(--glow-color);
+  }
+
+  &:disabled {
+    opacity: var(--op-subtle);
+    cursor: not-allowed;
   }
 }
 
