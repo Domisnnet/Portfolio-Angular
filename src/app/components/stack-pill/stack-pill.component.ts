@@ -15,9 +15,7 @@ export type PillCategory =
   templateUrl: './stack-pill.component.html',
   styleUrls: ['./stack-pill.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {
-    '[attr.data-category]': 'category()',
-  },
+  host: { '[attr.data-category]': 'category()', },
 })
 export class StackPillComponent {
   label = input.required<string>();

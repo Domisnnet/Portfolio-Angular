@@ -18,24 +18,15 @@ import { CosmicToggleComponent } from '@app/core/cosmic-toggle/cosmic-toggle.com
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  /* =========================
-    SERVICES
-  ========================= */
+  /* SERVICES */
   constructor(private effects: CosmicEffectsService) {}
-  /* =========================
-    MENU MOBILE
-  ========================= */
+  
+  /* MENU MOBILE */
   menuOpen = signal(false);
-  toggleMenu() {
-    this.menuOpen.update(v => !v);
-  }
-  /* =========================
-    COSMIC EFFECTS
-  ========================= */
-  toggleCosmicEffects() {
-    this.effects.cycle();
-  }
-  isSilent = computed(() =>
-    this.effects.isSilent()
-  );
+  toggleMenu() { this.menuOpen.update(v => !v); }
+
+  /* COSMIC EFFECTS */
+  toggleCosmicEffects() { this.effects.cycle(); }
+
+  isSilent = computed(() => this.effects.isSilent());
 }

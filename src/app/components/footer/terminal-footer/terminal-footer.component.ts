@@ -25,6 +25,7 @@ export class TerminalFooterComponent implements OnChanges {
     this.displayText = this.message;
     this.triggerSignal();
   }
+  
   private triggerSignal(): void {
     this.isActive = true;
     setTimeout(() => (this.isActive = false), 600);

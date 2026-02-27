@@ -81,6 +81,7 @@ export class AboutPageComponent {
   toggleMode(): void {
     this.isTextMode = !this.isTextMode;
   }
+  
   toggleLanguage(lang: Language): void {
     if (this.language === lang) return;
 
