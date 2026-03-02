@@ -3,5 +3,5 @@
   width: 100vh;
   height: 100vh;
   transition: transform 1.2s ease,filter 1.2s ease;
-  z-index: var(--z-background, 0);
+  z-index: var(--z-background);
 }

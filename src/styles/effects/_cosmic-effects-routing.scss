@@ -8,7 +8,7 @@
 .cosmic-grid,
 .wormhole {
   pointer-events: none;
-  transition: opacity 0.6s ease,transform 0.6s ease,filter 0.6s ease;
+  transition: opacity var(--motion-slow),transform var(--motion-slow),filter var(--motion-slow);
 }
 
 /* ==============================
@@ -20,7 +20,7 @@ html[data-cosmic-effects='full'] {
   .scanning-artifact,
   .cosmic-tractor-beam,
   .cosmic-grid {
-    opacity: 1;
+    opacity: var(--op-visible);
   }
 }
 
@@ -31,14 +31,14 @@ html[data-cosmic-effects='minimal'] {
   .stars-canvas,
   .nebula-layer,
   .stars-overlay {
-    opacity: 0.35;
+    opacity: var(--op-subtle);
   }
 
   .scanning-artifact,
   .cosmic-tractor-beam,
   .cosmic-grid,
   .wormhole {
-    opacity: 0;
+    opacity: var(--op-hidden);
   }
 }
 
@@ -53,7 +53,7 @@ html[data-cosmic-effects='silent'] {
   .cosmic-grid,
   .wormhole {
     display: none;
-    opacity: 0;
+    opacity: var(--op-hidden);
   }
 }
 
@@ -64,11 +64,11 @@ html[data-layer='deep-space'] {
   .stars-canvas,
   .nebula-layer,
   .stars-overlay {
-    opacity: 1;
+    opacity: var(--op-visible);
   }
 
   .scanning-artifact {
-    opacity: 1;
+    opacity: var(--op-visible);
   }
 
   .cosmic-tractor-beam,
@@ -77,7 +77,7 @@ html[data-layer='deep-space'] {
   }
 
   .wormhole {
-    opacity: 0;
+    opacity: var(--op-hidden);
   }
 }
 
@@ -86,7 +86,7 @@ html[data-layer='deep-space'] {
 ============================ */
 html[data-layer='stable-orbit'] {
   .scanning-artifact {
-    opacity: 1;
+    opacity: var(--op-visible);
     transform: translateX(0);
   }
 
@@ -100,7 +100,7 @@ html[data-layer='stable-orbit'] {
   }
 
   .wormhole {
-    opacity: 0;
+    opacity: var(--op-hidden);
   }
 }
 
@@ -109,14 +109,14 @@ html[data-layer='stable-orbit'] {
 ============================= */
 html[data-layer='unstable-orbit'] {
   .scanning-artifact {
-    opacity: 0;
+    opacity: var(--op-hidden);
     transform: translateX(-12px);
   }
 
   .nebula-layer,
   .cosmic-tractor-beam,
   .cosmic-grid {
-    opacity: 0;
+    opacity: var(--op-hidden);
     filter: blur(4px);
   }
 
@@ -141,11 +141,11 @@ html[data-layer='wormhole'] {
   .scanning-artifact,
   .cosmic-tractor-beam,
   .cosmic-grid {
-    opacity: 0;
+    opacity: var(--op-hidden);
   }
 
   .wormhole {
-    opacity: 1;
+    opacity: var(--op-visible);
     filter: blur(0);
   }
 }
@@ -154,8 +154,8 @@ html[data-layer='wormhole'] {
   DESKTOP — BEAM ATIVO
 ========================= */
 @media (min-width: 1024px) {
-  .cosmic-tractor-beam { display: block; }
-  .nebula-layer { display: none; }
+  .cosmic-tractor-beam,
+  .nebula-layer { display: block; }
   .scanning-artifact { display: none; }
   .cosmic-grid { display: none; }
 }
@@ -165,7 +165,6 @@ html[data-layer='wormhole'] {
 ========================= */
 @media (max-width: 1023px) {
   .status-line,
-  .nebula-layer,
   .cosmic-tractor-beam { display: none; }
   .cosmic-grid { display: block; }
 }
