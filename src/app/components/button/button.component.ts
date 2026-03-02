@@ -10,7 +10,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
-
   @Input() variant: 'solid' | 'outline' | 'ghost' = 'solid';
   @Input() size: 'sm' | 'md' | 'lg' | 'xl' = 'md';
   @Input() fullWidth = false;
