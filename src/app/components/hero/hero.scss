@@ -8,8 +8,7 @@
   justify-content: center;
   align-items: center;
   opacity: var(--op-hidden);
-  transform: translateY(var(--size-lg));
-  transition: opacity var(--motion-slow), transform var(--motion-slow);
+  transition: opacity var(--motion-slow);
 
   &.hero--enter {
     opacity: var(--op-visible);
@@ -43,6 +42,8 @@
   gap: var(--space-xxl);
   position: relative;
   z-index: var(--z-content);
+  transform: translateY(var(--size-lg));
+  transition: transform var(--motion-slow);
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -112,15 +113,44 @@
 ========================= */
 .hero-cta {
   display: flex;
+  margin-top: 20px;
   gap: var(--space-md);
-  margin-top: var(--space-lg);
   justify-content: center;
   opacity: var(--op-hidden);
-  transform: translateY(var(--size-md));
-  transition: all var(--motion-slow) var(--motion-delay-xl);
+  transform: translateY(16px);
+  transition: all 0.6s ease 0.5s;
 
-  @media (min-width: 992px) {
-    justify-content: flex-start;
+  @media (min-width: 992px) { justify-content: flex-start; }
+}
+
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 50px;
+  font-size: var(--font-sm);
+  font-weight: var(--font-bold);
+  text-decoration: none;
+  background: var(--energy-main);
+  color: var(--layer-base);
+  transition: transform 0.3s ease,box-shadow 0.3s ease,background 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 calc(20px * var(--glow-strength))var(--glow-color);
+  }
+
+  &.outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--energy-main);
+    transition: background 0.3s ease,color 0.3s ease;
+
+    &:hover {
+      background: var(--layer-surface);
+      border-color: var(--border-subtle);
+      color: var(--energy-main);
+    }
   }
 }
 
@@ -129,6 +159,7 @@
 ===================== */
 .hero--enter .hero-avatar {
   opacity: var(--op-visible);
+  transform: translateY(0);
   transform: scale(1);
   animation: heroFloat 6s ease-in-out infinite 0.8s;
 }
