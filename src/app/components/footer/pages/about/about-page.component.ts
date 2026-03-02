@@ -30,7 +30,7 @@ export interface AboutContent {
       text: string;
       mono: string;
       suffix: string;
-      dna?: string;
+      dna: string;
     };
     reboot: {
       text: string;

@@ -28,7 +28,7 @@
       },
       "reboot": {
         "text": " Até que, no final de 2024, algo simples ",
-        "neon-rx": " reacendeu a chama ",
+        "neonrx": " reacendeu a chama ",
         "course": " um curso gratuito do ",
         "neon": " Professor Gustavo Guanabara. ",
         "details": " Foi ali que redescobri o prazer pelo raciocínio lógico, pelos fundamentos e pelos porquês. HTML, CSS… e de repente minha cabeça estava fervendo de ideias novamente. "
@@ -42,7 +42,7 @@
       "closing": {
         "text": " Hoje, este portfólio em Angular representa mais do que projetos organizados: ",
         "neon": " ele é a prova de que nunca ",
-        "neon-rx": " é tarde para retomar um sonho, ",
+        "neonrx": " é tarde para retomar um sonho, ",
         "suffix": " — aprender algo novo, evoluir constantemente e colocar a mão no código. "
       }
     },
@@ -86,7 +86,7 @@
       },
       "reboot": {
         "text": " Then, at the end of 2024, something simple ",
-        "neon-rx": " reignited the flame ",
+        "neonrx": " reignited the flame ",
         "course": " a free course by ",
         "neon": " Professor Gustavo Guanabara ",
         "details": " That was when I rediscovered the pleasure of logical reasoning, fundamentals, and the whys. HTML, CSS… and suddenly my mind was buzzing with ideas again. "
@@ -100,7 +100,7 @@
       "closing": {
         "text": " Today, this Angular portfolio represents more than just organized projects: ",
         "neon": " it proves that it’s never ",
-        "neon-rx": " too late to pursue a dream ",
+        "neonrx": " too late to pursue a dream ",
         "suffix": " — learn something new, evolve continuously, and get your hands dirty with code. "
       }
     },

@@ -88,7 +88,7 @@
   .status,
   .finish,
   .framework,
-  .t-neon-rx,
+  .t-neonrx,
   .t-neon,
   .prod {
     font-family: var(--font-code);
@@ -97,7 +97,7 @@
   .status { color: var(--footer-text-status); }
   .finish { color: var(--footer-text-finish); }
   .framework { color: var(--footer-text-framework); }
-  .t-neon-rx { color: var(--footer-text-neon-rx); }
+  .t-neonrx { color: var(--footer-text-neonrx); }
   .t-neon { color: var(--footer-text-neon); }
   .prod { color: var(--footer-text-prod); }
 }

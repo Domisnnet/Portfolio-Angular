@@ -3,7 +3,6 @@ import { RouterLink } from '@angular/router';
 import { ButtonComponent } from '@app/components/button/button.component';
 import { ThemeToggleComponent } from '@app/core/theme-toggle/theme-toggle.component';
 import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service';
-import { CosmicToggleComponent } from '@app/core/cosmic-toggle/cosmic-toggle.component';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +10,7 @@ import { CosmicToggleComponent } from '@app/core/cosmic-toggle/cosmic-toggle.com
   imports: [
     ButtonComponent,
     RouterLink,
-    ThemeToggleComponent,
-    CosmicToggleComponent
+    ThemeToggleComponent
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
