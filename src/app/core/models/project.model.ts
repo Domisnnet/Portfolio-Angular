@@ -3,5 +3,5 @@ export interface Project {
   description: string;
   image: string;
   tags: string[];
-  link?: string;
+  link: string;
 }
