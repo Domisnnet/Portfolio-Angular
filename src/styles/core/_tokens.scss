@@ -39,6 +39,7 @@
   --space-xl: 2.5rem;
   --space-xxl: 3rem;
   --space-xxxl: 4rem;
+  --space-toggle: 20px;
 
   /* SIZE SYSTEM */
   --size-2xs: 2px;
@@ -104,6 +105,7 @@
   --motion-fast: 0.25s ease;
   --motion-medium: 0.4s ease;
   --motion-slow: 0.6s ease;
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Motion Delays */
   --motion-delay-xs: 0.1s;
