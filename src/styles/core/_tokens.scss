@@ -54,10 +54,11 @@
   --size-pill: 20px;
   --size-toggle: 50px;
   --size-cursor: 6px;
+  --size-grid: 60px;
+  --size-worm: 300px;
   --size-nav-max: 250px;
   --beam-size: 800px;
-  --beam-blur: 18px;
-  --tractor-blur: 12px;
+  --nebula-size: min(60vw, 900px);
 
   /* BORDER SYSTEM */
   --border-thin: 1px;
@@ -79,6 +80,9 @@
   --blur-soft: 10px;
   --blur-medium: 18px;
   --blur-strong: 26px;
+  --blur-semi-atmosphere: 60px;
+  --blur-atmosphere: 80px;
+  --tractor-blur: 12px;
 
   /* Z-INDEX SYSTEM */
   --z-stars: 1;
@@ -100,14 +104,17 @@
   /* OPACITY SYSTEM */
   --op-hidden: 0;
   --op-subtle: 0.4;
+  --op-low: 0.6;
+  --op-medium: 0.7;
   --op-active: 0.8;
   --op-hover: 0.9;
   --op-visible: 1;
 
   /* MOTION SYSTEM */
-  --motion-fast: 0.25s ease;
-  --motion-medium: 0.4s ease;
-  --motion-slow: 0.6s ease;
+  --motion-fast: 0.25s;
+  --motion-medium: 0.4s;
+  --motion-slow: 0.6s;
+
   --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Motion Delays */
@@ -116,6 +123,13 @@
   --motion-delay-md: 0.3s;
   --motion-delay-lg: 0.4s;
   --motion-delay-xl: 0.5s;
+
+  /* Nebula Speed */
+  --nebula-speed-a: 140s;
+  --nebula-speed-b: 180s;
+  --nebula-speed-c: 220s;
+
+  --nebula-overflow: 4%;
 
   /* Transition Aliases */
   --transition-fast: var(--motion-fast);

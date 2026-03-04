@@ -1,9 +1,9 @@
 :host {
   position: absolute;
-  inset: -4%;
+  inset: calc(var(--nebula-overflow) * -1);
   pointer-events: none;
   z-index: var(--z-nebula);
-  transition: opacity var(--motion-slow);
+  transition: opacity var(--transition-slow);
 }
 
 .nebula-layer {
@@ -15,8 +15,8 @@
 
 .nebula {
   position: absolute;
-  width: 60vw;
-  height: 60vw;
+  width: var(--nebula-size);
+  height: var(--nebula-size);
   border-radius: 50%;
   animation: nebulaDrift linear infinite;
 }
@@ -29,8 +29,8 @@
   left: 15%;
   opacity: 0.25;
   background: radial-gradient( ellipse at 42% 38%, rgba(var(--artifact-brand-rgb), 0.45) 0%, rgba(var(--artifact-brand-rgb), 0.28) 35%, rgba(var(--artifact-brand-rgb), 0.15) 60%, rgba(var(--artifact-brand-rgb), 0.05) 75%, transparent 90% );
-  filter: blur(80px);
-  animation-duration: 140s;
+  filter: blur(var(--blur-atmosphere));
+  animation-duration: var(--nebula-speed-a);
 }
 
 /* =====================
@@ -41,8 +41,8 @@
   left: 55%;
   opacity: 0.02;
   background: radial-gradient( ellipse at 60% 45%, var(--energy-soft) 0%, rgba(var(--artifact-brand-rgb), 0.20) 40%, rgba(var(--artifact-brand-rgb), 0.10) 65%, transparent 85% );
-  filter: blur(60px);
-  animation-duration: 180s;
+  filter: blur(var(--blur-semi-atmosphere));
+  animation-duration: var(--nebula-speed-b);
 }
 
 /* ========================
@@ -53,6 +53,6 @@
   left: 25%;
   opacity: 0.25;
   background: radial-gradient( ellipse at 50% 50%, var(--glow-color) 0%, rgba(var(--artifact-brand-rgb), 0.18) 45%, rgba(var(--artifact-brand-rgb), 0.08) 70%, transparent 90% );
-  filter: blur(80px);
-  animation-duration: 220s;
+  filter: blur(var(--blur-atmosphere));
+  animation-duration: var(--nebula-speed-c);
 }

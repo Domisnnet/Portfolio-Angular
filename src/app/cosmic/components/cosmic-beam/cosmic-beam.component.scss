@@ -1,6 +1,6 @@
 :host {
   position: fixed;
-  inset: var(--op-hidden);
+  inset: 0;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -60%);
@@ -27,12 +27,12 @@
 .cosmic-tractor-beam::before {
   content: "";
   position: absolute;
-  inset: var(--op-hidden);
+  inset: 0;
   border-radius: 50%;
   background: radial-gradient(circle,
     rgba(var(--artifact-brand-rgb-neon), 0.45) 0%,
     rgba(var(--artifact-brand-rgb-neon), 0.25) 35%, transparent 70%); 
-  filter: blur(var(--beam-blur));
+  filter: blur(var(--blur-medium));
 }
 
 /* ===========================
@@ -45,7 +45,7 @@
   background: radial-gradient(circle, var(--artifact-brand-neon) 0%,
     rgba(var(--artifact-brand-rgb-neon), 0.9) 25%,
     rgba(var(--artifact-brand-rgb-neon), 0.5) 45%, transparent 65% );
-  filter: blur(var(--beam-blur));
+  filter: blur(var(--blur-medium));
   animation: beam-core-breathe 3.5s ease-in-out infinite;
 }
 

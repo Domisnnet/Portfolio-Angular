@@ -3,26 +3,26 @@
   inset: 0;
   pointer-events: none;
   z-index: var(--z-wormhole);
-  opacity: 0;
+  opacity: var(--op-hidden);
   transition: opacity var(--motion-slow);
 }
 
 :host(.active) {
-  opacity: 1;
+  opacity: var(--op-visible);
 }
 
 .wormhole {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: var(--z-overlay, 40);
+  z-index: var(--z-overlay);
   display: grid;
   place-items: center;
 }
 
 .wormhole-core {
-  width: 300px;
-  height: 300px;
+  width: var(--size-worm);
+  height: var(--size-worm);
   border-radius: 50%;
   border: 2px solid var(--energy-main);
   box-shadow: 0 0 40px var(--glow-color),inset 0 0 60px var(--glow-color);

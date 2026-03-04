@@ -1,26 +1,25 @@
 .layer-jump {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  bottom: 80px;
+  bottom: var(--space-xxl);
   left: 50%;
   transform: translateX(-50%);
+  pointer-events: auto;
   background: transparent;
-  border: 2px solid rgba(var(--cosmic-accent-rgb), 0.4);
-  padding: 12px;
+  border: var(--border-medium) solid rgba(var(--cosmic-accent-rgb), 0.4);
+  padding: var(--size-lg);
   border-radius: 50%;
   cursor: pointer;
   color: var(--brand-primary);
-  transition: all 0.3s ease;
-  opacity: 0.6;
+  opacity: var(--op-low);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
 }
 
 .layer-jump:hover {
   border-color: rgba(var(--cosmic-accent-rgb), 0.8);
-  box-shadow: 0 0 12px var(--glow-color);
+  box-shadow: 0 0 var(--size-lg) var(--glow-color);
 }
 
 html[data-layer='wormhole'] .layer-jump {
-  opacity: 0;
+  opacity: var(--op-hidden);
   pointer-events: none;
 }
