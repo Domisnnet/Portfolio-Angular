@@ -1,7 +1,7 @@
 :host {
   position: absolute;
   top: var(--space-none);
-  left: 60px;
+  left: var(--size-scan);
   z-index: var(--z-scanning);
   pointer-events: none;
   transition: opacity var(--motion-medium);
@@ -10,7 +10,7 @@
 .scanning-artifact {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-sm);
 }
 
 .status-line {
@@ -20,10 +20,10 @@
   letter-spacing: 0.05em;
   color: var(--artifact-brand);
   background: rgba(var(--artifact-brand-rgb), 0.1);
-  border-left: 3px solid var(--artifact-brand);
-  border-radius: 0 10px 10px 0;
-  padding: 8px 12px;
-  backdrop-filter: blur(4px);
+  border-left: var(--border-thick) solid var(--artifact-brand);
+  border-radius: var(--radius-none) var(--radius-md) var(--radius-none);
+  padding: var(--size-xs) var(--size-sm);
+  backdrop-filter: blur(--blur-weak);
   animation: statusBlink 3s ease-in-out infinite;
 }
 

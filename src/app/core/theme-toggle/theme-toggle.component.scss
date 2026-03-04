@@ -9,7 +9,7 @@
   width: var(--size-toggle);
   height: var(--size-toggle);
   border-radius: var(--radius-md);
-  border: 2px solid var(--energy-main);
+  border: var(--border-medium) solid var(--energy-main);
   background: transparent;
   color: var(--energy-main);
   cursor: pointer;

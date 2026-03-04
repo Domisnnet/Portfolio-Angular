@@ -13,19 +13,23 @@
   --blur-semi-atmosphere: 60px;
   --blur-soft: 10px;
   --blur-strong: 26px;
+  --blur-weak: 4px;
   --tractor-blur: 12px;
 
   /* BORDER SYSTEM */
   --border-medium: 2px;
+  --border-radius: 50px;
   --border-thick: 3px;
   --border-thin: 1px;
   --radius-lg: 20px;
   --radius-md: 12px;
+  --radius-none: 0px;
   --radius-pill: 999px;
   --radius-sm: 8px;
   --radius-xs: 4px;
 
   /* LAYOUT SYSTEM */
+  --container-min: 1100px;
   --container-max: 1200px;
   --footer-max-width: 860px;
   --header-height: 72px;
@@ -37,6 +41,8 @@
   --letter-wide: 0.12em;
 
   /* MOTION SYSTEM */
+  --easing-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --easing-default: cubic-bezier(0.34, 1.56, 0.64, 1);
   --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --motion-delay-lg: 0.4s;
   --motion-delay-md: 0.3s;
@@ -44,7 +50,9 @@
   --motion-delay-xl: 0.5s;
   --motion-delay-xs: 0.1s;
   --motion-fast: 0.25s;
+  --motion-faster: 1.6s;
   --motion-medium: 0.4s;
+  --motion-late: 0.8s;
   --motion-slow: 0.6s;
   --nebula-overflow: 4%;
   --nebula-speed-a: 140s;
@@ -71,18 +79,27 @@
   --shadow-xs: 0 0 var(--size-xs) rgba(0, 0, 0, 0.1);
 
   /* SIZE SYSTEM */
+  --artifact-width: 240px;
+  --artifact-height: 390px;
   --beam-size: 800px;
   --nebula-size: min(60vw, 900px);
+  --size-1xs: 1px;
+  --size-1xs: 1px;
   --size-2xl: 44px;
   --size-2xs: 2px;
   --size-avatar: 240px;
   --size-cursor: 6px;
   --size-grid: 60px;
+  --size-hero: 160px;
   --size-lg: 24px;
   --size-load: 28px;
+  --size-proj: 20px;
+  --size-project: 50px;
+  --size-projects: 80px;
   --size-md: 16px;
   --size-nav-max: 250px;
   --size-pill: 20px;
+  --size-scan: 60px;
   --size-sm: 12px;
   --size-toggle: 50px;
   --size-worm: 300px;
@@ -97,6 +114,7 @@
   --space-md: 1rem;
   --space-none: 0;
   --space-sm: 0.75rem;
+  --space-sm-plus: 1em;
   --space-toggle: 20px;
   --space-xl: 2.5rem;
   --space-xxl: 3rem;

@@ -1,7 +1,7 @@
 :host {
   display: block;
-  width: var(--artifact-width, 240px);
-  height: var(--artifact-height, 390px);
+  width: var(--artifact-width);
+  height: var(--artifact-height);
 }
 
 /* ==========================
@@ -27,7 +27,7 @@
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: transform var(--motion-late) var(--easing-default);
   will-change: transform;
 }
 

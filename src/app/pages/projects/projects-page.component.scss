@@ -4,32 +4,30 @@
 .projects-container {
   position: relative;
   min-height: 100vh;
-  padding: 80px 20px;
+  padding: var(--size-projects) var(--size-proj);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   z-index: var(--z-projects);
 }
 
-
-
 /* =========================
   Header Section
 ========================= */
 .page-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: var(--size-projects);
 
   h1 {
     font-family: var(--font-main);
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: var(--font-display);
+    font-weight: var(--font-bold);
     color: var(--color-text-primary);
-    margin-bottom: 15px;
+    margin-bottom: var(--space-md);
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: var(--font-lg);
     color: var(--color-text-secondary);
   }
 }
@@ -40,10 +38,10 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 50px;
+  gap: var(--size-project);
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
+  max-width: var(--container-min);
+  margin: var(--space-none) auto;
   justify-items: center;
   align-items: start;
 }
@@ -52,11 +50,11 @@
   Card Interaction
 ========================= */
 app-project-card {
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform var(--motion-delay-xl) var(--easing-ease);
 
   &:hover {
     transform: translateY(-15px);
-    z-index: 20;
+    z-index: var(--z-content);
   }
 }
 
@@ -64,5 +62,5 @@ app-project-card {
   Responsive Adjustments
 ========================= */
 @media (max-width: 1024px) {
-  .page-header h1 { font-size: 2rem; }
+  .page-header h1 { font-size: var(--font-xxl); }
 }

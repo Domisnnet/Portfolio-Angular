@@ -22,12 +22,7 @@
   white-space: nowrap;
   cursor: pointer;
   outline: none;
-  transition:
-    transform var(--motion-fast),
-    box-shadow var(--motion-fast),
-    background var(--motion-fast),
-    color var(--motion-fast),
-    opacity var(--motion-fast);
+  transition: transform var(--motion-fast),box-shadow var(--motion-fast),background var(--motion-fast),color var(--motion-fast),opacity var(--motion-fast);
 
   &:focus-visible {
     box-shadow: 0 0 0 var(--border-thick) rgba(var(--accent-rgb), 0.4);

@@ -24,7 +24,7 @@
   width: var(--size-worm);
   height: var(--size-worm);
   border-radius: 50%;
-  border: 2px solid var(--energy-main);
+  border: var(--border-medium) solid var(--energy-main);
   box-shadow: 0 0 40px var(--glow-color),inset 0 0 60px var(--glow-color);
   animation: wormhole-spin 4s linear infinite;
 }

@@ -21,7 +21,7 @@
   letter-spacing: var(--letter-wide);
   color: rgba(var(--terminal-accent-rgb), 0.9);
   background: linear-gradient( to top, var(--footer-bg-strong), var(--footer-bg-soft), transparent );
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur var(--blur-weak);
 }
 
 .terminal-text {
@@ -35,10 +35,10 @@
 .cursor {
   display: inline-block;
   width: var(--space-xxs);
-  height: 1em;
+  height: var(--space-sm-plus);
   margin-left: var(--size-cursor);
   background: rgba(var(--terminal-accent-rgb), 1);
-  animation: statusBlink 1.6s steps(1) infinite;
+  animation: statusBlink var(--motion-faster) steps(1) infinite;
   opacity: var(--op-hover);
 }
 

@@ -67,8 +67,8 @@
   transition: transform var(--motion-slow), opacity var(--motion-slow);
 
   @media (max-width: 768px) {
-    width: 160px;
-    height: 160px;
+    width: var(--size-hero);
+    height: var(--size-hero);
   }
 }
 
@@ -113,12 +113,12 @@
 ========================= */
 .hero-cta {
   display: flex;
-  margin-top: 20px;
+  margin-top: var(--size-lg);
   gap: var(--space-md);
   justify-content: center;
   opacity: var(--op-hidden);
   transform: translateY(16px);
-  transition: all 0.6s ease 0.5s;
+  transition: all var(--motion-slow) ease var(--motion-delay-xl);
 
   @media (min-width: 992px) { justify-content: flex-start; }
 }
@@ -127,13 +127,13 @@
   display: inline-flex;
   align-items: center;
   padding: var(--space-sm) var(--space-lg);
-  border-radius: 50px;
+  border-radius: var(--border-radius);
   font-size: var(--font-sm);
   font-weight: var(--font-bold);
   text-decoration: none;
   background: var(--energy-main);
   color: var(--layer-base);
-  transition: transform 0.3s ease,box-shadow 0.3s ease,background 0.3s ease;
+  transition: transform var(--motion-delay-md) ease,box-shadow var(--motion-delay-md) ease,background var(--motion-delay-md) ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -143,8 +143,8 @@
   &.outline {
     background: transparent;
     color: var(--text-primary);
-    border: 2px solid var(--energy-main);
-    transition: background 0.3s ease,color 0.3s ease;
+    border: var(--border-medium) solid var(--energy-main);
+    transition: background var(--motion-delay-md) ease,color var(--motion-delay-md) ease;
 
     &:hover {
       background: var(--layer-surface);
@@ -161,7 +161,7 @@
   opacity: var(--op-visible);
   transform: translateY(0);
   transform: scale(1);
-  animation: heroFloat 6s ease-in-out infinite 0.8s;
+  animation: heroFloat 6s ease-in-out infinite var(--motion-late);
 }
 
 .hero--enter .hero-title,
