@@ -144,6 +144,7 @@
   --font-xs: 0.75rem;
 
   /* Z-INDEX SYSTEM */
+  --z-astro: 5;
   --z-beam: 3;
   --z-content: 20;
   --z-footer: 1000;
@@ -151,11 +152,11 @@
   --z-header: 1100;
   --z-horizon: 1080;
   --z-indicator: 50;
-  --z-layer-ui: 30;
+  --z-layer: 1.5;
   --z-loader: 9999;
   --z-modal: 2000;
   --z-nebula: 2;
-  --z-projects: 15;
+  --z-projects: 30;
   --z-scanning: 10;
   --z-stars: 1;
   --z-terminal: 1090;

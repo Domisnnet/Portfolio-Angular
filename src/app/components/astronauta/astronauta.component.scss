@@ -1,0 +1,23 @@
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-astro);
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.astro {
+  position: absolute;
+}
+
+.content {
+  display: block;
+  animation: zero-gravity-float 25s ease-in-out infinite;
+  will-change: transform;
+
+  .img {
+    width: calc(var(--size-2xs) * 100);
+    height: auto;
+  }
+}
