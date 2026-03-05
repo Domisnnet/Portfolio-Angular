@@ -72,6 +72,13 @@
   --op-subtle: 0.4;
   --op-visible: 1;
 
+  /* RING / PROGRESS INDICATORS */
+  --ring-stroke-width: 4;
+  --ring-stroke-cap: round;
+  --ring-circumference: 276;
+  --ring-dasharray: var(--ring-circumference);
+  --ring-dashoffset-start: var(--ring-circumference);
+
   /* SHADOW SYSTEM */
   --shadow-lg: 0 8px var(--size-lg) rgba(0, 0, 0, 0.18);
   --shadow-md: 0 4px var(--size-md) rgba(0, 0, 0, 0.15);

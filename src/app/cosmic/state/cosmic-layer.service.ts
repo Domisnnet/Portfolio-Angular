@@ -5,14 +5,20 @@ import { CosmicLayer } from '@app/cosmic/state/cosmic-layer.types';
 @Injectable({
   providedIn: 'root'
 })
-
 export class CosmicLayerService {
   readonly layer = cosmicLayerSignal.asReadonly();
+
+  /** ordem oficial das layers */
+  private readonly order: CosmicLayer[] = [
+    'deep-space',
+    'stable-orbit',
+    'unstable-orbit',
+    'wormhole'
+  ];
+
   constructor() {
     effect(() => {
-      document.documentElement.setAttribute(
-        'data-layer',
-        cosmicLayerSignal());
+      document.documentElement.setAttribute( 'data-layer', cosmicLayerSignal() );
     });
   }
 
@@ -21,15 +27,21 @@ export class CosmicLayerService {
   }
 
   advance() {
-    const order: CosmicLayer[] = [
-      'deep-space',
-      'stable-orbit',
-      'unstable-orbit',
-      'wormhole'
-    ];
     const current = cosmicLayerSignal();
-    const index = order.indexOf(current);
-    const next = order[(index + 1) % order.length];
+    const index = this.order.indexOf(current);
+    const next = this.order[(index + 1) % this.order.length];
     cosmicLayerSignal.set(next);
   }
+
+  /** índice atual da layer */
+  currentLayerIndex(): number {
+    const current = cosmicLayerSignal();
+    return this.order.indexOf(current);
+  }
+
+  /** quantidade total de layers */
+  totalLayers(): number {
+    return this.order.length;
+  }
+
 }
