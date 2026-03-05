@@ -8,7 +8,6 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
   styleUrls: ['./layer-jump.component.scss']
 })
 export class LayerJumpComponent {
-
   constructor(private cosmic: CosmicLayerService) {}
   advance() {
     this.cosmic.advance();
