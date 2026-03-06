@@ -8,9 +8,7 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
   styleUrls: ['./wormhole.component.scss']
 })
 export class WormholeComponent {
-
   constructor(private cosmic: CosmicLayerService) {}
-
   layer = computed(() => this.cosmic.layer());
 
   isActive = computed(() =>
