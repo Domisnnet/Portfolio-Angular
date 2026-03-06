@@ -123,6 +123,18 @@
   --size-xxs: 4px;
   --size-xs: 8px;
 
+  /* SECRET STAR SYSTEM */
+  --secret-star-click-reset: 2000ms;
+  --secret-star-left: 30%;
+  --secret-star-scale-hover: 1.4;
+  --secret-star-glow-sm: var(--size-xs);
+  --secret-star-glow-lg: var(--size-md);
+  --secret-star-pulse-speed: var(--motion-plus-faster);
+  --secret-star-shake-speed: var(--motion-fast);
+  --secret-star-shake-distance: var(--size-1xs);
+  --secret-wormhole-charge-delay: 600ms;
+  --secret-wormhole-navigation-delay: 1400ms;
+
   /* SPACING SYSTEM */
   --space-lg: 1.5rem;
   --space-lg-plus: 2rem;
@@ -183,6 +195,7 @@
   --z-nebula: 2;
   --z-projects: 30;
   --z-scanning: 10;
+  --z-secret-star: 1.1;
   --z-stars: 1;
   --z-terminal: 1090;
   --z-wormhole: 1000;
