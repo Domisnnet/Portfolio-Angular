@@ -14,14 +14,14 @@ import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump
   selector: 'app-cosmic-section',
   standalone: true,
   imports: [
-    ScanningArtifactComponent,
     CosmicNebulaComponent,
     CosmicStarsComponent,
     CosmicBeamComponent,
     CosmicGridComponent,
-    WormholeComponent,
     LayerIndicatorComponent,
-    LayerJumpComponent
+    LayerJumpComponent,
+    ScanningArtifactComponent,
+    WormholeComponent
   ],
   templateUrl: './cosmic-section.component.html',
   styleUrls: ['./cosmic-section.component.scss'],

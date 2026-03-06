@@ -10,10 +10,10 @@ export class CosmicLayerService {
 
   /** ordem oficial das layers */
   private readonly order: CosmicLayer[] = [
+    'wormhole',
     'deep-space',
     'stable-orbit',
-    'unstable-orbit',
-    'wormhole'
+    'unstable-orbit'
   ];
 
   constructor() {

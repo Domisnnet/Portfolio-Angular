@@ -6,7 +6,7 @@ import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
   templateUrl: './astronauta.component.html',
   styleUrls: ['./astronauta.component.scss'],
 })
-export class AstronautasComponent implements AfterViewInit {
+export class AstronautaComponent implements AfterViewInit {
   @ViewChild('astro', { static: true }) astro!: ElementRef<HTMLDivElement>;
   private angle = Math.random() * Math.PI * 1;
   private radiusX = window.innerWidth * 0.4;

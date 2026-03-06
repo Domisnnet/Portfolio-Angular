@@ -1,49 +1,50 @@
 /* ===========================
   BASE CONTRACT
 =========================== */
-app-scanning-artifact,
-app-cosmic-stars,
-app-cosmic-nebula,
-app-cosmic-tractor-beam,
+app-astronauta,
 app-cosmic-grid,
-app-wormhole {
-  pointer-events: none;
-  transition: opacity var(--motion-slow);
-}
+app-cosmic-nebula,
+app-cosmic-stars,
+app-cosmic-tractor-beam,
+app-scanning-artifact,
+app-wormhole { pointer-events: none; transition: opacity var(--motion-slow); }
 
 /* ===========================
   FULL MODE
 =========================== */
 html[data-cosmic-effects='full'] {
-  app-scanning-artifact { opacity: 1; }
-  app-cosmic-stars { opacity: 1; }
-  app-cosmic-nebula { opacity: 0.55; }
-  app-cosmic-tractor-beam { opacity: 0.55; }
-  app-cosmic-grid { opacity: 1; }
+  app-astronauta,
+  app-cosmic-grid,
+  app-cosmic-stars,
+  app-scanning-artifact,
+  app-wormhole { opacity: var(--op-visible); }
+  app-cosmic-nebula,
+  app-cosmic-tractor-beam { opacity: var(--op-plus-smooth); }
 }
 
 /* ===========================
   MINIMAL MODE
 =========================== */
 html[data-cosmic-effects='minimal'] {
-  app-scanning-artifact { opacity: 0.5; }
-  app-cosmic-stars { opacity: 0.5; }
-  app-cosmic-nebula { opacity: 0.15; }
-  app-cosmic-tractor-beam { opacity: 0; }
-  app-cosmic-grid { opacity: 0.25; }
+  app-cosmic-grid { opacity: var(--op-default); }
+  app-scanning-artifact,
+  app-cosmic-stars { opacity: var(--op-smooth); }
+  app-cosmic-nebula { opacity: var(--op-minimal); }
+  app-astronauta,
+  app-scanning-artifact,
+  app-cosmic-tractor-beam,
+  app-wormhole { opacity: var(--op-hidden); }
 }
 
 /* ===========================
   SILENT MODE
 =========================== */
 html[data-cosmic-effects='silent'] {
-  app-scanning-artifact,
-  app-cosmic-stars,
-  app-cosmic-nebula,
-  app-cosmic-tractor-beam,
+  app-astronauta,
   app-cosmic-grid,
-  app-wormhole {
-    opacity: 0;
-    display: none;
-  }
+  app-cosmic-nebula,
+  app-cosmic-stars,
+  app-cosmic-tractor-beam,
+  app-scanning-artifact,
+  app-wormhole { opacity: var(--op-hidden); display: none; }
 }

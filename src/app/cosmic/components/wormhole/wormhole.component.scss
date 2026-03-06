@@ -1,10 +1,13 @@
 :host {
+  display: grid;
   position: fixed;
+  place-items: center;
   inset: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  z-index: var(--z-worhhole);
   pointer-events: none;
-  z-index: var(--z-wormhole);
-  opacity: var(--op-hidden);
-  transition: opacity var(--motion-slow);
 }
 
 :host(.active) {
@@ -12,19 +15,66 @@
 }
 
 .wormhole {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: var(--z-overlay);
+  position: absolute;
   display: grid;
+  position: fixed;
   place-items: center;
+  pointer-events: none;
+  inset: 0;
+  opacity: var(--op-hidden);
+  transform: scale(.8);
+  transition: opacity var(--motion-medium), transform var(--motion-medium);
+}
+
+.wormhole.active {
+  opacity: var(--op-visible);
+  transform: scale(1);
 }
 
 .wormhole-core {
-  width: var(--size-worm);
-  height: var(--size-worm);
+  display: grid;
+  position: relative;
+  place-items: center;
+  width: var(--wormhole-size);
+  height: var(--wormhole-size);
   border-radius: 50%;
-  border: var(--border-medium) solid var(--energy-main);
-  box-shadow: 0 0 40px var(--glow-color),inset 0 0 60px var(--glow-color);
-  animation: wormhole-spin 4s linear infinite;
+}
+
+.wormhole-core::before {
+
+  content: "";
+  position: absolute;
+  inset: calc(var(--size-wormhole) * -0.15);
+  border-radius: var(--radius-pill);
+  background: radial-gradient( circle, transparent 45%, rgba(var(--wormhole-brand-rgb-neon), 0.08) 55%, transparent 70% );
+  backdrop-filter: blur(var(--blur-medium));
+  opacity: var(--op-low);
+  animation: wormhole-lensing var(--motion-late) linear infinite;
+  pointer-events: none;
+}
+
+.wormhole-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-full);
+  border: var(--border-medium) solid var(--wormhole-accretion);
+  filter: blur(var(--wormhole-blur));
+  box-shadow: 0 0 var(--wormhole-glow-outer) var(--glow-color), inset 0 0 var(--wormhole-glow-inner) var(--glow-color);
+  animation: wormhole-spin var(--motion-slow) linear infinite;
+}
+
+.ring-inner {
+  transform: var(--op-medium);
+  opacity: var(--op-subtle);
+  animation-direction: reverse;
+}
+
+.wormhole-vortex {
+  position: absolute;
+  width: var(--wormhole-core-size);
+  height: var(--wormhole-core-size);
+  border-radius: var(--radius-full);
+  background: radial-gradient( circle, var(--layer-base), var(--wormhole-energy), transparent );
+  filter: blur(var(--blur-soft));
+  animation: vortex-spin var(--wormhole-vortex-speed) linear infinite;
 }

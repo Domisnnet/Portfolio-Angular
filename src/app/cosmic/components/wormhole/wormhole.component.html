@@ -1,5 +1,9 @@
-@if (isActive()) {
-  <div class="wormhole">
-    <div class="wormhole-core"></div>
-  </div>
-}
+<div class="wormhole" [class.active]="isActive()">
+  @if (isActive()) {
+    <div class="wormhole-core">
+      <div class="wormhole-ring"></div>
+      <div class="wormhole-ring ring-inner"></div>
+      <div class="wormhole-vortex"></div>
+    </div>
+  }
+</div>

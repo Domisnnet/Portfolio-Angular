@@ -1,6 +1,6 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AstronautasComponent } from '@app/components/astronauta/astronauta.component';
+import { AstronautaComponent } from '@app/components/astronauta/astronauta.component';
 import { CosmicStarsComponent } from '@app/cosmic/components/cosmic-stars/cosmic-stars.component';
 import { ScanningArtifactComponent } from '@app/cosmic/components/scanning-artifact/scanning-artifact.component';
 import { CosmicNebulaComponent } from '@app/cosmic/components/cosmic-nebula/cosmic-nebula.component';
@@ -22,14 +22,14 @@ export interface Project {
   selector: 'app-projects-page',
   standalone: true,
   imports: [
+    AstronautaComponent,
     CommonModule, 
-    AstronautasComponent,
     CosmicRootComponent,
     CosmicStarsComponent,
-    ScanningArtifactComponent,
     CosmicNebulaComponent,
     CosmicBeamComponent,
     CosmicGridComponent,
+    ScanningArtifactComponent,
     ProjectCardComponent
   ],
   templateUrl: './projects-page.component.html',

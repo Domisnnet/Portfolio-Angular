@@ -8,10 +8,13 @@
   
   /* BLUR */
   --blur-atmosphere: 80px;
+  --blur-disabled: 0;
   --blur-header: 12px;
   --blur-medium: 18px;
+  --blur-plus-weak: 1px;
   --blur-semi-atmosphere: 60px;
   --blur-soft: 10px;
+  --blur-subtle: 0.4px;
   --blur-strong: 26px;
   --blur-weak: 4px;
   --tractor-blur: 12px;
@@ -51,6 +54,8 @@
   --motion-delay-xs: 0.1s;
   --motion-fast: 0.25s;
   --motion-faster: 1.6s;
+  --motion-plus-faster: 2s;
+  --motion-ultra-faster: 14s;
   --motion-medium: 0.4s;
   --motion-late: 0.8s;
   --motion-slow: 0.6s;
@@ -64,11 +69,15 @@
 
   /* OPACITY SYSTEM */
   --op-active: 0.8;
+  --op-default: 0.25;
+  --op-standard: 0.35;
+  --op-minimal: 0.15;
   --op-hidden: 0;
   --op-hover: 0.9;
   --op-low: 0.6;
   --op-medium: 0.7;
   --op-smooth: 0.5;
+  --op-plus-smooth: 0.55;
   --op-subtle: 0.4;
   --op-visible: 1;
 
@@ -143,6 +152,22 @@
   --font-xxs: 0.5rem;
   --font-xs: 0.75rem;
 
+  /* WORMHOLE SYSTEM */
+  --wormhole-accretion: var(--color-accent);
+  --wormhole-border: var(--border-medium);
+  --wormhole-blur: var(--blur-medium);
+  --wormhole-core-size: 40%;
+  --wormhole-energy: var(--color-primary);
+  --wormhole-glow-outer: var(--size-xl);
+  --wormhole-glow-inner: calc(var(--size-xl) * 1.5);
+  --wormhole-rotation-speed: var(--motion-faster);
+  --wormhole-pulse-speed: var(--motion-slow);
+  --wormhole-scale-start: 0.2;
+  --wormhole-scale-end: 1.8;
+  --wormhole-spin-speed: 6s;
+  --wormhole-size: 240px;
+  --wormhole-vortex-speed: 3s;
+
   /* Z-INDEX SYSTEM */
   --z-astro: 5;
   --z-beam: 3;
@@ -160,5 +185,5 @@
   --z-scanning: 10;
   --z-stars: 1;
   --z-terminal: 1090;
-  --z-wormhole: 100;
+  --z-wormhole: 1000;
 }

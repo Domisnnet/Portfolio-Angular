@@ -1,27 +1,24 @@
 /* =========================
   BASE — TODOS OS EFEITOS
 ========================= */
-.stars-canvas,
+.astronauta,
+.cosmic-grid,
+.cosmic-tractor-beam,
 .nebula-layer,
 .scanning-artifact,
-.cosmic-tractor-beam,
-.cosmic-grid,
-.wormhole {
-  pointer-events: none;
-  transition: opacity var(--motion-slow),transform var(--motion-slow),filter var(--motion-slow);
-}
+.stars-canvas,
+.wormhole { pointer-events: none; transition: opacity var(--motion-slow),transform var(--motion-slow),filter var(--motion-slow); }
 
 /* ==============================
   FULL — EXPERIÊNCIA COMPLETA
 ============================== */
 html[data-cosmic-effects='full'] {
-  .stars-canvas,
+  .cosmic-grid,
+  .cosmic-tractor-beam,
   .nebula-layer,
   .scanning-artifact,
-  .cosmic-tractor-beam,
-  .cosmic-grid {
-    opacity: var(--op-visible);
-  }
+  .stars-canvas,
+  .wormhole { opacity: var(--op-visible); }
 }
 
 /* =========================
@@ -30,130 +27,81 @@ html[data-cosmic-effects='full'] {
 html[data-cosmic-effects='minimal'] {
   .stars-canvas,
   .nebula-layer,
-  .stars-overlay {
-    opacity: var(--op-subtle);
-  }
-
+  .stars-overlay { opacity: var(--op-subtle); }
   .scanning-artifact,
   .cosmic-tractor-beam,
   .cosmic-grid,
-  .wormhole {
-    opacity: var(--op-hidden);
-  }
+  .wormhole { opacity: var(--op-hidden); }
 }
 
 /* ========================
   SILENT — PERFORMANCE
 ======================== */
 html[data-cosmic-effects='silent'] {
-  .stars-canvas,
+  .cosmic-grid,
+  .cosmic-tractor-beam,
   .nebula-layer,
   .scanning-artifact,
-  .cosmic-tractor-beam,
-  .cosmic-grid,
-  .wormhole {
-    display: none;
-    opacity: var(--op-hidden);
-  }
+  .stars-canvas,
+  .wormhole { display: none; opacity: var(--op-hidden); }
 }
 
 /* =========================
   Deep Space - Estável
 ========================= */
 html[data-layer='deep-space'] {
+  .astronauta,
   .stars-canvas,
   .nebula-layer,
-  .stars-overlay {
-    opacity: var(--op-visible);
-  }
-
-  .scanning-artifact {
-    opacity: var(--op-visible);
-  }
-
+  .stars-overlay { opacity: var(--op-visible); }
+  .scanning-artifact { opacity: var(--op-visible); }
   .cosmic-tractor-beam,
-  .cosmic-grid {
-    opacity: 0.12;
-  }
-
-  .wormhole {
-    opacity: var(--op-hidden);
-  }
+  .cosmic-grid { opacity: var(--op-minimal); }
+  .wormhole { opacity: var(--op-hidden); }
 }
 
 /* ============================
   Stable Orbit - Exploração
 ============================ */
 html[data-layer='stable-orbit'] {
-  .scanning-artifact {
-    opacity: var(--op-visible);
-    transform: translateX(0);
-  }
-
-  .cosmic-grid {
-    opacity: 0.18;
-  }
-
+  .scanning-artifact { opacity: var(--op-visible); transform: translateX(0); }
+  .cosmic-grid { opacity: var(--op-minimal); }
   .nebula-layer,
-  .cosmic-tractor-beam {
-    opacity: 0.25;
-  }
-
-  .wormhole {
-    opacity: var(--op-hidden);
-  }
+  .cosmic-tractor-beam { opacity: var(--op-default); }
+  .astronauta,
+  .wormhole { opacity: var(--op-hidden); }
 }
 
 /* =============================
   Unstable Orbit — PRÉ-SALTO
 ============================= */
 html[data-layer='unstable-orbit'] {
-  .scanning-artifact {
-    opacity: var(--op-hidden);
-    transform: translateX(-12px);
-  }
-
+  .astronauta,
+  .scanning-artifact { opacity: var(--op-hidden); transform: translateX(-12px); }
   .nebula-layer,
   .cosmic-tractor-beam,
-  .cosmic-grid {
-    opacity: var(--op-hidden);
-    filter: blur(4px);
-  }
-
-  .stars-canvas {
-    opacity: 0.6;
-  }
-
-  .wormhole {
-    opacity: 0.35;
-  }
+  .cosmic-grid { opacity: var(--op-hidden); filter: blur var(--blur-weak); }
+  .stars-canvas { opacity: var(--op-low); }
+  .wormhole { opacity: var(--op-standard); }
 }
 
 /* =========================
   WORMHOLE — EVENTO
 ========================= */
 html[data-layer='wormhole'] {
-  .stars-canvas {
-    opacity: 0.25;
-  }
-
+  .stars-canvas { opacity: var(--op-default); }
   .nebula-layer,
   .scanning-artifact,
   .cosmic-tractor-beam,
-  .cosmic-grid {
-    opacity: var(--op-hidden);
-  }
-
-  .wormhole {
-    opacity: var(--op-visible);
-    filter: blur(0);
-  }
+  .cosmic-grid { opacity: var(--op-hidden); }
+  .wormhole { opacity: var(--op-visible); filter: blur var(--blur-disabled); }
 }
 
 /* =========================
   DESKTOP — BEAM ATIVO
 ========================= */
 @media (min-width: 1024px) {
+  .astronauta,
   .cosmic-tractor-beam,
   .nebula-layer { display: block; }
   .scanning-artifact { display: none; }
@@ -166,5 +114,6 @@ html[data-layer='wormhole'] {
 @media (max-width: 1023px) {
   .status-line,
   .cosmic-tractor-beam { display: none; }
+  .astronauta,
   .cosmic-grid { display: block; }
 }
