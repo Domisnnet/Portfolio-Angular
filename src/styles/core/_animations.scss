@@ -30,6 +30,20 @@
   100% { transform: translateY(0); }
 }
 
+@keyframes star-pulse {
+  0% { transform: scale(1); opacity: var(--op-medium); }
+  50% { transform: scale(var(--secret-star-scale-hover)); opacity: var(--op-hover); }
+  100% { transform: scale(1); opacity: var(--op-medium); }
+}
+
+@keyframes star-shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(var(--secret-star-shake-distance), 0); }
+  50% { transform: translate(calc(var(--secret-star-shake-distance) * -1), 0); }
+  75% { transform: translate(var(--secret-star-shake-distance), 0); }
+  100% { transform: translate(0); }
+}
+
 @keyframes nebulaDrift {
   from { transform: translate3d(0, 0, 0) scale(1); }
   to   { transform: translate3d(-12%, -8%, 0) scale(1.15); }
@@ -141,8 +155,8 @@
 }
 
 @keyframes eggReveal {
-  0% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1.1); }
+  0% { opacity: var(--op-hidden); transform: scale(0.5); }
+  50% { opacity: var(--op-visible); transform: scale(1.1); }
   100% { transform: scale(1); }
 }
 

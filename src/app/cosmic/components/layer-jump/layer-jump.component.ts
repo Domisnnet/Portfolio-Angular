@@ -9,18 +9,11 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 })
 export class LayerJumpComponent {
   constructor(private cosmic: CosmicLayerService) {}
-  private layers = [
-    'deep-space',
-    'stable-orbit',
-    'unstable-orbit',
-    'wormhole'
-  ];
-
   circumference = 276;
   dashOffset = computed(() => {
-    const current = this.cosmic.layer();
-    const index = this.layers.indexOf(current);
-    const progress = index / (this.layers.length - 1);
+    const index = this.cosmic.currentLayerIndex();
+    const total = this.cosmic.totalLayers() - 1;
+    const progress = index / total;
     return this.circumference - (progress * this.circumference);
   });
 
