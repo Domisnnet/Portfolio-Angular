@@ -17,7 +17,5 @@ export class LayerJumpComponent {
     return this.circumference - (progress * this.circumference);
   });
 
-  advance() {
-    this.cosmic.advance();
-  }
+  advance() { this.cosmic.advance(); }
 }
