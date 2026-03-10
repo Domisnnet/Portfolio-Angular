@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 
@@ -13,49 +13,46 @@ type StarState =
   templateUrl: './secret-star.component.html',
   styleUrls: ['./secret-star.component.scss'],
 })
-export class SecretStarComponent {
+export class SecretStarComponent implements OnInit {
   private router = inject(Router);
   private cosmicLayer = inject(CosmicLayerService);
   starState: StarState = 'idle';
   private clicks = 0;
   private resetTimer?: number;
 
+  ngOnInit(): void {
+    /* estado inicial obrigatório */
+    this.cosmicLayer.set('deep-space');
+  }
+
   handleClick(): void {
     this.clicks++;
     if (this.clicks === 1) {
       this.starState = 'awakening';
+      this.cosmicLayer.set('stable-orbit');
     }
 
     if (this.clicks === 2) {
       this.starState = 'unstable';
+      this.cosmicLayer.set('unstable-orbit');
     }
 
-    if (this.clicks === 3) {
-      this.activateWormhole();
-      return;
-    }
-    this.resetClicks();
+    if (this.clicks === 3) { 
+      this.activateWormhole(); return; 
+    } this.resetClicks();
   }
 
   private resetClicks(): void {
     clearTimeout(this.resetTimer);
-    const delayValue = getComputedStyle(document.documentElement)
-      .getPropertyValue('--secret-star-click-reset');
+    const delayValue = getComputedStyle(document.documentElement) .getPropertyValue('--secret-star-click-reset');
     const delay = parseFloat(delayValue) || 2000;
-    this.resetTimer = window.setTimeout(() => {
-      this.clicks = 0;
-      this.starState = 'idle';
-    }, delay);
+    this.resetTimer = window.setTimeout(() => { this.clicks = 0; this.starState = 'idle'; this.cosmicLayer.set('deep-space'); }, delay);
   }
 
   private activateWormhole(): void {
-    this.cosmicLayer.set('wormhole');
-    const delayValue = getComputedStyle(document.documentElement)
-      .getPropertyValue('--secret-wormhole-delay');
+    const delayValue = getComputedStyle(document.documentElement) .getPropertyValue('--secret-wormhole-delay');
     const delay = parseFloat(delayValue) || 1200;
-    setTimeout(() => {
-      this.router.navigate(['/stable-orbit']);
-      this.cosmicLayer.set('stable-orbit');
-    }, delay);
+    this.cosmicLayer.set('wormhole');
+    setTimeout(() => { this.router.navigate(['/wormhole']); }, delay);
   }
 }
