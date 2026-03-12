@@ -13,8 +13,8 @@ export class LayerJumpComponent {
   circumference = 276;
   private clickLock = false;
   dashOffset = computed(() => {
-    const clicks = this.cosmic.getClickCharge();
-    const progress = Math.min(clicks, 3) / 3;
+    const clicks = this.cosmic.clickCount();
+    const progress = clicks / 3;
     return this.circumference - progress * this.circumference;
   });
 
@@ -27,14 +27,12 @@ export class LayerJumpComponent {
     if (this.clickLock) return;
     this.clickLock = true;
 
-    const clicks = this.cosmic.registerClick();
+    const clicks = this.cosmic.advance();
     if (clicks === 3) {
       this.cosmic.activateWormhole();
       setTimeout(() => {
         this.router.navigate(['/wormhole']);
-        setTimeout(() => {
-          this.cosmic.resetClicks();
-        }, 300);
+        this.cosmic.resetClicks();
         this.clickLock = false;
       }, 1200);
       return;

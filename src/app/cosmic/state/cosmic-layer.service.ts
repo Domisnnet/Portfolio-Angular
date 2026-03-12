@@ -15,6 +15,7 @@ export class CosmicLayerService {
   ];
 
   private clickCharge = signal(0);
+  readonly clickCount = this.clickCharge.asReadonly();
   constructor() {
     effect(() => {
       document.documentElement.setAttribute(
@@ -24,14 +25,10 @@ export class CosmicLayerService {
     });
   }
 
-  registerClick(): number {
-    const next = this.clickCharge() + 1;
+  advance(): number {
+    const next = Math.min(this.clickCharge() + 1, 3);
     this.clickCharge.set(next);
     return next;
-  }
-
-  getClickCharge(): number {
-    return this.clickCharge();
   }
 
   resetClicks(): void {
