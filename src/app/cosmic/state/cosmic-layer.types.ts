@@ -1,5 +1,6 @@
 export type CosmicLayer = 
-|'deep-space'
+|'projects'
 |'wormhole'
+|'deep-space'
 |'stable-orbit'
 |'unstable-orbit'
