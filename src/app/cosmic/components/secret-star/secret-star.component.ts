@@ -15,44 +15,35 @@ type StarState =
 })
 export class SecretStarComponent implements OnInit {
   private router = inject(Router);
-  private cosmicLayer = inject(CosmicLayerService);
+  private cosmic = inject(CosmicLayerService);
   starState: StarState = 'idle';
-  private clicks = 0;
-  private resetTimer?: number;
-
   ngOnInit(): void {
-    /* estado inicial obrigatório */
-    this.cosmicLayer.set('projects');
+    this.cosmic.set('projects');
   }
 
   handleClick(): void {
-    this.clicks++;
-    if (this.clicks === 1) {
+    const clicks = this.cosmic.registerClick();
+    if (clicks === 1) {
       this.starState = 'awakening';
-      this.cosmicLayer.set('stable-orbit');
     }
 
-    if (this.clicks === 2) {
+    if (clicks === 2) {
       this.starState = 'unstable';
-      this.cosmicLayer.set('unstable-orbit');
     }
 
-    if (this.clicks === 3) { 
-      this.activateWormhole(); return; 
-    } this.resetClicks();
-  }
-
-  private resetClicks(): void {
-    clearTimeout(this.resetTimer);
-    const delayValue = getComputedStyle(document.documentElement) .getPropertyValue('--secret-star-click-reset');
-    const delay = parseFloat(delayValue) || 2000;
-    this.resetTimer = window.setTimeout(() => { this.clicks = 0; this.starState = 'idle'; this.cosmicLayer.set('projects'); }, delay);
+    if (clicks === 3) {
+      this.activateWormhole();
+    }
   }
 
   private activateWormhole(): void {
-    const delayValue = getComputedStyle(document.documentElement) .getPropertyValue('--secret-wormhole-delay');
+    const delayValue = getComputedStyle(document.documentElement)
+      .getPropertyValue('--secret-wormhole-delay');
     const delay = parseFloat(delayValue) || 1200;
-    this.cosmicLayer.set('wormhole');
-    setTimeout(() => { this.router.navigate(['/wormhole']); }, delay);
+    this.cosmic.activateWormhole();
+
+    setTimeout(() => {
+      this.router.navigate(['/wormhole']);
+    }, delay);
   }
 }
