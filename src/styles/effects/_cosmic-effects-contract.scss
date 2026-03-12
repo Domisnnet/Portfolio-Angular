@@ -1,12 +1,14 @@
 /* ===========================
   BASE CONTRACT
 =========================== */
-app-astronauta,
+app-cosmic-beam,
 app-cosmic-grid,
 app-cosmic-nebula,
 app-cosmic-stars,
-app-cosmic-tractor-beam,
+app-secret-star,
 app-scanning-artifact,
+app-layer-indicator,
+app-layer-jump,
 app-wormhole { pointer-events: none; transition: opacity var(--motion-slow); }
 
 /* ===========================
@@ -16,10 +18,13 @@ html[data-cosmic-effects='full'] {
   app-astronauta,
   app-cosmic-grid,
   app-cosmic-stars,
+  app-secret-star,
   app-scanning-artifact,
+  app-layer-indicator,
+  app-layer-jump,
   app-wormhole { opacity: var(--op-visible); }
   app-cosmic-nebula,
-  app-cosmic-tractor-beam { opacity: var(--op-plus-smooth); }
+  app-cosmic-beam { opacity: var(--op-plus-smooth); }
 }
 
 /* ===========================
@@ -32,7 +37,7 @@ html[data-cosmic-effects='minimal'] {
   app-cosmic-nebula { opacity: var(--op-minimal); }
   app-astronauta,
   app-scanning-artifact,
-  app-cosmic-tractor-beam,
+  app-cosmic-beam,
   app-wormhole { opacity: var(--op-hidden); }
 }
 
@@ -40,11 +45,13 @@ html[data-cosmic-effects='minimal'] {
   SILENT MODE
 =========================== */
 html[data-cosmic-effects='silent'] {
-  app-astronauta,
+  app-cosmic-beam,
   app-cosmic-grid,
   app-cosmic-nebula,
   app-cosmic-stars,
-  app-cosmic-tractor-beam,
+  app-secret-star,
   app-scanning-artifact,
+  app-layer-indicator,
+  app-layer-jump,
   app-wormhole { opacity: var(--op-hidden); display: none; }
 }

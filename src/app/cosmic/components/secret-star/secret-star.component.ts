@@ -16,6 +16,7 @@ export class SecretStarComponent {
     const clicks = this.cosmic.clickCount();
     if (clicks === 1) return 'awakening';
     if (clicks === 2) return 'unstable';
+    if (clicks === 3) return 'unstable';
     return 'idle';
   });
 

@@ -4,17 +4,17 @@
 .loader-overlay {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: var(--z-loader);
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--bg-body);
-  opacity: 1;
+  opacity: var(--op-visible);
   visibility: visible;
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity var(--motion-late) var(--easing-standard), visibility var(--motion-late) var(--easing-standard);
 
   &.hidden {
-    opacity: 0;
+    opacity: var(--op-hidden);
     visibility: hidden;
     pointer-events: none;
   }
@@ -24,13 +24,13 @@
   APP CONTENT
 =============== */
 .app-content {
-  opacity: 0;
+  opacity: var(--op-hidden);
   transform: translateY(12px);
-  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1), 
+  transition: opacity var(--motion-content) var(--easing-ease-in), 
   transform 1s cubic-bezier(0.22, 1, 0.36, 1);
 
   &.visible {
-    opacity: 1;
+    opacity: var(--op-visible);
     transform: translateY(0);
   }
 }
@@ -39,7 +39,7 @@
   MAIN LAYOUT ADJUSTMENTS
 ============================ */
 main {
-  padding-top: 80px;
+  padding-top: var(--size-main);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
