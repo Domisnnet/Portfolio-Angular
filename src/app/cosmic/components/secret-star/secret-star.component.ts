@@ -22,7 +22,7 @@ export class SecretStarComponent implements OnInit {
 
   ngOnInit(): void {
     /* estado inicial obrigatório */
-    this.cosmicLayer.set('deep-space');
+    this.cosmicLayer.set('projects');
   }
 
   handleClick(): void {
@@ -46,7 +46,7 @@ export class SecretStarComponent implements OnInit {
     clearTimeout(this.resetTimer);
     const delayValue = getComputedStyle(document.documentElement) .getPropertyValue('--secret-star-click-reset');
     const delay = parseFloat(delayValue) || 2000;
-    this.resetTimer = window.setTimeout(() => { this.clicks = 0; this.starState = 'idle'; this.cosmicLayer.set('deep-space'); }, delay);
+    this.resetTimer = window.setTimeout(() => { this.clicks = 0; this.starState = 'idle'; this.cosmicLayer.set('projects'); }, delay);
   }
 
   private activateWormhole(): void {
