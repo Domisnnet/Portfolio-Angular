@@ -8,8 +8,9 @@ import { CosmicLayer } from '@app/cosmic/state/cosmic-layer.types';
 export class CosmicLayerService {
   readonly layer = cosmicLayerSignal.asReadonly();
   private readonly order: CosmicLayer[] = [
-    'deep-space',
+    'projects',
     'wormhole',
+    'deep-space',
     'stable-orbit',
     'unstable-orbit'
   ];
