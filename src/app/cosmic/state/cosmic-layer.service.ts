@@ -30,15 +30,19 @@ export class CosmicLayerService {
     return next;
   }
 
-  resetClicks() {
+  getClickCharge(): number {
+    return this.clickCharge();
+  }
+
+  resetClicks(): void {
     this.clickCharge.set(0);
   }
 
-  activateWormhole() {
+  activateWormhole(): void {
     cosmicLayerSignal.set('wormhole');
   }
 
-  set(layer: CosmicLayer) {
+  set(layer: CosmicLayer): void {
     cosmicLayerSignal.set(layer);
   }
 
