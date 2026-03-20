@@ -1,27 +1,30 @@
-import { Component, Input, computed, signal } from '@angular/core';
-import { RouterModule } from '@angular/router';
-
-export type CosmicMode = 'silent' | 'minimal' | 'full';
+import { Component, computed, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { ButtonComponent } from '@app/components/button/button.component';
+import { ThemeToggleComponent } from '@app/core/theme-toggle/theme-toggle.component';
+import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule],
+  imports: [
+    ButtonComponent,
+    RouterLink,
+    ThemeToggleComponent
+  ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  /* SERVICES */
+  constructor(private effects: CosmicEffectsService) {}
+  
+  /* MENU MOBILE */
+  menuOpen = signal(false);
+  toggleMenu() { this.menuOpen.update(v => !v); }
 
-  private _mode = signal<CosmicMode>('full');
+  /* COSMIC EFFECTS */
+  toggleCosmicEffects() { this.effects.cycle(); }
 
-  @Input({ required: true })
-  set modeInput(value: CosmicMode) {
-    this._mode.set(value);
-  }
-
-  mode = computed(() => this._mode());
-
-  isVisible = computed(() => this._mode() !== 'silent');
-  isMinimal = computed(() => this._mode() === 'minimal');
-  isFull = computed(() => this._mode() === 'full');
+  isSilent = computed(() => this.effects.isSilent());
 }

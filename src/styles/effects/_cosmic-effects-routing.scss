@@ -1,0 +1,224 @@
+/* =========================
+  BASE — TODOS OS EFEITOS
+========================= */
+.astro,
+.cosmic-grid,
+.cosmic-tractor-beam,
+.beam-core,
+.beam-weave,
+.nebula-layer,
+.nebula-layer-a,
+.nebula-layer-b,
+.nebula-layer-c,
+.scanning-artifact,
+.stars-canvas,
+.wormhole,
+.wormhole.active,
+.wormhole-core,
+.wormhole-square, 
+.square-inner,
+.wormhole-vortex { 
+  pointer-events: none; 
+  transition: opacity var(--motion-slow), transform var(--motion-slow), filter var(--motion-slow); 
+}
+
+/* ==============================
+  FULL — EXPERIÊNCIA COMPLETA
+============================== */
+html[data-cosmic-effects='full'] {
+  .astro,
+  .cosmic-grid,
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c,
+  .scanning-artifact,
+  .stars-canvas,
+  .wormhole,
+  .wormhole.active,
+  .wormhole-core,
+  .wormhole-square,
+  .square-inner,
+  .wormhole-vortex { opacity: var(--op-visible); }
+}
+
+/* =========================
+  MINIMAL — UX / HEADER
+========================= */
+html[data-cosmic-effects='minimal'] {
+  .stars-canvas,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c { opacity: var(--op-subtle); }
+  .astro,
+  .scanning-artifact,
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .cosmic-grid,
+  .wormhole,
+  .wormhole.active,
+  .wormhole-core,
+  .wormhole-square,
+  .square-inner,
+  .wormhole-vortex { opacity: var(--op-hidden); }
+}
+
+/* ========================
+  SILENT — PERFORMANCE
+======================== */
+html[data-cosmic-effects='silent'] {
+  .astro,
+  .cosmic-grid,
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c,
+  .scanning-artifact,
+  .stars-canvas,
+  .wormhole,
+  .wormhole.active,
+  .wormhole-core,
+  .wormhole-square,
+  .square-inner,
+  .wormhole-vortex { display: none; opacity: var(--op-hidden); }
+}
+
+/* =========================
+  Deep Space - Estável
+========================= */
+/*
+html[data-layer='deep-space'] {
+  .astro,
+  .stars-canvas,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c { opacity: var(--op-visible); }
+  .scanning-artifact { opacity: var(--op-visible); }
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .cosmic-grid { opacity: var(--op-minimal); }
+  .wormhole,
+  .wormhole.active,
+  .wormhole-core,
+  .wormhole-square,
+  .square-inner,
+  .wormhole-vortex { opacity: var(--op-hidden); }
+}
+*/  
+
+/* ============================
+  Stable Orbit - Exploração
+============================ */
+/*
+html[data-layer='stable-orbit'] {
+  .scanning-artifact { opacity: var(--op-visible); transform: translateX(0); }
+  .cosmic-grid { opacity: var(--op-minimal); }
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c,
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave { opacity: var(--op-default); }
+  .astro,
+  .wormhole,
+  .wormhole.active,
+  .wormhole-core,
+  .wormhole-square,
+  .square-inner,
+  .wormhole-vortex { opacity: var(--op-hidden); }
+}
+*/
+
+/* =============================
+  Unstable Orbit — PRÉ-SALTO
+============================= */
+/*
+html[data-layer='unstable-orbit'] {
+  .astro,
+  .scanning-artifact { opacity: var(--op-hidden); transform: translateX(-12px); }
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c,
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .cosmic-grid { opacity: var(--op-hidden); filter: blur var(--blur-weak); }
+  .stars-canvas { opacity: var(--op-low); }
+  .wormhole,
+  .wormhole.active,
+  .wormhole-core,
+  .wormhole-square,
+  .square-inner,
+  .wormhole-vortex { opacity: var(--op-standard); }
+}
+*/  
+
+/* =========================
+  WORMHOLE — EVENTO
+========================= */
+html[data-layer='wormhole'] {
+  .stars-canvas,
+  .astro,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c,
+  .scanning-artifact,
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .cosmic-grid,
+  .artifact-card,
+  .page-header { opacity: var(--op-hidden); }
+  .wormhole,
+  .wormhole.active,
+  .wormhole-core,
+  .wormhole-square,
+  .square-inner,
+  .wormhole-vortex { opacity: var(--op-visible); filter: blur var(--blur-disabled); }
+}
+
+/* =========================
+  DESKTOP — BEAM ATIVO
+========================= */
+@media (min-width: 1024px) {
+  .stars-canvas,
+  .astro,
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c,
+  .scanning-artifact { display: block; }
+  .cosmic-grid { display: none; }
+}
+
+/* =========================
+  TABLET / MOBILE — GRID
+========================= */
+@media (max-width: 1023px) {
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .status-line { display: none; }
+  .astro,
+  .cosmic-grid,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c { display: block; }
+}

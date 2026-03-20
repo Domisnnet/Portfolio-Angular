@@ -1,0 +1,25 @@
+<button
+  class="cosmic-beacon"
+  (click)="advance($event)"
+  type="button"
+  aria-label="Advance cosmic layer"
+>
+  <div class="beacon-core"></div>
+  <svg class="beacon-ring" viewBox="0 0 100 100">
+    <circle
+      class="ring-track"
+      cx="50" cy="50" r="44"
+    />
+    <circle
+      class="ring-progress"
+      cx="50" cy="50" r="44"
+      [style.strokeDashoffset]="dashOffset()"
+    />
+  </svg>
+  <div class="orbit orbit-a">
+    <span class="satellite"></span>
+  </div>
+  <div class="orbit orbit-b">
+    <span class="satellite-child"></span>
+  </div>
+</button>

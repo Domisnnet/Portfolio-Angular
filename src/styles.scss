@@ -1,34 +1,71 @@
-/* =============================
-   Configurações de variáveis
-============================= */   
-@use './styles/variables'; 
+/* =========
+  RESET
+========= */
+@forward 'styles/core/reset';
 
+/* =================
+  TOKENS / CORE
+================= */
+@forward 'styles/core/tokens';
+@forward 'styles/tokens/text-tokens';
 
-/* ================
-   Base & Reset
-================ */   
-@use './styles/reset';
-@use './styles/global';
-@use './styles/layout';
+/* =============
+  CONTRACTS
+============= */
+@forward 'styles/core/theme-contract';
+@forward 'styles/core/semantic';
+@forward 'styles/contract/global-contract';
+@forward 'styles/terminal/terminal-contract';
 
-/* ================
-   Componentes
-================ */   
-@use './styles/buttons';
-@use './styles/stack';
-@use './styles/hero';
-@use './styles/cta';
-@use './styles/cosmic-base';
-@use './styles/cosmic-nebula';
-@use './styles/cosmic-stars';
-@use './styles/cosmic-tech'; 
-@use './styles/cosmic-energy';
-@use './styles/cosmic-animations';
+/* =====================
+  THEMES
+===================== */
+@forward 'styles/theme/cosmic-theme';
+@forward 'styles/theme/solar-theme';
 
-/* ================
-   Google Fonts
-================ */   
+/* =====================
+  CORE INFRA
+===================== */
+@forward 'styles/core/animations';
+@forward 'styles/core/utilities';
+
+/* =====================
+  LAYERS / SYSTEM
+===================== */
+@forward 'styles/layers/surfaces';
+@forward 'styles/layers/layout';
+@forward 'styles/system/global';
+@forward 'styles/text/text-emphasis';
+
+/* =====================
+  COMPONENTS BASE
+===================== */
+@forward 'styles/components/buttons';
+@forward 'styles/components/cta';
+@forward 'styles/components/hero';
+@forward 'styles/components/stack';
+@forward 'styles/background/space';
+
+/* ============================
+  FOOTER MINI DESIGN SYSTEM
+============================ */
+@forward 'styles/footer/index';
+
+/* =====================
+  EFFECTS
+===================== */
+@forward 'styles/effects/cosmic-effects-contract';
+@forward 'styles/effects/cosmic-effects-routing';
+@forward 'styles/effects/energy';
+@forward 'styles/effects/glow';
+@forward 'styles/terminal/terminal-horizon';
+
+/* =====================
+  FONTS
+===================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');

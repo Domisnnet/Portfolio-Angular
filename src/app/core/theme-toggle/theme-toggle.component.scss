@@ -1,0 +1,53 @@
+:host {
+  display: block;
+}
+
+.theme-button {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: var(--size-toggle);
+  height: var(--size-toggle);
+  border-radius: var(--radius-md);
+  border: var(--border-medium) solid var(--energy-main);
+  background: transparent;
+  color: var(--energy-main);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+
+  &:focus-visible {
+    box-shadow: 0 0 0 var(--border-thick) rgba(var(--accent-rgb), 0.4);
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(calc(var(--size-2xs) * -1));
+    box-shadow: 0 0 var(--size-lg) var(--glow-color);
+  }
+
+  &:disabled {
+    opacity: var(--op-subtle);
+    cursor: not-allowed;
+  }
+}
+
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: var(--font-bold);
+  gap: var(--space-toggle);
+  transition: transform var(--easing-standard);
+  margin-top: var(--space-md);
+
+  &.is-dark {
+    transform: translateY(-40px);
+  }
+
+  .icon {
+    width: var(--space-toggle);
+    height: var(--space-toggle);
+    color: var(--energy-main);
+    flex-shrink: 0;
+  }
+}

@@ -2,35 +2,35 @@
   STACK SECTION
 ====================== */
 .stack-section {
-  padding: 40px 0;
+  padding: var(--space-xxl) var(--space-none);
   border-top: 2px solid var(--border-color);
 }
 
 .stack-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+  max-width: var(--container-max);
+  margin: var(--space-none) auto;
+  padding: var(--space-lg-plus);
 }
 
 .stack-block {
-  margin: 48px 0 40px;
-  padding: 32px;
-  border-radius: 16px;
+  margin: var(--space-xxl) var(--space-none) var(--size-2xl);
+  padding: var(--space-lg-plus);
+  border-radius: var(--space-md);
   background: var(--bg-surface);
   border: 1px solid var(--border-color);
 
   h3 {
-    margin-bottom: 16px;
-    font-size: 1.3rem;
+    margin-bottom: var(--space-md);
+    font-size: var(--font-xl);
   }
 }
 
 .pill-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--size-sm);
 }
 
 .no-padding-top {
-  padding-top: 0 !important;
+  padding-top: var(--space-none) !important;
 }

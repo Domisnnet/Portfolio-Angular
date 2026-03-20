@@ -1,0 +1,28 @@
+/* =================
+Hero Section
+================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem 0;
+}
+
+.hero .avatar {
+  border-radius: 50%;
+  border: 3px solid var(--energy-main);
+  transition: transform 0.3s ease;
+}
+
+.hero .avatar:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 0 1rem 0;
+    text-align: center;
+  }
+}

@@ -1,0 +1,153 @@
+<section
+  class="footer-layout"
+  aria-labelledby="about-title"
+>
+  @if (!isTextMode) {
+    <article
+      class="footer-card footer-card--about footer-card--glass-holographic"
+      [@cardEnter]
+      role="article"
+    >
+      <header class="footer-header">
+        <span class="about-pulse">●</span>
+          LOG_FILE_RECOVERED.bin
+      </header>
+      <div class="footer-body">
+        <div class="footer-block">
+          <span class="footer-meta">
+            {{ content.meta.timestamp }}
+          </span>
+          <p class="footer-content">
+            <span class="t-mono">
+              &gt; {{ content.cmd.whoami }}
+            </span>
+          </p>
+          <p class="footer-content">
+            {{ content.logs.origin.intro }}
+          </p>
+          @for (item of content.logs.origin.details; track item) {
+            <p class="footer-content">
+              {{ item.text }}
+              <span class="t-neon">
+                {{ item.neon }}
+              </span>
+              <span class="t-suffix">
+                {{ item.suffix }}
+              </span>
+            </p>
+          }
+        </div>
+        <div class="footer-block">
+          <span class="footer-meta">
+            {{ content.meta.paused }}
+          </span>
+          <p class="footer-content">
+            {{ content.logs.pause.text }}
+            <span class="t-mono">
+              {{ content.logs.pause.mono }}
+            </span>
+            <span class="t-suffix">
+              {{ content.logs.pause.suffix }}
+            </span>
+            <span class="t-dna">
+              {{ content.logs.pause.dna }}
+            </span>
+          </p>
+        </div>
+        <div class="footer-block">
+          <span class="footer-meta">
+            {{ content.meta.reboot }}
+          </span>
+          <p class="footer-content">
+            {{ content.logs.reboot.text }}
+            <span class="t-neonrx">
+              {{ content.logs.reboot.neonrx }}
+            </span>
+            <span class="t-course">
+              {{ content.logs.reboot.course }}
+            </span>
+            <span class="t-neon">
+              {{ content.logs.reboot.neon }}
+            </span>
+          </p>
+          <p class="footer-content">
+            {{ content.logs.reboot.details }}
+          </p>
+        </div>
+        <div class="footer-block">
+          <span class="footer-meta">
+            {{ content.meta.present }}
+          </span>
+          <p class="footer-content">
+            {{ content.logs.present.text }}
+          </p>
+          <p class="footer-content">
+            {{ content.logs.present.details }}
+            <span class="t-commitment">
+              {{ content.logs.present.commitment }}
+            </span>
+            <span class="t-suffix">
+              {{ content.logs.present.suffix }}
+            </span>
+          </p>
+        </div>
+        <div class="footer-block">
+          <span class="footer-meta">
+            {{ content.meta.closing }}
+          </span>
+          <p class="footer-content">
+            {{ content.logs.closing.text }}
+            <span class="t-neon">
+              {{ content.logs.closing.neon }}
+            </span>
+            <span class="t-neonrx">
+              {{ content.logs.closing.neonrx }}
+            </span>
+            <span class="t-suffix">
+              {{ content.logs.closing.suffix }}
+            </span>
+          </p>
+        </div>
+        <footer class="footer-actions">
+          <button
+            class="footer-btn"
+            (click)="toggleMode()"
+          >
+            {{ content.actions.simple }}
+          </button>
+          <span class="footer-meta executing">
+            {{ content.meta.executing }}
+          </span>
+        </footer>
+      </div>
+    </article>
+  } @else {
+    <article
+      class="footer-card footer-card--about footer-card--glass-holographic"
+      @cardEnter
+    >
+      <button
+        class="about-lang-badge"
+        (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')"
+      >
+        {{ language === 'pt' ? 'EN' : 'PT' }}
+      </button>
+      <div class="about-text">
+        <h2 id="about-title">
+          {{ content.simple.title }}
+        </h2>
+        <p>{{ content.simple.p1 }}</p>
+        <p>{{ content.simple.p2 }}</p>
+        <p>{{ content.simple.p3 }}</p>
+      </div>
+      <div class="footer-actions">
+        <button
+          class="footer-btn"
+          (click)="toggleMode()"
+        >
+          {{ content.actions.technical }}
+        </button>
+      </div>
+    </article>
+  }
+</section>

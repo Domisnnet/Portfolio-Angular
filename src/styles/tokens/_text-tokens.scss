@@ -1,0 +1,28 @@
+:root {
+
+  /* === FONT TOKENS === */
+  --text-font-mono: var(--font-family-mono, monospace);
+
+  /* === WEIGHT TOKENS === */
+  --text-weight-strong: 600;
+
+  /* === COLOR TOKENS === */
+  --text-emphasis-primary: var(--color-primary-400);
+  --text-emphasis-secondary: var(--color-secondary-400);
+  --text-emphasis-accent: var(--color-accent-400);
+
+  /* === NEON GLOW TOKENS === */
+  --text-neon-color: var(--color-primary-400);
+  --text-neon-glow: 0 0 4px var(--color-primary-400),0 0 8px var(--color-primary-400),0 0 16px var(--color-primary-500);
+  --text-neonrx-color: var(--color-accent-400);
+  --text-neonrx-glow: 0 0 4px var(--color-accent-400),0 0 8px var(--color-accent-400),0 0 16px var(--color-accent-500);
+
+  /* === DNA STYLE === */
+  --text-dna-letter-spacing: 0.08em;
+
+  /* === SUFFIX STYLE === */
+  --text-suffix-opacity: 0.85;
+
+  /* === COURSE STYLE === */
+  --text-course-style: italic;
+}

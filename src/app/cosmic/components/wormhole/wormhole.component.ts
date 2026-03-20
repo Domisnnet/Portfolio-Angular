@@ -1,0 +1,15 @@
+import { Component, computed } from '@angular/core';
+import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
+
+@Component({
+  selector: 'app-wormhole',
+  standalone: true,
+  templateUrl: './wormhole.component.html',
+  styleUrls: ['./wormhole.component.scss']
+})
+export class WormholeComponent {
+  constructor(private cosmic: CosmicLayerService) {}
+  isActive = computed(() =>
+    this.cosmic.layer() === 'wormhole'
+  );
+}

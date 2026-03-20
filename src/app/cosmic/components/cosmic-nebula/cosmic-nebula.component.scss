@@ -1,0 +1,58 @@
+:host {
+  position: absolute;
+  inset: calc(var(--nebula-overflow) * -1);
+  pointer-events: none;
+  z-index: var(--z-nebula);
+  transition: opacity var(--transition-slow);
+}
+
+.nebula-layer {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+.nebula {
+  position: absolute;
+  width: var(--nebula-size);
+  height: var(--nebula-size);
+  border-radius: 50%;
+  animation: nebulaDrift linear infinite;
+}
+
+/* ===========
+  Nebula A
+=========== */
+.nebula-a {
+  top: 10%;
+  left: 15%;
+  opacity: 0.25;
+  background: radial-gradient( ellipse at 42% 38%, rgba(var(--artifact-brand-rgb), 0.45) 0%, rgba(var(--artifact-brand-rgb), 0.28) 35%, rgba(var(--artifact-brand-rgb), 0.15) 60%, rgba(var(--artifact-brand-rgb), 0.05) 75%, transparent 90% );
+  filter: blur(var(--blur-atmosphere));
+  animation-duration: var(--nebula-speed-a);
+}
+
+/* =====================
+  Nebula B / Energy
+===================== */
+.nebula-b {
+  top: 40%;
+  left: 55%;
+  opacity: 0.02;
+  background: radial-gradient( ellipse at 60% 45%, var(--energy-soft) 0%, rgba(var(--artifact-brand-rgb), 0.20) 40%, rgba(var(--artifact-brand-rgb), 0.10) 65%, transparent 85% );
+  filter: blur(var(--blur-semi-atmosphere));
+  animation-duration: var(--nebula-speed-b);
+}
+
+/* ========================
+  Nebula C / Atmosphere
+======================== */
+.nebula-c {
+  top: 65%;
+  left: 25%;
+  opacity: 0.25;
+  background: radial-gradient( ellipse at 50% 50%, var(--glow-color) 0%, rgba(var(--artifact-brand-rgb), 0.18) 45%, rgba(var(--artifact-brand-rgb), 0.08) 70%, transparent 90% );
+  filter: blur(var(--blur-atmosphere));
+  animation-duration: var(--nebula-speed-c);
+}

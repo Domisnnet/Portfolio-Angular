@@ -1,5 +1,15 @@
-<footer class="terminal-footer">
-  <span class="terminal-text mono">
-    {{ displayText }}<span class="cursor">▍</span>
+<footer
+  class="terminal-footer"
+  [class.system]="tone === 'system'"
+  [class.neon]="tone === 'neon'"
+  [class.signal]="tone === 'signal'"
+  [class.success]="tone === 'success'"
+  [class.warning]="tone === 'warning'"
+  [class.signal-active]="isActive"
+  *ngIf="displayText"
+>
+  <span class="terminal-text">
+    &gt; {{ displayText }}
+    <span class="cursor" aria-hidden="true"></span>
   </span>
 </footer>

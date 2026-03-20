@@ -1,0 +1,57 @@
+/* ===========================
+  BASE CONTRACT
+=========================== */
+app-cosmic-beam,
+app-cosmic-grid,
+app-cosmic-nebula,
+app-cosmic-stars,
+app-secret-star,
+app-scanning-artifact,
+app-layer-indicator,
+app-layer-jump,
+app-wormhole { pointer-events: none; transition: opacity var(--motion-slow); }
+
+/* ===========================
+  FULL MODE
+=========================== */
+html[data-cosmic-effects='full'] {
+  app-astronauta,
+  app-cosmic-grid,
+  app-cosmic-stars,
+  app-secret-star,
+  app-scanning-artifact,
+  app-layer-indicator,
+  app-layer-jump,
+  app-wormhole { opacity: var(--op-visible); }
+  app-cosmic-nebula,
+  app-cosmic-beam { opacity: var(--op-plus-smooth); }
+}
+
+/* ===========================
+  MINIMAL MODE
+=========================== */
+html[data-cosmic-effects='minimal'] {
+  app-cosmic-grid { opacity: var(--op-default); }
+  app-scanning-artifact,
+  app-cosmic-stars { opacity: var(--op-smooth); }
+  app-cosmic-nebula { opacity: var(--op-minimal); }
+  app-astronauta,
+  app-scanning-artifact,
+  app-cosmic-beam,
+  app-wormhole { opacity: var(--op-hidden); }
+}
+
+/* ===========================
+  SILENT MODE
+=========================== */
+html[data-cosmic-effects='silent'] {
+  app-cosmic-beam,
+  app-cosmic-grid,
+  app-cosmic-nebula,
+  app-cosmic-stars,
+  app-secret-star,
+  app-scanning-artifact,
+  app-layer-indicator,
+  app-layer-jump,
+  app-wormhole { opacity: var(--op-hidden); display: none; }
+}

@@ -1,74 +1,18 @@
-.legal-container {
+:host {
   display: flex;
-  justify-content: center;
-  padding: 5rem 1.5rem;
-  color: var(--text-primary);
+  flex-direction: column;
 }
 
-.legal-inner {
-  width: 100%;
-  max-width: 820px;
-  background-color: var(--bg-surface);
-  border: 3px solid var(--border-color);
-  border-radius: 12px;
-  padding: 3rem 3.5rem;
-}
-
-.legal-content {
-  line-height: 1.7;
-
-  h1 {
-    margin-bottom: 2.5rem;
-    text-align: center;
-    color: var(--text-primary);
-    font-size: 2rem;
+.footer-card--glass-holographic {
+  .footer-header {
+    .about-pulse { color: var(--footer-accent-primary); animation: pulse 1.6s infinite; }
+    .about-status { color: var(--footer-text-status); animation: pulse 1.6s infinite; }
   }
 
-  h2 {
-    margin-top: 2.5rem;
-    padding-bottom: 0.5rem;
-    font-size: 1.1rem;
-    color: var(--brand-accent);
-    border-bottom: 2px solid var(--border-color);
-  }
-
-  p {
-    margin-top: 1rem;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    text-align: justify;
-  }
-}
-
-.legal-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin: 3rem auto 0;
-  padding: 20px 22px;
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-decoration: none; 
-  color: var(--text-primary);
-  background-color: transparent;
-  border: 2px solid var(--brand-accent);
-  transition: all 0.3s ease;
-
-  .text-color {
-  color: var(--text-primary);
-  text-decoration: none; 
-  }
-
-  &:hover,
-  &:focus,
-  &:visited {
-    text-decoration: none; 
-    color: var(--text-primary);
-  }
-
-  &:hover {
-    background-color: var(--brand-accent);
-    box-shadow: 0 0 15px var(--brand-accent);
+  .executing {
+    color: var(--footer-accent-secondary);
+    font-style: italic;
+    font-weight: var(--font-bolder);
+    margin-left: var(--space-md);
   }
 }

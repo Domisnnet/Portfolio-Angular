@@ -1,9 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { TerminalFooterComponent } from './components/footer/terminal-footer/terminal-footer.component';
-import { LoaderComponent } from './loader/loader.component';
-import { LoaderService } from './core/services/loader.service';
+import { TerminalFooterComponent } from '@app/components/footer/terminal-footer/terminal-footer.component';
+import { LoaderComponent } from '@app/loader/loader.component';
+import { LoaderService } from '@app/core/services/loader.service';
+import { ThemeService } from '@app/core/services/theme.service'; 
+import { CosmicRouteSyncService } from '@app/core/services/cosmic-route-sync.service';
+import { ThemeInitComponent } from '@app/core/services/theme-init.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +14,8 @@ import { LoaderService } from './core/services/loader.service';
     CommonModule,
     RouterOutlet,
     TerminalFooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    ThemeInitComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -19,12 +23,11 @@ import { LoaderService } from './core/services/loader.service';
 })
 export class AppComponent {
   private loader = inject(LoaderService);
+  private theme = inject(ThemeService); 
+  private _cosmicSync = inject(CosmicRouteSyncService);
   loading$ = this.loader.loading$;
-
   constructor() {
     this.loader.show();
-    setTimeout(() => {
-      this.loader.hide();
-    }, 1200);
+    setTimeout(() => { this.loader.hide(); }, 1200);
   }
 }

@@ -1,52 +1,64 @@
-<footer class="main-footer">
+<footer 
+  class="main-footer" 
+  role="contentinfo"
+  data-cosmic-effects="silent"
+>
   <div class="container">
     <div class="footer-grid">
       <div class="footer-column footer-col-1">
         <h4>Jornada</h4>
         <ul class="footer-list">
           <li>
-            <a routerLink="/about" class="footer-link jornada-link">
-            <span class="mono">386 Verde</span>
-          </a>
-          </li>
-          <li>
-            <a routerLink="/background" class="footer-link jornada-link">
-            <span class="mono">Background</span>
+            <a routerLink="/about" class="jornada-link">
+              <img src="assets/icons/computer.svg" alt="Computador"class="footer-icon">
+              <span class="t-neon"> Introdução </span>
             </a>
           </li>
           <li>
-            <a routerLink="/2024" class="footer-link jornada-link">
-            <span class="highlight">Ano de 2024</span>
+            <a routerLink="/background" class="jornada-link">
+              <img src="assets/icons/calendar.svg" alt="Calendário"class="footer-icon">
+              <span class="t-neon"> Histórico </span>
             </a>
           </li>
           <li>
-            <a routerLink="/domisdev-v1-0" class="footer-link jornada-link">
-            <span class="highlight">DomisDev - v1.0</span>
+            <a routerLink="/ano2024" class="jornada-link">
+              <img src="assets/icons/background.svg" alt="Ano de 2024"class="footer-icon">
+              <span class="t-neonrx"> Decidindo </span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/domisdev" class="jornada-link">
+              <img src="assets/icons/domis.svg" alt="DomisDev"class="footer-icon">
+              <span class="t-neonrx"> DomisDev </span>
             </a>
           </li>
         </ul>
       </div>
       <div class="footer-column footer-col-2">
-        <h4>Tech Real</h4>
+        <h4>Vetores</h4>
         <ul class="footer-list">
           <li>
-            <a routerLink="/angular" class="footer-link jornada-link">
-              <span>Architecture</span>
+            <a routerLink="/stack" class="jornada-link">
+              <img src="assets/icons/stack-overflow.svg" alt="Tecnologias"class="footer-icon">
+              <span class="framework"> Tecnologias </span>
             </a>
           </li>
           <li>
-            <a routerLink="/projects" class="footer-link jornada-link">
-              <span>Matrix</span>
+            <a routerLink="/architecture" class="jornada-link">
+              <img src="assets/icons/architectonic-architecture.svg" alt="Arquitetura"class="footer-icon">
+              <span class="framework"> Arquitetura </span>
             </a>
           </li>
           <li>
-            <a routerLink="/architecture" class="footer-link jornada-link">
-              <span>Firebase</span>
+            <a routerLink="/performance" class="jornada-link">
+              <img src="assets/icons/performance.svg" alt="Performance"class="footer-icon">
+              <span class="status"> Performance </span>
             </a>
           </li>
           <li>
-            <a routerLink="/performance" class="footer-link jornada-link">
-              <span>Lighthouse 98/100</span>
+            <a routerLink="/access" class="jornada-link">
+              <img src="assets/icons/access.svg" alt="Acessibilidade"class="footer-icon">
+              <span class="status"> Acessível </span>
             </a>
           </li>
         </ul>
@@ -55,23 +67,27 @@
         <h4>Explorar</h4>
         <ul class="footer-list">
           <li>
-            <a routerLink="/producao" class="footer-link jornada-link">
-              <span>Produção</span>
+            <a routerLink="/future" class="jornada-link">
+              <img src="assets/icons/portfolio.svg" alt="Futuro"class="footer-icon">
+              <span class="prod"> Evolução </span>
             </a>
           </li>
           <li>
-            <a routerLink="/camadas" class="footer-link jornada-link">
-              <span>Camadas</span>
+            <a routerLink="/laboratory" class="jornada-link">
+              <img src="assets/icons/lab.svg" alt="Laboratório"class="footer-icon">
+              <span class="prod"> Testando </span>
             </a>
           </li>
           <li>
-            <a routerLink="/github-stats" class="footer-link jornada-link">
-              <span>GitHub Stats</span>
+            <a routerLink="/system" class="jornada-link">
+              <img src="assets/icons/system.svg" alt="Sistema"class="footer-icon">
+              <span class="finish"> Sistemas </span>
             </a>
           </li>
           <li>
-            <a routerLink="/persistir" class="footer-link jornada-link">
-              <span>Persistir</span>
+            <a routerLink="/signal" class="jornada-link">
+              <img src="assets/icons/signal.svg" alt="Sinal"class="footer-icon">
+              <span class="finish"> Sinais </span>
             </a>
           </li>
         </ul>
@@ -79,7 +95,7 @@
       <div class="footer-column footer-col-tech">
         <h4>Tecnologias</h4>
         <div class="tech-icons">
-          <img src="assets/icons/html5.svg" alt="HTML5" class="tech-icon">
+          <img src="assets/icons/html5.svg" alt="HTML5"class="tech-icon">
           <img src="assets/icons/css3.svg" alt="CSS3" class="tech-icon">
           <img src="assets/icons/javascript.svg" alt="JavaScript" class="tech-icon">
           <img src="assets/icons/angular.svg" alt="Angular" class="tech-icon">
@@ -88,15 +104,23 @@
       <div class="footer-column footer-col-contact">
         <h4>Contato & Perfil</h4>
         <div class="social-icons">
-          <img src="assets/icons/linkedin.svg" alt="LinkedIn" class="social-link">
-          <img src="assets/icons/github.svg" alt="GuitHub" class="social-link">
-          <img src="assets/icons/e-mail.svg" alt="E-mail" class="social-icon">
+          <nav class="social-icons" aria-label="Social links">
+            <a href="https://www.linkedin.com/in/dominique-marcelino-gon%C3%A7alves-09b871331" target="_blank" aria-label="LinkedIn">
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn" class="social-link">
+            </a>
+            <a href="https://github.com/Domisnnet" target="_blank" aria-label="GitHub">
+              <img src="assets/icons/github.svg" alt="GuitHub" class="social-link">
+            </a>
+            <a href="mailto:dominique.goncalves61@gmail.com" target="_blank" aria-label="E-mail">
+              <img src="assets/icons/e-mail.svg" alt="E-mail" class="social-icon">
+            </a>
+          </nav>  
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <nav class="bottom-links">
-        <a routerLink="/privacidade-termos" class="footer-link">Privacidade & Termos</a>
+        <a routerLink="/privacidade" class="footer-link">Privacidade & Termos</a>
       </nav>
       <p class="copyright">&copy; 2026 DomisDev — Capturando ideias em código.</p>
     </div>

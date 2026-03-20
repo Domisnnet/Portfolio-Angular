@@ -1,0 +1,21 @@
+<a
+  class="btn"
+  [ngClass]="[
+    variant,
+    size,
+    fullWidth ? 'full-width' : '',
+    loading ? 'loading' : ''
+  ]"
+  [attr.href]="href || null"
+  [routerLink]="!href ? routerLink : null"
+  [attr.target]="href ? target : null"
+  [attr.rel]="href ? computedRel : null"
+  [attr.aria-disabled]="disabled || loading"
+>
+  <span class="btn-content">
+    <ng-content></ng-content>
+  </span>
+  @if (loading) {
+    <span class="btn-loader"></span>
+  }
+</a>

@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StackPillComponent } from '../stack-pill/stack-pill.component';
 import { STACK_CONFIG, PillCategory, TagKey, StackPillData, } from '../../constants/project-tags.config';
 
-/* =========================
-  MODELO RESOLVIDO
-========================= */
+/* MODELO RESOLVIDO */
 interface ResolvedPill extends StackPillData {
   key: TagKey;
 }
@@ -19,11 +17,8 @@ interface ResolvedPill extends StackPillData {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectCardComponent {
-  /* =========================
-    INPUTS
-  ========================= */
+  /* INPUTS */
   index = input<number>(0);
-
   project = input.required<{
     title: string;
     description: string;
@@ -32,19 +27,14 @@ export class ProjectCardComponent {
     link?: string;
   }>();
 
-  /* =========================
-    FLIP STATE
-  ========================= */
+  /* FLIP STATE */
   private flipped = signal(false);
   isFlipped = this.flipped.asReadonly();
-
   toggleFlip(): void {
     this.flipped.update(v => !v);
   }
 
-  /* =========================
-    STACK PILLS (ORDERED)
-  ========================= */
+  /* STACK PILLS */
   pills = computed(() => {
     const order: Record<PillCategory, number> = {
       frontend: 1,
@@ -72,12 +62,9 @@ export class ProjectCardComponent {
       });
   });
 
-  /* =========================
-    CATEGORIES (GLOW ENGINE)
-  ========================= */
+  /* CATEGORIES */
   categories = computed<PillCategory[]>(() => {
     const set = new Set<PillCategory>();
-
     for (const pill of this.pills()) {
       set.add(pill.category);
     }

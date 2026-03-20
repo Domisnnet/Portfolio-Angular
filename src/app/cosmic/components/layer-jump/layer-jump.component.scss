@@ -1,0 +1,115 @@
+:host {
+  position: fixed;
+  left: 78%;
+  z-index: var(--z-layer);
+}
+
+.cosmic-beacon {
+  position: relative;
+  width: calc(var(--size-xl) * 2.5);
+  height: calc(var(--size-xl) * 2.5);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: var(--border-medium) solid rgba(var(--layer-neon-glow), 0.5);
+  cursor: pointer;
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast), border-color var(--motion-fast);
+}
+
+.cosmic-beacon:hover {
+  transform: scale(1.07);
+  border-color: rgba(var(--layer-neon), 0.7);
+  box-shadow: 0 0 var(--size-lg) var(--glow-color);
+}
+
+.beacon-core {
+  position: absolute;
+  width: calc(var(--size-toggle) * 0.50);
+  height: calc(var(--size-toggle) * 0.50);
+  border-radius: 50%;
+  background: radial-gradient( circle, var(--layer-neon-glow), transparent 70% );
+  box-shadow: 0 0 var(--size-lg) var(--glow-color);
+}
+
+.orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: var(--border-thin) solid rgba(var(--accent-rgb), 0.1);
+}
+
+.orbit-a {
+  animation: orbitRotate 60s linear infinite;
+}
+
+.orbit-b {
+  width: 75%;
+  height: 75%;
+  animation: orbitRotateReverse 50s linear infinite;
+}
+
+.satellite {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: var(--size-xxs);
+  height: var(--size-xxs);
+  border-radius: 50%;
+  background: var(--accent-secondary);
+  box-shadow: 0 0 var(--size-md) var(--glow-color);
+}
+
+.satellite-child {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: var(--size-xs);
+  height: var(--size-xs);
+  border-radius: 50%;
+  background: var(--layer-neonrx);
+  box-shadow: 0 0 var(--size-md) var(--glow-color);
+}
+
+.beacon-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-track {
+  fill: none;
+  stroke: rgba(var(--layer-neon), 0.35);
+  stroke-width: var(--ring-stroke-width);
+}
+
+.ring-progress {
+  fill: none;
+  stroke: var(--accent-primary);
+  stroke-width: var(--ring-stroke-width);
+  stroke-linecap: var(--ring-stroke-cap);
+  stroke-dasharray: var(--ring-dasharray);
+  filter: drop-shadow( 0 0 var(--size-sm) var(--glow-color) );
+  transition: stroke-dashoffset var(--motion-medium);
+}
+
+/* LAYER STATES */
+html[data-layer='deep-space'] .cosmic-beacon {
+  opacity: var(--op-subtle);
+}
+
+html[data-layer='stable-orbit'] .cosmic-beacon {
+  opacity: var(--op-visible);
+}
+
+html[data-layer='unstable-orbit'] .cosmic-beacon {
+  box-shadow: 0 0 var(--size-lg) rgba(var(--layer-neon-glow), 0.4);
+}
+
+html[data-layer='wormhole'] .cosmic-beacon {
+  opacity: var(--op-hidden);
+  pointer-events: none;
+}

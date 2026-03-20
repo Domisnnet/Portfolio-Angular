@@ -1,0 +1,63 @@
+:host {
+  position: fixed;
+  inset: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  pointer-events: none;
+  z-index: var(--z-beam);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==================
+  Disco Principal
+================== */
+.cosmic-tractor-beam {
+  position: relative;
+  width: var(--beam-size);
+  height: var(--beam-size);
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  filter: blur(var(--tractor-blur));
+  animation: beam-pulse-expand 6s ease-in-out infinite;
+}
+
+.cosmic-tractor-beam::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(var(--artifact-brand-rgb-neon), 0.45) 0%,
+    rgba(var(--artifact-brand-rgb-neon), 0.25) 35%, transparent 70%); 
+  filter: blur(var(--blur-medium));
+}
+
+/* ===========================
+  Núcleo Alienígena
+=========================== */
+.beam-core {
+  position: absolute;
+  inset: 46%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--artifact-brand-neon) 0%,
+    rgba(var(--artifact-brand-rgb-neon), 0.9) 25%,
+    rgba(var(--artifact-brand-rgb-neon), 0.5) 45%, transparent 65% );
+  filter: blur(var(--blur-medium));
+  animation: beam-core-breathe 3.5s ease-in-out infinite;
+}
+
+/* ===========================
+  Onda de Expansão
+=========================== */
+.beam-wave {
+  position: absolute;
+  inset: -8%;
+  border-radius: 50%;
+  background: radial-gradient(circle, transparent 58%,
+    rgba(var(--artifact-brand-rgb-neon), 0.6) 62%,
+    rgba(var(--artifact-brand-rgb-neon), 0.4) 66%, transparent 72% );
+  animation: beam-wave-expand 6s cubic-bezier(.22,.61,.36,1) infinite;
+}

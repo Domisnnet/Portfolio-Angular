@@ -1,0 +1,22 @@
+:root {
+
+  /* BACKGROUND */
+  --terminal-bg-strong: var(--footer-bg-strong);
+  --terminal-bg-soft: var(--footer-bg-soft);
+
+  /* BORDER / GLASS */
+  --terminal-border: var(--footer-border);
+  --terminal-blur: 6px;
+
+  /* TEXT */
+  --terminal-text-primary: var(--footer-text-primary);
+  --terminal-text-secondary: var(--footer-text-secondary);
+
+  /* ACCENT */
+  --terminal-accent-rgb: var(--footer-accent-rgb);
+
+  /* ENERGY CONTROL */
+  --terminal-horizon-energy: 0.9;
+  --terminal-horizon-depth: 48px;
+  --terminal-grid-opacity: 0.06;
+}

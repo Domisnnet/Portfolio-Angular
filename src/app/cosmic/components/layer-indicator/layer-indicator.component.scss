@@ -1,0 +1,18 @@
+.layer-indicator {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: var(--size-xs);
+  pointer-events: none;
+  opacity: var(--op-active);
+  z-index: var(--z-indicator);
+
+  span {
+    width: var(--size-xs);
+    height: var(--size-xs);
+    border-radius: 50%;
+    border: var(--border-thin) solid currentColor;
+    opacity: var(--op-low);
+    transition: opacity var(--transition-slow);
+  }
+}

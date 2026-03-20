@@ -1,0 +1,58 @@
+:host {
+  display: grid;
+  position: fixed;
+  place-items: center;
+  inset: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -70%);
+  z-index: var(--z-worhhole);
+  pointer-events: none;
+}
+
+:host(.active) {
+  opacity: var(--op-visible);
+  transform: scale(1);
+}
+
+.wormhole {
+  position: absolute;
+  display: grid;
+  position: fixed;
+  place-items: center;
+  pointer-events: none;
+  inset: 0;
+  transform: scale(.8);
+  transition: opacity var(--motion-medium), transform var(--motion-medium);
+}
+
+.wormhole-core {
+  display: grid;
+  position: relative;
+  place-items: center;
+  width: var(--wormhole-size);
+  height: var(--wormhole-size);
+}
+
+.wormhole-square {
+  position: absolute;
+  inset: 0;
+  filter: blur(var(--wormhole-blur));
+  box-shadow: 0 0 var(--wormhole-glow-outer) var(--glow-color), inset 0 0 var(--wormhole-glow-inner) var(--glow-color);
+  animation: wormhole-spin var(--motion-slow) linear infinite;
+}
+
+.square-inner {
+  transform: var(--op-medium);
+  opacity: var(--op-subtle);
+  animation-direction: reverse;
+}
+
+.wormhole-vortex {
+  position: absolute;
+  width: var(--wormhole-core-size);
+  height: var(--wormhole-core-size);
+  background: radial-gradient( circle, var(--layer-base), var(--wormhole-energy), transparent );
+  filter: blur(var(--blur-soft));
+  animation: vortex-spin var(--wormhole-vortex-speed) linear infinite;
+}

@@ -1,0 +1,25 @@
+.footer-card--glass-soft {
+  --footer-glass-opacity: 0.45;
+  --footer-glass-blur: var(--footer-glass-blur-soft);
+}
+
+.footer-card--glass-strong {
+  --footer-glass-opacity: 0.65;
+  --footer-glass-blur: var(--footer-glass-blur-strong);
+}
+
+.footer-card--glass-holographic {
+  position: relative;
+  box-shadow: 0 0 80px rgba(var(--footer-glow-cyan), 0.12), 0 0 120px rgba(var(--footer-glow-magenta), 0.08), var(--footer-glass-shadow), var(--footer-glass-inner-glow);
+}
+
+.footer-card--glass-holographic::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient( 120deg, rgba(var(--footer-glow-cyan), 0.18), rgba(var(--footer-glow-magenta), 0.15), rgba(var(--footer-glow-blue), 0.18));
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+  animation: holoShift 12s linear infinite;
+  pointer-events: none;
+}

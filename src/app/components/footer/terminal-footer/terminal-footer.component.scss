@@ -1,24 +1,60 @@
+:host {
+  display: block;
+  position: relative;
+  text-align: center;
+  z-index: var(--z-terminal);
+}
+
 .terminal-footer {
-  position: fixed;
-  bottom: 0;
+  position: relative;
+  margin: var(--space-xxs) auto;
   width: 100%;
-  padding: 6px 14px;
-  font-size: 0.75rem;
-  opacity: 0.75;
+  display: grid;
+  place-items: center;
+  padding: var(--space-md);
   pointer-events: none;
+  isolation: isolate;
+  overflow: visible;
+  font-size: var(--footer-font-size);
+  opacity: var(--footer-opacity);
+  font-family: var(--font-terminal, monospace);
+  letter-spacing: var(--letter-wide);
+  color: rgba(var(--terminal-accent-rgb), 0.9);
+  background: linear-gradient( to top, var(--footer-bg-strong), var(--footer-bg-soft), transparent );
+  backdrop-filter: blur var(--blur-weak);
 }
 
 .terminal-text {
-  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  color: var(--footer-text-secondary);
 }
 
 .cursor {
-  animation: blink 1.6s steps(1) infinite;
-  opacity: 0.6;
+  display: inline-block;
+  width: var(--space-xxs);
+  height: var(--space-sm-plus);
+  margin-left: var(--size-cursor);
+  background: rgba(var(--terminal-accent-rgb), 1);
+  animation: statusBlink var(--motion-faster) steps(1) infinite;
+  opacity: var(--op-hover);
 }
 
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
+/* Tonalidades  */
+[data-tone="system"]  { --terminal-accent-rgb: 120,160,255; }
+[data-tone="neon"]    { --terminal-accent-rgb: 0,255,170; }
+[data-tone="signal"]  { --terminal-accent-rgb: 255,90,220; }
+[data-tone="success"] { --terminal-accent-rgb: 120,255,160; }
+[data-tone="warning"] { --terminal-accent-rgb: 255,120,120; }
+
+.terminal-footer.system { --terminal-accent-rgb: 120,160,255; } 
+.terminal-footer.neon { --terminal-accent-rgb: 0,255,170; } 
+.terminal-footer.signal { --terminal-accent-rgb: 255,90,220; } 
+.terminal-footer.success { --terminal-accent-rgb: 120,255,160; } 
+.terminal-footer.warning { --terminal-accent-rgb: 255,120,120; }
+
+.terminal-footer.signal-active::before {
+  opacity: var(--op-visible);
 }

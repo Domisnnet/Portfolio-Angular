@@ -1,13 +1,17 @@
-<app-header [modeInput]="mode()" />
+<app-header />
 <section class="cosmic-section">
-  <router-outlet></router-outlet>
-  @if (showMainFooter()) {
-    <app-main-footer />
-  }
-  @if (showTerminal()) {
-    <app-terminal-footer
-      [mode]="mode()"
-      [route]="routeName()"
-    />
-  }
+  <app-cosmic-stars />
+  <div class="cosmic-content">
+    <router-outlet />
+  </div>
 </section>
+<app-main-footer />
+<div 
+  class="terminal-horizon" 
+  [attr.data-tone]="tone"
+>
+  <app-terminal-footer
+    [message]="routeLabel"
+    [tone]="tone">
+  </app-terminal-footer>
+</div>

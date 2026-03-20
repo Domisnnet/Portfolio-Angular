@@ -1,7 +1,9 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectCardComponent } from '../../components/project-card/project-card.component';
-import { TagKey } from '../../constants/project-tags.config';
+import { AstronautaComponent } from '@app/components/astronauta/astronauta.component';
+import { CosmicRootComponent } from '@app/cosmic/components/cosmic-root/cosmic-root.component';
+import { ProjectCardComponent } from '@app/components/project-card/project-card.component';
+import { TagKey } from '@app/constants/project-tags.config';
 
 export interface Project {
   title: string;
@@ -14,7 +16,12 @@ export interface Project {
 @Component({
   selector: 'app-projects-page',
   standalone: true,
-  imports: [CommonModule, ProjectCardComponent],
+  imports: [
+    AstronautaComponent,
+    CommonModule, 
+    CosmicRootComponent,
+    ProjectCardComponent
+  ],
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -47,7 +54,7 @@ export class ProjectsPageComponent {
       description: 'Jogo de cartas com mecânicas estratégicas.',
       image: 'assets/images/shadow-flip-oh.png',
       tags: ['gameLogic', 'cssAnimations', 'javascript'],
-      link: 'https://github.com/Domisnnet/Shadow-Flip-Oh',
+      link: 'https://github.com/Domisnnet/Shadow-Flip-Oh-Vue.Js',
     },
     {
       title: 'Kill Buzz',
@@ -73,9 +80,9 @@ export class ProjectsPageComponent {
     {
       title: 'Portfolio',
       description: 'Portfólio animado com narrativa visual.',
-      image: 'assets/images/portfolio.png',
+      image: 'assets/images/portfólio.png',
       tags: ['angular', 'scss', 'motions', 'design'],
-      link: 'https://portfolio-56747762-94d87.web.app/',
+      link: 'https://portfolio-23948217-d156e.web.app/',
     },
   ]);
 }

@@ -1,11 +1,20 @@
+/* =========================
+  HOST
+========================= */
+:host {
+  display: block;
+  width: 100%;
+  position: relative;
+  z-index: var(--z-footer);
+}
+
 /* ===============
   MAIN FOOTER
 =============== */
 .main-footer {
-  background-color: var(--bg-body);
-  border-top: 2px solid var(--border-color);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background: var(--layer-surface);
+  border-top: var(--border-medium) solid var(--border-color);
+  padding: var(--space-md);
 }
 
 /* ===============
@@ -14,38 +23,16 @@
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2.5rem;
+  gap: var(--space-xl);
   grid-template-areas: "Jornada TechReal Explorar tech contact";
 
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, 1fr); 
-    grid-template-areas: 
-      "Jornada TechReal Explorar"
-      "tech tech tech"     
-      "contact contact contact"; 
-    text-align: center;
-    row-gap: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr); 
-    grid-template-areas: 
-      "Jornada TechReal Explorar"
-      "tech tech tech"     
-      "contact contact contact"; 
-    text-align: center;
-    row-gap: 3.5rem; 
-  }
-
-
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
+    grid-template-areas:
       "Jornada TechReal Explorar"
-      "tech"
-      "contact";
+      "tech tech tech"
+      "contact contact contact";
     text-align: center;
-    row-gap: 3.5rem;
   }
 }
 
@@ -62,67 +49,66 @@
   FOOTER COLUMN & LISTS
 ========================= */
 .footer-column h4 {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  font-size: var(--font-sm);
+  font-weight: var(--font-semibold);
+  letter-spacing: var(--letter-wide);
+  margin-bottom: var(--space-md);
 }
 
 .footer-list {
-  list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  list-style: none;
+  gap: var(--space-sm);
 
   a {
-    color: var(--text-secondary);
+    color: var(--footer-text-secondary);
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
+    font-size: var(--font-md);
     display: inline-block;
+    transition: color var(--motion-fast), transform var(--motion-fast);
 
     &:hover {
-      color: var(--brand-accent);
+      color: var(--text-secondary);
       transform: translateX(4px);
     }
   }
+}
 
-  .footer-link {
-    color: var(--text-primary);
-    text-decoration: none;
-  }  
+.footer-icon {
+  justify-content: start;
+  align-items: start;
+  text-align: start;
+  width: var(--size-2xl);
+  height: var(--size-2xl);
+  margin-right: var(--space-xs);
 }
 
 /* ====================
   Estilos Especiais
 ==================== */  
 .jornada-link {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  font-weight: bold;
-  gap: 0.5rem;
-  
-  .mono {
-    color: var(--artifact-neon) !important;
+  font-weight: var(--font-bolder);
+
+  .status,
+  .finish,
+  .framework,
+  .t-neonrx,
+  .t-neon,
+  .prod {
+    font-family: var(--font-code);
   }
 
-  &:hover {
-    .mono {
-      color: var(--artifact-neon) !important;
-    }
-  }
-
-  .highlight {
-    color: var(--artifact-neon-rx) !important;
-  }
-
-  &:hover {
-    .highlight {
-      color: var(--artifact-neon-rx) !important;
-    }
-  }
+  .status { color: var(--footer-text-status); }
+  .finish { color: var(--footer-text-finish); }
+  .framework { color: var(--footer-text-framework); }
+  .t-neonrx { color: var(--footer-text-neonrx); }
+  .t-neon { color: var(--footer-text-neon); }
+  .prod { color: var(--footer-text-prod); }
 }
 
 /* ================
@@ -130,37 +116,37 @@
 ================ */
 .social-icons {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-md);
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: var(--space-xs);
 
   @media (max-width: 768px) {
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: var(--space-lg);
   }
 
   .social-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: var(--bg-surface);
-    border: 3px solid var(--border-color);
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+    background-color: var(--layer-base);
+    border: var(--border-medium) solid var(--border-color);
     border-radius: 50%;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    transition: background-color var(--motion-fast), border-color var(--motion-fast), transform var(--motion-fast);
     overflow: hidden;
 
     img {
       filter: brightness(0) invert(1);
-      transition: filter 0.3s ease;
+      transition: filter var(--motion-fast);
     }
 
     &:hover {
       background-color: var(--brand-accent);
       border-color: var(--brand-accent);
       transform: translateY(-5px);
-      border: 3px solid var(--brand-accent);
 
       img {
         filter: brightness(0);
@@ -172,9 +158,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
-    margin-top: 10px;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+    margin-top: var(--space-sm);
 
     &:hover {
       transform: translateY(-5px);
@@ -189,17 +175,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-xs);
 
   @media (max-width: 768px) {
     justify-content: center;
   }
 
   .tech-icon {
-    width: 50px;
-    height: 50px;
-    transition: all 0.3s ease;
+    width: var(--space-xxl);
+    height: var(--space-xxl);
+    transition: transform var(--motion-fast), filter var(--motion-fast);
 
     &:hover {
       filter: grayscale(0) opacity(1);
@@ -215,38 +200,38 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 2rem;
-  margin-top: 2rem;
-  border-top: 1px solid var(--border-color);
+  padding-top: var(--space-md);
+  margin-top: var(--space-md);
+  border-top: var(--border-medium) solid var(--border-color);
   color: var(--text-muted);
-  font-size: 0.85rem;
+  font-size: var(--font-sm);
 
   @media (max-width: 768px) {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: var(--space-md);
   }
 }
 
 .bottom-links {
   display: flex;
-  gap: 2rem;
+  gap: var(--space-lg);
 
   a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: var(--font-sm);
     position: relative;
-    transition: color 0.3s ease;
+    transition: color var(--motion-fast);
 
     &::after {
       content: '';
       position: absolute;
       width: 0;
-      height: 1px;
+      height: 2px;
       bottom: -2px;
       left: 0;
       background-color: var(--brand-accent);
-      transition: width 0.3s ease;
+      transition: width var(--motion-fast);
     }
 
     &:hover {
@@ -261,15 +246,11 @@
 /* ===================
   THEME OVERRIDES
 =================== */
-.light-theme {
-  .social-link img {
-    filter: none;
-  }
-
+:host-context(.light-theme) {
+  .social-link img { filter: none; }
   .tech-icon {
     filter: grayscale(1) brightness(0.3) opacity(0.5);
-    &:hover { 
-      filter: grayscale(0) brightness(1) opacity(1); 
-    }
+
+    &:hover { filter: grayscale(0) brightness(1) opacity(1); }
   }
 }

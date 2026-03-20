@@ -1,20 +1,32 @@
-@if (isVisible()) {
-  <header class="main-header" [class.minimal]="isMinimal()">
+@if (!isSilent()) {
+  <header class="main-header" data-cosmic-effects="silent">
     <div class="nav-container">
       <a routerLink="/" class="logo">
-        <span class="logo-dot"></span>
+        <span class="logo-dot-img">
+          <img class="logo-dot-img" src="assets/images/logo-domisdev.png" alt="">
+        </span>
         <span class="logo-text">DomisDev</span>
       </a>
-      @if (isFull()) {
-        <nav class="nav-links">
-          <a routerLink="/">Home</a>
-          <a routerLink="/projects">Projetos</a>
-          <a routerLink="/about">Sobre</a>
-        </nav>
-        <div class="header-actions">
-          <a routerLink="/contact" class="btn-contact">Contato</a>
-        </div>
-      }
+      <nav class="nav-links" [class.open]="menuOpen()">
+        <a routerLink="/">Home</a>
+        <a routerLink="/projects">Projetos</a>
+        <app-button
+          [routerLink]="['/contact']"
+          variant="outline"
+        >
+          Contato
+        </app-button>
+      </nav>
+      <div class="header-actions">
+        <app-theme-toggle />   
+        <button
+          type="button"
+          class="hamburger-menu outline"
+          (click)="toggleMenu()"
+        >
+          ☰
+        </button>
+      </div>
     </div>
   </header>
 }
