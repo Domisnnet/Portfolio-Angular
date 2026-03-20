@@ -15,7 +15,6 @@ import { WormholeComponent } from '../wormhole/wormhole.component';
   imports: [
     ScanningArtifactComponent,
     CosmicStarsComponent,
-    SecretStarComponent,
     CosmicNebulaComponent,
     CosmicGridComponent,
     CosmicBeamComponent
