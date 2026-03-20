@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/pages/home/home.component.scss"],
-  "sourcesContent": ["/* ======================\n  STACK SECTION\n====================== */\n.stack-section {\n  padding: var(--space-xxl) var(--space-none);\n  border-top: 2px solid var(--border-color);\n}\n\n.stack-container {\n  max-width: var(--container-max);\n  margin: var(--space-none) auto;\n  padding: var(--space-lg-plus);\n}\n\n.stack-block {\n  margin: var(--space-xxl) var(--space-none) var(--size-2xl);\n  padding: var(--space-lg-plus);\n  border-radius: var(--space-md);\n  background: var(--bg-surface);\n  border: 1px solid var(--border-color);\n\n  h3 {\n    margin-bottom: var(--space-md);\n    font-size: var(--font-xl);\n  }\n}\n\n.pill-grid {\n  display: flex;\n  flex-wrap: wrap;\n  gap: var(--size-sm);\n}\n\n.no-padding-top {\n  padding-top: var(--space-none) !important;\n}"],
-  "mappings": "AAGA,CAAA,cACE,QAAA,IAAA,aAAA,IAAA,cACA,WAAA,IAAA,MAAA,IAAA,gBAGF,CAAA,gBACE,UAAA,IAAA,iBACA,OAAA,IAAA,cAAA,KACA,QAAA,IAAA,iBAGF,CAAA,YACE,OAAA,IAAA,aAAA,IAAA,cAAA,IAAA,YACA,QAAA,IAAA,iBACA,cAAA,IAAA,YACA,WAAA,IAAA,cACA,OAAA,IAAA,MAAA,IAAA,gBAEA,CAPF,YAOE,GACE,cAAA,IAAA,YACA,UAAA,IAAA,WAIJ,CAAA,UACE,QAAA,KACA,UAAA,KACA,IAAA,IAAA,WAGF,CAAA,eACE,YAAA,IAAA",
-  "names": []
-}

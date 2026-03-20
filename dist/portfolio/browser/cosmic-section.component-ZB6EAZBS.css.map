@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/cosmic/layout/cosmic-section/cosmic-section.component.scss"],
-  "sourcesContent": [".cosmic-section {\n  position: relative;\n  width: 100vh;\n  height: 100vh;\n  transition: transform 1.2s ease,filter 1.2s ease;\n  z-index: var(--z-background);\n}"],
-  "mappings": "AAAA,CAAA,eACE,SAAA,SACA,MAAA,MACA,OAAA,MACA,WAAA,UAAA,KAAA,IAAA,CAAA,OAAA,KAAA,KACA,QAAA,IAAA",
-  "names": []
-}

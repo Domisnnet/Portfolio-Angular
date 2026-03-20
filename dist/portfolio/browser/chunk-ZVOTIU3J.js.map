@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/components/card/card.animations.ts"],
-  "sourcesContent": ["import { trigger, transition, style, animate } from '@angular/animations';\n\nexport const cardEnterAnimation =\n  trigger('cardEnter', [\n    transition(':enter', [\n      style({ opacity: 0, transform: 'translateY(40px) scale(0.95)' }),\n      animate(\n        '700ms cubic-bezier(0.34, 1.56, 0.64, 1)',\n        style({ opacity: 1, transform: 'translateY(0) scale(1)' })\n      )\n    ])\n  ]);"],
-  "mappings": "6DAEO,IAAMA,EACXC,EAAQ,YAAa,CACnBC,EAAW,SAAU,CACnBC,EAAM,CAAEC,QAAS,EAAGC,UAAW,8BAA8B,CAAE,EAC/DC,EACE,0CACAH,EAAM,CAAEC,QAAS,EAAGC,UAAW,wBAAwB,CAAE,CAAC,CAC3D,CACF,CAAC,CACH",
-  "names": ["cardEnterAnimation", "trigger", "transition", "style", "opacity", "transform", "animate"]
-}

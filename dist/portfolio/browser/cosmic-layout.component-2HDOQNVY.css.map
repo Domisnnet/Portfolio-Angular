@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/layout/cosmic-layout/cosmic-layout.component.scss"],
-  "sourcesContent": [".cosmic-section {\n  position: relative; \n  min-height: 100vh;\n  background: radial-gradient(circle at top, var(--bg-space-alt), var(--bg-space));\n  overflow: hidden; \n}\n\n.cosmic-content {\n  position: relative; \n  z-index: var(--z-stars); \n}"],
-  "mappings": "AAAA,CAAA,eACE,SAAA,SACA,WAAA,MACA,WAAA,gBAAA,OAAA,GAAA,GAAA,CAAA,IAAA,eAAA,CAAA,IAAA,aACA,SAAA,OAGF,CAAA,eACE,SAAA,SACA,QAAA,IAAA",
-  "names": []
-}

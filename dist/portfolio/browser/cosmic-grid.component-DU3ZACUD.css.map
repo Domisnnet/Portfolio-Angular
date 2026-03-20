@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/cosmic/components/cosmic-grid/cosmic-grid.component.scss"],
-  "sourcesContent": [":host {\n  position: fixed;  \n  inset: 0;\n  pointer-events: none;\n  z-index: var(--z-grid);\n}\n\n.cosmic-grid {\n  position: absolute;\n  inset: 0;\n  background-image:\n    linear-gradient(to right,transparent 97%,var(--energy-soft) 100%),\n    linear-gradient(to bottom,transparent 97%,var(--energy-soft) 100%);\n  background-size: var(--size-grid) var(--size-grid);\n  mix-blend-mode: screen;\n  animation: grid-drift 20s linear infinite;\n}"],
-  "mappings": "AAAA,MACE,SAAA,MADF,MAEE,EACA,eAAA,KACA,QAAA,IAAA,UAGF,CAAA,YACE,SAAA,SARF,MASE,EACA,iBACE,gBAAA,GAAA,KAAA,CAAA,YAAA,GAAA,CAAA,IAAA,eAAA,KAAA,CAAA,gBAAA,GAAA,MAAA,CAAA,YAAA,GAAA,CAAA,IAAA,eAAA,MAEF,gBAAA,IAAA,aAAA,IAAA,aACA,eAAA,OACA,UAAA,WAAA,IAAA,OAAA",
-  "names": []
-}

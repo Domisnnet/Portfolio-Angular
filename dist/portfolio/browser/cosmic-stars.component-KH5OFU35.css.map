@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/cosmic/components/cosmic-stars/cosmic-stars.component.scss"],
-  "sourcesContent": [":host {\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  z-index: var(--z-stars);\n}\n\ncanvas {\n  display: block;\n  width: 100%;\n  height: 100%;\n}"],
-  "mappings": "AAAA,MACE,SAAA,SADF,MAEE,EACA,eAAA,KACA,QAAA,IAAA,WAGF,OACE,QAAA,MACA,MAAA,KACA,OAAA",
-  "names": []
-}

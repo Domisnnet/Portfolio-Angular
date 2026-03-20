@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/cosmic/components/layer-indicator/layer-indicator.component.scss"],
-  "sourcesContent": [".layer-indicator {\n  position: absolute;\n  inset: 0;\n  display: flex;\n  gap: var(--size-xs);\n  pointer-events: none;\n  opacity: var(--op-active);\n  z-index: var(--z-indicator);\n\n  span {\n    width: var(--size-xs);\n    height: var(--size-xs);\n    border-radius: 50%;\n    border: var(--border-thin) solid currentColor;\n    opacity: var(--op-low);\n    transition: opacity var(--transition-slow);\n  }\n}"],
-  "mappings": "AAAA,CAAA,gBACE,SAAA,SADF,MAEE,EACA,QAAA,KACA,IAAA,IAAA,WACA,eAAA,KACA,QAAA,IAAA,aACA,QAAA,IAAA,eAEA,CATF,gBASE,KACE,MAAA,IAAA,WACA,OAAA,IAAA,WAXJ,cAYI,IACA,OAAA,IAAA,eAAA,MAAA,aACA,QAAA,IAAA,UACA,WAAA,QAAA,IAAA",
-  "names": []
-}

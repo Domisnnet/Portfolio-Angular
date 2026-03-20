@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/components/astronauta/astronauta.component.scss"],
-  "sourcesContent": [":host {\n  position: fixed;\n  inset: 0;\n  z-index: var(--z-astro);\n  pointer-events: none;\n  overflow: hidden;\n  isolation: isolate;\n}\n\n.astro {\n  position: absolute;\n}\n\n.content {\n  display: block;\n  animation: zero-gravity-float 25s ease-in-out infinite;\n  will-change: transform;\n\n  .img {\n    width: calc(var(--size-2xs) * 100);\n    height: auto;\n  }\n}"],
-  "mappings": "AAAA,MACE,SAAA,MADF,MAEE,EACA,QAAA,IAAA,WACA,eAAA,KACA,SAAA,OACA,UAAA,QAGF,CAAA,MACE,SAAA,SAGF,CAAA,QACE,QAAA,MACA,UAAA,mBAAA,IAAA,YAAA,SACA,YAAA,UAEA,CALF,QAKE,CAAA,IACE,MAAA,KAAA,IAAA,YAAA,EAAA,KACA,OAAA",
-  "names": []
-}

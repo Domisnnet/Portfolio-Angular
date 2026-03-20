@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/loader/loader.component.scss"],
-  "sourcesContent": [".loader-container {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: fixed;\n  inset: 0;\n  z-index: var(--z-loader);\n  background-color: var(--shadow-xs);\n  visibility: visible;\n  opacity: var(--op-visible);\n  transition: visibility var(--motion-delay-xs), opacity var(--op-smooth) ease-in-out;\n}\n\n.loader-container.hidden {\n  visibility: hidden;\n  opacity: var(--op-hidden);\n}\n\n.loader-svg {\n  width: var(--space-loader);\n  height: var(--space-loader);\n  shape-rendering: geometricPrecision;\n  transform-origin: center;\n}\n\n.loader-bg-circle {\n  fill: var(--bg-body);\n  transition: fill var(--op-active) ease;\n}\n\n.loader-text-icon {\n  fill: var(--brand-accent);\n  font-family: var(--font-code);\n  font-size: var(--size-load);\n  font-weight: bold;\n  filter: drop-shadow(0 0 8px rgba(from var(--brand-accent) r g b / 0.4));\n}"],
-  "mappings": "AAAA,CAAA,iBACE,QAAA,KACA,gBAAA,OACA,YAAA,OACA,SAAA,MAJF,MAKE,EACA,QAAA,IAAA,YACA,iBAAA,IAAA,aACA,WAAA,QACA,QAAA,IAAA,cACA,WAAA,WAAA,IAAA,kBAAA,CAAA,QAAA,IAAA,aAAA,YAGF,CAbA,gBAaA,CAAA,OACE,WAAA,OACA,QAAA,IAAA,aAGF,CAAA,WACE,MAAA,IAAA,gBACA,OAAA,IAAA,gBACA,gBAAA,mBACA,iBAAA,OAGF,CAAA,iBACE,KAAA,IAAA,WACA,WAAA,KAAA,IAAA,aAAA,KAGF,CAAA,iBACE,KAAA,IAAA,gBACA,YAAA,IAAA,aACA,UAAA,IAAA,aACA,YAAA,IACA,OAAA,YAAA,EAAA,EAAA,IAAA,KAAA,KAAA,IAAA,gBAAA,EAAA,EAAA,CAAA,CAAA",
-  "names": []
-}

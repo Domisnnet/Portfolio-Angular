@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/cosmic/components/cosmic-root/cosmic-root.component.scss"],
-  "sourcesContent": [":host {\n  position: relative;\n  display: block;\n  width: 100%;\n  min-height: 100%;\n  isolation: isolate; \n}\n\n.cosmic-root {\n  position: relative;\n  overflow: hidden;\n}\n\n.cosmic-root > ng-content {\n  position: relative;\n  z-index: var(--z-content);\n}"],
-  "mappings": "AAAA,MACE,SAAA,SACA,QAAA,MACA,MAAA,KACA,WAAA,KACA,UAAA,QAGF,CAAA,YACE,SAAA,SACA,SAAA,OAGF,CALA,WAKA,CAAA,WACE,SAAA,SACA,QAAA,IAAA",
-  "names": []
-}

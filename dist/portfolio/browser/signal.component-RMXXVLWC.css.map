@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/components/footer/pages/signal/signal.component.scss"],
-  "sourcesContent": [":host {\n  display: flex;\n  flex-direction: column;\n}\n\n.footer-card--glass-holographic {\n  .footer-header {\n    .about-pulse { color: var(--footer-accent-primary); animation: pulse 1.6s infinite; }\n    .about-status { color: var(--footer-text-status); animation: pulse 1.6s infinite; }\n  }\n\n  .executing {\n    color: var(--footer-accent-secondary);\n    font-style: italic;\n    font-weight: var(--font-bolder);\n    margin-left: var(--space-md);\n  }\n}"],
-  "mappings": "AAAA,MACE,QAAA,KACA,eAAA,OAKE,CAAA,+BAAA,CAAA,cAAA,CAAA,YAAe,MAAA,IAAA,yBAAqC,UAAA,MAAA,KAAA,SACpD,CADA,+BACA,CADA,cACA,CAAA,aAAgB,MAAA,IAAA,sBAAkC,UAAA,MAAA,KAAA,SAGpD,CAJE,+BAIF,CAAA,UACE,MAAA,IAAA,2BACA,WAAA,OACA,YAAA,IAAA,eACA,YAAA,IAAA",
-  "names": []
-}
