@@ -38,28 +38,28 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: var(--space-xxs);
   text-decoration: none;
-}
 
-.logo-text {
-  font-size: var(--font-lg);
-  font-weight: var(--font-bold);
-  color: var(--text-primary);
-}
+  .logo-text {
+    font-size: var(--font-lg);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+  }
 
-.logo-dot {
-  border-radius: var(--radius-pill);
-  background: var(--energy-main);
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: calc(var(--size-sm) * -1);
-    border-radius: var(--radius-pill);
-    border: var(--border-medium) solid var(--energy-main);
-    animation: pulse 2.4s ease-out infinite;
+  .logo-dot-img {
+    position: relative;
+    width: var(--size-logo);
+    height: var(--size-logo);
+  
+    &::after {
+      content: '';
+      position: absolute;
+      inset: calc(var(--size-xxs) * -0.1);
+      border-radius: var(--radius-pill);
+      border: var(--border-thick) solid var(--artifact-neon);
+      animation: pulse 2.4s ease-out infinite;
+    }
   }
 }
 
