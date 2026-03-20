@@ -18,10 +18,7 @@ import { WormholeComponent } from '../wormhole/wormhole.component';
     SecretStarComponent,
     CosmicNebulaComponent,
     CosmicGridComponent,
-    CosmicBeamComponent,
-    LayerIndicatorComponent,
-    LayerJumpComponent,
-    WormholeComponent
+    CosmicBeamComponent
   ],
   templateUrl: './cosmic-root.component.html',
   styleUrls: ['./cosmic-root.component.scss'],
