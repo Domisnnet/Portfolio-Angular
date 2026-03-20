@@ -4,7 +4,7 @@
 ![Framework](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
 ![Hosting](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
 [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/Domisnnet/portfolio/blob/main/LICENSE)
-![Portfólio](src/assets/images/portfolio.png)
+![Portfólio](src/assets/images/portfólio.png)
 
 Bem-vindo ao repositório do meu **Portfólio Profissional**. Esta aplicação é uma vitrine técnica desenvolvida com **Angular**, utilizando componentes **Standalone** para máxima performance. O projeto combina design sofisticado em **SCSS** com uma infraestrutura escalável no **Firebase**, refletindo minha stack de especialista em Front-end.
 
