@@ -64,7 +64,7 @@ export class ProjectsPageComponent {
       description: 'Jogo de cartas com mecânicas estratégicas.',
       image: 'assets/images/shadow-flip-oh.png',
       tags: ['gameLogic', 'cssAnimations', 'javascript'],
-      link: 'https://github.com/Domisnnet/Shadow-Flip-Oh',
+      link: 'https://github.com/Domisnnet/Shadow-Flip-Oh-Vue.Js',
     },
     {
       title: 'Kill Buzz',
