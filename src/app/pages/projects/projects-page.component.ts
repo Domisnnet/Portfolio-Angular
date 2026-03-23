@@ -82,7 +82,7 @@ export class ProjectsPageComponent {
       description: 'Portfólio animado com narrativa visual.',
       image: 'assets/images/portfólio.png',
       tags: ['angular', 'scss', 'motions', 'design'],
-      link: 'https://github.com/Portfolio',
+      link: 'https://github.io.com/Portfolio',
     },
   ]);
 }
