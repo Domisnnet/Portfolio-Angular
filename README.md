@@ -129,7 +129,7 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 
 Explore a arquitetura Angular completa no repositório oficial:
 
-[![Repositório](https://img.shields.io/badge/Repositório-Portfolio-1DB954?style=for-the-badge&logo=github)](https://github.com/Domisnnet/Portfolio)
+[![Repositório](https://img.shields.io/badge/Repositório-Domisnnet--Portfolio-1DB954?style=for-the-badge&logo=github)](https://github.com/Domisnnet/Portfolio)
 
 ---
 
