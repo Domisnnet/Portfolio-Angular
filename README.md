@@ -86,11 +86,11 @@ Siga os passos abaixo para fortalecer este projeto e sugerir melhorias:
 
 | Fase | Ação | Link / Comando |
 | :---: | :--- | :--- |
-| **01** | **Fork** | [![Fork](https://img.shields.io/badge/-Fazer%20Fork-blue?style=flat-square&logo=github)](https://github.com/Domisnnet/portfolio/fork) |
+| **01** | **Fork** | [![Fork](https://img.shields.io/badge/-Fazer%20Fork-blue?style=flat-square&logo=github)](https://github.com/Domisnnet/Portfolio/fork) |
 | **02** | **Branch** | `git checkout -b feature/MinhaMelhoria` |
 | **03** | **Commit** | `git commit -m 'feat: add nova seção de projetos'` |
 | **04** | **Push** | `git push origin feature/MinhaMelhoria` |
-| **05** | **PR** | [![Abrir PR](https://img.shields.io/badge/-Abrir%20PR-green?style=flat-square&logo=git)](https://github.com/Domisnnet/portfolio/compare)
+| **05** | **PR** | [![Abrir PR](https://img.shields.io/badge/-Abrir%20PR-green?style=flat-square&logo=git)](https://github.com/Domisnnet/Portfolio/compare)
 
 ### 🐛 Encontrou um problema?
 Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
@@ -129,7 +129,7 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 
 Explore a arquitetura Angular completa no repositório oficial:
 
-[![Repositório](https://img.shields.io/badge/Repositório-Portfolio--DomisDev-1DB954?style=for-the-badge&logo=github)](https://github.com/Domisnnet/portfolio)
+[![Repositório](https://img.shields.io/badge/Repositório-Portfolio-1DB954?style=for-the-badge&logo=github)](https://github.com/Domisnnet/Portfolio)
 
 ---
 
@@ -145,7 +145,7 @@ Explore a arquitetura Angular completa no repositório oficial:
 
 <h2 id="licenca">11. 📄 Licença</h2>
 
-Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/portfolio/blob/main/LICENSE)
+Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio/blob/main/LICENSE)
 
 ---
 
