@@ -1,3 +1,7 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/Domisnnet/Portfolio-Angular?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/Domisnnet/Portfolio-Angular?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/Domisnnet/Portfolio-Angular?style=for-the-badge)
+
 <h2 id="sobre-o-projeto">1. DomisDev Portfolio - Engenharia Front-end 🚀🚀</h2>
 
 ![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat-square)
@@ -86,17 +90,17 @@ Siga os passos abaixo para fortalecer este projeto e sugerir melhorias:
 
 | Fase | Ação | Link / Comando |
 | :---: | :--- | :--- |
-| **01** | **Fork** | [![Fork](https://img.shields.io/badge/-Fazer%20Fork-blue?style=flat-square&logo=github)](https://github.com/Domisnnet/Portfolio/fork) |
+| **01** | **Fork** | [![Fork](https://img.shields.io/badge/-Fazer%20Fork-blue?style=flat-square&logo=github)](https://github.com/Domisnnet/Portfolio-Angular/fork) |
 | **02** | **Branch** | `git checkout -b feature/MinhaMelhoria` |
 | **03** | **Commit** | `git commit -m 'feat: add nova seção de projetos'` |
 | **04** | **Push** | `git push origin feature/MinhaMelhoria` |
-| **05** | **PR** | [![Abrir PR](https://img.shields.io/badge/-Abrir%20PR-green?style=flat-square&logo=git)](https://github.com/Domisnnet/Portfolio/compare)
+| **05** | **PR** | [![Abrir PR](https://img.shields.io/badge/-Abrir%20PR-green?style=flat-square&logo=git)](https://github.com/Domisnnet/Portfolio-Angular/compare)
 
 ### 🐛 Encontrou um problema?
 Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 
-[![Issues Abertas](https://img.shields.io/github/issues/Domisnnet/portfolio?style=flat-square&color=red&logo=github)](https://github.com/Domisnnet/Portfolio/issues)
-[![Report Bug](https://img.shields.io/badge/Reportar-Erro-critical?style=flat-square&logo=github)](https://github.com/Domisnnet/Portfolio/issues/new)
+[![Issues Abertas](https://img.shields.io/github/issues/Domisnnet/portfolio?style=flat-square&color=red&logo=github)](https://github.com/Domisnnet/Portfolio-Angular/issues)
+[![Report Bug](https://img.shields.io/badge/Reportar-Erro-critical?style=flat-square&logo=github)](https://github.com/Domisnnet/Portfolio-Angular/issues/new)
 
 
 ---
@@ -129,7 +133,7 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 
 Explore a arquitetura Angular completa no repositório oficial:
 
-[![Repositório](https://img.shields.io/badge/Repositório-Domisnnet%2FPortfolio-1DB954?style=for-the-badge&logo=github)](https://github.com/Domisnnet/Portfolio)
+[![Repositório](https://img.shields.io/badge/Repositório-Domisnnet%2FPortfolio--Angular-1DB954?style=for-the-badge&logo=github)](https://github.com/Domisnnet/Portfolio-Angular)
 
 ---
 
@@ -145,7 +149,7 @@ Explore a arquitetura Angular completa no repositório oficial:
 
 <h2 id="licenca">11. 📄 Licença</h2>
 
-Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio/blob/main/LICENSE)
+Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 
 ---
 
