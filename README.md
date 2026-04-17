@@ -134,7 +134,7 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 Explore a arquitetura Angular completa no repositório oficial:
 
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=fff)
-[![Repositório](https://img.shields.io/badge/Acessar%20Projeto-Domisnnet%2FPortfólio--Angular-DD0031?style=for-the-badge&logo=github&labelColor=0d1117)](https://github.com/Domisnnet/Portfólio-Angular)
+[![Repositório](https://img.shields.io/badge/Repositório-Domisnnet%2FPortfólio--Angular-DD0031?style=for-the-badge&logo=github&labelColor=0d1117)](https://github.com/Domisnnet/Portfólio-Angular)
 
 
 ---
