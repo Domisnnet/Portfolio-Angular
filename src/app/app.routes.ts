@@ -7,6 +7,23 @@ export const routes: Routes = [
     component: CosmicLayoutComponent,
     children: [
       {
+        path: 'login',
+        loadComponent: () =>
+          import('./components/login/login.component').then(
+            (m) => m.LoginComponent
+          ),
+        data: { cosmic: 'minimal' },
+      },
+      {
+        path: 'admin',
+        loadComponent: () =>
+          import('./components/admin/admin-page.component').then(
+            (m) => m.AdminPageComponent
+          ),
+        canActivate: [AuthGuard], 
+        data: { cosmic: 'minimal' },
+      },
+      {
         path: '',
         loadComponent: () =>
           import('./pages/home/home.component').then(

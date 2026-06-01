@@ -1,0 +1,28 @@
+<section class="admin-page">
+  <h2>Área Admin - Mensagens Recebidas</h2>
+  <div *ngIf="contacts$ | async as contacts; else loading">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Mensagem</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let contact of contacts">
+          <td>{{ contact.name }}</td>
+          <td>{{ contact.email }}</td>
+          <td>{{ contact.message }}</td>
+          <td>
+            <button (click)="deleteMessage(contact.id)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #loading>
+    <p>Carregando mensagens...</p>
+  </ng-template>
+</section>
