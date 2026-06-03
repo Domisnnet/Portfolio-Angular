@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '@app/components/button/button.component';
-import { AuthService } from '@app/services/auth.service'; // importa o serviço de autenticação
+import { AuthService } from '@app/services/auth.service'; 
 
 @Component({
   selector: 'app-admin-page',
