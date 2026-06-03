@@ -139,8 +139,6 @@ import {
   AppCheckInstances
 } from "./chunk-MP4OMQBD.js";
 import "./chunk-M3RNIKZN.js";
-import "./chunk-MPLX6RWS.js";
-import "./chunk-T7ALS7OB.js";
 import {
   FirebaseApp,
   FirebaseApps,
@@ -154,6 +152,8 @@ import {
   registerVersion
 } from "./chunk-JAKQQ4IW.js";
 import "./chunk-WXWJ24DR.js";
+import "./chunk-MPLX6RWS.js";
+import "./chunk-T7ALS7OB.js";
 import {
   InjectionToken,
   Injector,

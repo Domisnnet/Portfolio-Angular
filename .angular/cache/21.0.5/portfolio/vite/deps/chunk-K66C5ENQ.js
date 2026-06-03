@@ -5,13 +5,13 @@ import {
   AppCheckInstances
 } from "./chunk-MP4OMQBD.js";
 import {
-  isPlatformServer
-} from "./chunk-MPLX6RWS.js";
-import {
   VERSION as VERSION2,
   pendingUntilEvent,
   ɵAngularFireSchedulers
 } from "./chunk-AJHGBMKQ.js";
+import {
+  isPlatformServer
+} from "./chunk-MPLX6RWS.js";
 import {
   EnvironmentInjector,
   Inject,
@@ -475,4 +475,4 @@ export {
   AngularFireAuth,
   AngularFireAuthModule
 };
-//# sourceMappingURL=chunk-NZTJHM5B.js.map
+//# sourceMappingURL=chunk-K66C5ENQ.js.map

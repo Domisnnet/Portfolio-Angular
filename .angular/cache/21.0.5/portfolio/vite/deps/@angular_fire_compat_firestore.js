@@ -1,21 +1,4 @@
 import {
-  AngularFireAuth,
-  FIREBASE_APP_NAME,
-  FIREBASE_OPTIONS,
-  LANGUAGE_CODE,
-  PERSISTENCE,
-  SETTINGS,
-  TENANT_ID,
-  USE_DEVICE_LANGUAGE,
-  USE_EMULATOR,
-  ɵauthFactory,
-  ɵcacheInstance,
-  ɵfirebaseAppFactory
-} from "./chunk-NZTJHM5B.js";
-import {
-  firebase
-} from "./chunk-J24ADAPB.js";
-import {
   AbstractUserDataWriter,
   Bytes,
   DatabaseId,
@@ -83,13 +66,26 @@ import {
   where
 } from "./chunk-4HB4NV6Z.js";
 import {
+  AngularFireAuth,
+  FIREBASE_APP_NAME,
+  FIREBASE_OPTIONS,
+  LANGUAGE_CODE,
+  PERSISTENCE,
+  SETTINGS,
+  TENANT_ID,
+  USE_DEVICE_LANGUAGE,
+  USE_EMULATOR,
+  ɵauthFactory,
+  ɵcacheInstance,
+  ɵfirebaseAppFactory
+} from "./chunk-K66C5ENQ.js";
+import {
+  firebase
+} from "./chunk-J24ADAPB.js";
+import {
   AppCheckInstances
 } from "./chunk-MP4OMQBD.js";
 import "./chunk-M3RNIKZN.js";
-import {
-  isPlatformServer
-} from "./chunk-MPLX6RWS.js";
-import "./chunk-T7ALS7OB.js";
 import {
   VERSION,
   pendingUntilEvent,
@@ -100,6 +96,10 @@ import {
   getModularInstance
 } from "./chunk-JAKQQ4IW.js";
 import "./chunk-WXWJ24DR.js";
+import {
+  isPlatformServer
+} from "./chunk-MPLX6RWS.js";
+import "./chunk-T7ALS7OB.js";
 import {
   EnvironmentInjector,
   Inject,

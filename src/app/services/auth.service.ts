@@ -1,25 +1,33 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app';
+import { Auth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, User, setPersistence, browserLocalPersistence } from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth) {}
+  constructor(private auth: Auth) {
+    setPersistence(this.auth, browserLocalPersistence);
+  }
+
   loginEmail(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+    return signInWithEmailAndPassword(this.auth, email, password);
+    console.log(email, password);
   }
 
   loginGoogle() {
-    return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(this.auth, provider);
   }
 
   logout() {
-    return this.afAuth.signOut();
+    return signOut(this.auth);
   }
 
-  getUser() {
-    return this.afAuth.authState;
+  getUser(): Observable<User | null> {
+    return new Observable<User | null>((subscriber) => {
+      const unsubscribe = onAuthStateChanged(this.auth, (user) => {
+        subscriber.next(user);
+      });
+      return { unsubscribe };
+    });
   }
 }

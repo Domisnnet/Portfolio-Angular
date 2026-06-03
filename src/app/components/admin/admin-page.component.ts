@@ -1,3 +1,5 @@
+import { ChangeDetectionStrategy } from '@angular/core';
+import { cardEnterAnimation } from '@app/components/card/card.animations';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
@@ -16,6 +18,8 @@ import { AuthService } from '@app/services/auth.service';
   ],
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [ cardEnterAnimation ]
 })
 export class AdminPageComponent implements OnInit {
   contacts$: Observable<any[]> | undefined;

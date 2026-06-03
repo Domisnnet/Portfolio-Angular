@@ -1,7 +1,7 @@
 import {
   EVENT_MANAGER_PLUGINS,
   EventManagerPlugin
-} from "./chunk-XOKTNPNX.js";
+} from "./chunk-7FSFH4AM.js";
 import {
   withHttpTransferCache
 } from "./chunk-YLTNERHA.js";
@@ -653,4 +653,4 @@ export {
   provideClientHydration,
   VERSION
 };
-//# sourceMappingURL=chunk-OBA63EPR.js.map
+//# sourceMappingURL=chunk-32GBTGGU.js.map
