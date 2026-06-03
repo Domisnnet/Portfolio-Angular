@@ -1,17 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
-import { AuthService } from '@app/services/auth.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { ButtonComponent } from '@app/components/button/button.component';
+import { AuthService } from '@app/services/auth.service'; // importa o serviço de autenticação
 
 @Component({
   selector: 'app-admin-page',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ButtonComponent,
+    FormsModule
+  ],
   templateUrl: './admin-page.component.html',
-  styleUrls: ['./admin-page.component.scss']
+  styleUrls: ['./admin-page.component.scss'],
 })
 export class AdminPageComponent implements OnInit {
   contacts$: Observable<any[]> | undefined;
-  user: any;
-  constructor(private firestore: AngularFirestore, public auth: AuthService) {}
+  user: any; 
+  constructor(
+    private firestore: AngularFirestore,
+    public auth: AuthService 
+  ) {}
+
   ngOnInit() {
     this.contacts$ = this.firestore.collection('contacts').valueChanges({ idField: 'id' });
     this.auth.getUser().subscribe(u => this.user = u);

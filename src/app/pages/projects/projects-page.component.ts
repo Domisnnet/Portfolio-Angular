@@ -2,10 +2,6 @@ import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AstronautaComponent } from '@app/components/astronauta/astronauta.component';
 import { CosmicRootComponent } from '@app/cosmic/components/cosmic-root/cosmic-root.component';
-import { SecretStarComponent } from '@app/cosmic/components/secret-star/secret-star.component';
-import { LayerIndicatorComponent } from '@app/cosmic/components/layer-indicator/layer-indicator.component';
-import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump.component';
-import { WormholeComponent } from '@app/cosmic/components/wormhole/wormhole.component';
 import { ProjectCardComponent } from '@app/components/project-card/project-card.component';
 import { TagKey } from '@app/constants/project-tags.config';
 
@@ -24,10 +20,6 @@ export interface Project {
     CommonModule,
     AstronautaComponent,
     CosmicRootComponent,
-    SecretStarComponent,
-    LayerIndicatorComponent,
-    LayerJumpComponent,
-    WormholeComponent,
     ProjectCardComponent
   ],
   templateUrl: './projects-page.component.html',

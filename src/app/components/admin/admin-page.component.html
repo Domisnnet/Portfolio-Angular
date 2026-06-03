@@ -1,28 +1,52 @@
-<section class="admin-page">
-  <h2>Área Admin - Mensagens Recebidas</h2>
-  <div *ngIf="contacts$ | async as contacts; else loading">
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Mensagem</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let contact of contacts">
-          <td>{{ contact.name }}</td>
-          <td>{{ contact.email }}</td>
-          <td>{{ contact.message }}</td>
-          <td>
-            <button (click)="deleteMessage(contact.id)">Excluir</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <ng-template #loading>
-    <p>Carregando mensagens...</p>
-  </ng-template>
+<section class="admin-section container" data-cosmic-effects="minimal">
+  <article class="admin-card" @cardEnter>
+    <div class="admin-body">
+      <h2>Painel Administrativo</h2>
+      <p>Gerencie as mensagens recebidas pelo formulário de contato.</p>
+      <div class="form-group">
+        <label>Usuário logado</label>
+        <p>{{ user?.email }}</p>
+        <div class="form-mail">
+          <app-button
+            type="button"
+            size="md"
+            (click)="logout()"
+          >
+            Logout
+          </app-button>
+        </div>
+      </div>
+      <div *ngIf="contacts$ | async as contacts; else loading">
+        <table class="contact-table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Mensagem</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let contact of contacts">
+              <td>{{ contact.nome }}</td>
+              <td>{{ contact.email }}</td>
+              <td>{{ contact.mensagem }}</td>
+              <td>
+                <app-button
+                  type="button"
+                  size="sm"
+                  (click)="deleteMessage(contact.id)"
+                >
+                  Excluir
+                </app-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <ng-template #loading>
+        <p>Carregando mensagens...</p>
+      </ng-template>
+    </div>
+  </article>
 </section>

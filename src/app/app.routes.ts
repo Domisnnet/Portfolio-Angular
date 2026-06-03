@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
-import { CosmicLayoutComponent } from './layout/cosmic-layout/cosmic-layout.component';
+import { CosmicLayoutComponent } from '@app/layout/cosmic-layout/cosmic-layout.component';
+import { AuthGuard } from '@app/services/auth.guard';
 
 export const routes: Routes = [
   {

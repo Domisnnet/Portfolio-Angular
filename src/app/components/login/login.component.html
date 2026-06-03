@@ -1,7 +1,51 @@
-<section class="login">
-  <h2>Login Admin</h2>
-  <input [(ngModel)]="email" placeholder="Email" type="email">
-  <input [(ngModel)]="password" placeholder="Senha" type="password">
-  <button (click)="loginEmail()">Entrar com Email</button>
-  <button (click)="loginGoogle()">Entrar com Google</button>
+<section class="login-section container" data-cosmic-effects="minimal">
+  <article class="login-card" @cardEnter>
+    <div class="login-body">
+      <h2>Área Restrita</h2>
+      <p>Faça login para acessar o painel administrativo.</p>
+      <form (ngSubmit)="loginEmail()" #loginForm="ngForm" novalidate>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            [(ngModel)]="email"
+            required
+            placeholder="seu-email@.com"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Senha</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            [(ngModel)]="password"
+            required
+            placeholder="Sua senha"
+          />
+        </div>
+        <div class="form-mail">
+          <app-button
+            type="submit"
+            size="md"
+            [loading]="false"
+          >
+            Entrar com Email
+          </app-button>
+        </div>
+      </form>
+      <div class="form-mail">
+        <app-button
+          type="button"
+          size="md"
+          (click)="loginGoogle()"
+        >
+          <span class="google-icon"></span>
+          Entrar com Google
+        </app-button>
+      </div>
+    </div>
+  </article>
 </section>
