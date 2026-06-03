@@ -11,18 +11,16 @@ export const routes: Routes = [
         path: 'login',
         loadComponent: () =>
           import('./components/login/login.component').then(
-            (m) => m.LoginComponent
-          ),
-        data: { cosmic: 'minimal' },
+            (m) => m.LoginComponent),
+            data: { cosmic: 'minimal' },  
       },
       {
         path: 'admin',
         loadComponent: () =>
           import('./components/admin/admin-page.component').then(
-            (m) => m.AdminPageComponent
-          ),
-        canActivate: [AuthGuard], 
-        data: { cosmic: 'minimal' },
+            (m) => m.AdminPageComponent),
+            data: { cosmic: 'minimal' },
+          canActivate: [AuthGuard],
       },
       {
         path: '',

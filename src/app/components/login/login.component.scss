@@ -37,6 +37,28 @@
     color: var(--accent-secondary);
     font-style: italic;
   }
+
+  input {
+    background: var(--footer-bg-soft); 
+    color: var(--accent-primary);    
+    border: 1px solid var(--glass-border);
+  }
+
+  input::placeholder {
+    color: var(--text-muted);
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.35);
+    background: var(--glass-bg);
+    color: var(--accent-primary);
+  }
+
+  label {
+    color: var(--accent-secondary);
+  }
 }
 
 .form-group {
