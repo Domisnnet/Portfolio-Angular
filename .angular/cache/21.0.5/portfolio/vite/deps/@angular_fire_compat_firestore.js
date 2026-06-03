@@ -11,10 +11,10 @@ import {
   ɵauthFactory,
   ɵcacheInstance,
   ɵfirebaseAppFactory
-} from "./chunk-CA6SVTSO.js";
+} from "./chunk-NZTJHM5B.js";
 import {
   firebase
-} from "./chunk-UMYKZEPN.js";
+} from "./chunk-J24ADAPB.js";
 import {
   AbstractUserDataWriter,
   Bytes,
@@ -85,7 +85,11 @@ import {
 import {
   AppCheckInstances
 } from "./chunk-MP4OMQBD.js";
-import "./chunk-FPAVEUSG.js";
+import "./chunk-M3RNIKZN.js";
+import {
+  isPlatformServer
+} from "./chunk-MPLX6RWS.js";
+import "./chunk-T7ALS7OB.js";
 import {
   VERSION,
   pendingUntilEvent,
@@ -96,10 +100,6 @@ import {
   getModularInstance
 } from "./chunk-JAKQQ4IW.js";
 import "./chunk-WXWJ24DR.js";
-import {
-  isPlatformServer
-} from "./chunk-MPLX6RWS.js";
-import "./chunk-T7ALS7OB.js";
 import {
   EnvironmentInjector,
   Inject,
@@ -116,8 +116,8 @@ import {
   ɵɵdefineNgModule,
   ɵɵinject
 } from "./chunk-D7G56KJP.js";
-import "./chunk-7X3X2PE3.js";
 import "./chunk-N2G3NVBP.js";
+import "./chunk-7X3X2PE3.js";
 import {
   Observable,
   asyncScheduler,

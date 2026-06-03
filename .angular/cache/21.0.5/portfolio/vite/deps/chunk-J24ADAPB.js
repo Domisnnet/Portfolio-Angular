@@ -74,7 +74,7 @@ import {
   updateProfile,
   verifyBeforeUpdateEmail,
   verifyPasswordResetCode
-} from "./chunk-FPAVEUSG.js";
+} from "./chunk-M3RNIKZN.js";
 import {
   Component,
   DEFAULT_ENTRY_NAME,
@@ -1474,4 +1474,4 @@ registerAuthCompat(firebase);
 export {
   firebase
 };
-//# sourceMappingURL=chunk-UMYKZEPN.js.map
+//# sourceMappingURL=chunk-J24ADAPB.js.map

@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
-import { StackService } from '../../services/stack.service';
-import { PillCategory } from '../../constants/project-tags.config';
+import { StackService } from '@app/services/stack.service';
+import { PillCategory } from '@app/constants/project-tags.config';
 import { StackPillComponent } from '../../components/stack-pill/stack-pill.component';
-import { HeroComponent } from '../../components/hero/hero';
+import { HeroComponent } from '@app/components/hero/hero';
 
 @Component({
   selector: 'app-home',
