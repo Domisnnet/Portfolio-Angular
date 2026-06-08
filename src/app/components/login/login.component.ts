@@ -10,9 +10,9 @@ import { ButtonComponent } from '@app/components/button/button.component';
   selector: 'app-login',
   standalone: true,
   imports: [
-    CommonModule,
-    FormsModule,
-    ButtonComponent,
+    CommonModule, 
+    FormsModule, 
+    ButtonComponent
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
@@ -40,13 +40,19 @@ export class LoginComponent {
   }
 
   loginGoogle() {
-    this.auth.loginGoogle()
+    this.auth.loginGooglePopup()
       .then(() => {
         alert('Login com Google realizado!');
         this.router.navigate(['/admin']);
       })
-      .catch((err) => {
+      .catch(async (err) => {
         console.error('Erro no login com Google:', err);
+        if (
+          err?.code === 'auth/popup-blocked' || err?.code === 'auth/cancelled-popup-request'
+        ) {
+          await this.auth.loginGoogleRedirect();
+          return;
+        }
         alert('Erro: ' + err.message);
       });
   }
