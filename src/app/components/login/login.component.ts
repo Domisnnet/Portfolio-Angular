@@ -27,33 +27,34 @@ export class LoginComponent {
     private router: Router
   ) {}
 
-  loginEmail() {
-    this.auth.loginEmail(this.email, this.password)
-      .then(() => {
-        alert('Login realizado com sucesso!');
-        this.router.navigate(['/admin']);
-      })
-      .catch((err) => {
-        console.error('Erro no login:', err);
-        alert('Erro: ' + err.message);
-      });
+  async loginEmail(): Promise<void> {
+    try {
+      await this.auth.loginEmail(
+        this.email,
+        this.password
+      );
+      this.router.navigate(['/admin']);
+    } catch (err: any) {
+      console.error(err);
+      alert(err.message);
+    }
   }
 
-  loginGoogle() {
-    this.auth.loginGooglePopup()
-      .then(() => {
-        alert('Login com Google realizado!');
-        this.router.navigate(['/admin']);
-      })
-      .catch(async (err) => {
-        console.error('Erro no login com Google:', err);
-        if (
-          err?.code === 'auth/popup-blocked' || err?.code === 'auth/cancelled-popup-request'
-        ) {
-          await this.auth.loginGoogleRedirect();
-          return;
-        }
-        alert('Erro: ' + err.message);
-      });
+  async loginGoogle(): Promise<void> {
+    try {
+      await this.auth.loginGooglePopup();
+  
+      this.router.navigate(['/admin']);
+    } catch (err: any) {
+      console.error(err);
+      if (
+        err?.code === 'auth/popup-blocked' ||
+        err?.code === 'auth/cancelled-popup-request'
+      ) {
+        await this.auth.loginGoogleRedirect();
+        return;
+      }
+      alert(err.message);
+    }
   }
 }
