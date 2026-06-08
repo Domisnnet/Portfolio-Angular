@@ -5,7 +5,7 @@
       <p>Gerencie as mensagens recebidas pelo formulário de contato.</p>
       <div class="form-group">
         <label>Usuário logado</label>
-        <p>{{ user?.email }}</p>
+        <p>{{ (user$ | async)?.email }}</p>
         <div class="form-mail">
           <app-button
             type="button"
@@ -28,9 +28,9 @@
           </thead>
           <tbody>
             <tr *ngFor="let contact of contacts">
-              <td>{{ contact.nome }}</td>
+              <td>{{ contact.name }}</td>
               <td>{{ contact.email }}</td>
-              <td>{{ contact.mensagem }}</td>
+              <td>{{ contact.message }}</td>
               <td>
                 <app-button
                   type="button"
