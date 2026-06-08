@@ -1,4 +1,7 @@
 import {
+  firebase
+} from "./chunk-5QEL5FPV.js";
+import {
   AbstractUserDataWriter,
   Bytes,
   DatabaseId,
@@ -66,12 +69,12 @@ import {
   where
 } from "./chunk-4RET6JWI.js";
 import {
-  firebase
-} from "./chunk-5QEL5FPV.js";
-import {
   AppCheckInstances
 } from "./chunk-NMK5LAYC.js";
 import "./chunk-DFHPHJHW.js";
+import {
+  isPlatformServer
+} from "./chunk-QPCXK2WB.js";
 import {
   VERSION as VERSION2,
   pendingUntilEvent,
@@ -81,9 +84,6 @@ import {
   Component,
   getModularInstance
 } from "./chunk-7CKLBN5A.js";
-import {
-  isPlatformServer
-} from "./chunk-QPCXK2WB.js";
 import "./chunk-JRX4MMIO.js";
 import {
   EnvironmentInjector,
@@ -103,10 +103,10 @@ import {
   ɵɵdefineNgModule,
   ɵɵinject
 } from "./chunk-EPSEV5I4.js";
-import "./chunk-7X3X2PE3.js";
 import {
   merge
 } from "./chunk-N2G3NVBP.js";
+import "./chunk-7X3X2PE3.js";
 import {
   Observable,
   Subject,

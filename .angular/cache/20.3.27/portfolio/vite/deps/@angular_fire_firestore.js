@@ -1,7 +1,4 @@
 import {
-  AuthInstances
-} from "./chunk-SNQLZBVZ.js";
-import {
   AbstractUserDataWriter,
   AggregateField,
   AggregateQuerySnapshot,
@@ -122,9 +119,13 @@ import {
   writeBatch
 } from "./chunk-4RET6JWI.js";
 import {
+  AuthInstances
+} from "./chunk-SNQLZBVZ.js";
+import {
   AppCheckInstances
 } from "./chunk-NMK5LAYC.js";
 import "./chunk-DFHPHJHW.js";
+import "./chunk-QPCXK2WB.js";
 import {
   FirebaseApp,
   FirebaseApps,
@@ -137,7 +138,6 @@ import {
 import {
   registerVersion
 } from "./chunk-7CKLBN5A.js";
-import "./chunk-QPCXK2WB.js";
 import "./chunk-JRX4MMIO.js";
 import {
   InjectionToken,
@@ -150,8 +150,8 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule
 } from "./chunk-EPSEV5I4.js";
-import "./chunk-7X3X2PE3.js";
 import "./chunk-N2G3NVBP.js";
+import "./chunk-7X3X2PE3.js";
 import {
   Observable,
   concatMap,
