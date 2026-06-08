@@ -5,22 +5,21 @@
 .admin-section {
   min-height: calc(100vh - var(--header-height));
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
   padding: var(--space-xl) var(--space-md);
 }
 
 .admin-card {
   width: 100%;
-  max-width: 560px;
+  max-width: 900px;
   border-radius: var(--radius-lg);
   border: 3px solid var(--glass-border);
   background: var(--layer-base);
   backdrop-filter: blur(var(--glass-blur));
-  box-shadow: 0 10px 40px rgba(var(--glass-shadow-color), var(--glass-shadow-opacity)), inset 0 0 40px rgba(var(--glass-inner-glow-color), var(--glass-inner-glow-opacity));
+  box-shadow: 0 10px 40px rgba( var(--glass-shadow-color), var(--glass-shadow-opacity)), inset 0 0 40px rgba( var(--glass-inner-glow-color), var(--glass-inner-glow-opacity));
   overflow: hidden;
 }
-
 
 .admin-body {
   padding: var(--space-xl);
@@ -31,52 +30,132 @@
     color: var(--accent-primary);
   }
 
-  p {
+  > p {
     text-align: center;
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
     color: var(--accent-secondary);
     font-style: italic;
   }
 }
 
+/* ========================================
+  USUÁRIO LOGADO
+======================================== */
 .form-group {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
 
   label {
     display: block;
     margin-bottom: var(--space-xs);
-    font-size: var(--font-sm);
     color: var(--accent-secondary);
+    font-size: var(--font-sm);
   }
+}
 
-  input,
-  textarea {
-    width: 100%;
-    padding: var(--space-sm);
-    border-radius: var(--radius-sm);
-    border: var(--border-thin) solid var(--glass-border);
-    background: var(--footer-bg-soft);
-    color: var(--accent-primary);
-    font-family: inherit;
-    transition: var(--motion-fast);
-  }
-
-  input::placeholder,
-  textarea::placeholder {
-    color: var(--text-muted);
-  }
-
-  input:focus,
-  textarea:focus {
-    outline: none;
-    border-color: var(--accent-primary);
-    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.35);
-    background: var(--glass-bg);
-  }
+.user-email {
+  text-align: center;
+  margin-bottom: var(--space-md);
+  color: var(--accent-primary);
+  font-weight: var(--font-medium);
 }
 
 .form-mail {
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+
+/* ========================================
+  LISTA DE MENSAGENS
+======================================== */
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ========================================
+  CARD DA MENSAGEM
+======================================== */
+.message-card {
+  border-radius: var(--radius-md);
+  border: var(--border-thin) solid var(--glass-border);
+  background: var(--footer-bg-soft);
+  overflow: hidden;
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba( var(--accent-rgb), 0.15 );
+  }
+}
+
+/* ========================================
+  CABEÇALHO
+======================================== */
+.message-header {
+  padding: var(--space-md);
+  border-bottom: var(--border-medium) solid var(--glass-border);
+  background: rgba( var(--accent-rgb), 0.05 );
+}
+
+.message-user {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+
+  h3 {
+    margin: 0;
+    color: var(--accent-primary);
+    font-size: var(--font-md);
+  }
+
+  span {
+    color: var(--text-muted);
+    font-size: var(--font-sm);
+    word-break: break-word;
+  }
+}
+
+/* ========================================
+  CONTEÚDO
+======================================== */
+.message-content {
+  padding: var(--space-lg);
+  color: var(--text-primary);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ========================================
+  AÇÕES
+======================================== */
+.message-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-md);
+  border-top: var(--border-medium) solid var(--glass-border);
+}
+
+/* ========================================
+  ESTADO VAZIO
+======================================== */
+.empty-state {
+  padding: var(--space-2xl);
+  text-align: center;
+
+  p {
+    margin: 0;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+}
+
+/* ========================================
+  RESPONSIVO
+======================================== */
+@media (max-width: 768px) {
+  .admin-body { padding: var(--space-lg); }
+  .message-content { padding: var(--space-md); }
+  .message-actions { justify-content: center; }
 }

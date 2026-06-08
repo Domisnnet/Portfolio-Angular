@@ -1,16 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 import { FormsModule } from '@angular/forms';
-import { ButtonComponent } from '@app/components/button/button.component';
 import { cardEnterAnimation } from '@app/components/card/card.animations';
 
 @Component({
   selector: 'app-contact-page',
   standalone: true,
-  imports: [
-    FormsModule,
-    ButtonComponent
-  ],
+  imports: [ FormsModule ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
