@@ -25,15 +25,6 @@
   grid-template-columns: repeat(5, 1fr);
   gap: var(--space-xl);
   grid-template-areas: "Jornada TechReal Explorar tech contact";
-
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-      "Jornada TechReal Explorar"
-      "tech tech tech"
-      "contact contact contact";
-    text-align: center;
-  }
 }
 
 /* =========================
@@ -82,7 +73,7 @@
   text-align: start;
   width: var(--size-2xl);
   height: var(--size-2xl);
-  margin-right: var(--space-xs);
+  margin-right: var(--space-md);
 }
 
 /* ====================
@@ -93,16 +84,12 @@
   justify-content: center;
   align-items: center;
   font-weight: var(--font-bolder);
-
   .status,
   .finish,
   .framework,
   .t-neonrx,
   .t-neon,
-  .prod {
-    font-family: var(--font-code);
-  }
-
+  .prod { font-family: var(--font-code); }
   .status { color: var(--footer-text-status); }
   .finish { color: var(--footer-text-finish); }
   .framework { color: var(--footer-text-framework); }
@@ -120,11 +107,6 @@
   flex-wrap: wrap;
   margin-top: var(--space-xs);
 
-  @media (max-width: 768px) {
-    justify-content: center;
-    margin-top: var(--space-lg);
-  }
-
   .social-link {
     display: flex;
     justify-content: center;
@@ -136,7 +118,6 @@
     border-radius: 50%;
     overflow: hidden;
     transition: background-color var(--motion-fast), border-color var(--motion-fast), transform var(--motion-fast);
-    overflow: hidden;
 
     img {
       filter: brightness(0) invert(1);
@@ -160,7 +141,7 @@
     align-items: center;
     width: var(--space-xxl);
     height: var(--space-xxl);
-    margin-top: var(--space-sm);
+    margin-top: var(--space-md);
 
     &:hover {
       transform: translateY(-5px);
@@ -175,11 +156,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xs);
-
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
+  gap: var(--space-md);
 
   .tech-icon {
     width: var(--space-xxl);
@@ -205,11 +182,6 @@
   border-top: var(--border-medium) solid var(--border-color);
   color: var(--text-muted);
   font-size: var(--font-sm);
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    gap: var(--space-md);
-  }
 }
 
 .bottom-links {
@@ -250,7 +222,43 @@
   .social-link img { filter: none; }
   .tech-icon {
     filter: grayscale(1) brightness(0.3) opacity(0.5);
-
     &:hover { filter: grayscale(0) brightness(1) opacity(1); }
   }
+}
+
+/* ====================================
+  RESPONSIVIDADE 
+==================================== */
+/* --- Desktops / Tablets (Landscape) --- */
+@media (max-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "Jornada TechReal Explorar"
+      "tech tech tech"
+      "contact contact contact";
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --- Tablets / Smartphones --- */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "Jornada" 
+      "TechReal"
+      "Explorar"
+      "tech"
+      "contact"; 
+    text-align: center; 
+    align-items: center; 
+    justify-content: center; 
+  }
+  .jornada-link { justify-content: center; }
+  .footer-col-contact .social-icons { display: flex; justify-content: center; align-items: center; width: 100%; }
+  .tech-icons { justify-content: center; align-items: center; }
+  .footer-bottom { flex-direction: column;  gap: var(--space-md); }
 }

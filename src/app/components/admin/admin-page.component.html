@@ -5,7 +5,7 @@
       <p>Gerencie as mensagens recebidas pelo formulário de contato.</p>
       <div class="form-group">
         <label>Usuário logado</label>
-        <p>{{ (user$ | async)?.email }}</p>
+        <p class="user-email">{{ (user$ | async)?.email }}</p>
         <div class="form-mail">
           <app-button
             type="button"
@@ -17,35 +17,42 @@
         </div>
       </div>
       <ng-container *ngIf="contacts$ | async as contacts; else loading">
-        <table class="admin-table">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Mensagem</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let contact of contacts">
-              <td>{{ contact.name }}</td>
-              <td>{{ contact.email }}</td>
-              <td>{{ contact.message }}</td>
-              <td>
-                <app-button
-                  type="button"
-                  size="sm"
-                  (click)="deleteMessage(contact.id)"
-                >
-                  Excluir
-                </app-button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div
+          class="messages-list"
+          *ngIf="contacts.length; else emptyState"
+        >
+          <article class="message-card" *ngFor="let contact of contacts">
+            <header class="message-header">
+              <div class="message-user">
+                <h3>{{ contact.name }}</h3>
+                <span>{{ contact.email }}</span>
+              </div>
+            </header>
+            <div class="message-content">
+              {{ contact.message }}
+            </div>
+            <footer class="message-actions">
+              <app-button
+                type="button"
+                size="sm"
+                variant="outline"
+                (click)="deleteMessage(contact.id)"
+              >
+                Excluir
+              </app-button>
+            </footer>
+          </article>
+        </div>
       </ng-container>
+      <ng-template #emptyState>
+        <div class="empty-state">
+          <p>Nenhuma mensagem recebida até o momento.</p>
+        </div>
+      </ng-template>
       <ng-template #loading>
-        <p>Carregando mensagens...</p>
+        <div class="empty-state">
+          <p>Carregando mensagens...</p>
+        </div>
       </ng-template>
     </div>
   </article>
