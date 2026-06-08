@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Auth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, User, setPersistence, browserLocalPersistence } from '@angular/fire/auth';
+import { Auth, GoogleAuthProvider, User, browserLocalPersistence, onAuthStateChanged, setPersistence, signInWithEmailAndPassword, signInWithPopup, signOut } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor(private auth: Auth) {
-    setPersistence(this.auth, browserLocalPersistence);
-  }
-
-  loginEmail(email: string, password: string) {
+  constructor(private auth: Auth) {}
+  async loginEmail(email: string, password: string) {
+    await setPersistence(this.auth, browserLocalPersistence);
     return signInWithEmailAndPassword(this.auth, email, password);
-    console.log(email, password);
   }
 
-  loginGoogle() {
+  async loginGoogle() {
+    await setPersistence(this.auth, browserLocalPersistence);
     const provider = new GoogleAuthProvider();
     return signInWithPopup(this.auth, provider);
   }
@@ -26,8 +24,8 @@ export class AuthService {
     return new Observable<User | null>((subscriber) => {
       const unsubscribe = onAuthStateChanged(this.auth, (user) => {
         subscriber.next(user);
-      });
-      return { unsubscribe };
+      }, (error) => subscriber.error(error));
+      return unsubscribe;
     });
   }
 }

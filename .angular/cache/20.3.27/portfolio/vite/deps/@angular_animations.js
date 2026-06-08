@@ -30,12 +30,11 @@ import {
   setClassMetadata,
   ɵɵdefineInjectable,
   ɵɵinject
-} from "./chunk-EPSEV5I4.js";
-import "./chunk-N2G3NVBP.js";
-import "./chunk-7X3X2PE3.js";
-import "./chunk-ZNVZ47EP.js";
-import "./chunk-B2KI3AIV.js";
-import "./chunk-653SOEEV.js";
+} from "./chunk-Y7ZK4JMO.js";
+import "./chunk-XYFQ7QOX.js";
+import "./chunk-BZLT2HVW.js";
+import "./chunk-QJQPERGE.js";
+import "./chunk-GOMI4DH3.js";
 
 // node_modules/@angular/animations/fesm2022/animations.mjs
 var AnimationBuilder = class _AnimationBuilder {

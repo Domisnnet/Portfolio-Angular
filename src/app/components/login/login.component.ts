@@ -1,43 +1,53 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { cardEnterAnimation } from '@app/components/card/card.animations';
-import { ChangeDetectionStrategy } from '@angular/core';
-import { AuthService } from '@app/services/auth.service';
-import { FormsModule } from '@angular/forms';
-import { ButtonComponent } from '@app/components/button/button.component';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { cardEnterAnimation } from '@app/components/card/card.animations';
+import { AuthService } from '@app/services/auth.service';
+import { ButtonComponent } from '@app/components/button/button.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
+    CommonModule,
     FormsModule,
-    ButtonComponent, 
-    CommonModule
-  ], 
+    ButtonComponent,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ cardEnterAnimation ]
+  animations: [cardEnterAnimation],
 })
 export class LoginComponent {
   email = '';
   password = '';
-  constructor(private auth: AuthService, private router: Router) {}
+  constructor(
+    private auth: AuthService,
+    private router: Router
+  ) {}
+
   loginEmail() {
     this.auth.loginEmail(this.email, this.password)
       .then(() => {
         alert('Login realizado com sucesso!');
         this.router.navigate(['/admin']);
       })
-      .catch(err => alert('Erro: ' + err.message));
+      .catch((err) => {
+        console.error('Erro no login:', err);
+        alert('Erro: ' + err.message);
+      });
   }
+
   loginGoogle() {
     this.auth.loginGoogle()
       .then(() => {
         alert('Login com Google realizado!');
         this.router.navigate(['/admin']);
       })
-      .catch(err => alert('Erro: ' + err.message));
+      .catch((err) => {
+        console.error('Erro no login com Google:', err);
+        alert('Erro: ' + err.message);
+      });
   }
 }

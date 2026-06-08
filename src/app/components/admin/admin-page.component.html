@@ -16,7 +16,7 @@
           </app-button>
         </div>
       </div>
-      <div *ngIf="contacts$ | async as contacts; else loading">
+      <ng-container *ngIf="contacts$ | async as contacts; else loading">
         <table class="admin-table">
           <thead>
             <tr>
@@ -43,7 +43,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </ng-container>
       <ng-template #loading>
         <p>Carregando mensagens...</p>
       </ng-template>

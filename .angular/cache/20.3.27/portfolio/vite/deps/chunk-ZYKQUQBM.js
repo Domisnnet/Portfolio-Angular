@@ -1,13 +1,18 @@
 import {
   Component,
+  Deferred,
   ErrorFactory,
+  FirebaseApp,
+  FirebaseApps,
   FirebaseError,
   LogLevel,
   Logger,
   SDK_VERSION,
+  VERSION,
   _getProvider,
   _isFirebaseServerApp,
   _registerComponent,
+  base64,
   base64Decode,
   createSubscribe,
   deepEqual,
@@ -15,6 +20,7 @@ import {
   getApp,
   getDefaultEmulatorHost,
   getExperimentalSetting,
+  getGlobal,
   getModularInstance,
   getUA,
   isBrowserExtension,
@@ -22,17 +28,844 @@ import {
   isCloudflareWorker,
   isEmpty,
   isIE,
+  isIndexedDBAvailable,
   isMobileCordova,
   isReactNative,
   pingServer,
   querystring,
   querystringDecode,
   registerVersion,
-  updateEmulatorBanner
-} from "./chunk-7CKLBN5A.js";
+  updateEmulatorBanner,
+  ɵAngularFireSchedulers,
+  ɵgetAllInstancesOf,
+  ɵgetDefaultInstanceOf,
+  ɵzoneWrap
+} from "./chunk-FSQAZYWD.js";
 import {
-  __rest
-} from "./chunk-B2KI3AIV.js";
+  InjectionToken,
+  Injector,
+  NgModule,
+  NgZone,
+  Optional,
+  PLATFORM_ID,
+  makeEnvironmentProviders,
+  setClassMetadata,
+  ɵɵdefineInjector,
+  ɵɵdefineNgModule
+} from "./chunk-Y7ZK4JMO.js";
+import {
+  Observable,
+  __rest,
+  concatMap,
+  distinct,
+  from,
+  of,
+  switchMap,
+  timer
+} from "./chunk-QJQPERGE.js";
+
+// node_modules/@angular/fire/node_modules/@firebase/app-check/dist/esm/index.esm2017.js
+var APP_CHECK_STATES = /* @__PURE__ */ new Map();
+var DEFAULT_STATE = {
+  activated: false,
+  tokenObservers: []
+};
+var DEBUG_STATE = {
+  initialized: false,
+  enabled: false
+};
+function getStateReference(app) {
+  return APP_CHECK_STATES.get(app) || Object.assign({}, DEFAULT_STATE);
+}
+function setInitialState(app, state) {
+  APP_CHECK_STATES.set(app, state);
+  return APP_CHECK_STATES.get(app);
+}
+function getDebugState() {
+  return DEBUG_STATE;
+}
+var BASE_ENDPOINT = "https://content-firebaseappcheck.googleapis.com/v1";
+var EXCHANGE_DEBUG_TOKEN_METHOD = "exchangeDebugToken";
+var TOKEN_REFRESH_TIME = {
+  /**
+   * The offset time before token natural expiration to run the refresh.
+   * This is currently 5 minutes.
+   */
+  OFFSET_DURATION: 5 * 60 * 1e3,
+  /**
+   * This is the first retrial wait after an error. This is currently
+   * 30 seconds.
+   */
+  RETRIAL_MIN_WAIT: 30 * 1e3,
+  /**
+   * This is the maximum retrial wait, currently 16 minutes.
+   */
+  RETRIAL_MAX_WAIT: 16 * 60 * 1e3
+};
+var ONE_DAY = 24 * 60 * 60 * 1e3;
+var Refresher = class {
+  constructor(operation, retryPolicy, getWaitDuration, lowerBound, upperBound) {
+    this.operation = operation;
+    this.retryPolicy = retryPolicy;
+    this.getWaitDuration = getWaitDuration;
+    this.lowerBound = lowerBound;
+    this.upperBound = upperBound;
+    this.pending = null;
+    this.nextErrorWaitInterval = lowerBound;
+    if (lowerBound > upperBound) {
+      throw new Error("Proactive refresh lower bound greater than upper bound!");
+    }
+  }
+  start() {
+    this.nextErrorWaitInterval = this.lowerBound;
+    this.process(true).catch(() => {
+    });
+  }
+  stop() {
+    if (this.pending) {
+      this.pending.reject("cancelled");
+      this.pending = null;
+    }
+  }
+  isRunning() {
+    return !!this.pending;
+  }
+  async process(hasSucceeded) {
+    this.stop();
+    try {
+      this.pending = new Deferred();
+      this.pending.promise.catch((_e) => {
+      });
+      await sleep(this.getNextRun(hasSucceeded));
+      this.pending.resolve();
+      await this.pending.promise;
+      this.pending = new Deferred();
+      this.pending.promise.catch((_e) => {
+      });
+      await this.operation();
+      this.pending.resolve();
+      await this.pending.promise;
+      this.process(true).catch(() => {
+      });
+    } catch (error) {
+      if (this.retryPolicy(error)) {
+        this.process(false).catch(() => {
+        });
+      } else {
+        this.stop();
+      }
+    }
+  }
+  getNextRun(hasSucceeded) {
+    if (hasSucceeded) {
+      this.nextErrorWaitInterval = this.lowerBound;
+      return this.getWaitDuration();
+    } else {
+      const currentErrorWaitInterval = this.nextErrorWaitInterval;
+      this.nextErrorWaitInterval *= 2;
+      if (this.nextErrorWaitInterval > this.upperBound) {
+        this.nextErrorWaitInterval = this.upperBound;
+      }
+      return currentErrorWaitInterval;
+    }
+  }
+};
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+var ERRORS = {
+  [
+    "already-initialized"
+    /* AppCheckError.ALREADY_INITIALIZED */
+  ]: "You have already called initializeAppCheck() for FirebaseApp {$appName} with different options. To avoid this error, call initializeAppCheck() with the same options as when it was originally called. This will return the already initialized instance.",
+  [
+    "use-before-activation"
+    /* AppCheckError.USE_BEFORE_ACTIVATION */
+  ]: "App Check is being used before initializeAppCheck() is called for FirebaseApp {$appName}. Call initializeAppCheck() before instantiating other Firebase services.",
+  [
+    "fetch-network-error"
+    /* AppCheckError.FETCH_NETWORK_ERROR */
+  ]: "Fetch failed to connect to a network. Check Internet connection. Original error: {$originalErrorMessage}.",
+  [
+    "fetch-parse-error"
+    /* AppCheckError.FETCH_PARSE_ERROR */
+  ]: "Fetch client could not parse response. Original error: {$originalErrorMessage}.",
+  [
+    "fetch-status-error"
+    /* AppCheckError.FETCH_STATUS_ERROR */
+  ]: "Fetch server returned an HTTP error status. HTTP status: {$httpStatus}.",
+  [
+    "storage-open"
+    /* AppCheckError.STORAGE_OPEN */
+  ]: "Error thrown when opening storage. Original error: {$originalErrorMessage}.",
+  [
+    "storage-get"
+    /* AppCheckError.STORAGE_GET */
+  ]: "Error thrown when reading from storage. Original error: {$originalErrorMessage}.",
+  [
+    "storage-set"
+    /* AppCheckError.STORAGE_WRITE */
+  ]: "Error thrown when writing to storage. Original error: {$originalErrorMessage}.",
+  [
+    "recaptcha-error"
+    /* AppCheckError.RECAPTCHA_ERROR */
+  ]: "ReCAPTCHA error.",
+  [
+    "initial-throttle"
+    /* AppCheckError.INITIAL_THROTTLE */
+  ]: `{$httpStatus} error. Attempts allowed again after {$time}`,
+  [
+    "throttled"
+    /* AppCheckError.THROTTLED */
+  ]: `Requests throttled due to previous {$httpStatus} error. Attempts allowed again after {$time}`
+};
+var ERROR_FACTORY = new ErrorFactory("appCheck", "AppCheck", ERRORS);
+function ensureActivated(app) {
+  if (!getStateReference(app).activated) {
+    throw ERROR_FACTORY.create("use-before-activation", {
+      appName: app.name
+    });
+  }
+}
+async function exchangeToken({ url, body }, heartbeatServiceProvider) {
+  const headers = {
+    "Content-Type": "application/json"
+  };
+  const heartbeatService = heartbeatServiceProvider.getImmediate({
+    optional: true
+  });
+  if (heartbeatService) {
+    const heartbeatsHeader = await heartbeatService.getHeartbeatsHeader();
+    if (heartbeatsHeader) {
+      headers["X-Firebase-Client"] = heartbeatsHeader;
+    }
+  }
+  const options = {
+    method: "POST",
+    body: JSON.stringify(body),
+    headers
+  };
+  let response;
+  try {
+    response = await fetch(url, options);
+  } catch (originalError) {
+    throw ERROR_FACTORY.create("fetch-network-error", {
+      originalErrorMessage: originalError === null || originalError === void 0 ? void 0 : originalError.message
+    });
+  }
+  if (response.status !== 200) {
+    throw ERROR_FACTORY.create("fetch-status-error", {
+      httpStatus: response.status
+    });
+  }
+  let responseBody;
+  try {
+    responseBody = await response.json();
+  } catch (originalError) {
+    throw ERROR_FACTORY.create("fetch-parse-error", {
+      originalErrorMessage: originalError === null || originalError === void 0 ? void 0 : originalError.message
+    });
+  }
+  const match = responseBody.ttl.match(/^([\d.]+)(s)$/);
+  if (!match || !match[2] || isNaN(Number(match[1]))) {
+    throw ERROR_FACTORY.create("fetch-parse-error", {
+      originalErrorMessage: `ttl field (timeToLive) is not in standard Protobuf Duration format: ${responseBody.ttl}`
+    });
+  }
+  const timeToLiveAsNumber = Number(match[1]) * 1e3;
+  const now = Date.now();
+  return {
+    token: responseBody.token,
+    expireTimeMillis: now + timeToLiveAsNumber,
+    issuedAtTimeMillis: now
+  };
+}
+function getExchangeDebugTokenRequest(app, debugToken) {
+  const { projectId, appId, apiKey } = app.options;
+  return {
+    url: `${BASE_ENDPOINT}/projects/${projectId}/apps/${appId}:${EXCHANGE_DEBUG_TOKEN_METHOD}?key=${apiKey}`,
+    body: {
+      // eslint-disable-next-line
+      debug_token: debugToken
+    }
+  };
+}
+var DB_NAME = "firebase-app-check-database";
+var DB_VERSION = 1;
+var STORE_NAME = "firebase-app-check-store";
+var DEBUG_TOKEN_KEY = "debug-token";
+var dbPromise = null;
+function getDBPromise() {
+  if (dbPromise) {
+    return dbPromise;
+  }
+  dbPromise = new Promise((resolve, reject) => {
+    try {
+      const request = indexedDB.open(DB_NAME, DB_VERSION);
+      request.onsuccess = (event) => {
+        resolve(event.target.result);
+      };
+      request.onerror = (event) => {
+        var _a;
+        reject(ERROR_FACTORY.create("storage-open", {
+          originalErrorMessage: (_a = event.target.error) === null || _a === void 0 ? void 0 : _a.message
+        }));
+      };
+      request.onupgradeneeded = (event) => {
+        const db = event.target.result;
+        switch (event.oldVersion) {
+          case 0:
+            db.createObjectStore(STORE_NAME, {
+              keyPath: "compositeKey"
+            });
+        }
+      };
+    } catch (e) {
+      reject(ERROR_FACTORY.create("storage-open", {
+        originalErrorMessage: e === null || e === void 0 ? void 0 : e.message
+      }));
+    }
+  });
+  return dbPromise;
+}
+function readTokenFromIndexedDB(app) {
+  return read(computeKey(app));
+}
+function writeTokenToIndexedDB(app, token) {
+  return write(computeKey(app), token);
+}
+function writeDebugTokenToIndexedDB(token) {
+  return write(DEBUG_TOKEN_KEY, token);
+}
+function readDebugTokenFromIndexedDB() {
+  return read(DEBUG_TOKEN_KEY);
+}
+async function write(key, value) {
+  const db = await getDBPromise();
+  const transaction = db.transaction(STORE_NAME, "readwrite");
+  const store = transaction.objectStore(STORE_NAME);
+  const request = store.put({
+    compositeKey: key,
+    value
+  });
+  return new Promise((resolve, reject) => {
+    request.onsuccess = (_event) => {
+      resolve();
+    };
+    transaction.onerror = (event) => {
+      var _a;
+      reject(ERROR_FACTORY.create("storage-set", {
+        originalErrorMessage: (_a = event.target.error) === null || _a === void 0 ? void 0 : _a.message
+      }));
+    };
+  });
+}
+async function read(key) {
+  const db = await getDBPromise();
+  const transaction = db.transaction(STORE_NAME, "readonly");
+  const store = transaction.objectStore(STORE_NAME);
+  const request = store.get(key);
+  return new Promise((resolve, reject) => {
+    request.onsuccess = (event) => {
+      const result = event.target.result;
+      if (result) {
+        resolve(result.value);
+      } else {
+        resolve(void 0);
+      }
+    };
+    transaction.onerror = (event) => {
+      var _a;
+      reject(ERROR_FACTORY.create("storage-get", {
+        originalErrorMessage: (_a = event.target.error) === null || _a === void 0 ? void 0 : _a.message
+      }));
+    };
+  });
+}
+function computeKey(app) {
+  return `${app.options.appId}-${app.name}`;
+}
+var logger = new Logger("@firebase/app-check");
+async function readTokenFromStorage(app) {
+  if (isIndexedDBAvailable()) {
+    let token = void 0;
+    try {
+      token = await readTokenFromIndexedDB(app);
+    } catch (e) {
+      logger.warn(`Failed to read token from IndexedDB. Error: ${e}`);
+    }
+    return token;
+  }
+  return void 0;
+}
+function writeTokenToStorage(app, token) {
+  if (isIndexedDBAvailable()) {
+    return writeTokenToIndexedDB(app, token).catch((e) => {
+      logger.warn(`Failed to write token to IndexedDB. Error: ${e}`);
+    });
+  }
+  return Promise.resolve();
+}
+async function readOrCreateDebugTokenFromStorage() {
+  let existingDebugToken = void 0;
+  try {
+    existingDebugToken = await readDebugTokenFromIndexedDB();
+  } catch (_e) {
+  }
+  if (!existingDebugToken) {
+    const newToken = crypto.randomUUID();
+    writeDebugTokenToIndexedDB(newToken).catch((e) => logger.warn(`Failed to persist debug token to IndexedDB. Error: ${e}`));
+    return newToken;
+  } else {
+    return existingDebugToken;
+  }
+}
+function isDebugMode() {
+  const debugState = getDebugState();
+  return debugState.enabled;
+}
+async function getDebugToken() {
+  const state = getDebugState();
+  if (state.enabled && state.token) {
+    return state.token.promise;
+  } else {
+    throw Error(`
+            Can't get debug token in production mode.
+        `);
+  }
+}
+function initializeDebugMode() {
+  const globals = getGlobal();
+  const debugState = getDebugState();
+  debugState.initialized = true;
+  if (typeof globals.FIREBASE_APPCHECK_DEBUG_TOKEN !== "string" && globals.FIREBASE_APPCHECK_DEBUG_TOKEN !== true) {
+    return;
+  }
+  debugState.enabled = true;
+  const deferredToken = new Deferred();
+  debugState.token = deferredToken;
+  if (typeof globals.FIREBASE_APPCHECK_DEBUG_TOKEN === "string") {
+    deferredToken.resolve(globals.FIREBASE_APPCHECK_DEBUG_TOKEN);
+  } else {
+    deferredToken.resolve(readOrCreateDebugTokenFromStorage());
+  }
+}
+var defaultTokenErrorData = { error: "UNKNOWN_ERROR" };
+function formatDummyToken(tokenErrorData) {
+  return base64.encodeString(
+    JSON.stringify(tokenErrorData),
+    /* webSafe= */
+    false
+  );
+}
+async function getToken$2(appCheck, forceRefresh = false, shouldLogErrors = false) {
+  const app = appCheck.app;
+  ensureActivated(app);
+  const state = getStateReference(app);
+  let token = state.token;
+  let error = void 0;
+  if (token && !isValid(token)) {
+    state.token = void 0;
+    token = void 0;
+  }
+  if (!token) {
+    const cachedToken = await state.cachedTokenPromise;
+    if (cachedToken) {
+      if (isValid(cachedToken)) {
+        token = cachedToken;
+      } else {
+        await writeTokenToStorage(app, void 0);
+      }
+    }
+  }
+  if (!forceRefresh && token && isValid(token)) {
+    return {
+      token: token.token
+    };
+  }
+  let shouldCallListeners = false;
+  if (isDebugMode()) {
+    try {
+      if (!state.exchangeTokenPromise) {
+        state.exchangeTokenPromise = exchangeToken(getExchangeDebugTokenRequest(app, await getDebugToken()), appCheck.heartbeatServiceProvider).finally(() => {
+          state.exchangeTokenPromise = void 0;
+        });
+        shouldCallListeners = true;
+      }
+      const tokenFromDebugExchange = await state.exchangeTokenPromise;
+      await writeTokenToStorage(app, tokenFromDebugExchange);
+      state.token = tokenFromDebugExchange;
+      return { token: tokenFromDebugExchange.token };
+    } catch (e) {
+      if (e.code === `appCheck/${"throttled"}` || e.code === `appCheck/${"initial-throttle"}`) {
+        logger.warn(e.message);
+      } else if (shouldLogErrors) {
+        logger.error(e);
+      }
+      return makeDummyTokenResult(e);
+    }
+  }
+  try {
+    if (!state.exchangeTokenPromise) {
+      state.exchangeTokenPromise = state.provider.getToken().finally(() => {
+        state.exchangeTokenPromise = void 0;
+      });
+      shouldCallListeners = true;
+    }
+    token = await getStateReference(app).exchangeTokenPromise;
+  } catch (e) {
+    if (e.code === `appCheck/${"throttled"}` || e.code === `appCheck/${"initial-throttle"}`) {
+      logger.warn(e.message);
+    } else if (shouldLogErrors) {
+      logger.error(e);
+    }
+    error = e;
+  }
+  let interopTokenResult;
+  if (!token) {
+    interopTokenResult = makeDummyTokenResult(error);
+  } else if (error) {
+    if (isValid(token)) {
+      interopTokenResult = {
+        token: token.token,
+        internalError: error
+      };
+    } else {
+      interopTokenResult = makeDummyTokenResult(error);
+    }
+  } else {
+    interopTokenResult = {
+      token: token.token
+    };
+    state.token = token;
+    await writeTokenToStorage(app, token);
+  }
+  if (shouldCallListeners) {
+    notifyTokenListeners(app, interopTokenResult);
+  }
+  return interopTokenResult;
+}
+async function getLimitedUseToken$1(appCheck) {
+  const app = appCheck.app;
+  ensureActivated(app);
+  const { provider } = getStateReference(app);
+  if (isDebugMode()) {
+    const debugToken = await getDebugToken();
+    const { token } = await exchangeToken(getExchangeDebugTokenRequest(app, debugToken), appCheck.heartbeatServiceProvider);
+    return { token };
+  } else {
+    const { token } = await provider.getToken();
+    return { token };
+  }
+}
+function addTokenListener(appCheck, type, listener, onError) {
+  const { app } = appCheck;
+  const state = getStateReference(app);
+  const tokenObserver = {
+    next: listener,
+    error: onError,
+    type
+  };
+  state.tokenObservers = [...state.tokenObservers, tokenObserver];
+  if (state.token && isValid(state.token)) {
+    const validToken = state.token;
+    Promise.resolve().then(() => {
+      listener({ token: validToken.token });
+      initTokenRefresher(appCheck);
+    }).catch(() => {
+    });
+  }
+  void state.cachedTokenPromise.then(() => initTokenRefresher(appCheck));
+}
+function removeTokenListener(app, listener) {
+  const state = getStateReference(app);
+  const newObservers = state.tokenObservers.filter((tokenObserver) => tokenObserver.next !== listener);
+  if (newObservers.length === 0 && state.tokenRefresher && state.tokenRefresher.isRunning()) {
+    state.tokenRefresher.stop();
+  }
+  state.tokenObservers = newObservers;
+}
+function initTokenRefresher(appCheck) {
+  const { app } = appCheck;
+  const state = getStateReference(app);
+  let refresher = state.tokenRefresher;
+  if (!refresher) {
+    refresher = createTokenRefresher(appCheck);
+    state.tokenRefresher = refresher;
+  }
+  if (!refresher.isRunning() && state.isTokenAutoRefreshEnabled) {
+    refresher.start();
+  }
+}
+function createTokenRefresher(appCheck) {
+  const { app } = appCheck;
+  return new Refresher(
+    // Keep in mind when this fails for any reason other than the ones
+    // for which we should retry, it will effectively stop the proactive refresh.
+    async () => {
+      const state = getStateReference(app);
+      let result;
+      if (!state.token) {
+        result = await getToken$2(appCheck);
+      } else {
+        result = await getToken$2(appCheck, true);
+      }
+      if (result.error) {
+        throw result.error;
+      }
+      if (result.internalError) {
+        throw result.internalError;
+      }
+    },
+    () => {
+      return true;
+    },
+    () => {
+      const state = getStateReference(app);
+      if (state.token) {
+        let nextRefreshTimeMillis = state.token.issuedAtTimeMillis + (state.token.expireTimeMillis - state.token.issuedAtTimeMillis) * 0.5 + 5 * 60 * 1e3;
+        const latestAllowableRefresh = state.token.expireTimeMillis - 5 * 60 * 1e3;
+        nextRefreshTimeMillis = Math.min(nextRefreshTimeMillis, latestAllowableRefresh);
+        return Math.max(0, nextRefreshTimeMillis - Date.now());
+      } else {
+        return 0;
+      }
+    },
+    TOKEN_REFRESH_TIME.RETRIAL_MIN_WAIT,
+    TOKEN_REFRESH_TIME.RETRIAL_MAX_WAIT
+  );
+}
+function notifyTokenListeners(app, token) {
+  const observers = getStateReference(app).tokenObservers;
+  for (const observer of observers) {
+    try {
+      if (observer.type === "EXTERNAL" && token.error != null) {
+        observer.error(token.error);
+      } else {
+        observer.next(token);
+      }
+    } catch (e) {
+    }
+  }
+}
+function isValid(token) {
+  return token.expireTimeMillis - Date.now() > 0;
+}
+function makeDummyTokenResult(error) {
+  return {
+    token: formatDummyToken(defaultTokenErrorData),
+    error
+  };
+}
+var AppCheckService = class {
+  constructor(app, heartbeatServiceProvider) {
+    this.app = app;
+    this.heartbeatServiceProvider = heartbeatServiceProvider;
+  }
+  _delete() {
+    const { tokenObservers } = getStateReference(this.app);
+    for (const tokenObserver of tokenObservers) {
+      removeTokenListener(this.app, tokenObserver.next);
+    }
+    return Promise.resolve();
+  }
+};
+function factory(app, heartbeatServiceProvider) {
+  return new AppCheckService(app, heartbeatServiceProvider);
+}
+function internalFactory(appCheck) {
+  return {
+    getToken: (forceRefresh) => getToken$2(appCheck, forceRefresh),
+    getLimitedUseToken: () => getLimitedUseToken$1(appCheck),
+    addTokenListener: (listener) => addTokenListener(appCheck, "INTERNAL", listener),
+    removeTokenListener: (listener) => removeTokenListener(appCheck.app, listener)
+  };
+}
+var name = "@firebase/app-check";
+var version = "0.10.1";
+function initializeAppCheck(app = getApp(), options) {
+  app = getModularInstance(app);
+  const provider = _getProvider(app, "app-check");
+  if (!getDebugState().initialized) {
+    initializeDebugMode();
+  }
+  if (isDebugMode()) {
+    void getDebugToken().then((token) => (
+      // Not using logger because I don't think we ever want this accidentally hidden.
+      console.log(`App Check debug token: ${token}. You will need to add it to your app's App Check settings in the Firebase console for it to work.`)
+    ));
+  }
+  if (provider.isInitialized()) {
+    const existingInstance = provider.getImmediate();
+    const initialOptions = provider.getOptions();
+    if (initialOptions.isTokenAutoRefreshEnabled === options.isTokenAutoRefreshEnabled && initialOptions.provider.isEqual(options.provider)) {
+      return existingInstance;
+    } else {
+      throw ERROR_FACTORY.create("already-initialized", {
+        appName: app.name
+      });
+    }
+  }
+  const appCheck = provider.initialize({ options });
+  _activate(app, options.provider, options.isTokenAutoRefreshEnabled);
+  if (getStateReference(app).isTokenAutoRefreshEnabled) {
+    addTokenListener(appCheck, "INTERNAL", () => {
+    });
+  }
+  return appCheck;
+}
+function _activate(app, provider, isTokenAutoRefreshEnabled = false) {
+  const state = setInitialState(app, Object.assign({}, DEFAULT_STATE));
+  state.activated = true;
+  state.provider = provider;
+  state.cachedTokenPromise = readTokenFromStorage(app).then((cachedToken) => {
+    if (cachedToken && isValid(cachedToken)) {
+      state.token = cachedToken;
+      notifyTokenListeners(app, { token: cachedToken.token });
+    }
+    return cachedToken;
+  });
+  state.isTokenAutoRefreshEnabled = isTokenAutoRefreshEnabled && app.automaticDataCollectionEnabled;
+  if (!app.automaticDataCollectionEnabled && isTokenAutoRefreshEnabled) {
+    logger.warn("`isTokenAutoRefreshEnabled` is true but `automaticDataCollectionEnabled` was set to false during `initializeApp()`. This blocks automatic token refresh.");
+  }
+  state.provider.initialize(app);
+}
+function setTokenAutoRefreshEnabled(appCheckInstance, isTokenAutoRefreshEnabled) {
+  const app = appCheckInstance.app;
+  const state = getStateReference(app);
+  if (state.tokenRefresher) {
+    if (isTokenAutoRefreshEnabled === true) {
+      state.tokenRefresher.start();
+    } else {
+      state.tokenRefresher.stop();
+    }
+  }
+  state.isTokenAutoRefreshEnabled = isTokenAutoRefreshEnabled;
+}
+async function getToken(appCheckInstance, forceRefresh) {
+  const result = await getToken$2(appCheckInstance, forceRefresh);
+  if (result.error) {
+    throw result.error;
+  }
+  if (result.internalError) {
+    throw result.internalError;
+  }
+  return { token: result.token };
+}
+function getLimitedUseToken(appCheckInstance) {
+  return getLimitedUseToken$1(appCheckInstance);
+}
+function onTokenChanged(appCheckInstance, onNextOrObserver, onError, onCompletion) {
+  let nextFn = () => {
+  };
+  let errorFn = () => {
+  };
+  if (onNextOrObserver.next != null) {
+    nextFn = onNextOrObserver.next.bind(onNextOrObserver);
+  } else {
+    nextFn = onNextOrObserver;
+  }
+  if (onNextOrObserver.error != null) {
+    errorFn = onNextOrObserver.error.bind(onNextOrObserver);
+  } else if (onError) {
+    errorFn = onError;
+  }
+  addTokenListener(appCheckInstance, "EXTERNAL", nextFn, errorFn);
+  return () => removeTokenListener(appCheckInstance.app, nextFn);
+}
+var APP_CHECK_NAME = "app-check";
+var APP_CHECK_NAME_INTERNAL = "app-check-internal";
+function registerAppCheck() {
+  _registerComponent(new Component(
+    APP_CHECK_NAME,
+    (container) => {
+      const app = container.getProvider("app").getImmediate();
+      const heartbeatServiceProvider = container.getProvider("heartbeat");
+      return factory(app, heartbeatServiceProvider);
+    },
+    "PUBLIC"
+    /* ComponentType.PUBLIC */
+  ).setInstantiationMode(
+    "EXPLICIT"
+    /* InstantiationMode.EXPLICIT */
+  ).setInstanceCreatedCallback((container, _identifier, _appcheckService) => {
+    container.getProvider(APP_CHECK_NAME_INTERNAL).initialize();
+  }));
+  _registerComponent(new Component(
+    APP_CHECK_NAME_INTERNAL,
+    (container) => {
+      const appCheck = container.getProvider("app-check").getImmediate();
+      return internalFactory(appCheck);
+    },
+    "PUBLIC"
+    /* ComponentType.PUBLIC */
+  ).setInstantiationMode(
+    "EXPLICIT"
+    /* InstantiationMode.EXPLICIT */
+  ));
+  registerVersion(name, version);
+}
+registerAppCheck();
+
+// node_modules/@angular/fire/fesm2022/angular-fire-app-check.mjs
+var APP_CHECK_PROVIDER_NAME = "app-check";
+var AppCheck = class {
+  constructor(appCheck) {
+    return appCheck;
+  }
+};
+var AppCheckInstances = class {
+  constructor() {
+    return ɵgetAllInstancesOf(APP_CHECK_PROVIDER_NAME);
+  }
+};
+var appCheckInstance$ = timer(0, 300).pipe(concatMap(() => from(ɵgetAllInstancesOf(APP_CHECK_PROVIDER_NAME))), distinct());
+var PROVIDED_APP_CHECK_INSTANCES = new InjectionToken("angularfire2.app-check-instances");
+function defaultAppCheckInstanceFactory(provided, defaultApp) {
+  const defaultAppCheck = ɵgetDefaultInstanceOf(APP_CHECK_PROVIDER_NAME, provided, defaultApp);
+  return defaultAppCheck && new AppCheck(defaultAppCheck);
+}
+var LOCALHOSTS = ["localhost", "0.0.0.0", "127.0.0.1"];
+var isLocalhost = typeof window !== "undefined" && LOCALHOSTS.includes(window.location.hostname);
+var APP_CHECK_INSTANCES_PROVIDER = {
+  provide: AppCheckInstances,
+  deps: [[new Optional(), PROVIDED_APP_CHECK_INSTANCES]]
+};
+var DEFAULT_APP_CHECK_INSTANCE_PROVIDER = {
+  provide: AppCheck,
+  useFactory: defaultAppCheckInstanceFactory,
+  deps: [[new Optional(), PROVIDED_APP_CHECK_INSTANCES], FirebaseApp, PLATFORM_ID]
+};
+var AppCheckModule = class _AppCheckModule {
+  constructor() {
+    registerVersion("angularfire", VERSION.full, "app-check");
+  }
+  static ɵfac = function AppCheckModule_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _AppCheckModule)();
+  };
+  static ɵmod = ɵɵdefineNgModule({
+    type: _AppCheckModule
+  });
+  static ɵinj = ɵɵdefineInjector({
+    providers: [DEFAULT_APP_CHECK_INSTANCE_PROVIDER, APP_CHECK_INSTANCES_PROVIDER]
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AppCheckModule, [{
+    type: NgModule,
+    args: [{
+      providers: [DEFAULT_APP_CHECK_INSTANCE_PROVIDER, APP_CHECK_INSTANCES_PROVIDER]
+    }]
+  }], () => [], null);
+})();
+var getLimitedUseToken2 = ɵzoneWrap(getLimitedUseToken, true, 2);
+var getToken2 = ɵzoneWrap(getToken, true);
+var initializeAppCheck2 = ɵzoneWrap(initializeAppCheck, true);
+var onTokenChanged2 = ɵzoneWrap(onTokenChanged, true);
+var setTokenAutoRefreshEnabled2 = ɵzoneWrap(setTokenAutoRefreshEnabled, true);
 
 // node_modules/@angular/fire/node_modules/@firebase/auth/dist/esm2017/index-35c79a8a.js
 var FactorId = {
@@ -665,8 +1498,8 @@ function _createError(authOrCode, ...rest) {
 }
 function _errorWithCustomMessage(auth, code, message) {
   const errorMap = Object.assign(Object.assign({}, prodErrorMap()), { [code]: message });
-  const factory = new ErrorFactory("auth", "Firebase", errorMap);
-  return factory.create(code, {
+  const factory2 = new ErrorFactory("auth", "Firebase", errorMap);
+  return factory2.create(code, {
     appName: auth.name
   });
 }
@@ -1295,11 +2128,11 @@ function utcTimestampToDateString(utcTimestamp) {
   }
   return void 0;
 }
-function getIdToken(user, forceRefresh = false) {
-  return getModularInstance(user).getIdToken(forceRefresh);
+function getIdToken(user3, forceRefresh = false) {
+  return getModularInstance(user3).getIdToken(forceRefresh);
 }
-async function getIdTokenResult(user, forceRefresh = false) {
-  const userInternal = getModularInstance(user);
+async function getIdTokenResult(user3, forceRefresh = false) {
+  const userInternal = getModularInstance(user3);
   const token = await userInternal.getIdToken(forceRefresh);
   const claims = _parseToken(token);
   _assert(
@@ -1360,7 +2193,7 @@ function _tokenExpiresIn(token) {
   );
   return Number(parsedToken.exp) - Number(parsedToken.iat);
 }
-async function _logoutIfInvalidated(user, promise, bypassAuthState = false) {
+async function _logoutIfInvalidated(user3, promise, bypassAuthState = false) {
   if (bypassAuthState) {
     return promise;
   }
@@ -1368,8 +2201,8 @@ async function _logoutIfInvalidated(user, promise, bypassAuthState = false) {
     return await promise;
   } catch (e) {
     if (e instanceof FirebaseError && isUserInvalidated(e)) {
-      if (user.auth.currentUser === user) {
-        await user.auth.signOut();
+      if (user3.auth.currentUser === user3) {
+        await user3.auth.signOut();
       }
     }
     throw e;
@@ -1379,8 +2212,8 @@ function isUserInvalidated({ code }) {
   return code === `auth/${"user-disabled"}` || code === `auth/${"user-token-expired"}`;
 }
 var ProactiveRefresh = class {
-  constructor(user) {
-    this.user = user;
+  constructor(user3) {
+    this.user = user3;
     this.isRunning = false;
     this.timerId = null;
     this.errorBackoff = 3e4;
@@ -1464,11 +2297,11 @@ var UserMetadata = class {
     };
   }
 };
-async function _reloadWithoutSaving(user) {
+async function _reloadWithoutSaving(user3) {
   var _a;
-  const auth = user.auth;
-  const idToken = await user.getIdToken();
-  const response = await _logoutIfInvalidated(user, getAccountInfo(auth, { idToken }));
+  const auth = user3.auth;
+  const idToken3 = await user3.getIdToken();
+  const response = await _logoutIfInvalidated(user3, getAccountInfo(auth, { idToken: idToken3 }));
   _assert(
     response === null || response === void 0 ? void 0 : response.users.length,
     auth,
@@ -1476,11 +2309,11 @@ async function _reloadWithoutSaving(user) {
     /* AuthErrorCode.INTERNAL_ERROR */
   );
   const coreAccount = response.users[0];
-  user._notifyReloadListener(coreAccount);
+  user3._notifyReloadListener(coreAccount);
   const newProviderData = ((_a = coreAccount.providerUserInfo) === null || _a === void 0 ? void 0 : _a.length) ? extractProviderData(coreAccount.providerUserInfo) : [];
-  const providerData = mergeProviderData(user.providerData, newProviderData);
-  const oldIsAnonymous = user.isAnonymous;
-  const newIsAnonymous = !(user.email && coreAccount.passwordHash) && !(providerData === null || providerData === void 0 ? void 0 : providerData.length);
+  const providerData = mergeProviderData(user3.providerData, newProviderData);
+  const oldIsAnonymous = user3.isAnonymous;
+  const newIsAnonymous = !(user3.email && coreAccount.passwordHash) && !(providerData === null || providerData === void 0 ? void 0 : providerData.length);
   const isAnonymous = !oldIsAnonymous ? false : newIsAnonymous;
   const updates = {
     uid: coreAccount.localId,
@@ -1494,10 +2327,10 @@ async function _reloadWithoutSaving(user) {
     metadata: new UserMetadata(coreAccount.createdAt, coreAccount.lastLoginAt),
     isAnonymous
   };
-  Object.assign(user, updates);
+  Object.assign(user3, updates);
 }
-async function reload(user) {
-  const userInternal = getModularInstance(user);
+async function reload(user3) {
+  const userInternal = getModularInstance(user3);
   await _reloadWithoutSaving(userInternal);
   await userInternal.auth._persistUserIfCurrent(userInternal);
   userInternal.auth._notifyListenersIfCurrent(userInternal);
@@ -1579,14 +2412,14 @@ var StsTokenManager = class _StsTokenManager {
     const expiresIn = "expiresIn" in response && typeof response.expiresIn !== "undefined" ? Number(response.expiresIn) : _tokenExpiresIn(response.idToken);
     this.updateTokensAndExpiration(response.idToken, response.refreshToken, expiresIn);
   }
-  updateFromIdToken(idToken) {
+  updateFromIdToken(idToken3) {
     _assert(
-      idToken.length !== 0,
+      idToken3.length !== 0,
       "internal-error"
       /* AuthErrorCode.INTERNAL_ERROR */
     );
-    const expiresIn = _tokenExpiresIn(idToken);
-    this.updateTokensAndExpiration(idToken, null, expiresIn);
+    const expiresIn = _tokenExpiresIn(idToken3);
+    this.updateTokensAndExpiration(idToken3, null, expiresIn);
   }
   async getToken(auth, forceRefresh = false) {
     if (!forceRefresh && this.accessToken && !this.isExpired) {
@@ -1703,26 +2536,26 @@ var UserImpl = class _UserImpl {
   reload() {
     return reload(this);
   }
-  _assign(user) {
-    if (this === user) {
+  _assign(user3) {
+    if (this === user3) {
       return;
     }
     _assert(
-      this.uid === user.uid,
+      this.uid === user3.uid,
       this.auth,
       "internal-error"
       /* AuthErrorCode.INTERNAL_ERROR */
     );
-    this.displayName = user.displayName;
-    this.photoURL = user.photoURL;
-    this.email = user.email;
-    this.emailVerified = user.emailVerified;
-    this.phoneNumber = user.phoneNumber;
-    this.isAnonymous = user.isAnonymous;
-    this.tenantId = user.tenantId;
-    this.providerData = user.providerData.map((userInfo) => Object.assign({}, userInfo));
-    this.metadata._copy(user.metadata);
-    this.stsTokenManager._assign(user.stsTokenManager);
+    this.displayName = user3.displayName;
+    this.photoURL = user3.photoURL;
+    this.email = user3.email;
+    this.emailVerified = user3.emailVerified;
+    this.phoneNumber = user3.phoneNumber;
+    this.isAnonymous = user3.isAnonymous;
+    this.tenantId = user3.tenantId;
+    this.providerData = user3.providerData.map((userInfo) => Object.assign({}, userInfo));
+    this.metadata._copy(user3.metadata);
+    this.stsTokenManager._assign(user3.stsTokenManager);
   }
   _clone(auth) {
     const newUser = new _UserImpl(Object.assign(Object.assign({}, this), { auth, stsTokenManager: this.stsTokenManager._clone() }));
@@ -1755,13 +2588,13 @@ var UserImpl = class _UserImpl {
   _stopProactiveRefresh() {
     this.proactiveRefresh._stop();
   }
-  async _updateTokensIfNecessary(response, reload2 = false) {
+  async _updateTokensIfNecessary(response, reload3 = false) {
     let tokensRefreshed = false;
     if (response.idToken && response.idToken !== this.stsTokenManager.accessToken) {
       this.stsTokenManager.updateFromServerResponse(response);
       tokensRefreshed = true;
     }
-    if (reload2) {
+    if (reload3) {
       await _reloadWithoutSaving(this);
     }
     await this.auth._persistUserIfCurrent(this);
@@ -1773,8 +2606,8 @@ var UserImpl = class _UserImpl {
     if (_isFirebaseServerApp(this.auth.app)) {
       return Promise.reject(_serverAppCurrentUserOperationNotSupportedError(this.auth));
     }
-    const idToken = await this.getIdToken();
-    await _logoutIfInvalidated(this, deleteAccount(this.auth, { idToken }));
+    const idToken3 = await this.getIdToken();
+    await _logoutIfInvalidated(this, deleteAccount(this.auth, { idToken: idToken3 }));
     this.stsTokenManager.clearRefreshToken();
     return this.auth.signOut();
   }
@@ -1846,7 +2679,7 @@ var UserImpl = class _UserImpl {
     assertStringOrUndefined(_redirectEventId, auth.name);
     assertStringOrUndefined(createdAt, auth.name);
     assertStringOrUndefined(lastLoginAt, auth.name);
-    const user = new _UserImpl({
+    const user3 = new _UserImpl({
       uid,
       auth,
       email,
@@ -1861,12 +2694,12 @@ var UserImpl = class _UserImpl {
       lastLoginAt
     });
     if (providerData && Array.isArray(providerData)) {
-      user.providerData = providerData.map((userInfo) => Object.assign({}, userInfo));
+      user3.providerData = providerData.map((userInfo) => Object.assign({}, userInfo));
     }
     if (_redirectEventId) {
-      user._redirectEventId = _redirectEventId;
+      user3._redirectEventId = _redirectEventId;
     }
-    return user;
+    return user3;
   }
   /**
    * Initialize a User from an idToken server response
@@ -1876,21 +2709,21 @@ var UserImpl = class _UserImpl {
   static async _fromIdTokenResponse(auth, idTokenResponse, isAnonymous = false) {
     const stsTokenManager = new StsTokenManager();
     stsTokenManager.updateFromServerResponse(idTokenResponse);
-    const user = new _UserImpl({
+    const user3 = new _UserImpl({
       uid: idTokenResponse.localId,
       auth,
       stsTokenManager,
       isAnonymous
     });
-    await _reloadWithoutSaving(user);
-    return user;
+    await _reloadWithoutSaving(user3);
+    return user3;
   }
   /**
    * Initialize a User from an idToken server response
    * @param auth
    * @param idTokenResponse
    */
-  static async _fromGetAccountInfoResponse(auth, response, idToken) {
+  static async _fromGetAccountInfoResponse(auth, response, idToken3) {
     const coreAccount = response.users[0];
     _assert(
       coreAccount.localId !== void 0,
@@ -1900,8 +2733,8 @@ var UserImpl = class _UserImpl {
     const providerData = coreAccount.providerUserInfo !== void 0 ? extractProviderData(coreAccount.providerUserInfo) : [];
     const isAnonymous = !(coreAccount.email && coreAccount.passwordHash) && !(providerData === null || providerData === void 0 ? void 0 : providerData.length);
     const stsTokenManager = new StsTokenManager();
-    stsTokenManager.updateFromIdToken(idToken);
-    const user = new _UserImpl({
+    stsTokenManager.updateFromIdToken(idToken3);
+    const user3 = new _UserImpl({
       uid: coreAccount.localId,
       auth,
       stsTokenManager,
@@ -1919,8 +2752,8 @@ var UserImpl = class _UserImpl {
       metadata: new UserMetadata(coreAccount.createdAt, coreAccount.lastLoginAt),
       isAnonymous: !(coreAccount.email && coreAccount.passwordHash) && !(providerData === null || providerData === void 0 ? void 0 : providerData.length)
     };
-    Object.assign(user, updates);
-    return user;
+    Object.assign(user3, updates);
+    return user3;
   }
 };
 var instanceCache = /* @__PURE__ */ new Map();
@@ -1970,14 +2803,14 @@ var PersistenceUserManager = class _PersistenceUserManager {
     this.persistence = persistence;
     this.auth = auth;
     this.userKey = userKey;
-    const { config, name: name2 } = this.auth;
-    this.fullUserKey = _persistenceKeyName(this.userKey, config.apiKey, name2);
-    this.fullPersistenceKey = _persistenceKeyName("persistence", config.apiKey, name2);
+    const { config, name: name3 } = this.auth;
+    this.fullUserKey = _persistenceKeyName(this.userKey, config.apiKey, name3);
+    this.fullPersistenceKey = _persistenceKeyName("persistence", config.apiKey, name3);
     this.boundEventHandler = auth._onStorageEvent.bind(auth);
     this.persistence._addListener(this.fullUserKey, this.boundEventHandler);
   }
-  setCurrentUser(user) {
-    return this.persistence._set(this.fullUserKey, user.toJSON());
+  setCurrentUser(user3) {
+    return this.persistence._set(this.fullUserKey, user3.toJSON());
   }
   async getCurrentUser() {
     const blob = await this.persistence._get(this.fullUserKey);
@@ -2030,7 +2863,7 @@ var PersistenceUserManager = class _PersistenceUserManager {
       try {
         const blob = await persistence._get(key);
         if (blob) {
-          let user;
+          let user3;
           if (typeof blob === "string") {
             const response = await getAccountInfo(auth, {
               idToken: blob
@@ -2038,12 +2871,12 @@ var PersistenceUserManager = class _PersistenceUserManager {
             if (!response) {
               break;
             }
-            user = await UserImpl._fromGetAccountInfoResponse(auth, response, blob);
+            user3 = await UserImpl._fromGetAccountInfoResponse(auth, response, blob);
           } else {
-            user = UserImpl._fromJSON(auth, blob);
+            user3 = UserImpl._fromJSON(auth, blob);
           }
           if (persistence !== selectedPersistence) {
-            userToMigrate = user;
+            userToMigrate = user3;
           }
           selectedPersistence = persistence;
           break;
@@ -2128,9 +2961,6 @@ function _isWebOS(ua = getUA()) {
 function _isIOS(ua = getUA()) {
   return /iphone|ipad|ipod/i.test(ua) || /macintosh/i.test(ua) && /mobile/i.test(ua);
 }
-function _isIOS7Or8(ua = getUA()) {
-  return /(iPad|iPhone|iPod).*OS 7_\d/i.test(ua) || /(iPad|iPhone|iPod).*OS 8_\d/i.test(ua);
-}
 function _isIOSStandalone(ua = getUA()) {
   var _a;
   return _isIOS(ua) && !!((_a = window.navigator) === null || _a === void 0 ? void 0 : _a.standalone);
@@ -2162,9 +2992,9 @@ var AuthMiddlewareQueue = class {
     this.queue = [];
   }
   pushCallback(callback, onAbort) {
-    const wrappedCallback = (user) => new Promise((resolve, reject) => {
+    const wrappedCallback = (user3) => new Promise((resolve, reject) => {
       try {
-        const result = callback(user);
+        const result = callback(user3);
         resolve(result);
       } catch (e) {
         reject(e);
@@ -2399,26 +3229,26 @@ var AuthImpl = class {
     if (this._deleted) {
       return;
     }
-    const user = await this.assertedPersistence.getCurrentUser();
-    if (!this.currentUser && !user) {
+    const user3 = await this.assertedPersistence.getCurrentUser();
+    if (!this.currentUser && !user3) {
       return;
     }
-    if (this.currentUser && user && this.currentUser.uid === user.uid) {
-      this._currentUser._assign(user);
+    if (this.currentUser && user3 && this.currentUser.uid === user3.uid) {
+      this._currentUser._assign(user3);
       await this.currentUser.getIdToken();
       return;
     }
     await this._updateCurrentUser(
-      user,
+      user3,
       /* skipBeforeStateCallbacks */
       true
     );
   }
-  async initializeCurrentUserFromIdToken(idToken) {
+  async initializeCurrentUserFromIdToken(idToken3) {
     try {
-      const response = await getAccountInfo(this, { idToken });
-      const user = await UserImpl._fromGetAccountInfoResponse(this, response, idToken);
-      await this.directlySetCurrentUser(user);
+      const response = await getAccountInfo(this, { idToken: idToken3 });
+      const user3 = await UserImpl._fromGetAccountInfoResponse(this, response, idToken3);
+      await this.directlySetCurrentUser(user3);
     } catch (err) {
       console.warn("FirebaseServerApp could not login user with provided authIdToken: ", err);
       await this.directlySetCurrentUser(null);
@@ -2427,10 +3257,10 @@ var AuthImpl = class {
   async initializeCurrentUser(popupRedirectResolver) {
     var _a;
     if (_isFirebaseServerApp(this.app)) {
-      const idToken = this.app.settings.authIdToken;
-      if (idToken) {
+      const idToken3 = this.app.settings.authIdToken;
+      if (idToken3) {
         return new Promise((resolve) => {
-          setTimeout(() => this.initializeCurrentUserFromIdToken(idToken).then(resolve, resolve));
+          setTimeout(() => this.initializeCurrentUserFromIdToken(idToken3).then(resolve, resolve));
         });
       } else {
         return this.directlySetCurrentUser(null);
@@ -2488,15 +3318,15 @@ var AuthImpl = class {
     }
     return result;
   }
-  async reloadAndSetCurrentUserOrClear(user) {
+  async reloadAndSetCurrentUserOrClear(user3) {
     try {
-      await _reloadWithoutSaving(user);
+      await _reloadWithoutSaving(user3);
     } catch (e) {
       if ((e === null || e === void 0 ? void 0 : e.code) !== `auth/${"network-request-failed"}`) {
         return this.directlySetCurrentUser(null);
       }
     }
-    return this.directlySetCurrentUser(user);
+    return this.directlySetCurrentUser(user3);
   }
   useDeviceLanguage() {
     this.languageCode = _getUserLanguage();
@@ -2508,34 +3338,34 @@ var AuthImpl = class {
     if (_isFirebaseServerApp(this.app)) {
       return Promise.reject(_serverAppCurrentUserOperationNotSupportedError(this));
     }
-    const user = userExtern ? getModularInstance(userExtern) : null;
-    if (user) {
+    const user3 = userExtern ? getModularInstance(userExtern) : null;
+    if (user3) {
       _assert(
-        user.auth.config.apiKey === this.config.apiKey,
+        user3.auth.config.apiKey === this.config.apiKey,
         this,
         "invalid-user-token"
         /* AuthErrorCode.INVALID_AUTH */
       );
     }
-    return this._updateCurrentUser(user && user._clone(this));
+    return this._updateCurrentUser(user3 && user3._clone(this));
   }
-  async _updateCurrentUser(user, skipBeforeStateCallbacks = false) {
+  async _updateCurrentUser(user3, skipBeforeStateCallbacks = false) {
     if (this._deleted) {
       return;
     }
-    if (user) {
+    if (user3) {
       _assert(
-        this.tenantId === user.tenantId,
+        this.tenantId === user3.tenantId,
         this,
         "tenant-id-mismatch"
         /* AuthErrorCode.TENANT_ID_MISMATCH */
       );
     }
     if (!skipBeforeStateCallbacks) {
-      await this.beforeStateQueue.runMiddleware(user);
+      await this.beforeStateQueue.runMiddleware(user3);
     }
     return this.queue(async () => {
-      await this.directlySetCurrentUser(user);
+      await this.directlySetCurrentUser(user3);
       this.notifyAuthListeners();
     });
   }
@@ -2629,12 +3459,12 @@ var AuthImpl = class {
    */
   async revokeAccessToken(token) {
     if (this.currentUser) {
-      const idToken = await this.currentUser.getIdToken();
+      const idToken3 = await this.currentUser.getIdToken();
       const request = {
         providerId: "apple.com",
         tokenType: "ACCESS_TOKEN",
         token,
-        idToken
+        idToken: idToken3
       };
       if (this.tenantId != null) {
         request.tenantId = this.tenantId;
@@ -2651,9 +3481,9 @@ var AuthImpl = class {
       currentUser: (_a = this._currentUser) === null || _a === void 0 ? void 0 : _a.toJSON()
     };
   }
-  async _setRedirectUser(user, popupRedirectResolver) {
+  async _setRedirectUser(user3, popupRedirectResolver) {
     const redirectManager = await this.getOrInitRedirectPersistenceManager(popupRedirectResolver);
-    return user === null ? redirectManager.removeCurrentUser() : redirectManager.setCurrentUser(user);
+    return user3 === null ? redirectManager.removeCurrentUser() : redirectManager.setCurrentUser(user3);
   }
   async getOrInitRedirectPersistenceManager(popupRedirectResolver) {
     if (!this.redirectPersistenceManager) {
@@ -2688,14 +3518,14 @@ var AuthImpl = class {
     }
     return null;
   }
-  async _persistUserIfCurrent(user) {
-    if (user === this.currentUser) {
-      return this.queue(async () => this.directlySetCurrentUser(user));
+  async _persistUserIfCurrent(user3) {
+    if (user3 === this.currentUser) {
+      return this.queue(async () => this.directlySetCurrentUser(user3));
     }
   }
   /** Notifies listeners only if the user is current */
-  _notifyListenersIfCurrent(user) {
-    if (user === this.currentUser) {
+  _notifyListenersIfCurrent(user3) {
+    if (user3 === this.currentUser) {
       this.notifyAuthListeners();
     }
   }
@@ -2769,16 +3599,16 @@ var AuthImpl = class {
    * should only be called from within a queued callback. This is necessary
    * because the queue shouldn't rely on another queued callback.
    */
-  async directlySetCurrentUser(user) {
-    if (this.currentUser && this.currentUser !== user) {
+  async directlySetCurrentUser(user3) {
+    if (this.currentUser && this.currentUser !== user3) {
       this._currentUser._stopProactiveRefresh();
     }
-    if (user && this.isProactiveRefreshEnabled) {
-      user._startProactiveRefresh();
+    if (user3 && this.isProactiveRefreshEnabled) {
+      user3._startProactiveRefresh();
     }
-    this.currentUser = user;
-    if (user) {
-      await this.assertedPersistence.setCurrentUser(user);
+    this.currentUser = user3;
+    if (user3) {
+      await this.assertedPersistence.setCurrentUser(user3);
     } else {
       await this.assertedPersistence.removeCurrentUser();
     }
@@ -3545,11 +4375,11 @@ var EmailAuthCredential = class _EmailAuthCredential extends AuthCredential {
     }
   }
   /** @internal */
-  async _linkToIdToken(auth, idToken) {
+  async _linkToIdToken(auth, idToken3) {
     switch (this.signInMethod) {
       case "password":
         const request = {
-          idToken,
+          idToken: idToken3,
           returnSecureToken: true,
           email: this._email,
           password: this._password,
@@ -3566,7 +4396,7 @@ var EmailAuthCredential = class _EmailAuthCredential extends AuthCredential {
         );
       case "emailLink":
         return signInWithEmailLinkForLinking(auth, {
-          idToken,
+          idToken: idToken3,
           email: this._email,
           oobCode: this._password
         });
@@ -3660,9 +4490,9 @@ var OAuthCredential = class _OAuthCredential extends AuthCredential {
     return signInWithIdp(auth, request);
   }
   /** @internal */
-  _linkToIdToken(auth, idToken) {
+  _linkToIdToken(auth, idToken3) {
     const request = this.buildRequest();
-    request.idToken = idToken;
+    request.idToken = idToken3;
     return signInWithIdp(auth, request);
   }
   /** @internal */
@@ -3744,8 +4574,8 @@ var PhoneAuthCredential = class _PhoneAuthCredential extends AuthCredential {
     return signInWithPhoneNumber$1(auth, this._makeVerificationRequest());
   }
   /** @internal */
-  _linkToIdToken(auth, idToken) {
-    return linkWithPhoneNumber$1(auth, Object.assign({ idToken }, this._makeVerificationRequest()));
+  _linkToIdToken(auth, idToken3) {
+    return linkWithPhoneNumber$1(auth, Object.assign({ idToken: idToken3 }, this._makeVerificationRequest()));
   }
   /** @internal */
   _getReauthenticationResolver(auth) {
@@ -4177,11 +5007,11 @@ var GoogleAuthProvider = class _GoogleAuthProvider extends BaseOAuthProvider {
    * @param idToken - Google ID token.
    * @param accessToken - Google access token.
    */
-  static credential(idToken, accessToken) {
+  static credential(idToken3, accessToken) {
     return OAuthCredential._fromParams({
       providerId: _GoogleAuthProvider.PROVIDER_ID,
       signInMethod: _GoogleAuthProvider.GOOGLE_SIGN_IN_METHOD,
-      idToken,
+      idToken: idToken3,
       accessToken
     });
   }
@@ -4284,9 +5114,9 @@ var SAMLAuthCredential = class _SAMLAuthCredential extends AuthCredential {
     return signInWithIdp(auth, request);
   }
   /** @internal */
-  _linkToIdToken(auth, idToken) {
+  _linkToIdToken(auth, idToken3) {
     const request = this.buildRequest();
-    request.idToken = idToken;
+    request.idToken = idToken3;
     return signInWithIdp(auth, request);
   }
   /** @internal */
@@ -4472,25 +5302,25 @@ var UserCredentialImpl = class _UserCredentialImpl {
     this.operationType = params.operationType;
   }
   static async _fromIdTokenResponse(auth, operationType, idTokenResponse, isAnonymous = false) {
-    const user = await UserImpl._fromIdTokenResponse(auth, idTokenResponse, isAnonymous);
+    const user3 = await UserImpl._fromIdTokenResponse(auth, idTokenResponse, isAnonymous);
     const providerId = providerIdForResponse(idTokenResponse);
     const userCred = new _UserCredentialImpl({
-      user,
+      user: user3,
       providerId,
       _tokenResponse: idTokenResponse,
       operationType
     });
     return userCred;
   }
-  static async _forOperation(user, operationType, response) {
-    await user._updateTokensIfNecessary(
+  static async _forOperation(user3, operationType, response) {
+    await user3._updateTokensIfNecessary(
       response,
       /* reload */
       true
     );
     const providerId = providerIdForResponse(response);
     return new _UserCredentialImpl({
-      user,
+      user: user3,
       providerId,
       _tokenResponse: response,
       operationType
@@ -4529,11 +5359,11 @@ async function signInAnonymously(auth) {
   return userCredential;
 }
 var MultiFactorError = class _MultiFactorError extends FirebaseError {
-  constructor(auth, error, operationType, user) {
+  constructor(auth, error, operationType, user3) {
     var _a;
     super(error.code, error.message);
     this.operationType = operationType;
-    this.user = user;
+    this.user = user3;
     Object.setPrototypeOf(this, _MultiFactorError.prototype);
     this.customData = {
       appName: auth.name,
@@ -4542,15 +5372,15 @@ var MultiFactorError = class _MultiFactorError extends FirebaseError {
       operationType
     };
   }
-  static _fromErrorAndOperation(auth, error, operationType, user) {
-    return new _MultiFactorError(auth, error, operationType, user);
+  static _fromErrorAndOperation(auth, error, operationType, user3) {
+    return new _MultiFactorError(auth, error, operationType, user3);
   }
 };
-function _processCredentialSavingMfaContextIfNecessary(auth, operationType, credential, user) {
+function _processCredentialSavingMfaContextIfNecessary(auth, operationType, credential, user3) {
   const idTokenProvider = operationType === "reauthenticate" ? credential._getReauthenticationResolver(auth) : credential._getIdTokenResponse(auth);
   return idTokenProvider.catch((error) => {
     if (error.code === `auth/${"multi-factor-auth-required"}`) {
-      throw MultiFactorError._fromErrorAndOperation(auth, error, operationType, user);
+      throw MultiFactorError._fromErrorAndOperation(auth, error, operationType, user3);
     }
     throw error;
   });
@@ -4558,8 +5388,8 @@ function _processCredentialSavingMfaContextIfNecessary(auth, operationType, cred
 function providerDataAsNames(providerData) {
   return new Set(providerData.map(({ providerId }) => providerId).filter((pid) => !!pid));
 }
-async function unlink(user, providerId) {
-  const userInternal = getModularInstance(user);
+async function unlink(user3, providerId) {
+  const userInternal = getModularInstance(user3);
   await _assertLinkedStatus(true, userInternal, providerId);
   const { providerUserInfo } = await deleteLinkedAccounts(userInternal.auth, {
     idToken: await userInternal.getIdToken(),
@@ -4576,24 +5406,24 @@ async function unlink(user, providerId) {
   await userInternal.auth._persistUserIfCurrent(userInternal);
   return userInternal;
 }
-async function _link$1(user, credential, bypassAuthState = false) {
-  const response = await _logoutIfInvalidated(user, credential._linkToIdToken(user.auth, await user.getIdToken()), bypassAuthState);
-  return UserCredentialImpl._forOperation(user, "link", response);
+async function _link$1(user3, credential, bypassAuthState = false) {
+  const response = await _logoutIfInvalidated(user3, credential._linkToIdToken(user3.auth, await user3.getIdToken()), bypassAuthState);
+  return UserCredentialImpl._forOperation(user3, "link", response);
 }
-async function _assertLinkedStatus(expected, user, provider) {
-  await _reloadWithoutSaving(user);
-  const providerIds = providerDataAsNames(user.providerData);
+async function _assertLinkedStatus(expected, user3, provider) {
+  await _reloadWithoutSaving(user3);
+  const providerIds = providerDataAsNames(user3.providerData);
   const code = expected === false ? "provider-already-linked" : "no-such-provider";
-  _assert(providerIds.has(provider) === expected, user.auth, code);
+  _assert(providerIds.has(provider) === expected, user3.auth, code);
 }
-async function _reauthenticate(user, credential, bypassAuthState = false) {
-  const { auth } = user;
+async function _reauthenticate(user3, credential, bypassAuthState = false) {
+  const { auth } = user3;
   if (_isFirebaseServerApp(auth.app)) {
     return Promise.reject(_serverAppCurrentUserOperationNotSupportedError(auth));
   }
   const operationType = "reauthenticate";
   try {
-    const response = await _logoutIfInvalidated(user, _processCredentialSavingMfaContextIfNecessary(auth, operationType, credential, user), bypassAuthState);
+    const response = await _logoutIfInvalidated(user3, _processCredentialSavingMfaContextIfNecessary(auth, operationType, credential, user3), bypassAuthState);
     _assert(
       response.idToken,
       auth,
@@ -4609,12 +5439,12 @@ async function _reauthenticate(user, credential, bypassAuthState = false) {
     );
     const { sub: localId } = parsed;
     _assert(
-      user.uid === localId,
+      user3.uid === localId,
       auth,
       "user-mismatch"
       /* AuthErrorCode.USER_MISMATCH */
     );
-    return UserCredentialImpl._forOperation(user, operationType, response);
+    return UserCredentialImpl._forOperation(user3, operationType, response);
   } catch (e) {
     if ((e === null || e === void 0 ? void 0 : e.code) === `auth/${"user-not-found"}`) {
       _fail(
@@ -4641,13 +5471,13 @@ async function _signInWithCredential(auth, credential, bypassAuthState = false) 
 async function signInWithCredential(auth, credential) {
   return _signInWithCredential(_castAuth(auth), credential);
 }
-async function linkWithCredential(user, credential) {
-  const userInternal = getModularInstance(user);
+async function linkWithCredential(user3, credential) {
+  const userInternal = getModularInstance(user3);
   await _assertLinkedStatus(false, userInternal, credential.providerId);
   return _link$1(userInternal, credential);
 }
-async function reauthenticateWithCredential(user, credential) {
-  return _reauthenticate(getModularInstance(user), credential);
+async function reauthenticateWithCredential(user3, credential) {
+  return _reauthenticate(getModularInstance(user3), credential);
 }
 async function signInWithCustomToken$1(auth, request) {
   return _performSignInRequest(auth, "POST", "/v1/accounts:signInWithCustomToken", _addTidIfNecessary(auth, request));
@@ -4941,48 +5771,48 @@ async function fetchSignInMethodsForEmail(auth, email) {
   const { signinMethods } = await createAuthUri(getModularInstance(auth), request);
   return signinMethods || [];
 }
-async function sendEmailVerification(user, actionCodeSettings) {
-  const userInternal = getModularInstance(user);
-  const idToken = await user.getIdToken();
+async function sendEmailVerification(user3, actionCodeSettings) {
+  const userInternal = getModularInstance(user3);
+  const idToken3 = await user3.getIdToken();
   const request = {
     requestType: "VERIFY_EMAIL",
-    idToken
+    idToken: idToken3
   };
   if (actionCodeSettings) {
     _setActionCodeSettingsOnRequest(userInternal.auth, request, actionCodeSettings);
   }
   const { email } = await sendEmailVerification$1(userInternal.auth, request);
-  if (email !== user.email) {
-    await user.reload();
+  if (email !== user3.email) {
+    await user3.reload();
   }
 }
-async function verifyBeforeUpdateEmail(user, newEmail, actionCodeSettings) {
-  const userInternal = getModularInstance(user);
-  const idToken = await user.getIdToken();
+async function verifyBeforeUpdateEmail(user3, newEmail, actionCodeSettings) {
+  const userInternal = getModularInstance(user3);
+  const idToken3 = await user3.getIdToken();
   const request = {
     requestType: "VERIFY_AND_CHANGE_EMAIL",
-    idToken,
+    idToken: idToken3,
     newEmail
   };
   if (actionCodeSettings) {
     _setActionCodeSettingsOnRequest(userInternal.auth, request, actionCodeSettings);
   }
   const { email } = await verifyAndChangeEmail(userInternal.auth, request);
-  if (email !== user.email) {
-    await user.reload();
+  if (email !== user3.email) {
+    await user3.reload();
   }
 }
 async function updateProfile$1(auth, request) {
   return _performApiRequest(auth, "POST", "/v1/accounts:update", request);
 }
-async function updateProfile(user, { displayName, photoURL: photoUrl }) {
+async function updateProfile(user3, { displayName, photoURL: photoUrl }) {
   if (displayName === void 0 && photoUrl === void 0) {
     return;
   }
-  const userInternal = getModularInstance(user);
-  const idToken = await userInternal.getIdToken();
+  const userInternal = getModularInstance(user3);
+  const idToken3 = await userInternal.getIdToken();
   const profileRequest = {
-    idToken,
+    idToken: idToken3,
     displayName,
     photoUrl,
     returnSecureToken: true
@@ -5000,21 +5830,21 @@ async function updateProfile(user, { displayName, photoURL: photoUrl }) {
   }
   await userInternal._updateTokensIfNecessary(response);
 }
-function updateEmail(user, newEmail) {
-  const userInternal = getModularInstance(user);
+function updateEmail(user3, newEmail) {
+  const userInternal = getModularInstance(user3);
   if (_isFirebaseServerApp(userInternal.auth.app)) {
     return Promise.reject(_serverAppCurrentUserOperationNotSupportedError(userInternal.auth));
   }
   return updateEmailOrPassword(userInternal, newEmail, null);
 }
-function updatePassword(user, newPassword) {
-  return updateEmailOrPassword(getModularInstance(user), null, newPassword);
+function updatePassword(user3, newPassword) {
+  return updateEmailOrPassword(getModularInstance(user3), null, newPassword);
 }
-async function updateEmailOrPassword(user, email, password) {
-  const { auth } = user;
-  const idToken = await user.getIdToken();
+async function updateEmailOrPassword(user3, email, password) {
+  const { auth } = user3;
+  const idToken3 = await user3.getIdToken();
   const request = {
-    idToken,
+    idToken: idToken3,
     returnSecureToken: true
   };
   if (email) {
@@ -5023,8 +5853,8 @@ async function updateEmailOrPassword(user, email, password) {
   if (password) {
     request.password = password;
   }
-  const response = await _logoutIfInvalidated(user, updateEmailPassword(auth, request));
-  await user._updateTokensIfNecessary(
+  const response = await _logoutIfInvalidated(user3, updateEmailPassword(auth, request));
+  await user3._updateTokensIfNecessary(
     response,
     /* reload */
     true
@@ -5098,8 +5928,8 @@ var TwitterAdditionalUserInfo = class extends FederatedAdditionalUserInfoWithUse
   }
 };
 function getAdditionalUserInfo(userCredential) {
-  const { user, _tokenResponse } = userCredential;
-  if (user.isAnonymous && !_tokenResponse) {
+  const { user: user3, _tokenResponse } = userCredential;
+  if (user3.isAnonymous && !_tokenResponse) {
     return {
       providerId: null,
       isNewUser: false,
@@ -5130,8 +5960,8 @@ function onAuthStateChanged(auth, nextOrObserver, error, completed) {
 function useDeviceLanguage(auth) {
   getModularInstance(auth).useDeviceLanguage();
 }
-function updateCurrentUser(auth, user) {
-  return getModularInstance(auth).updateCurrentUser(user);
+function updateCurrentUser(auth, user3) {
+  return getModularInstance(auth).updateCurrentUser(user3);
 }
 function signOut(auth) {
   return getModularInstance(auth).signOut();
@@ -5140,17 +5970,17 @@ function revokeAccessToken(auth, token) {
   const authInternal = _castAuth(auth);
   return authInternal.revokeAccessToken(token);
 }
-async function deleteUser(user) {
-  return getModularInstance(user).delete();
+async function deleteUser(user3) {
+  return getModularInstance(user3).delete();
 }
 var MultiFactorSessionImpl = class _MultiFactorSessionImpl {
-  constructor(type, credential, user) {
+  constructor(type, credential, user3) {
     this.type = type;
     this.credential = credential;
-    this.user = user;
+    this.user = user3;
   }
-  static _fromIdtoken(idToken, user) {
-    return new _MultiFactorSessionImpl("enroll", idToken, user);
+  static _fromIdtoken(idToken3, user3) {
+    return new _MultiFactorSessionImpl("enroll", idToken3, user3);
   }
   static _fromMfaPendingCredential(mfaPendingCredential) {
     return new _MultiFactorSessionImpl("signin", mfaPendingCredential);
@@ -5259,17 +6089,17 @@ function withdrawMfa(auth, request) {
   return _performApiRequest(auth, "POST", "/v2/accounts/mfaEnrollment:withdraw", _addTidIfNecessary(auth, request));
 }
 var MultiFactorUserImpl = class _MultiFactorUserImpl {
-  constructor(user) {
-    this.user = user;
+  constructor(user3) {
+    this.user = user3;
     this.enrolledFactors = [];
-    user._onReload((userInfo) => {
+    user3._onReload((userInfo) => {
       if (userInfo.mfaInfo) {
-        this.enrolledFactors = userInfo.mfaInfo.map((enrollment) => MultiFactorInfoImpl._fromServerResponse(user.auth, enrollment));
+        this.enrolledFactors = userInfo.mfaInfo.map((enrollment) => MultiFactorInfoImpl._fromServerResponse(user3.auth, enrollment));
       }
     });
   }
-  static _fromUser(user) {
-    return new _MultiFactorUserImpl(user);
+  static _fromUser(user3) {
+    return new _MultiFactorUserImpl(user3);
   }
   async getSession() {
     return MultiFactorSessionImpl._fromIdtoken(await this.user.getIdToken(), this.user);
@@ -5283,10 +6113,10 @@ var MultiFactorUserImpl = class _MultiFactorUserImpl {
   }
   async unenroll(infoOrUid) {
     const mfaEnrollmentId = typeof infoOrUid === "string" ? infoOrUid : infoOrUid.uid;
-    const idToken = await this.user.getIdToken();
+    const idToken3 = await this.user.getIdToken();
     try {
       const idTokenResponse = await _logoutIfInvalidated(this.user, withdrawMfa(this.user.auth, {
-        idToken,
+        idToken: idToken3,
         mfaEnrollmentId
       }));
       this.enrolledFactors = this.enrolledFactors.filter(({ uid }) => uid !== mfaEnrollmentId);
@@ -5298,8 +6128,8 @@ var MultiFactorUserImpl = class _MultiFactorUserImpl {
   }
 };
 var multiFactorUserCache = /* @__PURE__ */ new WeakMap();
-function multiFactor(user) {
-  const userModular = getModularInstance(user);
+function multiFactor(user3) {
+  const userModular = getModularInstance(user3);
   if (!multiFactorUserCache.has(userModular)) {
     multiFactorUserCache.set(userModular, MultiFactorUserImpl._fromUser(userModular));
   }
@@ -5472,15 +6302,15 @@ var BrowserLocalPersistence = class extends BrowserPersistenceClass {
 BrowserLocalPersistence.type = "LOCAL";
 var browserLocalPersistence = BrowserLocalPersistence;
 var POLLING_INTERVAL_MS = 1e3;
-function getDocumentCookie(name2) {
+function getDocumentCookie(name3) {
   var _a, _b;
-  const escapedName = name2.replace(/[\\^$.*+?()[\]{}|]/g, "\\$&");
+  const escapedName = name3.replace(/[\\^$.*+?()[\]{}|]/g, "\\$&");
   const matcher = RegExp(`${escapedName}=([^;]+)`);
   return (_b = (_a = document.cookie.match(matcher)) === null || _a === void 0 ? void 0 : _a[1]) !== null && _b !== void 0 ? _b : null;
 }
 function getCookieName(key) {
-  const isDevMode = window.location.protocol === "http:";
-  return `${isDevMode ? "__dev_" : "__HOST-"}FIREBASE_${key.split(":")[3]}`;
+  const isDevMode2 = window.location.protocol === "http:";
+  return `${isDevMode2 ? "__dev_" : "__HOST-"}FIREBASE_${key.split(":")[3]}`;
 }
 var CookiePersistence = class {
   constructor() {
@@ -5518,12 +6348,12 @@ var CookiePersistence = class {
     if (!this._isAvailable()) {
       return null;
     }
-    const name2 = getCookieName(key);
+    const name3 = getCookieName(key);
     if (window.cookieStore) {
-      const cookie = await window.cookieStore.get(name2);
+      const cookie = await window.cookieStore.get(name3);
       return cookie === null || cookie === void 0 ? void 0 : cookie.value;
     }
-    return getDocumentCookie(name2);
+    return getDocumentCookie(name3);
   }
   // Log out by overriding the idToken with a sentinel value of ""
   async _remove(key) {
@@ -5534,8 +6364,8 @@ var CookiePersistence = class {
     if (!existingValue) {
       return;
     }
-    const name2 = getCookieName(key);
-    document.cookie = `${name2}=;Max-Age=34560000;Partitioned;Secure;SameSite=Strict;Path=/;Priority=High`;
+    const name3 = getCookieName(key);
+    document.cookie = `${name3}=;Max-Age=34560000;Partitioned;Secure;SameSite=Strict;Path=/;Priority=High`;
     await fetch(`/__cookies__`, { method: "DELETE" }).catch(() => void 0);
   }
   // Listen for cookie changes, both cookieStore and fallback to polling document.cookie
@@ -5543,14 +6373,14 @@ var CookiePersistence = class {
     if (!this._isAvailable()) {
       return;
     }
-    const name2 = getCookieName(key);
+    const name3 = getCookieName(key);
     if (window.cookieStore) {
       const cb = ((event) => {
-        const changedCookie = event.changed.find((change) => change.name === name2);
+        const changedCookie = event.changed.find((change) => change.name === name3);
         if (changedCookie) {
           listener(changedCookie.value);
         }
-        const deletedCookie = event.deleted.find((change) => change.name === name2);
+        const deletedCookie = event.deleted.find((change) => change.name === name3);
         if (deletedCookie) {
           listener(null);
         }
@@ -5559,9 +6389,9 @@ var CookiePersistence = class {
       this.listenerUnsubscribes.set(listener, unsubscribe2);
       return window.cookieStore.addEventListener("change", cb);
     }
-    let lastValue = getDocumentCookie(name2);
+    let lastValue = getDocumentCookie(name3);
     const interval = setInterval(() => {
-      const currentValue = getDocumentCookie(name2);
+      const currentValue = getDocumentCookie(name3);
       if (currentValue !== lastValue) {
         listener(currentValue);
         lastValue = currentValue;
@@ -5838,8 +6668,8 @@ function _getServiceWorkerController() {
 function _getWorkerGlobalScope() {
   return _isWorker() ? self : null;
 }
-var DB_NAME = "firebaseLocalStorageDb";
-var DB_VERSION = 1;
+var DB_NAME2 = "firebaseLocalStorageDb";
+var DB_VERSION2 = 1;
 var DB_OBJECTSTORE_NAME = "firebaseLocalStorage";
 var DB_DATA_KEYPATH = "fbase_key";
 var DBPromise = class {
@@ -5861,11 +6691,11 @@ function getObjectStore(db, isReadWrite) {
   return db.transaction([DB_OBJECTSTORE_NAME], isReadWrite ? "readwrite" : "readonly").objectStore(DB_OBJECTSTORE_NAME);
 }
 function _deleteDatabase() {
-  const request = indexedDB.deleteDatabase(DB_NAME);
+  const request = indexedDB.deleteDatabase(DB_NAME2);
   return new DBPromise(request).toPromise();
 }
 function _openDatabase() {
-  const request = indexedDB.open(DB_NAME, DB_VERSION);
+  const request = indexedDB.open(DB_NAME2, DB_VERSION2);
   return new Promise((resolve, reject) => {
     request.addEventListener("error", () => {
       reject(request.error);
@@ -6040,10 +6870,10 @@ var IndexedDBLocalPersistence = class {
     }
     return false;
   }
-  async _withPendingWrite(write) {
+  async _withPendingWrite(write2) {
     this.pendingWrites++;
     try {
-      await write();
+      await write2();
     } finally {
       this.pendingWrites--;
     }
@@ -6466,8 +7296,8 @@ async function signInWithPhoneNumber(auth, phoneNumber, appVerifier) {
   const verificationId = await _verifyPhoneNumber(authInternal, phoneNumber, getModularInstance(appVerifier));
   return new ConfirmationResultImpl(verificationId, (cred) => signInWithCredential(authInternal, cred));
 }
-async function linkWithPhoneNumber(user, phoneNumber, appVerifier) {
-  const userInternal = getModularInstance(user);
+async function linkWithPhoneNumber(user3, phoneNumber, appVerifier) {
+  const userInternal = getModularInstance(user3);
   await _assertLinkedStatus(
     false,
     userInternal,
@@ -6477,8 +7307,8 @@ async function linkWithPhoneNumber(user, phoneNumber, appVerifier) {
   const verificationId = await _verifyPhoneNumber(userInternal.auth, phoneNumber, getModularInstance(appVerifier));
   return new ConfirmationResultImpl(verificationId, (cred) => linkWithCredential(userInternal, cred));
 }
-async function reauthenticateWithPhoneNumber(user, phoneNumber, appVerifier) {
-  const userInternal = getModularInstance(user);
+async function reauthenticateWithPhoneNumber(user3, phoneNumber, appVerifier) {
+  const userInternal = getModularInstance(user3);
   if (_isFirebaseServerApp(userInternal.auth.app)) {
     return Promise.reject(_serverAppCurrentUserOperationNotSupportedError(userInternal.auth));
   }
@@ -6629,8 +7459,8 @@ async function _verifyPhoneNumber(auth, options, verifier) {
     verifier === null || verifier === void 0 ? void 0 : verifier._reset();
   }
 }
-async function updatePhoneNumber(user, credential) {
-  const userInternal = getModularInstance(user);
+async function updatePhoneNumber(user3, credential) {
+  const userInternal = getModularInstance(user3);
   if (_isFirebaseServerApp(userInternal.auth.app)) {
     return Promise.reject(_serverAppCurrentUserOperationNotSupportedError(userInternal.auth));
   }
@@ -6839,13 +7669,13 @@ var IdpCredential = class extends AuthCredential {
   _getIdTokenResponse(auth) {
     return signInWithIdp(auth, this._buildIdpRequest());
   }
-  _linkToIdToken(auth, idToken) {
-    return signInWithIdp(auth, this._buildIdpRequest(idToken));
+  _linkToIdToken(auth, idToken3) {
+    return signInWithIdp(auth, this._buildIdpRequest(idToken3));
   }
   _getReauthenticationResolver(auth) {
     return signInWithIdp(auth, this._buildIdpRequest());
   }
-  _buildIdpRequest(idToken) {
+  _buildIdpRequest(idToken3) {
     const request = {
       requestUri: this.params.requestUri,
       sessionId: this.params.sessionId,
@@ -6855,8 +7685,8 @@ var IdpCredential = class extends AuthCredential {
       returnSecureToken: true,
       returnIdpCredential: true
     };
-    if (idToken) {
-      request.idToken = idToken;
+    if (idToken3) {
+      request.idToken = idToken3;
     }
     return request;
   }
@@ -6865,30 +7695,30 @@ function _signIn(params) {
   return _signInWithCredential(params.auth, new IdpCredential(params), params.bypassAuthState);
 }
 function _reauth(params) {
-  const { auth, user } = params;
+  const { auth, user: user3 } = params;
   _assert(
-    user,
+    user3,
     auth,
     "internal-error"
     /* AuthErrorCode.INTERNAL_ERROR */
   );
-  return _reauthenticate(user, new IdpCredential(params), params.bypassAuthState);
+  return _reauthenticate(user3, new IdpCredential(params), params.bypassAuthState);
 }
 async function _link(params) {
-  const { auth, user } = params;
+  const { auth, user: user3 } = params;
   _assert(
-    user,
+    user3,
     auth,
     "internal-error"
     /* AuthErrorCode.INTERNAL_ERROR */
   );
-  return _link$1(user, new IdpCredential(params), params.bypassAuthState);
+  return _link$1(user3, new IdpCredential(params), params.bypassAuthState);
 }
 var AbstractPopupRedirectOperation = class {
-  constructor(auth, filter, resolver, user, bypassAuthState = false) {
+  constructor(auth, filter, resolver, user3, bypassAuthState = false) {
     this.auth = auth;
     this.resolver = resolver;
-    this.user = user;
+    this.user = user3;
     this.bypassAuthState = bypassAuthState;
     this.pendingPromise = null;
     this.eventManager = null;
@@ -6982,8 +7812,8 @@ async function signInWithPopup(auth, provider, resolver) {
   const action = new PopupOperation(authInternal, "signInViaPopup", provider, resolverInternal);
   return action.executeNotNull();
 }
-async function reauthenticateWithPopup(user, provider, resolver) {
-  const userInternal = getModularInstance(user);
+async function reauthenticateWithPopup(user3, provider, resolver) {
+  const userInternal = getModularInstance(user3);
   if (_isFirebaseServerApp(userInternal.auth.app)) {
     return Promise.reject(_createError(
       userInternal.auth,
@@ -6996,16 +7826,16 @@ async function reauthenticateWithPopup(user, provider, resolver) {
   const action = new PopupOperation(userInternal.auth, "reauthViaPopup", provider, resolverInternal, userInternal);
   return action.executeNotNull();
 }
-async function linkWithPopup(user, provider, resolver) {
-  const userInternal = getModularInstance(user);
+async function linkWithPopup(user3, provider, resolver) {
+  const userInternal = getModularInstance(user3);
   _assertInstanceOf(userInternal.auth, provider, FederatedAuthProvider);
   const resolverInternal = _withDefaultResolver(userInternal.auth, resolver);
   const action = new PopupOperation(userInternal.auth, "linkViaPopup", provider, resolverInternal, userInternal);
   return action.executeNotNull();
 }
 var PopupOperation = class _PopupOperation extends AbstractPopupRedirectOperation {
-  constructor(auth, filter, provider, resolver, user) {
-    super(auth, filter, resolver, user);
+  constructor(auth, filter, provider, resolver, user3) {
+    super(auth, filter, resolver, user3);
     this.provider = provider;
     this.authWindow = null;
     this.pollId = null;
@@ -7137,9 +7967,9 @@ var RedirectAction = class extends AbstractPopupRedirectOperation {
       return;
     }
     if (event.eventId) {
-      const user = await this.auth._redirectUserForId(event.eventId);
-      if (user) {
-        this.user = user;
+      const user3 = await this.auth._redirectUserForId(event.eventId);
+      if (user3) {
+        this.user = user3;
         return super.onAuthEvent(event);
       } else {
         this.resolve(null);
@@ -7163,9 +7993,6 @@ async function _getAndClearPendingRedirectStatus(resolver, auth) {
 }
 async function _setPendingRedirectStatus(resolver, auth) {
   return resolverPersistence(resolver)._set(pendingRedirectKey(auth), "true");
-}
-function _clearRedirectOutcomes() {
-  redirectOutcomeMap.clear();
 }
 function _overrideRedirectResult(auth, result) {
   redirectOutcomeMap.set(auth._key(), result);
@@ -7195,11 +8022,11 @@ async function _signInWithRedirect(auth, provider, resolver) {
     /* AuthEventType.SIGN_IN_VIA_REDIRECT */
   );
 }
-function reauthenticateWithRedirect(user, provider, resolver) {
-  return _reauthenticateWithRedirect(user, provider, resolver);
+function reauthenticateWithRedirect(user3, provider, resolver) {
+  return _reauthenticateWithRedirect(user3, provider, resolver);
 }
-async function _reauthenticateWithRedirect(user, provider, resolver) {
-  const userInternal = getModularInstance(user);
+async function _reauthenticateWithRedirect(user3, provider, resolver) {
+  const userInternal = getModularInstance(user3);
   _assertInstanceOf(userInternal.auth, provider, FederatedAuthProvider);
   if (_isFirebaseServerApp(userInternal.auth.app)) {
     return Promise.reject(_serverAppCurrentUserOperationNotSupportedError(userInternal.auth));
@@ -7210,11 +8037,11 @@ async function _reauthenticateWithRedirect(user, provider, resolver) {
   const eventId = await prepareUserForRedirect(userInternal);
   return resolverInternal._openRedirect(userInternal.auth, provider, "reauthViaRedirect", eventId);
 }
-function linkWithRedirect(user, provider, resolver) {
-  return _linkWithRedirect(user, provider, resolver);
+function linkWithRedirect(user3, provider, resolver) {
+  return _linkWithRedirect(user3, provider, resolver);
 }
-async function _linkWithRedirect(user, provider, resolver) {
-  const userInternal = getModularInstance(user);
+async function _linkWithRedirect(user3, provider, resolver) {
+  const userInternal = getModularInstance(user3);
   _assertInstanceOf(userInternal.auth, provider, FederatedAuthProvider);
   await userInternal.auth._initializationPromise;
   const resolverInternal = _withDefaultResolver(userInternal.auth, resolver);
@@ -7242,11 +8069,11 @@ async function _getRedirectResult(auth, resolverExtern, bypassAuthState = false)
   }
   return result;
 }
-async function prepareUserForRedirect(user) {
-  const eventId = _generateEventId(`${user.uid}:::`);
-  user._redirectEventId = eventId;
-  await user.auth._setRedirectUser(user);
-  await user.auth._persistUserIfCurrent(user);
+async function prepareUserForRedirect(user3) {
+  const eventId = _generateEventId(`${user3.uid}:::`);
+  user3._redirectEventId = eventId;
+  await user3.auth._setRedirectUser(user3);
+  await user3.auth._persistUserIfCurrent(user3);
   return eventId;
 }
 var EVENT_DUPLICATION_CACHE_DURATION_MS = 10 * 60 * 1e3;
@@ -7549,7 +8376,7 @@ var AuthPopup = class {
     }
   }
 };
-function _open(auth, url, name2, width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT) {
+function _open(auth, url, name3, width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT) {
   const top = Math.max((window.screen.availHeight - height) / 2, 0).toString();
   const left = Math.max((window.screen.availWidth - width) / 2, 0).toString();
   let target = "";
@@ -7560,8 +8387,8 @@ function _open(auth, url, name2, width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT)
     left
   });
   const ua = getUA().toLowerCase();
-  if (name2) {
-    target = _isChromeIOS(ua) ? TARGET_BLANK : name2;
+  if (name3) {
+    target = _isChromeIOS(ua) ? TARGET_BLANK : name3;
   }
   if (_isFirefox(ua)) {
     url = url || FIREFOX_EMPTY_URL;
@@ -7770,9 +8597,9 @@ var PhoneMultiFactorAssertionImpl = class _PhoneMultiFactorAssertionImpl extends
     return new _PhoneMultiFactorAssertionImpl(credential);
   }
   /** @internal */
-  _finalizeEnroll(auth, idToken, displayName) {
+  _finalizeEnroll(auth, idToken3, displayName) {
     return finalizeEnrollPhoneMfa(auth, {
-      idToken,
+      idToken: idToken3,
       displayName,
       phoneVerificationInfo: this.credential._makeVerificationRequest()
     });
@@ -7873,7 +8700,7 @@ var TotpMultiFactorAssertionImpl = class _TotpMultiFactorAssertionImpl extends M
     return new _TotpMultiFactorAssertionImpl(otp, enrollmentId);
   }
   /** @internal */
-  async _finalizeEnroll(auth, idToken, displayName) {
+  async _finalizeEnroll(auth, idToken3, displayName) {
     _assert(
       typeof this.secret !== "undefined",
       auth,
@@ -7881,7 +8708,7 @@ var TotpMultiFactorAssertionImpl = class _TotpMultiFactorAssertionImpl extends M
       /* AuthErrorCode.ARGUMENT_ERROR */
     );
     return finalizeEnrollTotpMfa(auth, {
-      idToken,
+      idToken: idToken3,
       displayName,
       totpVerificationInfo: this.secret._makeTotpVerificationInfo(this.otp)
     });
@@ -7951,8 +8778,8 @@ var TotpSecret = class _TotpSecret {
 function _isEmptyString(input) {
   return typeof input === "undefined" || (input === null || input === void 0 ? void 0 : input.length) === 0;
 }
-var name = "@firebase/auth";
-var version = "1.10.8";
+var name2 = "@firebase/auth";
+var version2 = "1.10.8";
 var AuthInterop = class {
   constructor(auth) {
     this.auth = auth;
@@ -7977,8 +8804,8 @@ var AuthInterop = class {
     if (this.internalListeners.has(listener)) {
       return;
     }
-    const unsubscribe = this.auth.onIdTokenChanged((user) => {
-      listener((user === null || user === void 0 ? void 0 : user.stsTokenManager.accessToken) || null);
+    const unsubscribe = this.auth.onIdTokenChanged((user3) => {
+      listener((user3 === null || user3 === void 0 ? void 0 : user3.stsTokenManager.accessToken) || null);
     });
     this.internalListeners.set(listener, unsubscribe);
     this.updateProactiveRefresh();
@@ -8073,27 +8900,27 @@ function registerAuth(clientPlatform) {
     "EXPLICIT"
     /* InstantiationMode.EXPLICIT */
   ));
-  registerVersion(name, version, getVersionForPlatform(clientPlatform));
-  registerVersion(name, version, "esm2017");
+  registerVersion(name2, version2, getVersionForPlatform(clientPlatform));
+  registerVersion(name2, version2, "esm2017");
 }
 var DEFAULT_ID_TOKEN_MAX_AGE = 5 * 60;
 var authIdTokenMaxAge = getExperimentalSetting("authIdTokenMaxAge") || DEFAULT_ID_TOKEN_MAX_AGE;
 var lastPostedIdToken = null;
-var mintCookieFactory = (url) => async (user) => {
-  const idTokenResult = user && await user.getIdTokenResult();
+var mintCookieFactory = (url) => async (user3) => {
+  const idTokenResult = user3 && await user3.getIdTokenResult();
   const idTokenAge = idTokenResult && ((/* @__PURE__ */ new Date()).getTime() - Date.parse(idTokenResult.issuedAtTime)) / 1e3;
   if (idTokenAge && idTokenAge > authIdTokenMaxAge) {
     return;
   }
-  const idToken = idTokenResult === null || idTokenResult === void 0 ? void 0 : idTokenResult.token;
-  if (lastPostedIdToken === idToken) {
+  const idToken3 = idTokenResult === null || idTokenResult === void 0 ? void 0 : idTokenResult.token;
+  if (lastPostedIdToken === idToken3) {
     return;
   }
-  lastPostedIdToken = idToken;
+  lastPostedIdToken = idToken3;
   await fetch(url, {
-    method: idToken ? "POST" : "DELETE",
-    headers: idToken ? {
-      "Authorization": `Bearer ${idToken}`
+    method: idToken3 ? "POST" : "DELETE",
+    headers: idToken3 ? {
+      "Authorization": `Bearer ${idToken3}`
     } : {}
   });
 };
@@ -8116,7 +8943,7 @@ function getAuth(app = getApp()) {
     if (location.origin === authTokenSyncUrl.origin) {
       const mintCookie = mintCookieFactory(authTokenSyncUrl.toString());
       beforeAuthStateChanged(auth, mintCookie, () => mintCookie(auth.currentUser));
-      onIdTokenChanged(auth, (user) => mintCookie(user));
+      onIdTokenChanged(auth, (user3) => mintCookie(user3));
     }
   }
   const authEmulatorHost = getDefaultEmulatorHost("auth");
@@ -8157,7 +8984,148 @@ registerAuth(
   /* ClientPlatform.BROWSER */
 );
 
+// node_modules/@angular/fire/node_modules/rxfire/auth/index.esm.js
+function authState(auth) {
+  return new Observable(function(subscriber) {
+    var unsubscribe = onAuthStateChanged(auth, subscriber.next.bind(subscriber), subscriber.error.bind(subscriber), subscriber.complete.bind(subscriber));
+    return { unsubscribe };
+  });
+}
+function user(auth) {
+  return new Observable(function(subscriber) {
+    var unsubscribe = onIdTokenChanged(auth, subscriber.next.bind(subscriber), subscriber.error.bind(subscriber), subscriber.complete.bind(subscriber));
+    return { unsubscribe };
+  });
+}
+function idToken(auth) {
+  return user(auth).pipe(switchMap(function(user3) {
+    return user3 ? from(getIdToken(user3)) : of(null);
+  }));
+}
+
+// node_modules/@angular/fire/fesm2022/angular-fire-auth.mjs
+var AUTH_PROVIDER_NAME = "auth";
+var Auth = class {
+  constructor(auth) {
+    return auth;
+  }
+};
+var AuthInstances = class {
+  constructor() {
+    return ɵgetAllInstancesOf(AUTH_PROVIDER_NAME);
+  }
+};
+var authInstance$ = timer(0, 300).pipe(concatMap(() => from(ɵgetAllInstancesOf(AUTH_PROVIDER_NAME))), distinct());
+var PROVIDED_AUTH_INSTANCES = new InjectionToken("angularfire2.auth-instances");
+function defaultAuthInstanceFactory(provided, defaultApp) {
+  const defaultAuth = ɵgetDefaultInstanceOf(AUTH_PROVIDER_NAME, provided, defaultApp);
+  return defaultAuth && new Auth(defaultAuth);
+}
+function authInstanceFactory(fn) {
+  return (zone, injector) => {
+    const auth = zone.runOutsideAngular(() => fn(injector));
+    return new Auth(auth);
+  };
+}
+var AUTH_INSTANCES_PROVIDER = {
+  provide: AuthInstances,
+  deps: [[new Optional(), PROVIDED_AUTH_INSTANCES]]
+};
+var DEFAULT_AUTH_INSTANCE_PROVIDER = {
+  provide: Auth,
+  useFactory: defaultAuthInstanceFactory,
+  deps: [[new Optional(), PROVIDED_AUTH_INSTANCES], FirebaseApp]
+};
+var AuthModule = class _AuthModule {
+  constructor() {
+    registerVersion("angularfire", VERSION.full, "auth");
+  }
+  static ɵfac = function AuthModule_Factory(__ngFactoryType__) {
+    return new (__ngFactoryType__ || _AuthModule)();
+  };
+  static ɵmod = ɵɵdefineNgModule({
+    type: _AuthModule
+  });
+  static ɵinj = ɵɵdefineInjector({
+    providers: [DEFAULT_AUTH_INSTANCE_PROVIDER, AUTH_INSTANCES_PROVIDER]
+  });
+};
+(() => {
+  (typeof ngDevMode === "undefined" || ngDevMode) && setClassMetadata(AuthModule, [{
+    type: NgModule,
+    args: [{
+      providers: [DEFAULT_AUTH_INSTANCE_PROVIDER, AUTH_INSTANCES_PROVIDER]
+    }]
+  }], () => [], null);
+})();
+function provideAuth(fn, ...deps) {
+  registerVersion("angularfire", VERSION.full, "auth");
+  return makeEnvironmentProviders([DEFAULT_AUTH_INSTANCE_PROVIDER, AUTH_INSTANCES_PROVIDER, {
+    provide: PROVIDED_AUTH_INSTANCES,
+    useFactory: authInstanceFactory(fn),
+    multi: true,
+    deps: [NgZone, Injector, ɵAngularFireSchedulers, FirebaseApps, [new Optional(), AppCheckInstances], ...deps]
+  }]);
+}
+var authState2 = ɵzoneWrap(authState, true);
+var idToken2 = ɵzoneWrap(idToken, true);
+var user2 = ɵzoneWrap(user, true);
+var applyActionCode2 = ɵzoneWrap(applyActionCode, true);
+var beforeAuthStateChanged2 = ɵzoneWrap(beforeAuthStateChanged, true);
+var checkActionCode2 = ɵzoneWrap(checkActionCode, true);
+var confirmPasswordReset2 = ɵzoneWrap(confirmPasswordReset, true, 2);
+var connectAuthEmulator2 = ɵzoneWrap(connectAuthEmulator, true);
+var createUserWithEmailAndPassword2 = ɵzoneWrap(createUserWithEmailAndPassword, true, 2);
+var deleteUser2 = ɵzoneWrap(deleteUser, true, 2);
+var fetchSignInMethodsForEmail2 = ɵzoneWrap(fetchSignInMethodsForEmail, true, 2);
+var getAdditionalUserInfo2 = ɵzoneWrap(getAdditionalUserInfo, true, 2);
+var getAuth2 = ɵzoneWrap(getAuth, true);
+var getIdToken2 = ɵzoneWrap(getIdToken, true);
+var getIdTokenResult2 = ɵzoneWrap(getIdTokenResult, true);
+var getMultiFactorResolver2 = ɵzoneWrap(getMultiFactorResolver, true);
+var getRedirectResult2 = ɵzoneWrap(getRedirectResult, true);
+var initializeAuth2 = ɵzoneWrap(initializeAuth, true);
+var initializeRecaptchaConfig2 = ɵzoneWrap(initializeRecaptchaConfig, true);
+var isSignInWithEmailLink2 = ɵzoneWrap(isSignInWithEmailLink, true);
+var linkWithCredential2 = ɵzoneWrap(linkWithCredential, true, 2);
+var linkWithPhoneNumber2 = ɵzoneWrap(linkWithPhoneNumber, true, 2);
+var linkWithPopup2 = ɵzoneWrap(linkWithPopup, true, 2);
+var linkWithRedirect2 = ɵzoneWrap(linkWithRedirect, true, 2);
+var onAuthStateChanged2 = ɵzoneWrap(onAuthStateChanged, true);
+var onIdTokenChanged2 = ɵzoneWrap(onIdTokenChanged, true);
+var parseActionCodeURL2 = ɵzoneWrap(parseActionCodeURL, true);
+var reauthenticateWithCredential2 = ɵzoneWrap(reauthenticateWithCredential, true, 2);
+var reauthenticateWithPhoneNumber2 = ɵzoneWrap(reauthenticateWithPhoneNumber, true, 2);
+var reauthenticateWithPopup2 = ɵzoneWrap(reauthenticateWithPopup, true, 2);
+var reauthenticateWithRedirect2 = ɵzoneWrap(reauthenticateWithRedirect, true, 2);
+var reload2 = ɵzoneWrap(reload, true, 2);
+var revokeAccessToken2 = ɵzoneWrap(revokeAccessToken, true, 2);
+var sendEmailVerification2 = ɵzoneWrap(sendEmailVerification, true, 2);
+var sendPasswordResetEmail2 = ɵzoneWrap(sendPasswordResetEmail, true, 2);
+var sendSignInLinkToEmail2 = ɵzoneWrap(sendSignInLinkToEmail, true, 2);
+var setPersistence2 = ɵzoneWrap(setPersistence, true);
+var signInAnonymously2 = ɵzoneWrap(signInAnonymously, true, 2);
+var signInWithCredential2 = ɵzoneWrap(signInWithCredential, true, 2);
+var signInWithCustomToken2 = ɵzoneWrap(signInWithCustomToken, true, 2);
+var signInWithEmailAndPassword2 = ɵzoneWrap(signInWithEmailAndPassword, true, 2);
+var signInWithEmailLink2 = ɵzoneWrap(signInWithEmailLink, true, 2);
+var signInWithPhoneNumber2 = ɵzoneWrap(signInWithPhoneNumber, true, 2);
+var signInWithPopup2 = ɵzoneWrap(signInWithPopup, true, 2);
+var signInWithRedirect2 = ɵzoneWrap(signInWithRedirect, true, 2);
+var signOut2 = ɵzoneWrap(signOut, true, 2);
+var unlink2 = ɵzoneWrap(unlink, true, 2);
+var updateCurrentUser2 = ɵzoneWrap(updateCurrentUser, true, 2);
+var updateEmail2 = ɵzoneWrap(updateEmail, true, 2);
+var updatePassword2 = ɵzoneWrap(updatePassword, true, 2);
+var updatePhoneNumber2 = ɵzoneWrap(updatePhoneNumber, true, 2);
+var updateProfile2 = ɵzoneWrap(updateProfile, true, 2);
+var useDeviceLanguage2 = ɵzoneWrap(useDeviceLanguage, true, 2);
+var validatePassword2 = ɵzoneWrap(validatePassword, true, 2);
+var verifyBeforeUpdateEmail2 = ɵzoneWrap(verifyBeforeUpdateEmail, true, 2);
+var verifyPasswordResetCode2 = ɵzoneWrap(verifyPasswordResetCode, true, 2);
+
 export {
+  AppCheckInstances,
   FactorId,
   ProviderId,
   SignInMethod,
@@ -8166,100 +9134,90 @@ export {
   debugErrorMap,
   prodErrorMap,
   AUTH_ERROR_CODES_MAP_DO_NOT_USE_INTERNALLY,
-  _fail,
-  _createError,
-  _assert,
-  debugAssert,
-  getIdToken,
-  getIdTokenResult,
-  reload,
-  _getInstance,
   inMemoryPersistence,
-  _persistenceKeyName,
-  _isAndroid,
-  _isIOS,
-  _isIOS7Or8,
-  _castAuth,
-  initializeAuth,
-  connectAuthEmulator,
   AuthCredential,
   EmailAuthCredential,
   OAuthCredential,
   PhoneAuthCredential,
   ActionCodeURL,
-  parseActionCodeURL,
   EmailAuthProvider,
   OAuthProvider,
   FacebookAuthProvider,
   GoogleAuthProvider,
   GithubAuthProvider,
-  SAMLAuthCredential,
   SAMLAuthProvider,
   TwitterAuthProvider,
-  signInAnonymously,
-  unlink,
-  signInWithCredential,
-  linkWithCredential,
-  reauthenticateWithCredential,
-  signInWithCustomToken,
-  sendPasswordResetEmail,
-  confirmPasswordReset,
-  applyActionCode,
-  checkActionCode,
-  verifyPasswordResetCode,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  sendSignInLinkToEmail,
-  isSignInWithEmailLink,
-  signInWithEmailLink,
-  fetchSignInMethodsForEmail,
-  sendEmailVerification,
-  verifyBeforeUpdateEmail,
-  updateProfile,
-  updateEmail,
-  updatePassword,
-  getAdditionalUserInfo,
-  setPersistence,
-  initializeRecaptchaConfig,
-  validatePassword,
-  onIdTokenChanged,
-  beforeAuthStateChanged,
-  onAuthStateChanged,
-  useDeviceLanguage,
-  updateCurrentUser,
-  signOut,
-  revokeAccessToken,
-  deleteUser,
-  getMultiFactorResolver,
   multiFactor,
   browserLocalPersistence,
   browserCookiePersistence,
   browserSessionPersistence,
-  _generateEventId,
   indexedDBLocalPersistence,
   RecaptchaVerifier,
-  signInWithPhoneNumber,
-  linkWithPhoneNumber,
-  reauthenticateWithPhoneNumber,
-  updatePhoneNumber,
   PhoneAuthProvider,
-  signInWithPopup,
-  reauthenticateWithPopup,
-  linkWithPopup,
-  _clearRedirectOutcomes,
-  _overrideRedirectResult,
-  signInWithRedirect,
-  reauthenticateWithRedirect,
-  linkWithRedirect,
-  getRedirectResult,
-  _getRedirectResult,
-  AuthEventManager,
-  _getProjectConfig,
-  _getRedirectUrl,
   browserPopupRedirectResolver,
   PhoneMultiFactorGenerator,
   TotpMultiFactorGenerator,
   TotpSecret,
-  getAuth
+  Auth,
+  AuthInstances,
+  authInstance$,
+  AuthModule,
+  provideAuth,
+  authState2 as authState,
+  idToken2 as idToken,
+  user2 as user,
+  applyActionCode2 as applyActionCode,
+  beforeAuthStateChanged2 as beforeAuthStateChanged,
+  checkActionCode2 as checkActionCode,
+  confirmPasswordReset2 as confirmPasswordReset,
+  connectAuthEmulator2 as connectAuthEmulator,
+  createUserWithEmailAndPassword2 as createUserWithEmailAndPassword,
+  deleteUser2 as deleteUser,
+  fetchSignInMethodsForEmail2 as fetchSignInMethodsForEmail,
+  getAdditionalUserInfo2 as getAdditionalUserInfo,
+  getAuth2 as getAuth,
+  getIdToken2 as getIdToken,
+  getIdTokenResult2 as getIdTokenResult,
+  getMultiFactorResolver2 as getMultiFactorResolver,
+  getRedirectResult2 as getRedirectResult,
+  initializeAuth2 as initializeAuth,
+  initializeRecaptchaConfig2 as initializeRecaptchaConfig,
+  isSignInWithEmailLink2 as isSignInWithEmailLink,
+  linkWithCredential2 as linkWithCredential,
+  linkWithPhoneNumber2 as linkWithPhoneNumber,
+  linkWithPopup2 as linkWithPopup,
+  linkWithRedirect2 as linkWithRedirect,
+  onAuthStateChanged2 as onAuthStateChanged,
+  onIdTokenChanged2 as onIdTokenChanged,
+  parseActionCodeURL2 as parseActionCodeURL,
+  reauthenticateWithCredential2 as reauthenticateWithCredential,
+  reauthenticateWithPhoneNumber2 as reauthenticateWithPhoneNumber,
+  reauthenticateWithPopup2 as reauthenticateWithPopup,
+  reauthenticateWithRedirect2 as reauthenticateWithRedirect,
+  reload2 as reload,
+  revokeAccessToken2 as revokeAccessToken,
+  sendEmailVerification2 as sendEmailVerification,
+  sendPasswordResetEmail2 as sendPasswordResetEmail,
+  sendSignInLinkToEmail2 as sendSignInLinkToEmail,
+  setPersistence2 as setPersistence,
+  signInAnonymously2 as signInAnonymously,
+  signInWithCredential2 as signInWithCredential,
+  signInWithCustomToken2 as signInWithCustomToken,
+  signInWithEmailAndPassword2 as signInWithEmailAndPassword,
+  signInWithEmailLink2 as signInWithEmailLink,
+  signInWithPhoneNumber2 as signInWithPhoneNumber,
+  signInWithPopup2 as signInWithPopup,
+  signInWithRedirect2 as signInWithRedirect,
+  signOut2 as signOut,
+  unlink2 as unlink,
+  updateCurrentUser2 as updateCurrentUser,
+  updateEmail2 as updateEmail,
+  updatePassword2 as updatePassword,
+  updatePhoneNumber2 as updatePhoneNumber,
+  updateProfile2 as updateProfile,
+  useDeviceLanguage2 as useDeviceLanguage,
+  validatePassword2 as validatePassword,
+  verifyBeforeUpdateEmail2 as verifyBeforeUpdateEmail,
+  verifyPasswordResetCode2 as verifyPasswordResetCode
 };
-//# sourceMappingURL=chunk-DFHPHJHW.js.map
+//# sourceMappingURL=chunk-ZYKQUQBM.js.map

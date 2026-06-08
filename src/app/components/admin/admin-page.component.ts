@@ -1,12 +1,10 @@
-import { ChangeDetectionStrategy } from '@angular/core';
-import { cardEnterAnimation } from '@app/components/card/card.animations';
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import { ButtonComponent } from '@app/components/button/button.component';
-import { AuthService } from '@app/services/auth.service'; 
+import { AuthService } from '@app/services/auth.service';
+import { Firestore, collection, collectionData, deleteDoc, doc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { cardEnterAnimation } from '@app/components/card/card.animations';
 
 @Component({
   selector: 'app-admin-page',
@@ -14,33 +12,38 @@ import { AuthService } from '@app/services/auth.service';
   imports: [
     CommonModule,
     ButtonComponent,
-    FormsModule
   ],
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ cardEnterAnimation ]
+  animations: [cardEnterAnimation],
 })
 export class AdminPageComponent implements OnInit {
-  contacts$: Observable<any[]> | undefined;
-  user: any; 
+  contacts$?: Observable<any[]>;
+  user: any;
   constructor(
-    private firestore: AngularFirestore,
-    public auth: AuthService 
+    private firestore: Firestore,
+    public auth: AuthService
   ) {}
 
   ngOnInit() {
-    this.contacts$ = this.firestore.collection('contacts').valueChanges({ idField: 'id' });
-    this.auth.getUser().subscribe(u => this.user = u);
+    const contactsRef = collection(this.firestore, 'contacts');
+    this.contacts$ = collectionData(contactsRef, { idField: 'id' }) as Observable<any[]>;
+    this.auth.getUser().subscribe((u) => (this.user = u));
   }
 
   deleteMessage(id: string) {
-    this.firestore.collection('contacts').doc(id).delete()
+    const contactRef = doc(this.firestore, `contacts/${id}`);
+    deleteDoc(contactRef)
       .then(() => alert('Mensagem excluída!'))
-      .catch(err => console.error('Erro ao excluir:', err));
+      .catch((err) => console.error('Erro ao excluir:', err));
   }
 
   logout() {
-    this.auth.logout().then(() => alert('Logout realizado!'));
+    this.auth.logout()
+      .then(() => {
+        alert('Logout realizado!');
+      })
+      .catch((err) => console.error('Erro no logout:', err));
   }
 }
