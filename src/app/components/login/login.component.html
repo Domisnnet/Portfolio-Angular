@@ -29,12 +29,14 @@
           />
         </div>
         <div class="form-mail">
-          <app-button 
-            type="submit" 
-            size="md" 
-            [loading]="false"
+          <app-button
+            type="submit"
+            size="md"
+            iconLeft="fa-solid fa-right-to-bracket"
+            ariaLabel="Entrar com email"
+            [loading]="loading"
           >
-            Entrar com E-mail
+            Entrar com Email
           </app-button>
         </div>
       </form>
@@ -42,6 +44,8 @@
         <app-button
           type="button"
           size="md"
+          [loading]="loading"
+          [disabled]="loading"
           (click)="loginGoogle()"
         >
           <span class="google-icon"></span>
