@@ -10,18 +10,17 @@
           <app-button
             type="button"
             size="md"
+            [loading]="loading"
+            [disabled]="loading"
             (click)="logout()"
           >
             Logout
           </app-button>
         </div>
       </div>
-      <ng-container *ngIf="contacts$ | async as contacts; else loading">
-        <div
-          class="messages-list"
-          *ngIf="contacts.length; else emptyState"
-        >
-          <article class="message-card" *ngFor="let contact of contacts">
+      <ng-container *ngIf="contacts$ | async as contacts; else loadingTpl">
+        <div class="messages-list" *ngIf="contacts.length; else emptyState">
+          <article class="message-card" *ngFor="let contact of contacts; trackBy: trackByContactId">
             <header class="message-header">
               <div class="message-user">
                 <h3>{{ contact.name }}</h3>
@@ -36,7 +35,7 @@
                 type="button"
                 size="sm"
                 variant="outline"
-                (click)="deleteMessage(contact.id)"
+                (click)="deleteMessage(contact.id!)"
               >
                 Excluir
               </app-button>
@@ -49,7 +48,7 @@
           <p>Nenhuma mensagem recebida até o momento.</p>
         </div>
       </ng-template>
-      <ng-template #loading>
+      <ng-template #loadingTpl>
         <div class="empty-state">
           <p>Carregando mensagens...</p>
         </div>

@@ -1,40 +1,30 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signOut, user } from '@angular/fire/auth';
+import { Auth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, signOut, user } from '@angular/fire/auth';
 import { browserLocalPersistence, setPersistence } from 'firebase/auth';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private auth = inject(Auth);
   readonly user$ = user(this.auth);
-  private async ensurePersistence(): Promise<void> {
-    await setPersistence(
-      this.auth,
-      browserLocalPersistence
-    );
+
+  constructor() {
+    void setPersistence(this.auth, browserLocalPersistence);
   }
 
-  async loginEmail(
-    email: string,
-    password: string
-  ) {
-    await this.ensurePersistence();
-
-    return signInWithEmailAndPassword(
-      this.auth,
-      email,
-      password
-    );
+  async loginEmail(email: string, password: string) {
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   async loginGooglePopup() {
-    await this.ensurePersistence();
     const provider = new GoogleAuthProvider();
-    return signInWithPopup(
-      this.auth,
-      provider
-    );
+    return signInWithPopup(this.auth, provider);
+  }
+
+  async loginGoogleRedirect() {
+    const provider = new GoogleAuthProvider();
+    return signInWithRedirect(this.auth, provider);
   }
 
   async logout() {

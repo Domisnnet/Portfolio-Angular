@@ -1,17 +1,18 @@
 <section class="contact-section container" data-cosmic-effects="minimal">
   <article class="contact-card" @cardEnter>
     <div class="contact-body">
-      <h2>Entre em contato</h2>
-      <p>Aberto a novas ideias, colaborações e desafios.</p>
-      <form (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
+      <h2>Contato</h2>
+      <p>Envie sua mensagem e retornarei o mais breve possível.</p>
+      <form (ngSubmit)="submitForm()" novalidate autocomplete="on">
         <div class="form-group">
           <label for="name">Nome</label>
           <input
             id="name"
             name="name"
             type="text"
-            [(ngModel)]="contactData.name"
+            [(ngModel)]="name"
             required
+            autocomplete="name"
             placeholder="Seu nome"
           />
         </div>
@@ -21,9 +22,10 @@
             id="email"
             name="email"
             type="email"
-            [(ngModel)]="contactData.email"
+            [(ngModel)]="email"
             required
-            placeholder="seu-email@.com"
+            autocomplete="email"
+            placeholder="seu-email@dominio.com"
           />
         </div>
         <div class="form-group">
@@ -31,10 +33,11 @@
           <textarea
             id="message"
             name="message"
-            rows="5"
-            [(ngModel)]="contactData.message"
+            [(ngModel)]="message"
             required
-            placeholder="Escreva sua mensagem..."
+            autocomplete="off"
+            placeholder="Escreva sua mensagem"
+            rows="6"
           ></textarea>
         </div>
         <div class="form-mail">
