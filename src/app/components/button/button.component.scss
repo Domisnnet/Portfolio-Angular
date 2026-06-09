@@ -2,9 +2,6 @@
   display: inline-block;
 }
 
-/* =========================
-  BASE
-========================= */
 .btn {
   box-sizing: border-box;
   display: inline-flex;
@@ -22,7 +19,12 @@
   white-space: nowrap;
   cursor: pointer;
   outline: none;
-  transition: transform var(--motion-fast),box-shadow var(--motion-fast),background var(--motion-fast),color var(--motion-fast),opacity var(--motion-fast);
+  transition:
+    transform var(--motion-fast),
+    box-shadow var(--motion-fast),
+    background var(--motion-fast),
+    color var(--motion-fast),
+    opacity var(--motion-fast);
 
   &:focus-visible {
     box-shadow: 0 0 0 var(--border-thick) rgba(var(--accent-rgb), 0.4);
@@ -36,12 +38,16 @@
   &:disabled {
     opacity: var(--op-subtle);
     cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &[aria-disabled='true'] {
+    opacity: var(--op-subtle);
+    cursor: not-allowed;
+    pointer-events: none;
   }
 }
 
-/* =========================
-  VARIANTS
-========================= */
 .btn.solid {
   background: var(--energy-main);
   color: var(--text-primary);
@@ -58,9 +64,6 @@
   color: var(--energy-main);
 }
 
-/* =========================
-  SIZES
-========================= */
 .btn.sm {
   font-size: var(--font-xs);
   padding: var(--space-xs) var(--space-md);
@@ -85,16 +88,10 @@
   min-height: var(--btn-height-xl);
 }
 
-/* =========================
-  WIDTH
-========================= */
 .btn.full-width {
   width: 100%;
 }
 
-/* =========================
-  LOADING
-========================= */
 .btn.loading {
   pointer-events: none;
   position: relative;

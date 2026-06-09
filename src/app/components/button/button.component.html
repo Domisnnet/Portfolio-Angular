@@ -1,21 +1,63 @@
-<a
-  class="btn"
-  [ngClass]="[
-    variant,
-    size,
-    fullWidth ? 'full-width' : '',
-    loading ? 'loading' : ''
-  ]"
-  [attr.href]="href || null"
-  [routerLink]="!href ? routerLink : null"
-  [attr.target]="href ? target : null"
-  [attr.rel]="href ? computedRel : null"
-  [attr.aria-disabled]="disabled || loading"
->
-  <span class="btn-content">
-    <ng-content></ng-content>
-  </span>
-  @if (loading) {
-    <span class="btn-loader"></span>
-  }
-</a>
+@if (isLink) {
+  <a
+    class="btn"
+    [ngClass]="[
+      variant,
+      size,
+      fullWidth ? 'full-width' : '',
+      loading ? 'loading' : ''
+    ]"
+    [attr.href]="disabled || loading ? null : href"
+    [attr.target]="target || null"
+    [attr.rel]="computedRel"
+    [attr.aria-disabled]="disabled || loading"
+    [attr.tabindex]="disabled || loading ? -1 : 0"
+  >
+    <span class="btn-content">
+      <ng-content></ng-content>
+    </span>
+    @if (loading) {
+      <span class="btn-loader" aria-hidden="true"></span>
+    }
+  </a>
+} @else if (isRouterLink) {
+  <a
+    class="btn"
+    [ngClass]="[
+      variant,
+      size,
+      fullWidth ? 'full-width' : '',
+      loading ? 'loading' : ''
+    ]"
+    [routerLink]="disabled || loading ? null : routerLink"
+    [attr.aria-disabled]="disabled || loading"
+    [attr.tabindex]="disabled || loading ? -1 : 0"
+  >
+    <span class="btn-content">
+      <ng-content></ng-content>
+    </span>
+    @if (loading) {
+      <span class="btn-loader" aria-hidden="true"></span>
+    }
+  </a>
+} @else {
+  <button
+    class="btn"
+    [ngClass]="[
+      variant,
+      size,
+      fullWidth ? 'full-width' : '',
+      loading ? 'loading' : ''
+    ]"
+    [attr.type]="type"
+    [disabled]="disabled || loading"
+    [attr.aria-busy]="loading"
+  >
+    <span class="btn-content">
+      <ng-content></ng-content>
+    </span>
+    @if (loading) {
+      <span class="btn-loader" aria-hidden="true"></span>
+    }
+  </button>
+}
