@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ContactService } from '@app/services/contact.service';
+import { ButtonComponent } from '@app/components/button/button.component';
 import { cardEnterAnimation } from '@app/components/card/card.animations';
 
 @Component({
@@ -9,7 +10,8 @@ import { cardEnterAnimation } from '@app/components/card/card.animations';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ButtonComponent
   ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss'],
@@ -21,23 +23,33 @@ export class ContactPageComponent {
   email = '';
   message = '';
   loading = false;
-  constructor(private contactService: ContactService) {}
-  async submitForm() {
+  successMessage = '';
+  errorMessage = '';
+  constructor(
+    private contactService: ContactService
+  ) {}
+
+  async submitForm(form: NgForm): Promise<void> {
+    this.successMessage = '';
+    this.errorMessage = '';
+    if (form.invalid) {
+      Object.values(form.controls).forEach(control => { control.markAsTouched(); });
+      this.errorMessage = 'Preencha corretamente todos os campos obrigatórios.';
+      return;
+    }
+
     this.loading = true;
     try {
       await this.contactService.addContact({
-        name: this.name,
-        email: this.email,
-        message: this.message,
+        name: this.name.trim(),
+        email: this.email.trim(),
+        message: this.message.trim(),
       });
-
-      alert('Mensagem enviada com sucesso!');
-      this.name = '';
-      this.email = '';
-      this.message = '';
-    } catch (err) {
-      console.error('Erro ao enviar mensagem:', err);
-      alert('Não foi possível enviar sua mensagem. Tente novamente.');
+      this.successMessage = 'Mensagem enviada com sucesso!';
+      form.resetForm();
+    } catch (error) {
+      console.error( 'Erro ao enviar mensagem:', error );
+      this.errorMessage = 'Não foi possível enviar sua mensagem. Tente novamente.';
     } finally {
       this.loading = false;
     }

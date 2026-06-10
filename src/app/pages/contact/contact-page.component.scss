@@ -80,3 +80,38 @@
   align-items: center;
   justify-content: center;
 }
+
+.field-error {
+  display: block;
+  margin-top: var(--space-xs);
+  color: var(--feedback-error);
+  font-size: var(--font-xs);
+  font-weight: var(--font-medium);
+}
+
+.form-alert {
+  margin-bottom: var(--space-md);
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-sm);
+  font-weight: var(--font-medium);
+}
+
+.form-alert.error {
+  color: var(--feedback-error);
+  border: var(--border-thin) solid var(--feedback-error);
+  background: rgba( var(--feedback-error-rgb), 0.10 );
+}
+
+.form-alert.success {
+  color: var(--feedback-success);
+  border: var(--border-thin) solid var(--feedback-success);
+  background: rgba( var(--feedback-success-rgb), 0.10 );
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--space-lg);
+}
