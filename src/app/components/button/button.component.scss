@@ -1,5 +1,10 @@
 :host {
-  display: inline-block;
+  display: inline-flex;
+}
+
+:host(.full-width-host) {
+  display: flex;
+  width: 100%;
 }
 
 .btn {
@@ -10,6 +15,7 @@
   gap: var(--space-xs);
   min-height: var(--btn-height-md);
   padding: var(--space-sm) var(--space-lg);
+  width: auto;
   border-radius: var(--radius-pill);
   border: var(--border-medium) solid transparent;
   font-family: var(--font-main);
@@ -46,6 +52,10 @@
     cursor: not-allowed;
     pointer-events: none;
   }
+}
+
+.btn.full-width {
+  width: 100%;
 }
 
 .btn.solid {

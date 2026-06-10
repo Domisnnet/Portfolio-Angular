@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContactService } from '@app/services/contact.service';
-import { ButtonComponent } from '@app/components/button/button.component';
 import { cardEnterAnimation } from '@app/components/card/card.animations';
 
 @Component({
@@ -10,8 +9,7 @@ import { cardEnterAnimation } from '@app/components/card/card.animations';
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule,
-    ButtonComponent
+    FormsModule
   ],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss'],
