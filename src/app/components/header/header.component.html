@@ -11,20 +11,20 @@
         <a routerLink="/">Home</a>
         <span class="divisor"> | </span>
         <a routerLink="/projects">Projetos</a>
-        <app-button class="nav-links btn"
-          [routerLink]="['/login']"
-          variant="solid"
-          size="sm"
-        >
-          Login
-        </app-button>
-        <app-button class="nav-links btn"
-          [routerLink]="['/contact']"
-          variant="outline"
-          size="sm"
-        >
-          Contato
-        </app-button>
+        <div class="nav-buttons">
+          <app-button
+            [routerLink]="['/login']"
+            variant="solid"
+            size="sm"
+            text="Login"
+          ></app-button>
+          <app-button
+            [routerLink]="['/contact']"
+            variant="outline"
+            size="sm"
+            text="Contato"
+          ></app-button>
+        </div>
       </nav>
       <div class="header-actions">
         <app-theme-toggle />   
