@@ -54,7 +54,4 @@
 .terminal-footer.signal { --terminal-accent-rgb: 255,90,220; } 
 .terminal-footer.success { --terminal-accent-rgb: 120,255,160; } 
 .terminal-footer.warning { --terminal-accent-rgb: 255,120,120; }
-
-.terminal-footer.signal-active::before {
-  opacity: var(--op-visible);
-}
+.terminal-footer.signal-active::before { opacity: var(--op-visible); }
