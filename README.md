@@ -5,7 +5,7 @@
 <h2 id="sobre-o-projeto">1. DomisDev Portfolio - Engenharia Front-end 🚀🚀</h2>
 
 ![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat-square)
-![Framework](https://img.shields.io/badge/Angular-DD0031?style=flat-square&logo=angular&logoColor=white)
+![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat-square&logo=angular&logoColor=white)
 ![Hosting](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
 [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/Domisnnet/portfolio/blob/main/LICENSE)
 ![Portfólio](src/assets/images/portfólio.png)
@@ -72,13 +72,13 @@ O portfólio utiliza **GitHub Actions** para que cada `push` na branch principal
 
 <h2 id="fluxo-de-deploy">6. 📦 Fluxo de Deploy</h2>
 
-Para lançar uma nova versão manualmente ou configurar o ambiente:
-
+O deploy da aplicação utiliza Firebase Hosting integrado ao GitHub.
+Para publicar uma nova versão basta executar:
 ```bash
-# Build otimizado para produção
 ng build --configuration production
-
-# Deploy via Firebase CLI
+```
+Em seguida:
+```bash
 firebase deploy
 ```
 
@@ -133,9 +133,8 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 
 Explore a arquitetura Angular completa no repositório oficial:
 
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=fff)
+![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=for-the-badge&logo=angular&logoColor=fff)
 [![Repositório](https://img.shields.io/badge/Repositório-Domisnnet%2FPortfólio--Angular-DD0031?style=for-the-badge&logo=github&labelColor=0d1117)](https://github.com/Domisnnet/Portfólio-Angular)
-
 
 ---
 
