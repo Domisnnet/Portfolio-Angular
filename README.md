@@ -41,7 +41,7 @@ Bem-vindo ao repositório do meu **Portfólio Profissional**. Esta aplicação �
 Entre no Portfólio clicando no botão abaixo:
 
 <div align="left">
-  <a href="https://portfolio-23948217-d156e.web.app/" target="_blank">
+  <a href="https://portfolio-23948217-d156e.firebaseapp.com/" target="_blank">
     <img alt="Botão Acessar" src="src/assets/images/botão.webp" height="70" width="70" />
   </a>
 </div>
