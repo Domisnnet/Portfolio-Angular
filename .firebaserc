@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "portfolio-23948217-d156e"
-  }
+    "default": "portfolio-23948217-d156e.firebaseapp"
+  },
+  "targets": {},
+  "etags": {}
 }
