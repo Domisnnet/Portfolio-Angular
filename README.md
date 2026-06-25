@@ -127,6 +127,11 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 <p>🎨 <strong>Resposta:</strong> O SCSS permite variáveis e mixins. No componente <code>stack-pill</code>, usei mixins para gerar cores automaticamente com base em mapas, mantendo a consistência visual.</p>
 </details>
 
+<details>
+<summary><strong>Posso utilizar este código em meu portfólio pessoal ❓</strong></summary>
+<p>🤝 <strong>Resposta:</strong> Com certeza. O projeto é <strong>Open Source</strong>. Você pode clonar, estudar a estrutura de pastas e utilizar como base para seus próprios estudos de UI, desde que mantenha a atribuição original conforme a licença MIT e não se esqueça de dar os devidos créditos!!.</p>
+</details>
+
 ---
 
 <h2 id="codigo-fonte">9. 💻 Código Fonte</h2>
