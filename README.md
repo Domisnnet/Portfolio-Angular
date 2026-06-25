@@ -2,7 +2,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/Domisnnet/Portfolio-Angular?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Domisnnet/Portfolio-Angular?style=for-the-badge)
 
-<h2 id="sobre-o-projeto">1. DomisDev Portfolio - Engenharia Front-end 🚀🚀</h2>
+<h2 id="sobre-o-projeto">1. 🚀 DomisDev Portfólio - Engenharia Front-end 🚀🚀</h2>
 
 ![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat-square)
 ![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat-square&logo=angular&logoColor=white)
@@ -10,7 +10,7 @@
 [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/Domisnnet/portfolio/blob/main/LICENSE)
 ![Portfólio](src/assets/images/portfólio.png)
 
-Bem-vindo ao repositório do meu **Portfólio Profissional**. Esta aplicação é uma vitrine técnica desenvolvida com **Angular**, utilizando componentes **Standalone** para máxima performance. O projeto combina design sofisticado em **SCSS** com uma infraestrutura escalável no **Firebase**, refletindo minha stack de especialista em Front-end.
+Bem-vindo ao Repositório do meu: **Portfólio Profissional**. Esta aplicação é uma **Vitrine Técnica** desenvolvida com **Angular**, utilizando componentes **Standalone** para máxima reutilização e Otimização de Performance. O projeto combina design sofisticado em **SCSS** com uma infraestrutura escalável no **Firebase**, refletindo minha stack de especialista em Front-end.
 
 ---
 
@@ -54,7 +54,7 @@ Entre no Portfólio clicando no botão abaixo:
 | :--- | :--- |
 | 🛡️ **Standalone Components** | Arquitetura moderna sem NgModules, reduzindo o bundle size e complexidade. |
 | 💊 **Stack Pills System** | Componente reutilizável para exibição dinâmica de tecnologias com ícones. |
-| 📱 **Adaptive Design** | Layout Hero que transiciona de horizontal (PC) para vertical (Mobile) automaticamente. |
+| 📱 **Adaptive Design** | Layout Hero que transiciona de horizontal **(PC)** para vertical **(Mobile)** automaticamente. |
 | ⚡ **Firebase Hosting** | Entrega ultra-rápida via CDN global com certificado SSL e cache inteligente. |
 | 🎨 **Material Pallete** | Identidade visual baseada em princípios de design atômico e cores Material. |
 
@@ -113,8 +113,8 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 </details>
 
 <details>
-<summary><strong>Como foi tratada a performance do portfólio ❓</strong></summary>
-<p>⚡ <strong>Resposta:</strong> Além do Standalone, apliquei otimizações de imagem e minificação de SCSS, utilizando a CDN global do <strong>Firebase Hosting</strong> para atingir pontuações altas no <em>Lighthouse</em>.</p>
+<summary><strong>Como foi tratada a performance do Portfólio ❓</strong></summary>
+<p>⚡ <strong>Resposta:</strong> Além do Standalone, apliquei otimizações de imagem e minificação de <strong>SCSS</strong>, utilizando a CDN global do <strong>Firebase Hosting</strong> para atingir pontuações altas no <em>Lighthouse</em>.</p>
 </details>
 
 <details>
@@ -128,8 +128,8 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 </details>
 
 <details>
-<summary><strong>Posso utilizar este código em meu portfólio pessoal ❓</strong></summary>
-<p>🤝 <strong>Resposta:</strong> Com certeza. O projeto é <strong>Open Source</strong>. Você pode clonar, estudar a estrutura de pastas e utilizar como base para seus próprios estudos de UI, desde que mantenha a atribuição original conforme a licença MIT e não se esqueça de dar os devidos créditos!!.</p>
+<summary><strong>Posso utilizar este código em meu Portfólio e/ou Projeto pessoal ❓</strong></summary>
+<p>🤝 <strong>Resposta:</strong> Com certeza. O projeto é <strong>Open Source</strong>. Você pode clonar, estudar a estrutura de pastas e utilizar como base para seus próprios estudos de UI, desde que mantenha a atribuição original conforme a <strong>Licença MIT</strong> e não se esqueça de dar os devidos créditos!!.</p>
 </details>
 
 ---
