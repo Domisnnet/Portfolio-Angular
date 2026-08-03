@@ -7,12 +7,13 @@ html[data-jump-progress='0'] {
   .nebula-layer-b,
   .nebula-layer-c,
   .stars-canvas { opacity: var(--op-visible); filter: blur(var(--blur-disabled)); transform: none; }
+  .cosmic-grid { opacity: var(--op-minimal); }
 }
 
 /* JUMP PROGRESS 1 */
 html[data-jump-progress='1'] {
-  .scanning-artifact { opacity: var(--op-default); }
   .astro { opacity: var(--op-subtle); }
+  .scanning-artifact { opacity: var(--op-default); }
   .cosmic-grid { opacity: var(--op-default); }
 }
 
@@ -24,32 +25,22 @@ html[data-jump-progress='2'] {
   .nebula-layer-a,
   .nebula-layer-b,
   .nebula-layer-c,
-  .cosmic-tractor-beam,
-  .beam-core,
-  .beam-weave,
   .cosmic-grid { opacity: var(--op-hidden); filter: blur(var(--blur-weak)); }
   .stars-canvas { opacity: var(--op-low); }
 }
 
 /* JUMP PROGRESS 3 */
 html[data-jump-progress='3'] {
+  app-secret-star,
+  app-layer-jump,
+  app-layer-indicator,
+  app-scanning-artifact,
+  app-cosmic-tractor-beam { opacity: var(--op-hidden); visibility: hidden; pointer-events: none; }
   .astro,
   .stars-canvas,
   .nebula-layer,
   .nebula-layer-a,
   .nebula-layer-b,
   .nebula-layer-c,
-  .scanning-artifact,
-  .cosmic-tractor-beam,
-  .beam-core,
-  .beam-weave,
-  .cosmic-grid,
-  .artifact-card,
-  .page-header { opacity: var(--op-hidden); }
-  .wormhole,
-  .wormhole.active,
-  .wormhole-core,
-  .wormhole-square,
-  .square-inner,
-  .wormhole-vortex { opacity: var(--op-visible); filter: blur(var(--blur-disabled)); }
+  .cosmic-grid { opacity: var(--op-hidden); }
 }
