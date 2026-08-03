@@ -8,6 +8,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './privacidade.component.html',
   styleUrl: './privacidade.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ cardEnterAnimation ]
+  animations: [cardEnterAnimation],
 })
 export class PrivacidadeComponent {}

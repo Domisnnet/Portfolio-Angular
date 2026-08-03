@@ -1,16 +1,9 @@
-<section
-  class="footer-layout"
-  aria-labelledby="about-title"
->
+<section class="footer-layout" aria-labelledby="about-title">
   @if (!isTextMode) {
-    <article
-      class="footer-card footer-card--about footer-card--glass-holographic"
-      [@cardEnter]
-      role="article"
-    >
+    <article class="footer-card footer-card--about footer-card--glass-holographic" [@cardEnter] role="article">
       <header class="footer-header">
         <span class="about-pulse">●</span>
-          LOG_FILE_RECOVERED.bin
+        LOG_FILE_RECOVERED.bin
       </header>
       <div class="footer-body">
         <div class="footer-block">
@@ -18,9 +11,7 @@
             {{ content.meta.timestamp }}
           </span>
           <p class="footer-content">
-            <span class="t-mono">
-              &gt; {{ content.cmd.whoami }}
-            </span>
+            <span class="t-mono"> &gt; {{ content.cmd.whoami }} </span>
           </p>
           <p class="footer-content">
             {{ content.logs.origin.intro }}
@@ -109,10 +100,7 @@
           </p>
         </div>
         <footer class="footer-actions">
-          <button
-            class="footer-btn"
-            (click)="toggleMode()"
-          >
+          <button class="footer-btn" (click)="toggleMode()">
             {{ content.actions.simple }}
           </button>
           <span class="footer-meta executing">
@@ -122,14 +110,8 @@
       </div>
     </article>
   } @else {
-    <article
-      class="footer-card footer-card--about footer-card--glass-holographic"
-      @cardEnter
-    >
-      <button
-        class="about-lang-badge"
-        (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')"
-      >
+    <article class="footer-card footer-card--about footer-card--glass-holographic" @cardEnter>
+      <button class="about-lang-badge" (click)="toggleLanguage(language === 'pt' ? 'en' : 'pt')">
         {{ language === 'pt' ? 'EN' : 'PT' }}
       </button>
       <div class="about-text">
@@ -141,10 +123,7 @@
         <p>{{ content.simple.p3 }}</p>
       </div>
       <div class="footer-actions">
-        <button
-          class="footer-btn"
-          (click)="toggleMode()"
-        >
+        <button class="footer-btn" (click)="toggleMode()">
           {{ content.actions.technical }}
         </button>
       </div>
