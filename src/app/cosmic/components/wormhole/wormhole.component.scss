@@ -5,7 +5,7 @@
   inset: 0;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -70%);
+  transform: translate(-50%, -50%);
   z-index: var(--z-worhhole);
   pointer-events: none;
 }
@@ -52,7 +52,7 @@
   position: absolute;
   width: var(--wormhole-core-size);
   height: var(--wormhole-core-size);
-  background: radial-gradient( circle, var(--layer-base), var(--wormhole-energy), transparent );
+  background: radial-gradient(circle, var(--layer-base), var(--wormhole-energy), transparent );
   filter: blur(var(--blur-soft));
   animation: vortex-spin var(--wormhole-vortex-speed) linear infinite;
 }

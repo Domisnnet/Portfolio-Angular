@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StackPillComponent } from '../stack-pill/stack-pill.component';
 import { STACK_CONFIG, PillCategory, TagKey, StackPillData } from '../../constants/project-tags.config';
 
-interface ResolvedPill extends StackPillData {
-  key: TagKey;
-}
+interface ResolvedPill extends StackPillData { key: TagKey; }
 
 @Component({
   selector: 'app-project-card',
@@ -29,9 +27,7 @@ export class ProjectCardComponent {
   /* FLIP STATE */
   private flipped = signal(false);
   isFlipped = this.flipped.asReadonly();
-  toggleFlip(): void {
-    this.flipped.update((v) => !v);
-  }
+  toggleFlip(): void { this.flipped.update((v) => !v); }
 
   /* STACK PILLS */
   pills = computed(() => {
@@ -50,11 +46,7 @@ export class ProjectCardComponent {
       }))
       .sort((a, b) => {
         const categoryDiff = order[a.category] - order[b.category];
-
-        if (categoryDiff !== 0) {
-          return categoryDiff;
-        }
-
+        if (categoryDiff !== 0) { return categoryDiff; }
         return a.label.localeCompare(b.label);
       });
   });
@@ -62,10 +54,7 @@ export class ProjectCardComponent {
   /* CATEGORIES */
   categories = computed<PillCategory[]>(() => {
     const set = new Set<PillCategory>();
-    for (const pill of this.pills()) {
-      set.add(pill.category);
-    }
-
+    for (const pill of this.pills()) { set.add(pill.category); }
     return Array.from(set);
   });
 }
