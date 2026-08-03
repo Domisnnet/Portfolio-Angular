@@ -29,9 +29,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: radial-gradient(circle,
-    rgba(var(--artifact-brand-rgb-neon), 0.45) 0%,
-    rgba(var(--artifact-brand-rgb-neon), 0.25) 35%, transparent 70%); 
+  background: radial-gradient(circle, rgba(var(--artifact-brand-rgb-neon), 0.45) 0%, rgba(var(--artifact-brand-rgb-neon), 0.25) 35%, transparent 70%); 
   filter: blur(var(--blur-medium));
 }
 
@@ -50,7 +48,7 @@
 /* ===========================
   Onda de Expansão
 =========================== */
-.beam-wave {
+.beam-weave {
   position: absolute;
   inset: -8%;
   border-radius: 50%;
