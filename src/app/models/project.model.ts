@@ -1,4 +1,4 @@
-import { PillCategory } from '../constants/project-tags.config';
+import { PillCategory } from '@app/constants/project-tags.config';
 
 export interface Project {
   title: string;

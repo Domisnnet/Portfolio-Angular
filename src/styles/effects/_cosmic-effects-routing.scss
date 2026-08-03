@@ -94,7 +94,6 @@ html[data-cosmic-effects='silent'] {
 /* =========================
   Deep Space - Estável
 ========================= */
-/*
 html[data-layer='deep-space'] {
   .astro,
   .stars-canvas,
@@ -114,12 +113,10 @@ html[data-layer='deep-space'] {
   .square-inner,
   .wormhole-vortex { opacity: var(--op-hidden); }
 }
-*/  
 
 /* ============================
   Stable Orbit - Exploração
 ============================ */
-/*
 html[data-layer='stable-orbit'] {
   .scanning-artifact { opacity: var(--op-visible); transform: translateX(0); }
   .cosmic-grid { opacity: var(--op-minimal); }
@@ -138,12 +135,10 @@ html[data-layer='stable-orbit'] {
   .square-inner,
   .wormhole-vortex { opacity: var(--op-hidden); }
 }
-*/
 
 /* =============================
   Unstable Orbit — PRÉ-SALTO
 ============================= */
-/*
 html[data-layer='unstable-orbit'] {
   .astro,
   .scanning-artifact { opacity: var(--op-hidden); transform: translateX(-12px); }
@@ -163,7 +158,6 @@ html[data-layer='unstable-orbit'] {
   .square-inner,
   .wormhole-vortex { opacity: var(--op-standard); }
 }
-*/  
 
 /* =========================
   WORMHOLE — EVENTO
