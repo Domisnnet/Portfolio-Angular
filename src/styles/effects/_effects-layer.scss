@@ -33,7 +33,6 @@ html[data-layer='wormhole'] {
   .artifact-card,
   .page-header { opacity: var(--op-hidden); }
   .wormhole,
-  .wormhole.active,
   .wormhole-core,
   .wormhole-square,
   .square-inner,
@@ -54,7 +53,6 @@ html[data-layer='deep-space'] {
   .beam-weave,
   .cosmic-grid { opacity: var(--op-minimal); }
   .wormhole,
-  .wormhole.active,
   .wormhole-core,
   .wormhole-square,
   .square-inner,
