@@ -57,7 +57,6 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
   private initCanvas(): void {
     const canvas = this.canvasRef().nativeElement;
     const rect = this.hostRef.nativeElement.getBoundingClientRect();
-
     this.width = rect.width;
     this.height = rect.height;
     canvas.width = Math.floor(this.width * this.dpr);
@@ -99,8 +98,7 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
       this.ctx.beginPath();
       this.ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
       this.ctx.fill();
-    }
-    this.ctx.globalAlpha = 1;
+    } this.ctx.globalAlpha = 1;
   }
 
   private update(): void {
@@ -115,11 +113,9 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
   private getStarColor(): string {
     const styles = getComputedStyle(document.documentElement);
     const color = styles.getPropertyValue('--stars-df').trim() || styles.getPropertyValue('--star-color').trim();
-
     if (!color) {
       throw new Error('[CosmicStars] Missing CSS contract: --stars-df or --star-color');
-    }
-    return color;
+    } return color;
   }
 
   private getEffectsMode(): CosmicEffectsMode {

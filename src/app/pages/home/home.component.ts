@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule, TitleCasePipe } from '@angular/common';
 import { StackService } from '@app/services/stack.service';
 import { PillCategory } from '@app/constants/project-tags.config';
-import { StackPillComponent } from '../../components/stack-pill/stack-pill.component';
+import { StackPillComponent } from '@app/components/stack-pill/stack-pill.component';
 import { HeroComponent } from '@app/components/hero/hero';
 
 @Component({
@@ -15,6 +15,5 @@ import { HeroComponent } from '@app/components/hero/hero';
 })
 export class HomeComponent {
   readonly categories: readonly PillCategory[] = ['frontend', 'backend', 'databases', 'devops', 'cms'];
-
   public stackService = inject(StackService);
 }

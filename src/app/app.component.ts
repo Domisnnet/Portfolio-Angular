@@ -22,8 +22,6 @@ export class AppComponent {
   loading$ = this.loader.loading$;
   constructor() {
     this.loader.show();
-    setTimeout(() => {
-      this.loader.hide();
-    }, 1200);
+    setTimeout(() => { this.loader.hide(); }, 1200);
   }
 }
