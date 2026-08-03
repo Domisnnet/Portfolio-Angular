@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy,Component,ElementRef,OnDestroy,AfterViewInit,viewChild,inject, } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnDestroy,
+  AfterViewInit,
+  viewChild,
+  inject,
+} from '@angular/core';
 
 interface Star {
   x: number;
@@ -61,19 +69,13 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
   }
 
   private createStars(): void {
-    const count =
-      this.getEffectsMode() === 'minimal'
-        ? this.STAR_COUNT_MINIMAL
-        : this.STAR_COUNT_FULL;
+    const count = this.getEffectsMode() === 'minimal' ? this.STAR_COUNT_MINIMAL : this.STAR_COUNT_FULL;
     this.stars = Array.from({ length: count }, () => ({
       x: Math.random() * this.width,
       y: Math.random() * this.height,
-      radius:
-        Math.random() * (this.MAX_RADIUS - this.MIN_RADIUS) +
-        this.MIN_RADIUS,
+      radius: Math.random() * (this.MAX_RADIUS - this.MIN_RADIUS) + this.MIN_RADIUS,
       opacity: Math.random() * 0.5 + 0.25,
-      speed:
-        Math.random() * (this.MAX_SPEED - this.MIN_SPEED) + this.MIN_SPEED,
+      speed: Math.random() * (this.MAX_SPEED - this.MIN_SPEED) + this.MIN_SPEED,
       dir: Math.random() > 0.5 ? 1 : -1,
     }));
   }
@@ -104,30 +106,24 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
   private update(): void {
     for (const star of this.stars) {
       star.opacity += star.speed * star.dir;
-      if (star.opacity <= 0.2 || star.opacity >= 0.85) { star.dir *= -1; }
+      if (star.opacity <= 0.2 || star.opacity >= 0.85) {
+        star.dir *= -1;
+      }
     }
   }
 
   private getStarColor(): string {
     const styles = getComputedStyle(document.documentElement);
-    const color =
-      styles.getPropertyValue('--stars-df').trim() ||
-      styles.getPropertyValue('--star-color').trim();
-  
+    const color = styles.getPropertyValue('--stars-df').trim() || styles.getPropertyValue('--star-color').trim();
+
     if (!color) {
-      throw new Error(
-        '[CosmicStars] Missing CSS contract: --stars-df or --star-color'
-      );
+      throw new Error('[CosmicStars] Missing CSS contract: --stars-df or --star-color');
     }
     return color;
-  }  
+  }
 
   private getEffectsMode(): CosmicEffectsMode {
-    return (
-      (document.documentElement.getAttribute(
-        'data-cosmic-effects'
-      ) as CosmicEffectsMode) || 'full'
-    );
+    return (document.documentElement.getAttribute('data-cosmic-effects') as CosmicEffectsMode) || 'full';
   }
 
   private onResize = (): void => {

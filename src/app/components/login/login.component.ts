@@ -9,11 +9,7 @@ import { ButtonComponent } from '@app/components/button/button.component';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ButtonComponent,
-  ],
+  imports: [CommonModule, FormsModule, ButtonComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -50,10 +46,7 @@ export class LoginComponent {
     } catch (err: any) {
       const code = err?.code;
 
-      if (
-        code === 'auth/popup-blocked' ||
-        code === 'auth/cancelled-popup-request'
-      ) {
+      if (code === 'auth/popup-blocked' || code === 'auth/cancelled-popup-request') {
         alert('Popup bloqueado. Usando redirecionamento...');
         await this.auth.loginGoogleRedirect();
         return;
@@ -79,8 +72,7 @@ export class LoginComponent {
       'auth/user-disabled': 'Usuário desativado.',
       'auth/invalid-credential': 'Credenciais inválidas.',
       'auth/network-request-failed': 'Falha de rede. Verifique sua conexão.',
-      'auth/account-exists-with-different-credential':
-        'Já existe uma conta com este email usando outro provedor.',
+      'auth/account-exists-with-different-credential': 'Já existe uma conta com este email usando outro provedor.',
     };
     return map[code] || err?.message || 'Ocorreu um erro inesperado.';
   }

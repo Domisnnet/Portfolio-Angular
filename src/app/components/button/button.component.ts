@@ -5,12 +5,9 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-  ],
+  imports: [CommonModule, RouterLink],
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss']
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
   @Input() variant: 'solid' | 'outline' | 'ghost' = 'solid';
@@ -27,8 +24,10 @@ export class ButtonComponent {
   @Input() iconLeft?: string;
   @Input() iconRight?: string;
   @Input() text = '';
-  @HostBinding('class.full-width-host') get hostFullWidth(): boolean { return this.fullWidth; }
-  
+  @HostBinding('class.full-width-host') get hostFullWidth(): boolean {
+    return this.fullWidth;
+  }
+
   get isLink(): boolean {
     return !!this.href;
   }
@@ -45,11 +44,6 @@ export class ButtonComponent {
   }
 
   get buttonClasses(): string[] {
-    return [
-      this.variant,
-      this.size,
-      this.fullWidth ? 'full-width' : '',
-      this.loading ? 'loading' : ''
-    ];
+    return [this.variant, this.size, this.fullWidth ? 'full-width' : '', this.loading ? 'loading' : ''];
   }
 }

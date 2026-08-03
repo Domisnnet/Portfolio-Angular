@@ -16,12 +16,10 @@
             minlength="3"
             placeholder="Seu nome"
           />
-          @if (nameField.touched &&
-          nameField.errors?.['required']) {
+          @if (nameField.touched && nameField.errors?.['required']) {
             <small class="field-error">Informe seu nome.</small>
           }
-          @if (nameField.touched &&
-          nameField.errors?.['minlength']) {
+          @if (nameField.touched && nameField.errors?.['minlength']) {
             <small class="field-error">O nome deve possuir ao menos 3 caracteres.</small>
           }
         </div>
@@ -37,12 +35,10 @@
             email
             placeholder="seu@email.com"
           />
-          @if (emailField.touched &&
-          emailField.errors?.['required']) {
+          @if (emailField.touched && emailField.errors?.['required']) {
             <small class="field-error">Informe seu email.</small>
           }
-          @if (emailField.touched &&
-          emailField.errors?.['email']) {
+          @if (emailField.touched && emailField.errors?.['email']) {
             <small class="field-error">Informe um email válido.</small>
           }
         </div>
@@ -58,12 +54,10 @@
             rows="6"
             placeholder="Digite sua mensagem..."
           ></textarea>
-          @if (messageField.touched &&
-          messageField.errors?.['required']) {
+          @if (messageField.touched && messageField.errors?.['required']) {
             <small class="field-error">Digite sua mensagem.</small>
           }
-          @if (messageField.touched &&
-          messageField.errors?.['minlength']) {
+          @if (messageField.touched && messageField.errors?.['minlength']) {
             <small class="field-error">A mensagem deve possuir pelo menos 10 caracteres.</small>
           }
         </div>

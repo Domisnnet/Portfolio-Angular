@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { ThemeService } from '@app/services/theme.service';
 
-
 @Component({
   selector: 'app-theme-toggle',
   standalone: true,
@@ -14,5 +13,7 @@ import { ThemeService } from '@app/services/theme.service';
 export class ThemeToggleComponent {
   private readonly themeService = inject(ThemeService);
   isDark = computed(() => this.themeService.isDark());
-  toggle() { this.themeService.toggle(); }
+  toggle() {
+    this.themeService.toggle();
+  }
 }

@@ -1,4 +1,4 @@
-import { Injectable, signal, effect, PLATFORM_ID, inject, Renderer2, RendererFactory2, } from '@angular/core';
+import { Injectable, signal, effect, PLATFORM_ID, inject, Renderer2, RendererFactory2 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 export type Theme = 'cosmic' | 'solar';
@@ -16,18 +16,24 @@ export class ThemeService {
     if (this.isBrowser) {
       this.theme.set(this.getInitialTheme());
     }
-    
+
     effect(() => {
       if (!this.isBrowser) return;
       const theme = this.theme();
-      this.renderer.setAttribute( document.documentElement, 'data-theme', theme );
+      this.renderer.setAttribute(document.documentElement, 'data-theme', theme);
       localStorage.setItem(this.storageKey, theme);
     });
   }
 
-  toggleTheme(): void { this.theme.update(t => (t === 'cosmic' ? 'solar' : 'cosmic')); }
-  isCosmic(): boolean { return this.theme() === 'cosmic'; }
-  isSolar(): boolean { return this.theme() === 'solar'; }
+  toggleTheme(): void {
+    this.theme.update((t) => (t === 'cosmic' ? 'solar' : 'cosmic'));
+  }
+  isCosmic(): boolean {
+    return this.theme() === 'cosmic';
+  }
+  isSolar(): boolean {
+    return this.theme() === 'solar';
+  }
 
   private getInitialTheme(): Theme {
     const stored = localStorage.getItem(this.storageKey) as Theme | null;

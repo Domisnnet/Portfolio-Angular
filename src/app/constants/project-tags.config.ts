@@ -1,12 +1,7 @@
 /* =========================
   CATEGORIES
 ========================= */
-export type PillCategory =
-  | 'frontend'
-  | 'backend'
-  | 'databases'
-  | 'devops'
-  | 'cms';
+export type PillCategory = 'frontend' | 'backend' | 'databases' | 'devops' | 'cms';
 
 /* =========================
   STACK PILL MODEL
@@ -20,11 +15,7 @@ export interface StackPillData {
 /* =========================
   INTERNAL FACTORY
 ========================= */
-const pill = (
-  label: string,
-  icon: string,
-  category: PillCategory
-): StackPillData => ({
+const pill = (label: string, icon: string, category: PillCategory): StackPillData => ({
   label,
   iconPath: `assets/icons/${icon}.svg`,
   category,

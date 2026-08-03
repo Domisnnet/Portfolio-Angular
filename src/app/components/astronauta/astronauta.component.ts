@@ -13,7 +13,9 @@ export class AstronautaComponent implements AfterViewInit {
   private radiusY = window.innerHeight * 0.35;
   private centerX = window.innerWidth / 2;
   private centerY = window.innerHeight / 2;
-  ngAfterViewInit() { this.animate(); }
+  ngAfterViewInit() {
+    this.animate();
+  }
   private animate = () => {
     const el = this.astro.nativeElement;
     this.angle += 0.001; // velocidade da órbita

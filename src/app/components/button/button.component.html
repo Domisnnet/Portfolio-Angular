@@ -1,10 +1,5 @@
 <!-- LINK -->
-<a
-  *ngIf="isLink"
-  class="btn"
-  [ngClass]="buttonClasses"
-  [href]="href"
->
+<a *ngIf="isLink" class="btn" [ngClass]="buttonClasses" [href]="href">
   <span class="btn-content">
     {{ text }}
     <ng-content></ng-content>
@@ -12,12 +7,7 @@
 </a>
 
 <!-- ROUTER -->
-<a
-  *ngIf="!isLink && isRouterLink"
-  class="btn"
-  [ngClass]="buttonClasses"
-  [routerLink]="routerLink"
->
+<a *ngIf="!isLink && isRouterLink" class="btn" [ngClass]="buttonClasses" [routerLink]="routerLink">
   <span class="btn-content">
     {{ text }}
     <ng-content></ng-content>
@@ -25,12 +15,7 @@
 </a>
 
 <!-- BUTTON -->
-<button
-  *ngIf="!isLink && !isRouterLink"
-  class="btn"
-  [ngClass]="buttonClasses"
-  [type]="type"
->
+<button *ngIf="!isLink && !isRouterLink" class="btn" [ngClass]="buttonClasses" [type]="type">
   <span class="btn-content">
     {{ text }}
     <ng-content></ng-content>

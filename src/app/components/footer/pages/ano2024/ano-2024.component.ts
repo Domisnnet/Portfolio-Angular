@@ -7,6 +7,6 @@ import { cardEnterAnimation } from '@app/components/card/card.animations';
   templateUrl: './ano-2024.component.html',
   styleUrls: ['./ano-2024.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ cardEnterAnimation ]
+  animations: [cardEnterAnimation],
 })
 export class Ano2024Component {}

@@ -10,10 +10,7 @@ import { ContactMessage, ContactService } from '@app/services/contact.service';
 @Component({
   selector: 'app-admin-page',
   standalone: true,
-  imports: [
-    CommonModule,
-    ButtonComponent,
-  ],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './admin-page.component.html',
   styleUrls: ['./admin-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -32,7 +29,8 @@ export class AdminPageComponent {
   }
 
   deleteMessage(id: string): void {
-    this.contactService.deleteContact(id)
+    this.contactService
+      .deleteContact(id)
       .then(() => alert('Mensagem excluída com sucesso!'))
       .catch((err) => {
         console.error('Erro ao excluir:', err);

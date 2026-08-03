@@ -1,5 +1,13 @@
 import { Injectable, inject } from '@angular/core';
-import { Auth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, signInWithRedirect, signOut, user } from '@angular/fire/auth';
+import {
+  Auth,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signInWithRedirect,
+  signOut,
+  user,
+} from '@angular/fire/auth';
 import { browserLocalPersistence, setPersistence } from 'firebase/auth';
 
 @Injectable({

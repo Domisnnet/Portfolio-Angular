@@ -9,143 +9,100 @@ export const routes: Routes = [
     children: [
       {
         path: 'login',
-        loadComponent: () =>
-          import('./components/login/login.component').then(
-            (m) => m.LoginComponent),
-            data: { cosmic: 'minimal' },  
+        loadComponent: () => import('./components/login/login.component').then((m) => m.LoginComponent),
+        data: { cosmic: 'minimal' },
       },
       {
         path: 'admin',
-        loadComponent: () =>
-          import('./components/admin/admin-page.component').then(
-            (m) => m.AdminPageComponent),
-            data: { cosmic: 'minimal' },
-          canActivate: [AuthGuard],
+        loadComponent: () => import('./components/admin/admin-page.component').then((m) => m.AdminPageComponent),
+        data: { cosmic: 'minimal' },
+        canActivate: [AuthGuard],
       },
       {
         path: '',
-        loadComponent: () =>
-          import('./pages/home/home.component').then(
-            (m) => m.HomeComponent),
+        loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
         data: { cosmic: 'minimal' },
       },
       {
         path: 'projects',
-        loadComponent: () =>
-          import('./pages/projects/projects-page.component').then(
-            (m) => m.ProjectsPageComponent
-          ),
+        loadComponent: () => import('./pages/projects/projects-page.component').then((m) => m.ProjectsPageComponent),
         data: { cosmic: 'full' },
       },
       {
         path: 'contact',
-        loadComponent: () =>
-          import('./pages/contact/contact-page.component').then(
-            (m) => m.ContactPageComponent
-          ),
+        loadComponent: () => import('./pages/contact/contact-page.component').then((m) => m.ContactPageComponent),
         data: { cosmic: 'minimal' },
       },
       {
         path: 'about',
         loadComponent: () =>
-          import('./components/footer/pages/about/about-page.component').then(
-            (m) => m.AboutPageComponent
-          ),
+          import('./components/footer/pages/about/about-page.component').then((m) => m.AboutPageComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'ano2024',
         loadComponent: () =>
-          import('./components/footer/pages/ano2024/ano-2024.component').then(
-            (m) => m.Ano2024Component
-          ),
+          import('./components/footer/pages/ano2024/ano-2024.component').then((m) => m.Ano2024Component),
         data: { cosmic: 'silent' },
       },
       {
         path: 'background',
         loadComponent: () =>
-          import('./components/footer/pages/background/background.component').then(
-            (m) => m.BackgroundComponent
-          ),
+          import('./components/footer/pages/background/background.component').then((m) => m.BackgroundComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'domisdev',
         loadComponent: () =>
-          import('./components/footer/pages/domisdev/domisdev.component').then(
-            (m) => m.DomisdevComponent),
+          import('./components/footer/pages/domisdev/domisdev.component').then((m) => m.DomisdevComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'stack',
-        loadComponent: () =>
-          import('./components/footer/pages/stack/stack.component').then(
-            (m) => m.StackComponent
-          ),
+        loadComponent: () => import('./components/footer/pages/stack/stack.component').then((m) => m.StackComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'architecture',
         loadComponent: () =>
-          import('./components/footer/pages/architecture/architecture.component').then(
-            (m) => m.ArchitectureComponent
-          ),
+          import('./components/footer/pages/architecture/architecture.component').then((m) => m.ArchitectureComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'performance',
         loadComponent: () =>
-          import('./components/footer/pages/performance/performance.component').then(
-            (m) => m.PerformanceComponent
-          ),
+          import('./components/footer/pages/performance/performance.component').then((m) => m.PerformanceComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'access',
-        loadComponent: () =>
-          import('./components/footer/pages/access/access.component').then(
-            (m) => m.AccessComponent
-          ),
+        loadComponent: () => import('./components/footer/pages/access/access.component').then((m) => m.AccessComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'future',
-        loadComponent: () =>
-          import('./components/footer/pages/future/future.component').then(
-            (m) => m.FutureComponent
-          ),
+        loadComponent: () => import('./components/footer/pages/future/future.component').then((m) => m.FutureComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'laboratory',
-        loadComponent: () =>
-          import('./components/footer/pages/laboratory/lab.component').then(
-            (m) => m.LabComponent
-          ),
+        loadComponent: () => import('./components/footer/pages/laboratory/lab.component').then((m) => m.LabComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'system',
-        loadComponent: () =>
-          import('./components/footer/pages/system/system.component').then(
-            (m) => m.SystemComponent
-          ),
+        loadComponent: () => import('./components/footer/pages/system/system.component').then((m) => m.SystemComponent),
         data: { cosmic: 'silent' },
       },
       {
         path: 'signal',
-        loadComponent: () =>
-          import('./components/footer/pages/signal/signal.component').then(
-            (m) => m.SignalComponent
-          ),
-        data: { cosmic: 'silent' }, 
+        loadComponent: () => import('./components/footer/pages/signal/signal.component').then((m) => m.SignalComponent),
+        data: { cosmic: 'silent' },
       },
       {
         path: 'privacidade',
         loadComponent: () =>
-          import('./components/footer/pages/privacidade/privacidade.component').then(
-            (m) => m.PrivacidadeComponent
-          ),
+          import('./components/footer/pages/privacidade/privacidade.component').then((m) => m.PrivacidadeComponent),
         data: { cosmic: 'silent' },
       },
     ],

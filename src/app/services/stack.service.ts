@@ -5,6 +5,6 @@ import { PERSONAL_STACK } from '@app/constants/personal-stack.config';
 @Injectable({ providedIn: 'root' })
 export class StackService {
   getPersonalStack(category: PillCategory) {
-    return PERSONAL_STACK[category].map(key => ({ key, ...STACK_CONFIG[key], }));
+    return PERSONAL_STACK[category].map((key) => ({ key, ...STACK_CONFIG[key] }));
   }
 }

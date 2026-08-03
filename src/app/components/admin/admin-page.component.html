@@ -7,13 +7,7 @@
         <label>Usuário logado</label>
         <p class="user-email">{{ (user$ | async)?.email }}</p>
         <div class="form-mail">
-          <app-button
-            type="button"
-            size="md"
-            [loading]="loading"
-            [disabled]="loading"
-            (click)="logout()"
-          >
+          <app-button type="button" size="md" [loading]="loading" [disabled]="loading" (click)="logout()">
             Logout
           </app-button>
         </div>
@@ -31,12 +25,7 @@
               {{ contact.message }}
             </div>
             <footer class="message-actions">
-              <app-button
-                type="button"
-                size="sm"
-                variant="outline"
-                (click)="deleteMessage(contact.id!)"
-              >
+              <app-button type="button" size="sm" variant="outline" (click)="deleteMessage(contact.id!)">
                 Excluir
               </app-button>
             </footer>

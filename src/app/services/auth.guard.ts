@@ -4,7 +4,7 @@ import { map, take } from 'rxjs/operators';
 import { AuthService } from '@app/services/auth.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
   constructor(
@@ -15,11 +15,7 @@ export class AuthGuard implements CanActivate {
   canActivate() {
     return this.auth.user$.pipe(
       take(1),
-      map(user =>
-        user
-          ? true
-          : this.router.createUrlTree(['/login'])
-      )
+      map((user) => (user ? true : this.router.createUrlTree(['/login'])))
     );
   }
 }

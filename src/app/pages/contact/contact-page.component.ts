@@ -8,11 +8,7 @@ import { cardEnterAnimation } from '@app/components/card/card.animations';
 @Component({
   selector: 'app-contact-page',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ButtonComponent
-  ],
+  imports: [CommonModule, FormsModule, ButtonComponent],
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,15 +21,15 @@ export class ContactPageComponent {
   loading = false;
   successMessage = '';
   errorMessage = '';
-  constructor(
-    private contactService: ContactService
-  ) {}
+  constructor(private contactService: ContactService) {}
 
   async submitForm(form: NgForm): Promise<void> {
     this.successMessage = '';
     this.errorMessage = '';
     if (form.invalid) {
-      Object.values(form.controls).forEach(control => { control.markAsTouched(); });
+      Object.values(form.controls).forEach((control) => {
+        control.markAsTouched();
+      });
       this.errorMessage = 'Preencha corretamente todos os campos obrigatórios.';
       return;
     }
@@ -48,7 +44,7 @@ export class ContactPageComponent {
       this.successMessage = 'Mensagem enviada com sucesso!';
       form.resetForm();
     } catch (error) {
-      console.error( 'Erro ao enviar mensagem:', error );
+      console.error('Erro ao enviar mensagem:', error);
       this.errorMessage = 'Não foi possível enviar sua mensagem. Tente novamente.';
     } finally {
       this.loading = false;
