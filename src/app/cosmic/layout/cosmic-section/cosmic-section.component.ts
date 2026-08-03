@@ -22,7 +22,7 @@ import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump
     LayerIndicatorComponent,
     LayerJumpComponent,
     ScanningArtifactComponent,
-    WormholeComponent,
+    WormholeComponent
   ],
   templateUrl: './cosmic-section.component.html',
   styleUrls: ['./cosmic-section.component.scss'],

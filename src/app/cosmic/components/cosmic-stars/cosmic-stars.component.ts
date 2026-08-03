@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  OnDestroy,
-  AfterViewInit,
-  viewChild,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, AfterViewInit, viewChild, inject } from '@angular/core';
 
 interface Star {
   x: number;
@@ -21,6 +13,7 @@ type CosmicEffectsMode = 'full' | 'minimal' | 'silent';
 @Component({
   selector: 'app-cosmic-stars',
   standalone: true,
+  imports: [],
   templateUrl: './cosmic-stars.component.html',
   styleUrls: ['./cosmic-stars.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

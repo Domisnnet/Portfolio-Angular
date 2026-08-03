@@ -4,6 +4,8 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 
 @Component({
   selector: 'app-layer-jump',
+  standalone: true,
+  imports: [],
   templateUrl: './layer-jump.component.html',
   styleUrls: ['./layer-jump.component.scss'],
 })

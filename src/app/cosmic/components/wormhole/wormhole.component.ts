@@ -4,6 +4,7 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 @Component({
   selector: 'app-wormhole',
   standalone: true,
+  imports: [],
   templateUrl: './wormhole.component.html',
   styleUrls: ['./wormhole.component.scss'],
 })
