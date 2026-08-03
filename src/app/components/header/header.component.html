@@ -3,7 +3,7 @@
     <div class="nav-container">
       <a routerLink="/" class="logo">
         <span class="logo-dot-img">
-          <img class="logo-dot-img" src="assets/images/logo-domisdev.png" alt="Logo DomisDev">
+          <img class="logo-dot-img" src="assets/images/logo-domisdev.png" alt="Logo DomisDev" />
         </span>
         <span class="logo-text">DomisDev</span>
       </a>
@@ -12,29 +12,13 @@
         <span class="divisor"> | </span>
         <a routerLink="/projects">Projetos</a>
         <div class="nav-buttons">
-          <app-button
-            [routerLink]="['/login']"
-            variant="solid"
-            size="sm"
-            text="Login"
-          ></app-button>
-          <app-button
-            [routerLink]="['/contact']"
-            variant="outline"
-            size="sm"
-            text="Contato"
-          ></app-button>
+          <app-button [routerLink]="['/login']" variant="solid" size="sm" text="Login"></app-button>
+          <app-button [routerLink]="['/contact']" variant="outline" size="sm" text="Contato"></app-button>
         </div>
       </nav>
       <div class="header-actions">
-        <app-theme-toggle />   
-        <button
-          type="button"
-          class="hamburger-menu outline"
-          (click)="toggleMenu()"
-        >
-          ☰
-        </button>
+        <app-theme-toggle />
+        <button type="button" class="hamburger-menu outline" (click)="toggleMenu()">☰</button>
       </div>
     </div>
   </header>

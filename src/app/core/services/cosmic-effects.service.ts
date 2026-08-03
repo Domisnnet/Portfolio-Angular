@@ -21,7 +21,7 @@ export class CosmicEffectsService {
     effect(() => {
       if (!this.isBrowser) return;
       const value = this.mode();
-      this.renderer.setAttribute( document.documentElement, 'data-cosmic-effects', value );
+      this.renderer.setAttribute(document.documentElement, 'data-cosmic-effects', value);
       localStorage.setItem(this.STORAGE_KEY, value);
     });
   }
@@ -31,8 +31,10 @@ export class CosmicEffectsService {
   }
 
   cycle() {
-    this.mode.update(m => m === 'full' ? 'minimal' : m === 'minimal' ? 'silent' : 'full' );
+    this.mode.update((m) => (m === 'full' ? 'minimal' : m === 'minimal' ? 'silent' : 'full'));
   }
 
-  isSilent() { return this.mode() === 'silent'; }
+  isSilent() {
+    return this.mode() === 'silent';
+  }
 }

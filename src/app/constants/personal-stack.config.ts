@@ -1,39 +1,13 @@
 import { PillCategory, TagKey } from './project-tags.config';
 
 export const PERSONAL_STACK: Record<PillCategory, readonly TagKey[]> = {
-  frontend: [
-    'html5',
-    'css3',
-    'sass',
-    'javascript',
-    'angular',
-    'react',
-    'vue',
-    'bootstrap',
-    'tailwind',
-  ],
+  frontend: ['html5', 'css3', 'sass', 'javascript', 'angular', 'react', 'vue', 'bootstrap', 'tailwind'],
 
-  backend: [
-    'node',
-    'express',
-    'python',
-  ],
+  backend: ['node', 'express', 'python'],
 
-  databases: [
-    'mongodb',
-    'mysql',
-  ],
+  databases: ['mongodb', 'mysql'],
 
-  devops: [
-    'github',
-    'vscode',
-    'vercel',
-    'npm',
-  ],
+  devops: ['github', 'vscode', 'vercel', 'npm'],
 
-  cms: [
-    'wordpress',
-    'spamoderna',
-    'apiserverless',
-  ],
+  cms: ['wordpress', 'spamoderna', 'apiserverless'],
 } as const;

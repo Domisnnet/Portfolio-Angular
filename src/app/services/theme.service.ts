@@ -3,7 +3,7 @@ import { Injectable, signal } from '@angular/core';
 export type Theme = 'cosmic' | 'solar';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService {
   private readonly STORAGE_KEY = 'theme';
@@ -20,11 +20,12 @@ export class ThemeService {
 
   apply(theme: Theme) {
     this.theme.set(theme);
-    document.documentElement.setAttribute( 'data-theme', theme );
-    localStorage.setItem( this.STORAGE_KEY, theme );
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(this.STORAGE_KEY, theme);
   }
 
   toggle() {
-    const next = this.theme() === 'cosmic' ? 'solar' : 'cosmic'; this.apply(next);
+    const next = this.theme() === 'cosmic' ? 'solar' : 'cosmic';
+    this.apply(next);
   }
 }

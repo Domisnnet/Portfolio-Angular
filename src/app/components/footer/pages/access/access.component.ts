@@ -9,6 +9,6 @@ import { cardEnterAnimation } from '@app/components/card/card.animations';
   templateUrl: './access.component.html',
   styleUrl: './access.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ cardEnterAnimation ]
+  animations: [cardEnterAnimation],
 })
 export class AccessComponent {}

@@ -5,7 +5,7 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
   selector: 'app-layer-indicator',
   standalone: true,
   templateUrl: './layer-indicator.component.html',
-  styleUrls: ['./layer-indicator.component.scss']
+  styleUrls: ['./layer-indicator.component.scss'],
 })
 export class LayerIndicatorComponent {
   constructor(public cosmic: CosmicLayerService) {}

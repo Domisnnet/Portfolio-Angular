@@ -21,7 +21,7 @@ import { WormholeComponent } from '../wormhole/wormhole.component';
     WormholeComponent,
     CosmicNebulaComponent,
     CosmicGridComponent,
-    CosmicBeamComponent
+    CosmicBeamComponent,
   ],
   templateUrl: './cosmic-root.component.html',
   styleUrls: ['./cosmic-root.component.scss'],

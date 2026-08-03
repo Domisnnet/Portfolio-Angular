@@ -3,25 +3,17 @@ import { cosmicLayerSignal } from '@app/cosmic/state/cosmic-layer.signal';
 import { CosmicLayer } from '@app/cosmic/state/cosmic-layer.types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CosmicLayerService {
   readonly layer = cosmicLayerSignal.asReadonly();
-  private readonly order: CosmicLayer[] = [
-    'projects',
-    'deep-space',
-    'stable-orbit',
-    'unstable-orbit'
-  ];
+  private readonly order: CosmicLayer[] = ['projects', 'deep-space', 'stable-orbit', 'unstable-orbit'];
 
   private clickCharge = signal(0);
   readonly clickCount = this.clickCharge.asReadonly();
   constructor() {
     effect(() => {
-      document.documentElement.setAttribute(
-        'data-layer',
-        cosmicLayerSignal()
-      );
+      document.documentElement.setAttribute('data-layer', cosmicLayerSignal());
     });
   }
 

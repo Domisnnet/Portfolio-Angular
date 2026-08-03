@@ -10,7 +10,6 @@ import { WormholeComponent } from '@app/cosmic/components/wormhole/wormhole.comp
 import { LayerIndicatorComponent } from '@app/cosmic/components/layer-indicator/layer-indicator.component';
 import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump.component';
 
-
 @Component({
   selector: 'app-cosmic-section',
   standalone: true,
@@ -23,7 +22,7 @@ import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump
     LayerIndicatorComponent,
     LayerJumpComponent,
     ScanningArtifactComponent,
-    WormholeComponent
+    WormholeComponent,
   ],
   templateUrl: './cosmic-section.component.html',
   styleUrls: ['./cosmic-section.component.scss'],

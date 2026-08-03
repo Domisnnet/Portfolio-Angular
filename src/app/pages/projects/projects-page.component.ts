@@ -16,15 +16,10 @@ export interface Project {
 @Component({
   selector: 'app-projects-page',
   standalone: true,
-  imports: [
-    CommonModule,
-    AstronautaComponent,
-    CosmicRootComponent,
-    ProjectCardComponent
-  ],
+  imports: [CommonModule, AstronautaComponent, CosmicRootComponent, ProjectCardComponent],
   templateUrl: './projects-page.component.html',
   styleUrls: ['./projects-page.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsPageComponent {
   readonly projects = signal<Project[]>([

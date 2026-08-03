@@ -6,5 +6,7 @@ import { ThemeService } from '../services/theme.service';
   template: '',
 })
 export class ThemeInitComponent {
-  constructor() { inject(ThemeService); }
+  constructor() {
+    inject(ThemeService);
+  }
 }

@@ -1,9 +1,8 @@
-import { Component, ChangeDetectionStrategy, computed, input, signal, } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StackPillComponent } from '../stack-pill/stack-pill.component';
-import { STACK_CONFIG, PillCategory, TagKey, StackPillData, } from '../../constants/project-tags.config';
+import { STACK_CONFIG, PillCategory, TagKey, StackPillData } from '../../constants/project-tags.config';
 
-/* MODELO RESOLVIDO */
 interface ResolvedPill extends StackPillData {
   key: TagKey;
 }
@@ -31,7 +30,7 @@ export class ProjectCardComponent {
   private flipped = signal(false);
   isFlipped = this.flipped.asReadonly();
   toggleFlip(): void {
-    this.flipped.update(v => !v);
+    this.flipped.update((v) => !v);
   }
 
   /* STACK PILLS */
@@ -45,14 +44,12 @@ export class ProjectCardComponent {
     };
 
     return this.project()
-      .tags
-      .map(key => ({
+      .tags.map((key) => ({
         key,
         ...STACK_CONFIG[key],
       }))
       .sort((a, b) => {
-        const categoryDiff =
-          order[a.category] - order[b.category];
+        const categoryDiff = order[a.category] - order[b.category];
 
         if (categoryDiff !== 0) {
           return categoryDiff;

@@ -9,6 +9,6 @@ import { cardEnterAnimation } from '@app/components/card/card.animations';
   templateUrl: './signal.component.html',
   styleUrls: ['./signal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ cardEnterAnimation ]
+  animations: [cardEnterAnimation],
 })
 export class SignalComponent {}

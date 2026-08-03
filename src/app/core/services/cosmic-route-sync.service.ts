@@ -5,13 +5,13 @@ import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service'
 
 @Injectable({ providedIn: 'root' })
 export class CosmicRouteSyncService {
-  constructor( router: Router, cosmic: CosmicEffectsService ) {
-    router.events
-      .pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe(() => { 
-        const route = router.routerState.root.firstChild; 
-        const mode = route?.snapshot.data['cosmic']; if (mode) { cosmic.set(mode); } 
+  constructor(router: Router, cosmic: CosmicEffectsService) {
+    router.events.pipe(filter((e) => e instanceof NavigationEnd)).subscribe(() => {
+      const route = router.routerState.root.firstChild;
+      const mode = route?.snapshot.data['cosmic'];
+      if (mode) {
+        cosmic.set(mode);
       }
-    );
+    });
   }
 }

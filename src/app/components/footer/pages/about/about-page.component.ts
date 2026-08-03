@@ -72,7 +72,7 @@ const CONTENT = aboutData as Record<Language, AboutContent>;
   templateUrl: './about-page.component.html',
   styleUrls: ['./about-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ cardEnterAnimation ]
+  animations: [cardEnterAnimation],
 })
 export class AboutPageComponent {
   isTextMode = false;
@@ -81,7 +81,7 @@ export class AboutPageComponent {
   toggleMode(): void {
     this.isTextMode = !this.isTextMode;
   }
-  
+
   toggleLanguage(lang: Language): void {
     if (this.language === lang) return;
 

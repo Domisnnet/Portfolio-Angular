@@ -9,6 +9,6 @@ import { cardEnterAnimation } from '@app/components/card/card.animations';
   templateUrl: './domisdev.component.html',
   styleUrls: ['./domisdev.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [ cardEnterAnimation ]
+  animations: [cardEnterAnimation],
 })
 export class DomisdevComponent {}

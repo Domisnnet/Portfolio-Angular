@@ -7,18 +7,18 @@ import { CosmicEffectsService } from '@app/core/services/cosmic-effects.service'
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [
-    ButtonComponent,
-    RouterLink,
-    ThemeToggleComponent
-  ],
+  imports: [ButtonComponent, RouterLink, ThemeToggleComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   constructor(private effects: CosmicEffectsService) {}
   menuOpen = signal(false);
-  toggleMenu() { this.menuOpen.update(v => !v); }
-  toggleCosmicEffects() { this.effects.cycle(); }
+  toggleMenu() {
+    this.menuOpen.update((v) => !v);
+  }
+  toggleCosmicEffects() {
+    this.effects.cycle();
+  }
   isSilent = computed(() => this.effects.isSilent());
 }

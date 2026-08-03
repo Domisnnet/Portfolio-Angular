@@ -10,22 +10,11 @@ import { HeroComponent } from '@app/components/hero/hero';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [
-    CommonModule,
-    TitleCasePipe,
-    StackPillComponent,
-    HeroComponent
-  ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  imports: [CommonModule, TitleCasePipe, StackPillComponent, HeroComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-  readonly categories: readonly PillCategory[] = [
-    'frontend',
-    'backend',
-    'databases',
-    'devops',
-    'cms',
-  ];
+  readonly categories: readonly PillCategory[] = ['frontend', 'backend', 'databases', 'devops', 'cms'];
 
   public stackService = inject(StackService);
 }
