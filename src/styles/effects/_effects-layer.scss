@@ -9,10 +9,8 @@ html[data-layer='projects'] {
   .scanning-artifact,
   .cosmic-tractor-beam,
   .beam-core,
-  .beam-weave,
-  .cosmic-grid { opacity: var(--op-visible); }
+  .beam-weave { opacity: var(--op-visible); }
   .wormhole,
-  .wormhole.active,
   .wormhole-core,
   .wormhole-square,
   .square-inner,

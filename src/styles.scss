@@ -54,17 +54,18 @@
 /* =====================
   EFFECTS
 ===================== */
-@forward 'effects-contract';
-@forward 'effects-mode';
-@forward 'effects-layer';
-@forward 'jump-transition';
-@forward 'energy';
-@forward 'glow';
+@forward 'styles/effects/effects-contract';
+@forward 'styles/effects/effects-mode';
+@forward 'styles/effects/effects-layer';
+@forward 'styles/effects/effects-responsive';
+@forward 'styles/effects/jump-transition';
+@forward 'styles/effects/energy';
+@forward 'styles/effects/glow';
 
 /* =====================
   TERMINAL
 ===================== */
-@forward '../terminal/terminal-horizon';
+@forward 'styles/terminal/terminal-horizon';
 
 /* =====================
   FONTS

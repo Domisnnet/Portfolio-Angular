@@ -1,0 +1,28 @@
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .stars-canvas,
+  .astro,
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c,
+  .scanning-artifact { display: block; }
+  .cosmic-grid { display: none; }
+}
+
+/* TABLET / MOBILE */
+@media (max-width: 1023px) {
+  .cosmic-tractor-beam,
+  .beam-core,
+  .beam-weave,
+  .status-line { display: none; }
+  .astro,
+  .cosmic-grid,
+  .nebula-layer,
+  .nebula-layer-a,
+  .nebula-layer-b,
+  .nebula-layer-c { display: block; }
+}
