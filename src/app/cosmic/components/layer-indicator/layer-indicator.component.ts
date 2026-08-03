@@ -4,6 +4,7 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 @Component({
   selector: 'app-layer-indicator',
   standalone: true,
+  imports: [],
   templateUrl: './layer-indicator.component.html',
   styleUrls: ['./layer-indicator.component.scss'],
 })
