@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 
 @Component({
@@ -10,18 +10,9 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 })
 export class LayerJumpComponent {
   private readonly cosmic = inject(CosmicLayerService);
-  readonly circumference = 276;
-  private readonly clickLock = signal(false);
-  readonly dashOffset = computed(() => {
-    const progress = this.cosmic.clickCount() / 3;
-    return this.circumference - (progress * this.circumference);
-  });
-  advance(event?: MouseEvent): void {
-    event?.preventDefault();
-    event?.stopPropagation();
-    if (this.clickLock()) { return; }
-    this.clickLock.set(true);
-    this.cosmic.advance();
-    setTimeout(() => { this.clickLock.set(false); }, 120); 
-  }
+  readonly stage = this.cosmic.jumpStage;
+  readonly progress = this.cosmic.jumpProgress;
+  private static readonly RADIUS = 44;
+  readonly circumference = 2 * Math.PI * LayerJumpComponent.RADIUS;
+  readonly dashOffset = computed(() => { return this.circumference - (this.progress() / 3) * this.circumference; });
 }

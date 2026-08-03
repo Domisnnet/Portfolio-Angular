@@ -54,11 +54,17 @@
 /* =====================
   EFFECTS
 ===================== */
-@forward 'styles/effects/cosmic-effects-contract';
-@forward 'styles/effects/cosmic-effects-routing';
-@forward 'styles/effects/energy';
-@forward 'styles/effects/glow';
-@forward 'styles/terminal/terminal-horizon';
+@forward 'effects-contract';
+@forward 'effects-mode';
+@forward 'effects-layer';
+@forward 'jump-transition';
+@forward 'energy';
+@forward 'glow';
+
+/* =====================
+  TERMINAL
+===================== */
+@forward '../terminal/terminal-horizon';
 
 /* =====================
   FONTS

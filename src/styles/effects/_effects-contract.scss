@@ -1,0 +1,22 @@
+/* =========================
+   EFFECTS CONTRACT
+========================= */
+.astro,
+.cosmic-grid,
+.cosmic-tractor-beam,
+.beam-core,
+.beam-weave,
+.nebula-layer,
+.nebula-layer-a,
+.nebula-layer-b,
+.nebula-layer-c,
+.scanning-artifact,
+.stars-canvas,
+.wormhole,
+.wormhole-core,
+.wormhole-square,
+.square-inner,
+.wormhole-vortex {
+  pointer-events: none;
+  transition: opacity var(--motion-slow), transform var(--motion-slow), filter var(--motion-slow);
+}
