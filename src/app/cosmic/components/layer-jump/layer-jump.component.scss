@@ -2,6 +2,7 @@
   position: fixed;
   left: 78%;
   z-index: var(--z-layer);
+  pointer-events: none;
 }
 
 .cosmic-beacon {
@@ -13,24 +14,18 @@
   border-radius: 50%;
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
-  border: var(--border-medium) solid rgba(var(--layer-neon-glow), 0.5);
-  cursor: pointer;
-  transition: transform var(--motion-fast), box-shadow var(--motion-fast), border-color var(--motion-fast);
-}
-
-.cosmic-beacon:hover {
-  transform: scale(1.07);
-  border-color: rgba(var(--layer-neon), 0.7);
-  box-shadow: 0 0 var(--size-lg) var(--glow-color);
+  border: var(--border-medium) solid rgba(var(--accent-rgb), 0.25);
+  transition: transform var(--motion-fast), opacity var(--motion-fast), border-color var(--motion-fast), box-shadow var(--motion-fast);
 }
 
 .beacon-core {
   position: absolute;
-  width: calc(var(--size-toggle) * 0.50);
-  height: calc(var(--size-toggle) * 0.50);
+  width: calc(var(--size-toggle) * .5);
+  height: calc(var(--size-toggle) * .5);
   border-radius: 50%;
-  background: radial-gradient( circle, var(--layer-neon-glow), transparent 70% );
+  background: radial-gradient(circle, var(--layer-neon), transparent 70% );
   box-shadow: 0 0 var(--size-lg) var(--glow-color);
+  transition: transform var(--motion-fast), box-shadow var(--motion-fast);
 }
 
 .orbit {
@@ -38,7 +33,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: var(--border-thin) solid rgba(var(--accent-rgb), 0.1);
+  border: var(--border-thin) solid rgba(var(--accent-rgb), .10);
 }
 
 .orbit-a {
@@ -51,38 +46,15 @@
   animation: orbitRotateReverse 50s linear infinite;
 }
 
-.satellite {
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  width: var(--size-xxs);
-  height: var(--size-xxs);
-  border-radius: 50%;
-  background: var(--accent-secondary);
-  box-shadow: 0 0 var(--size-md) var(--glow-color);
-}
-
-.satellite-child {
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  width: var(--size-xs);
-  height: var(--size-xs);
-  border-radius: 50%;
-  background: var(--layer-neonrx);
-  box-shadow: 0 0 var(--size-md) var(--glow-color);
-}
-
 .beacon-ring {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   transform: rotate(-90deg);
 }
 
 .ring-track {
   fill: none;
-  stroke: rgba(var(--layer-neon), 0.35);
+  stroke: rgba(var(--accent-rgb), .15);
   stroke-width: var(--ring-stroke-width);
 }
 
@@ -92,24 +64,44 @@
   stroke-width: var(--ring-stroke-width);
   stroke-linecap: var(--ring-stroke-cap);
   stroke-dasharray: var(--ring-dasharray);
-  filter: drop-shadow( 0 0 var(--size-sm) var(--glow-color) );
-  transition: stroke-dashoffset var(--motion-medium);
+  transition: stroke-dashoffset var(--motion-medium), stroke var(--motion-fast);
+  filter: drop-shadow(0 0 var(--size-sm) var(--glow-color));
 }
 
-/* LAYER STATES */
-html[data-layer='deep-space'] .cosmic-beacon {
-  opacity: var(--op-subtle);
+.cosmic-beacon[data-jump-progress='0'] {
+  opacity: var(--op-medium);
 }
 
-html[data-layer='stable-orbit'] .cosmic-beacon {
-  opacity: var(--op-visible);
+.cosmic-beacon[data-jump-progress='1'] {
+  transform: scale(1.04);
+  .beacon-core { transform: scale(1.15); }
 }
 
-html[data-layer='unstable-orbit'] .cosmic-beacon {
-  box-shadow: 0 0 var(--size-lg) rgba(var(--layer-neon-glow), 0.4);
+.cosmic-beacon[data-jump-progress='2'] {
+  transform: scale(1.08);
+  box-shadow: 0 0 var(--size-lg) var(--glow-color);
+  .beacon-core {
+    transform: scale(1.35);
+    animation: star-pulse .8s infinite;
+  }
 }
 
-html[data-layer='wormhole'] .cosmic-beacon {
-  opacity: var(--op-hidden);
-  pointer-events: none;
+.cosmic-beacon[data-jump-progress='3'] {
+  transform: scale(1.15);
+  .beacon-core { transform: scale(1.6); animation: star-pulse .35s infinite;
+  }
+}
+
+.cosmic-beacon[data-stage='charging'] {
+  border-color: var(--energy-main);
+}
+
+.cosmic-beacon[data-stage='critical'] {
+  border-color: var(--feedback-warning);
+  animation: star-shake var(--secret-star-shake-speed) infinite;
+}
+
+.cosmic-beacon[data-stage='wormhole'] {
+  opacity: 0;
+  transform: scale(.2);
 }
