@@ -1,5 +1,5 @@
 /* =========================
-  ANIMATIONS ONLY
+  UI
 ========================= */
 @keyframes pulse {
   0%, 100% { transform: scale(1); opacity: 0.9; }
@@ -16,6 +16,28 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes statusBlink {
+  0%, 100% { opacity: 1; transform: translateX(0); }
+  50% { opacity: 0.6; transform: translateX(4px); }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.3; }
+}
+
+@keyframes flow-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =========================
+  HERO
+========================= */
 @keyframes zero-gravity-float {
   0% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
   25% { transform: translate3d(6px, -10px, 0) rotateZ(0.6deg); }
@@ -30,6 +52,9 @@
   100% { transform: translateY(0); }
 }
 
+/* =========================
+  SECRET STAR
+========================= */
 @keyframes star-pulse {
   0% { transform: scale(1); opacity: var(--op-medium); }
   50% { transform: scale(var(--secret-star-scale-hover)); opacity: var(--op-hover); }
@@ -44,16 +69,46 @@
   100% { transform: translate(0); }
 }
 
+/* =========================
+  NEBULA
+========================= */
 @keyframes nebulaDrift {
   from { transform: translate3d(0, 0, 0) scale(1); }
   to   { transform: translate3d(-12%, -8%, 0) scale(1.15); }
 }
 
+/* =========================
+  STARS
+========================= */
+@keyframes stars-drift {
+  from { background-position: 0 0; }
+  to   { background-position: -400px 800px; }
+}
+
+@keyframes stars-twinkle {
+  from { opacity: 0.25; }
+  to   { opacity: 0.6; }
+}
+
+/* =========================
+  GRID
+========================= */
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: calc(var(--grid-size, 40px) * -1) calc(var(--grid-size, 40px) * -1); }
+}
+
+/* =========================
+  COSMIC
+========================= */
 @keyframes cosmic-pulse {
   0%, 100% { transform: scale(1); opacity: 0.45; }
   50% { transform: scale(1.08); opacity: 0.7; }
 }
 
+/* =========================
+  TRACTOR BEAM
+========================= */
 @keyframes beam-core-breathe {
   0%, 100% { transform: scale(1); opacity: 0.8; }
   50% { transform: scale(1.1); opacity: 1; }
@@ -71,40 +126,9 @@
   100% { transform: scale(1.3); opacity: 0; }
 }
 
-@keyframes stars-drift {
-  from { background-position: 0 0; }
-  to   { background-position: -400px 800px; }
-}
-
-@keyframes stars-twinkle {
-  from { opacity: 0.25; }
-  to   { opacity: 0.6; }
-}
-
-@keyframes grid-drift {
-  from { background-position: 0 0; }
-  to { background-position: calc(var(--grid-size, 40px) * -1) calc(var(--grid-size, 40px) * -1); }
-}
-
-@keyframes statusBlink {
-  0%, 100% { opacity: 1; transform: translateX(0); }
-  50% { opacity: 0.6; transform: translateX(4px); }
-}
-
-@keyframes spin { 
-  to { transform: rotate(360deg); } 
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  40% { opacity: 0.3; }
-}
-
-@keyframes flow-line {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
+/* =========================
+  ORBITS
+========================= */
 @keyframes orbit-drift {
   from { transform: rotate(0deg); }
   to   { transform: rotate(0.6deg); }
@@ -112,14 +136,22 @@
 
 @keyframes orbitRotate {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @keyframes orbitRotateReverse {
   from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
+  to   { transform: rotate(0deg); }
 }
 
+@keyframes orbitSpin {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 64; }
+}
+
+/* =========================
+  WORMHOLE
+========================= */
 @keyframes wormhole-collapse {
   0% { transform: scale(1); }
   70% { transform: scale(0.85) rotate(-0.6deg); }
@@ -128,7 +160,7 @@
 
 @keyframes wormhole-spin {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @keyframes vortex-pulse {
@@ -143,11 +175,9 @@
   100% { transform: rotate(360deg) scale(1); opacity: var(--op-low); }
 }
 
-@keyframes orbitSpin {
-  from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: 64; }
-}
-
+/* =========================
+  HOLOGRAPHIC
+========================= */
 @keyframes holoShift {
   0% { transform: translateX(-5%); }
   50% { transform: translateX(5%); }
