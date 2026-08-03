@@ -1,35 +1,28 @@
-import { Component, inject, computed } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, computed, inject } from '@angular/core';
 import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
 
-type StarState = 'idle' | 'awakening' | 'unstable';
+type StarState =
+  | 'idle'
+  | 'awakening'
+  | 'unstable'
+  | 'charged';
 
 @Component({
   selector: 'app-secret-star',
+  standalone: true,
+  imports: [],
   templateUrl: './secret-star.component.html',
   styleUrls: ['./secret-star.component.scss'],
 })
 export class SecretStarComponent {
-  private cosmic = inject(CosmicLayerService);
-  private router = inject(Router);
-  starState = computed<StarState>(() => {
-    const clicks = this.cosmic.clickCount();
-    if (clicks === 1) return 'awakening';
-    if (clicks === 2) return 'unstable';
-    if (clicks === 3) return 'unstable';
-    return 'idle';
-  });
-
-  handleClick(event: MouseEvent): void {
-    event.stopPropagation();
-    event.preventDefault();
-    const clicks = this.cosmic.advance();
-    if (clicks === 3) {
-      this.cosmic.activateWormhole();
-      setTimeout(() => {
-        this.router.navigate(['/wormhole']);
-        this.cosmic.resetClicks();
-      }, 1200);
+  private readonly cosmic = inject(CosmicLayerService);
+  readonly starState = computed<StarState>(() => {
+    switch (this.cosmic.clickCount()) {
+      case 1: return 'awakening';
+      case 2: return 'unstable';
+      case 3: return 'charged';
+      default: return 'idle';
     }
-  }
+  });
+  handleClick(event: MouseEvent): void { event.preventDefault(); event.stopPropagation(); this.cosmic.advance(); }
 }
