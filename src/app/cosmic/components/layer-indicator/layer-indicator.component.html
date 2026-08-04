@@ -1,21 +1,21 @@
 <div class="layer-indicator" aria-hidden="true">
   <section class="hud-panel hud-panel--region">
-    <span class="hud-label">REGION</span>
+    <span class="hud-label">{{ labels.region }}</span>
     <strong class="hud-value">{{ cosmic.regionName() }}</strong>
   </section>
   <section class="hud-panel hud-panel--telemetry">
     <div class="hud-row">
-      <span class="hud-label">DISTANCE</span>
+      <span class="hud-label">{{ labels.distance }}</span>
       <strong class="hud-value">{{ cosmic.distance() }}</strong>
     </div>
     <div class="hud-row">
-      <span class="hud-label">PROJECTS</span>
+      <span class="hud-label">{{ labels.projects }}</span>
       <strong class="hud-value">{{ cosmic.projects() }} / {{ cosmic.totalProjects() }}</strong>
     </div>
   </section>
   <section class="hud-panel hud-panel--status">
     <div class="hud-row">
-      <span class="hud-label">SIGNAL</span>
+      <span class="hud-label">{{ labels.signal }}</span>
       <div class="signal-bars">
         <span class="signal-bar" [class.active]="cosmic.signal() >= 20"></span>
         <span class="signal-bar" [class.active]="cosmic.signal() >= 40"></span>
@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="hud-row">
-      <span class="hud-label">STATUS</span>
+      <span class="hud-label">{{ labels.status }}</span>
       <strong class="hud-value">{{ cosmic.status() }}</strong>
     </div>
   </section>
