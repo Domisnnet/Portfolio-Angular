@@ -36,7 +36,7 @@ export const COSMIC_REGIONS: Record<string, CosmicRegion> = {
     energy: 61,
     status: CosmicStatus.Stable,
     scanMessage: 'SCANNING_STABLE_ORBIT',
-    'diagnostic': 'NAVIGATION_LOCK_ACQUIRED'
+    diagnostic: 'NAVIGATION_LOCK_ACQUIRED'
   },
   unstableOrbit: {
     id: 'unstable-orbit',

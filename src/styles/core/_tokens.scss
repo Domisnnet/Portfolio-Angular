@@ -37,6 +37,12 @@
   --footer-max-width: 860px;
   --header-height: 72px;
 
+  /* HUD SYSTEM */
+  --hud-top: 0px;
+  --hud-left: var(--space-xxs);
+  --hud-width: 200px;
+  --hud-gap: var(--space-md);
+
   /* LETTER SPACING */
   --letter-normal: 0;
   --letter-tight: -0.02em;
@@ -101,7 +107,6 @@
   --artifact-height: 390px;
   --beam-size: 800px;
   --nebula-size: min(60vw, 900px);
-  --size-1xs: 1px;
   --size-1xs: 1px;
   --size-2xl: 44px;
   --size-2xs: 2px;
@@ -193,13 +198,12 @@
   --z-grid: 4;
   --z-header: 1100;
   --z-horizon: 1080;
-  --z-indicator: 50;
+  --z-hud: 50;
   --z-layer: 1.5;
   --z-loader: 9999;
   --z-modal: 2000;
   --z-nebula: 2;
   --z-projects: 30;
-  --z-scanning: 10;
   --z-secret-star: 1.1;
   --z-stars: 1;
   --z-terminal: 1090;

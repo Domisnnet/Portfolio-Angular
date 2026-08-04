@@ -1,5 +1,5 @@
-<div class="scanning-artifact">
+<section class="scanning-artifact" aria-hidden="true">
   <span class="status-line">{{ cosmic.scanMessage() }}...</span>
-  <span class="status-line">ENERGY_LEVEL: {{ cosmic.energy() }}%</span>
-  <span class="status-line">STATUS: {{ cosmic.status() }}</span>
-</div>
+  <span class="status-line">{{ cosmic.diagnostic() }}: {{ cosmic.energy() }}%</span>
+  <span class="status-line">{{ labels.status }}: {{ cosmic.status() }}</span>
+</section>

@@ -1,12 +1,14 @@
 <div class="cosmic-root">
   <app-cosmic-stars />
-  <app-secret-star />
-  <app-scanning-artifact />
   <app-cosmic-nebula />
-  <app-cosmic-beam />
   <app-cosmic-grid />
-  <app-wormhole />
-  <app-layer-indicator />
+  <app-cosmic-beam />
+  <section class="cosmic-hud">
+    <app-scanning-artifact />
+    <app-layer-indicator />
+  </section>
+  <app-secret-star />
   <app-layer-jump />
+  <app-wormhole />
   <ng-content></ng-content>
 </div>

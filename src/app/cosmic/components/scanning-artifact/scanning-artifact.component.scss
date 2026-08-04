@@ -2,7 +2,7 @@
   position: absolute;
   top: var(--space-none);
   left: var(--size-scan);
-  z-index: var(--z-scanning);
+  z-index: var(--z-hud);
   pointer-events: none;
   transition: opacity var(--motion-medium);
 }
@@ -23,7 +23,7 @@
   border-left: var(--border-thick) solid var(--artifact-brand);
   border-radius: var(--radius-none) var(--radius-md) var(--radius-none);
   padding: var(--size-xs) var(--size-sm);
-  backdrop-filter: blur(--blur-weak);
+  backdrop-filter: blur(var(--blur-weak));
   animation: statusBlink 3s ease-in-out infinite;
 }
 

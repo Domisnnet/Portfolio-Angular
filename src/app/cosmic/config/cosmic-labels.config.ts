@@ -7,5 +7,7 @@ export const COSMIC_LABELS = {
   online: 'ONLINE',
   offline: 'OFFLINE',
   unknown: 'UNKNOWN',
-  au: 'AU'
+  au: 'AU',
+  energy: 'ENERGY_LEVEL',
+  scanning: 'SCANNING'
 };

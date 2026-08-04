@@ -27,6 +27,7 @@ export class CosmicLayerService {
   readonly regionName = computed(() => this.region().name);
   readonly distance = computed(() => this.region().distance);
   readonly projects = computed(() => this.region().projects);
+  readonly diagnostic = computed(() => this.region().diagnostic);
   readonly totalProjects = computed(() => this.region().totalProjects);
   readonly signal = computed(() => this.region().signal);
   readonly energy = computed(() => this.region().energy);
