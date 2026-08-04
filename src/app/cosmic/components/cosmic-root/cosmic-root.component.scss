@@ -11,6 +11,16 @@
   overflow: hidden;
 }
 
+.cosmic-hud {
+  position: absolute;
+  top: var(--hud-top);
+  left: var(--hud-left);
+  display: flex;
+  flex-direction: column;
+  gap: var(--hud-gap);
+  width: var(--hud-width);
+}
+
 .cosmic-root > ng-content {
   position: relative;
   z-index: var(--z-content);

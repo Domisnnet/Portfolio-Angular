@@ -1,14 +1,14 @@
+:host {
+  z-index: var(--z-hud);
+  pointer-events: none;
+  transition: opacity var(--motion-medium);
+}
+
 /* LAYER INDICATOR */
 .layer-indicator {
-  position: absolute;
-  top: var(--layer-indicator-top);
-  left: var(--layer-indicator-left);
   display: flex;
   flex-direction: column;
-  width: var(--layer-indicator-width);
-  gap: var(--layer-indicator-gap);
-  z-index: var(--z-indicator);
-  pointer-events: none;
+  gap: var(--space-md);
 }
 
 /* HUD PANEL */
