@@ -1,11 +1,12 @@
+/* LAYER INDICATOR */
 .layer-indicator {
   position: absolute;
-  top: 8rem;
-  left: 2rem;
+  top: var(--layer-indicator-top);
+  left: var(--layer-indicator-left);
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  width: 235px;
+  width: var(--layer-indicator-width);
+  gap: var(--layer-indicator-gap);
   z-index: var(--z-indicator);
   pointer-events: none;
 }
@@ -14,52 +15,65 @@
 .hud-panel {
   display: flex;
   flex-direction: column;
-  gap: .75rem;
-  padding: 1rem;
+  gap: var(--layer-indicator-panel-gap);
+  padding: var(--layer-indicator-padding);
+  border: var(--layer-indicator-border);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(0, 255, 255, .15);
-  background: rgba(0, 30, 40, .45);
-  backdrop-filter: blur(8px);
-  box-shadow: inset 0 0 18px rgba(0,255,255,.05), 0 0 15px rgba(0,255,255,.04);
+  background: var(--layer-indicator-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 0 var(--shadow-md) var(--layer-indicator-glow);
 }
 
-/* LABEL */
+.hud-panel--region {
+  align-items: flex-start;
+}
+
+.hud-panel--telemetry,
+.hud-panel--status {
+  justify-content: center;
+}
+
+/* HUD LABEL */
 .hud-label {
-  font-size: .70rem;
-  letter-spacing: .18rem;
-  color: var(--color-accent);
+  font-size: var(--layer-indicator-label-size);
+  font-weight: var(--font-medium);
+  letter-spacing: var(--letter-spacing-lg);
+  text-transform: uppercase;
+  color: var(--artifact-meta);
 }
 
-/* VALUE */
+/* HUD VALUE */
 .hud-value {
-  font-size: 1rem;
-  font-weight: 700;
-  color: white;
+  font-size: var(--layer-indicator-value-size);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
 }
 
-/* ROW */
+/* HUD ROW */
 .hud-row {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: .72rem;
-  color: rgba(255,255,255,.82);
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: var(--layer-indicator-row-size);
 }
 
 /* SIGNAL */
 .signal-bars {
   display: flex;
-  gap: .20rem;
+  align-items: flex-end;
+  gap: var(--layer-indicator-signal-gap);
 }
 
-.signal-bars span {
-  width: .28rem;
-  height: .75rem;
-  border-radius: 2px;
-  background: rgba(255,255,255,.18);
+.signal-bar {
+  width: var(--layer-indicator-signal-width);
+  height: var(--layer-indicator-signal-height);
+  border-radius: var(--radius-xs);
+  background: rgba(var(--artifact-brand-rgb), 0.18);
+  transition: background var(--motion-fast), box-shadow var(--motion-fast);
 }
 
-.signal-bars .active {
-  background: #00ff99;
-  box-shadow: 0 0 6px #00ff99;
+.signal-bar.active {
+  background: var(--artifact-brand);
+  box-shadow: 0 0 var(--shadow-sm) rgba(var(--artifact-brand-rgb), 0.55);
 }

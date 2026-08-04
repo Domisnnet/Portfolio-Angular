@@ -1,29 +1,32 @@
 <div class="layer-indicator" aria-hidden="true">
-  <section class="hud-panel">
-    <span class="hud-label">REGION</span><strong class="hud-value">{{ cosmic.regionName() }}</strong>
+  <section class="hud-panel hud-panel--region">
+    <span class="hud-label">REGION</span>
+    <strong class="hud-value">{{ cosmic.regionName() }}</strong>
   </section>
-  <section class="hud-panel">
+  <section class="hud-panel hud-panel--telemetry">
     <div class="hud-row">
-      <span>DISTANCE</span>
-      <strong>{{ cosmic.distance() }}</strong>
+      <span class="hud-label">DISTANCE</span>
+      <strong class="hud-value">{{ cosmic.distance() }}</strong>
     </div>
     <div class="hud-row">
-      <span>PROJECTS</span><strong>{{ cosmic.projects() }} / {{ cosmic.totalProjects() }}</strong>
+      <span class="hud-label">PROJECTS</span>
+      <strong class="hud-value">{{ cosmic.projects() }} / {{ cosmic.totalProjects() }}</strong>
     </div>
   </section>
-  <section class="hud-panel">
+  <section class="hud-panel hud-panel--status">
     <div class="hud-row">
-      <span>SIGNAL</span>
+      <span class="hud-label">SIGNAL</span>
       <div class="signal-bars">
-        <span [class.active]="cosmic.signal() >= 20"></span>
-        <span [class.active]="cosmic.signal() >= 40"></span>
-        <span [class.active]="cosmic.signal() >= 60"></span>
-        <span [class.active]="cosmic.signal() >= 80"></span>
-        <span [class.active]="cosmic.signal() >= 100"></span>
+        <span class="signal-bar" [class.active]="cosmic.signal() >= 20"></span>
+        <span class="signal-bar" [class.active]="cosmic.signal() >= 40"></span>
+        <span class="signal-bar" [class.active]="cosmic.signal() >= 60"></span>
+        <span class="signal-bar" [class.active]="cosmic.signal() >= 80"></span>
+        <span class="signal-bar" [class.active]="cosmic.signal() >= 100"></span>
       </div>
     </div>
     <div class="hud-row">
-      <span>STATUS</span><strong>{{ cosmic.status() }}</strong>
+      <span class="hud-label">STATUS</span>
+      <strong class="hud-value">{{ cosmic.status() }}</strong>
     </div>
   </section>
 </div>

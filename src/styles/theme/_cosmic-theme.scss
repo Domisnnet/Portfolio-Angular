@@ -103,6 +103,23 @@
   --footer-glass-text-secondary: rgba(255, 255, 255, 0.68);
   --footer-opacity: 0.75;
 
+  /* LAYER INDICATOR */
+  --layer-indicator-width: 13rem;
+  --layer-indicator-top: 10rem;
+  --layer-indicator-left: 2rem;
+  --layer-indicator-gap: var(--space-sm);
+  --layer-indicator-padding: var(--space-md);
+  --layer-indicator-panel-gap: var(--space-sm);
+  --layer-indicator-label-size: var(--font-xs);
+  --layer-indicator-value-size: var(--font-sm);
+  --layer-indicator-row-size: var(--font-xs);
+  --layer-indicator-signal-width: 0.25rem;
+  --layer-indicator-signal-height: 0.7rem;
+  --layer-indicator-signal-gap: 0.2rem;
+  --layer-indicator-glow: rgba(var(--artifact-brand-rgb), .12);
+  --layer-indicator-bg: var(--glass-bg);
+  --layer-indicator-border: var(--glass-border);
+
   /* PILLS */
   --pill-be: #419100;
   --pill-cms: #ff399f;
