@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CosmicLayerService } from '@app/cosmic/state/cosmic-layer.service';
+import { CosmicLayerService } from '@app/cosmic/state/cosmic-state.service';
 
 @Component({
   selector: 'app-secret-star',

@@ -46,6 +46,28 @@
   animation: orbitRotateReverse 50s linear infinite;
 }
 
+.satellite { 
+  position: absolute; 
+  top: -2px; 
+  left: 50%; 
+  width: var(--size-xxs); 
+  height: var(--size-xxs); 
+  border-radius: 50%; 
+  background: var(--accent-secondary); 
+  box-shadow: 0 0 var(--size-md) var(--glow-color); 
+} 
+
+.satellite-child { 
+  position: absolute; 
+  top: -2px; 
+  left: 50%; 
+  width: var(--size-xs); 
+  height: var(--size-xs); 
+  border-radius: 50%; 
+  background: var(--layer-neonrx); 
+  box-shadow: 0 0 var(--size-md) var(--glow-color); 
+}
+
 .beacon-ring {
   position: absolute;
   inset: 0;
