@@ -1,79 +1,120 @@
 :host {
+  display: block;
+}
+
+/* COSMIC HUD */
+.cosmic-hud {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: var(--hud-top);
+  left: var(--hud-left);
+  width: var(--hud-width);
+  gap: var(--hud-gap);
   z-index: var(--z-hud);
   pointer-events: none;
-  transition: opacity var(--motion-medium);
 }
 
-/* LAYER INDICATOR */
-.layer-indicator {
+/* HUD SECTION */
+.hud-section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
-}
-
-/* HUD PANEL */
-.hud-panel {
-  display: flex;
-  flex-direction: column;
-  gap: var(--layer-indicator-panel-gap);
-  padding: var(--layer-indicator-padding);
+  gap: var(--space-xs);
+  padding: var(--hud-padding);
   border: var(--layer-indicator-border);
   border-radius: var(--radius-md);
   background: var(--layer-indicator-bg);
   backdrop-filter: blur(var(--glass-blur));
-  box-shadow: 0 0 var(--shadow-md) var(--layer-indicator-glow);
+  box-shadow: 0 0 var(--shadow-sm) var(--layer-indicator-glow);
 }
 
-.hud-panel--region {
-  align-items: flex-start;
-}
-
-.hud-panel--telemetry,
-.hud-panel--status {
-  justify-content: center;
-}
-
-/* HUD LABEL */
-.hud-label {
-  font-size: var(--layer-indicator-label-size);
-  font-weight: var(--font-medium);
-  letter-spacing: var(--letter-spacing-lg);
+/* SCANNER */
+.scanner-line {
+  font-family: var(--font-code);
+  font-size: var(--font-xs);
+  letter-spacing: .08em;
+  color: var(--artifact-brand);
   text-transform: uppercase;
+}
+
+/* DIVIDER */
+.hud-divider {
+  height: 1px;
+  background: rgba(var(--artifact-brand-rgb), .15);
+}
+
+/* LABEL */
+.hud-label {
+  font-size: var(--font-xxs);
   color: var(--artifact-meta);
+  letter-spacing: .18em;
+  text-transform: uppercase;
 }
 
-/* HUD VALUE */
-.hud-value {
-  font-size: var(--layer-indicator-value-size);
-  font-weight: var(--font-bold);
+/* TITLE */
+.hud-title {
+  font-size: var(--font-md);
   color: var(--text-primary);
+  font-weight: var(--font-bold);
 }
 
-/* HUD ROW */
+/* ROW */
 .hud-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: var(--space-sm);
-  font-size: var(--layer-indicator-row-size);
+  align-items: center;
+  font-size: var(--font-xs);
 }
 
 /* SIGNAL */
 .signal-bars {
   display: flex;
   align-items: flex-end;
-  gap: var(--layer-indicator-signal-gap);
+  gap: 3px;
 }
 
 .signal-bar {
-  width: var(--layer-indicator-signal-width);
-  height: var(--layer-indicator-signal-height);
+  width: 3px;
   border-radius: var(--radius-xs);
-  background: rgba(var(--artifact-brand-rgb), 0.18);
-  transition: background var(--motion-fast), box-shadow var(--motion-fast);
+  background: rgba(var(--artifact-brand-rgb), .18);
+}
+
+.signal-bar:nth-child(1) {
+  height: 8px;
+}
+
+.signal-bar:nth-child(2) {
+  height: 10px;
+}
+
+.signal-bar:nth-child(3) {
+  height: 12px;
+}
+
+.signal-bar:nth-child(4) {
+  height: 14px;
+}
+
+.signal-bar:nth-child(5) {
+  height: 16px;
 }
 
 .signal-bar.active {
   background: var(--artifact-brand);
-  box-shadow: 0 0 var(--shadow-sm) rgba(var(--artifact-brand-rgb), 0.55);
+  box-shadow: 0 0 8px rgba(var(--artifact-brand-rgb), .55);
+}
+
+/* STATUS */
+.hud-status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--feedback-success);
+  box-shadow: 0 0 8px rgba(var(--feedback-success-rgb), .6);
 }

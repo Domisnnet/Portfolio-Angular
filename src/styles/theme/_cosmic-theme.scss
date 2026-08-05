@@ -104,15 +104,15 @@
   --footer-opacity: 0.75;
 
   /* LAYER INDICATOR */
-  --layer-indicator-width: 11rem;
-  --layer-indicator-top: 10rem;
-  --layer-indicator-left: -1.rem;
-  --layer-indicator-gap: var(--space-xs);
-  --layer-indicator-padding: var(--space-xs);
-  --layer-indicator-panel-gap: var(--space-sm);
-  --layer-indicator-label-size: var(--font-xxs);
-  --layer-indicator-value-size: var(--font-xs);
-  --layer-indicator-row-size: var(--font-xs);
+  --layer-indicator-width: 2rem;
+  --layer-indicator-top: 0rem;
+  --layer-indicator-left: 0rem;
+  --layer-indicator-gap: var(--space-sm);
+  --layer-indicator-padding: var(--space-md);
+  --layer-indicator-panel-gap: var(--space-md);
+  --layer-indicator-label-size: var(--font-xs);
+  --layer-indicator-value-size: var(--font-md);
+  --layer-indicator-row-size: var(--font-sm);
   --layer-indicator-signal-width: 0.25rem;
   --layer-indicator-signal-height: 0.7rem;
   --layer-indicator-signal-gap: 0.2rem;
