@@ -38,10 +38,10 @@
   --header-height: 72px;
 
   /* HUD SYSTEM */
-  --hud-top: 0px;
-  --hud-left: var(--space-xxs);
-  --hud-width: 200px;
-  --hud-gap: var(--space-md);
+  --hud-top: -2rem;
+  --hud-left: .15rem;
+  --hud-width: 210px;
+  --hud-gap: var(--space-sm);
 
   /* LETTER SPACING */
   --letter-normal: 0;
