@@ -23,12 +23,13 @@
     font-size: var(--font-display);
     font-weight: var(--font-bold);
     color: var(--color-text-primary);
-    margin-bottom: var(--space-md);
+    margin-top: var(--space-lg);
   }
 
   p {
     font-size: var(--font-lg);
     color: var(--color-text-secondary);
+    margin-top: var(--space-lg);
   }
 }
 

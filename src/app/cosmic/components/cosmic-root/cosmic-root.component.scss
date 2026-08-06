@@ -3,7 +3,7 @@
   display: block;
   width: 100%;
   min-height: 100%;
-  isolation: isolate; 
+  isolation: isolate;
 }
 
 .cosmic-root {
@@ -12,16 +12,18 @@
 }
 
 .cosmic-hud {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: var(--hud-top);
   left: var(--hud-left);
-  display: flex;
-  flex-direction: column;
   gap: var(--hud-gap);
   width: var(--hud-width);
+  pointer-events: none;
+  z-index: var(--z-hud);
 }
 
-.cosmic-root > ng-content {
+.cosmic-root>ng-content {
   position: relative;
   z-index: var(--z-content);
 }

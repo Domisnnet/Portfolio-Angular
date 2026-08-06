@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ScanningArtifactComponent } from '@app/cosmic/components/scanning-artifact/scanning-artifact.component';
 import { SecretStarComponent } from '@app/cosmic/components/secret-star/secret-star.component';
 import { CosmicStarsComponent } from '@app/cosmic/components/cosmic-stars/cosmic-stars.component';
 import { CosmicNebulaComponent } from '@app/cosmic/components/cosmic-nebula/cosmic-nebula.component';
@@ -13,7 +12,6 @@ import { WormholeComponent } from '@app/cosmic/components/wormhole/wormhole.comp
   selector: 'app-cosmic-root',
   standalone: true,
   imports: [
-    ScanningArtifactComponent,
     CosmicStarsComponent,
     SecretStarComponent,
     LayerIndicatorComponent,

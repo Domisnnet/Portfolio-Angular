@@ -9,7 +9,7 @@
   .nebula-layer-a,
   .nebula-layer-b,
   .nebula-layer-c,
-  .scanning-artifact { display: block; }
+  .layer-indicator { display: block; }
   .cosmic-grid { display: none; }
 }
 
@@ -18,7 +18,8 @@
   .cosmic-tractor-beam,
   .beam-core,
   .beam-weave,
-  .status-line { display: none; }
+  .status-line,
+  .cosmic-hud { display: none; }
   .astro,
   .cosmic-grid,
   .nebula-layer,
