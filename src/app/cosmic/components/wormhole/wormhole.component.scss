@@ -1,34 +1,36 @@
 :host {
-  display: grid;
   position: fixed;
-  place-items: center;
   inset: 0;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: var(--z-worhhole);
+  z-index: var(--z-wormhole);
+  display: grid;
+  place-items: center;
   pointer-events: none;
+  opacity: var(--op-hidden);
+  visibility: hidden;
 }
 
 :host(.active) {
   opacity: var(--op-visible);
-  transform: scale(1);
+  visibility: visible;
 }
 
 .wormhole {
-  position: absolute;
+  position: relative;
   display: grid;
-  position: fixed;
   place-items: center;
-  pointer-events: none;
-  inset: 0;
-  transform: scale(.8);
-  transition: opacity var(--motion-medium), transform var(--motion-medium);
+  width: 100%;
+  height: 100%;
+  opacity: var(--op-hidden);
+  transform: scale(0.2);
+}
+
+.wormhole.active {
+  animation: wormhole-open var(--motion-medium) ease-out forwards;
 }
 
 .wormhole-core {
-  display: grid;
   position: relative;
+  display: grid;
   place-items: center;
   width: var(--wormhole-size);
   height: var(--wormhole-size);
@@ -37,15 +39,19 @@
 .wormhole-square {
   position: absolute;
   inset: 0;
+  border: var(--border-thin) solid var(--glow-color);
   filter: blur(var(--wormhole-blur));
   box-shadow: 0 0 var(--wormhole-glow-outer) var(--glow-color), inset 0 0 var(--wormhole-glow-inner) var(--glow-color);
   animation: wormhole-spin var(--motion-slow) linear infinite;
 }
 
 .square-inner {
-  transform: var(--op-medium);
+  position: absolute;
+  inset: var(--wormhole-inner-offset);
+  border: var(--border-thin) solid var(--glow-color);
   opacity: var(--op-subtle);
-  animation-direction: reverse;
+  transform: rotate(45deg);
+  animation: wormhole-spin var(--motion-slow) linear infinite reverse;
 }
 
 .wormhole-vortex {
@@ -55,4 +61,18 @@
   background: radial-gradient(circle, var(--layer-base), var(--wormhole-energy), transparent );
   filter: blur(var(--blur-soft));
   animation: vortex-spin var(--wormhole-vortex-speed) linear infinite;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .wormhole-core {
+    width: var(--wormhole-size-mobile);
+    height: var(--wormhole-size-mobile);
+  }
+
+  .wormhole-vortex {
+    width: var(--wormhole-core-size-mobile);
+    height: var(--wormhole-core-size-mobile);
+  }
 }
