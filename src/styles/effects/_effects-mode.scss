@@ -8,7 +8,6 @@ html[data-cosmic-effects='full'] {
   .nebula-layer-a,
   .nebula-layer-b,
   .nebula-layer-c,
-  .scanning-artifact,
   .stars-canvas,
   .wormhole,
   .wormhole.active,
@@ -25,7 +24,6 @@ html[data-cosmic-effects='minimal'] {
   .nebula-layer-b,
   .nebula-layer-c { opacity: var(--op-subtle); }
   .astro,
-  .scanning-artifact,
   .cosmic-tractor-beam,
   .beam-core,
   .beam-weave,
@@ -48,7 +46,6 @@ html[data-cosmic-effects='silent'] {
   .nebula-layer-a,
   .nebula-layer-b,
   .nebula-layer-c,
-  .scanning-artifact,
   .stars-canvas,
   .wormhole,
   .wormhole.active,

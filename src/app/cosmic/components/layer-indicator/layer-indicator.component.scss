@@ -1,120 +1,167 @@
 :host {
   display: block;
+  pointer-events: none;
 }
 
-/* COSMIC HUD */
-.layer-indicator {
+/* TELEMETRY CARD */
+.telemetry-card {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: var(--hud-top);
   left: var(--hud-left);
   width: var(--hud-width);
-  gap: var(--hud-gap);
-  z-index: var(--z-hud);
-  pointer-events: none;
-}
-
-/* HUD SECTION */
-.hud-section {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
   padding: var(--hud-padding);
+  gap: var(--hud-section-gap);
   border: var(--layer-indicator-border);
   border-radius: var(--radius-md);
   background: var(--layer-indicator-bg);
   backdrop-filter: blur(var(--glass-blur));
-  box-shadow: 0 0 var(--shadow-sm) var(--layer-indicator-glow);
+  box-shadow: var(--layer-indicator-glow);
+  pointer-events: none;
+  z-index: var(--z-hud);
+}
+
+/* TELEMETRY SECTIONS */
+.telemetry-card__scanner,
+.telemetry-card__region,
+.telemetry-card__metrics,
+.telemetry-card__status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--hud-content-gap);
 }
 
 /* SCANNER */
-.scanner-line {
+.telemetry-card__scanner {
+  gap: var(--space-xs);
+}
+
+/* DIVIDER */
+.telemetry-card__divider {
+  width: 100%;
+  height: var(--size-1xs);
+  margin: var(--hud-divider-spacing) 0;
+  border: var(--space-none);
+  background: var(--layer-indicator-divider);
+}
+
+/* SCANNER LINE */
+.telemetry-card__scanner-line {
   font-family: var(--font-code);
   font-size: var(--font-xs);
-  letter-spacing: .08em;
+  font-weight: var(--font-regular);
+  letter-spacing: var(--letter-super);
+  line-height: var(--line-height-relaxed);
   color: var(--artifact-brand);
   text-transform: uppercase;
 }
 
-/* DIVIDER */
-.hud-divider {
-  height: 1px;
-  background: rgba(var(--artifact-brand-rgb), .15);
-}
-
-/* LABEL */
-.hud-label {
+/* REGION LABEL */
+.telemetry-card__label {
   font-size: var(--font-xxs);
+  font-weight: var(--font-regular);
+  letter-spacing: var(--letter-ultra-wide);
+  line-height: var(--line-height-normal);
   color: var(--artifact-meta);
-  letter-spacing: .18em;
   text-transform: uppercase;
 }
 
-/* TITLE */
-.hud-title {
+/* REGION TITLE */
+.telemetry-card__title {
   font-size: var(--font-md);
-  color: var(--text-primary);
   font-weight: var(--font-bold);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
 }
 
-/* ROW */
-.hud-row {
+/* METRIC ROW */
+.metric {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: var(--hud-metric-gap);
+  min-height: var(--size-md);
   font-size: var(--font-xs);
 }
 
+/* METRIC LABEL */
+.metric__label {
+  font-size: var(--font-xs);
+  font-weight: var(--font-regular);
+  letter-spacing: var(--letter-wide);
+  line-height: var(--line-height-normal);
+  color: var(--artifact-meta);
+  text-transform: uppercase;
+}
+
+/* METRIC VALUE */
+.metric__value {
+  font-weight: var(--font-semibold);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+}
+
 /* SIGNAL */
-.signal-bars {
+.signal {
   display: flex;
   align-items: flex-end;
-  gap: 3px;
+  gap: var(--hud-signal-gap);
 }
 
-.signal-bar {
-  width: 3px;
+/* SIGNAL BAR */
+.signal__bar {
+  width: var(--hud-signal-width);
+  height: var(--hud-signal-height);
   border-radius: var(--radius-xs);
-  background: rgba(var(--artifact-brand-rgb), .18);
+  background: var(--layer-indicator-signal);
+  transition: background var(--motion-fast), box-shadow var(--motion-fast);
 }
 
-.signal-bar:nth-child(1) {
-  height: 8px;
+/* SIGNAL PROGRESSION */
+.signal__bar:nth-child(2) {
+  height: calc(var(--hud-signal-height) + var(--hud-signal-step));
 }
 
-.signal-bar:nth-child(2) {
-  height: 10px;
+.signal__bar:nth-child(3) {
+  height: calc(var(--hud-signal-height) + var(--hud-signal-step) * 2 );
 }
 
-.signal-bar:nth-child(3) {
-  height: 12px;
+.signal__bar:nth-child(4) {
+  height: calc(var(--hud-signal-height) + var(--hud-signal-step) * 3 );
 }
 
-.signal-bar:nth-child(4) {
-  height: 14px;
+.signal__bar:nth-child(5) {
+  height: calc(var(--hud-signal-height) + var(--hud-signal-step) * 4 );
 }
 
-.signal-bar:nth-child(5) {
-  height: 16px;
-}
-
-.signal-bar.active {
-  background: var(--artifact-brand);
-  box-shadow: 0 0 8px rgba(var(--artifact-brand-rgb), .55);
+/* ACTIVE SIGNAL */
+.signal__bar.active {
+  background: var(--layer-indicator-signal-active);
+  box-shadow: 0 0 var(--size-xs) var(--layer-indicator-signal-glow);
 }
 
 /* STATUS */
-.hud-status {
+.status {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  color: var(--text-primary);
 }
 
-.status-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--feedback-success);
-  box-shadow: 0 0 8px rgba(var(--feedback-success-rgb), .6);
+/* STATUS DOT */
+.status__dot {
+  width: var(--hud-status-dot);
+  height: var(--hud-status-dot);
+  flex: 0 0 var(--hud-status-dot);
+  border-radius: var(--radius-pill);
+  background: var(--layer-indicator-status);
+  box-shadow: 0 0 var(--size-xs) var(--layer-indicator-status-glow);
+}
+
+/* RESPONSIVE SUPPRESSION */
+@media (max-width: 1023px) {
+  :host {
+    display: none;
+  }
 }

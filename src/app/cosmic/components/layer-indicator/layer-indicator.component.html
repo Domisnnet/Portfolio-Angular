@@ -1,40 +1,40 @@
-<div class="layer-indicator">
-  <section class="hud-section hud-section--scanner">
-    <span class="scanner-line">{{ cosmic.scanMessage() }}</span>
-    <span class="scanner-line">ENERGY {{ cosmic.energy() }}%</span>
-    <span class="scanner-line">{{ cosmic.diagnostic() }}</span>
+<aside class="telemetry-card">
+  <section class="telemetry-card__scanner">
+    <span class="telemetry-card__scanner-line">{{ cosmic.scanMessage() }}</span>
+    <span class="telemetry-card__scanner-line">ENERGY {{ cosmic.energy() }}%</span>
+    <span class="telemetry-card__scanner-line">{{ cosmic.diagnostic() }}</span>
   </section>
-  <section class="hud-divider"></section>
-  <section class="hud-section">
-    <span class="hud-label">ACTIVE REGION</span>
-    <strong class="hud-title">{{ cosmic.regionName() }}</strong>
+  <hr class="telemetry-card__divider">
+  <section class="telemetry-card__region">
+    <span class="telemetry-card__label">ACTIVE REGION</span>
+    <strong class="telemetry-card__title">{{ cosmic.regionName() }}</strong>
   </section>
-  <section class="hud-section">
-    <div class="hud-row">
-      <span>DISTANCE</span>
-      <strong>{{ cosmic.distance() }}</strong>
+  <hr class="telemetry-card__divider">
+  <section class="telemetry-card__metrics">
+    <div class="metric">
+      <span class="metric__label">DISTANCE</span>
+      <strong class="metric__value">{{ cosmic.distance() }}</strong>
     </div>
-    <div class="hud-row">
-      <span>PROJECTS</span>
-      <strong>{{ cosmic.projects() }}/{{ cosmic.totalProjects() }}</strong>
+    <div class="metric">
+      <span class="metric__label">PROJECTS</span>
+      <strong class="metric__value">{{ cosmic.projects() }}/{{ cosmic.totalProjects() }}</strong>
     </div>
   </section>
-  <section class="hud-section">
-    <div class="hud-row">
-      <span>SIGNAL</span>
-      <div class="signal-bars">
-        <span class="signal-bar" [class.active]="cosmic.signal()>=20"></span>
-        <span class="signal-bar" [class.active]="cosmic.signal()>=40"></span>
-        <span class="signal-bar" [class.active]="cosmic.signal()>=60"></span>
-        <span class="signal-bar" [class.active]="cosmic.signal()>=80"></span>
-        <span class="signal-bar" [class.active]="cosmic.signal()>=100"></span>
+  <hr class="telemetry-card__divider">
+  <section class="telemetry-card__status">
+    <div class="metric">
+      <span class="metric__label">SIGNAL</span>
+      <div class="signal">
+        <span class="signal__bar" [class.active]="cosmic.signal() >= 20"></span>
+        <span class="signal__bar" [class.active]="cosmic.signal() >= 40"></span>
+        <span class="signal__bar" [class.active]="cosmic.signal() >= 60"></span>
+        <span class="signal__bar" [class.active]="cosmic.signal() >= 80"></span>
+        <span class="signal__bar" [class.active]="cosmic.signal() >= 100"></span>
       </div>
     </div>
-    <div class="hud-row">
-      <span>STATUS</span>
-      <strong class="hud-status">
-        <span class="status-dot"></span>{{ cosmic.status() }}
-      </strong>
+    <div class="metric">
+      <span class="metric__label">STATUS</span>
+      <strong class="status"><span class="status__dot"></span>{{ cosmic.status() }}</strong>
     </div>
   </section>
-</div>
+</aside>

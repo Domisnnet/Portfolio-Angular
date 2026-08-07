@@ -1,6 +1,5 @@
-/* ===================================================
-  COSMIC EFFECTS MAP
-===================================================
+/* COSMIC EFFECTS MAP
+
 ASTRO
   .astro
 
@@ -21,15 +20,19 @@ NEBULA
 STARS
   .stars-canvas
 
-SCANNER
-  .scanning-artifact
-  .status-line
+TELEMETRY
+  .telemetry-card
+  .telemetry-card__scanner
+  .telemetry-card__scanner-line
 
 SECRET STAR
   .secret-star
 
 LAYER INDICATOR
-  .layer-indicator
+  .telemetry-card
+  .telemetry-card__region
+  .telemetry-card__metrics
+  .telemetry-card__status
 
 LAYER JUMP
   .cosmic-beacon
@@ -48,4 +51,4 @@ WORMHOLE
   .square-inner
   .wormhole-vortex
 
-=================================================== */
+ */
