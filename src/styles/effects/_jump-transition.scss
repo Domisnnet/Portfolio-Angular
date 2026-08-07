@@ -1,7 +1,7 @@
 /* JUMP PROGRESS 0 */
 html[data-jump-progress='0'] {
   .astro,
-  .scanning-artifact,
+  .telemetry-card,
   .nebula-layer,
   .nebula-layer-a,
   .nebula-layer-b,
@@ -13,14 +13,14 @@ html[data-jump-progress='0'] {
 /* JUMP PROGRESS 1 */
 html[data-jump-progress='1'] {
   .astro { opacity: var(--op-subtle); }
-  .scanning-artifact { opacity: var(--op-default); }
+  .telemetry-card { opacity: var(--op-default); }
   .cosmic-grid { opacity: var(--op-default); }
 }
 
 /* JUMP PROGRESS 2 */
 html[data-jump-progress='2'] {
   .astro,
-  .scanning-artifact { opacity: var(--op-hidden); transform: translateX(-12px); }
+  .telemetry-card { opacity: var(--op-hidden); transform: translateX(-12px); }
   .nebula-layer,
   .nebula-layer-a,
   .nebula-layer-b,

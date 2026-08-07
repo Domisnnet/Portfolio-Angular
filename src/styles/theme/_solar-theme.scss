@@ -104,22 +104,16 @@
   --footer-opacity: 0.75;
 
   /* LAYER INDICATOR */
-  --layer-indicator-width: 10rem;
-  --layer-indicator-top: 10rem;
-  --layer-indicator-left: -1.rem;
-  --layer-indicator-gap: var(--space-xs);
-  --layer-indicator-padding: var(--space-sm);
-  --layer-indicator-panel-gap: var(--space-sm);
-  --layer-indicator-label-size: var(--font-xxs);
-  --layer-indicator-value-size: var(--font-sm);
-  --layer-indicator-row-size: var(--font-xs);
-  --layer-indicator-signal-width: 0.25rem;
-  --layer-indicator-signal-height: 0.7rem;
-  --layer-indicator-signal-gap: 0.2rem;
-  --layer-indicator-glow: rgba(var(--artifact-brand-rgb), .12);
-  --layer-indicator-bg: var(--glass-bg);
-  --layer-indicator-border: var(--glass-border);
-
+  --layer-indicator-bg: rgba(6, 20, 18, 0.5);
+  --layer-indicator-border: var(--border-medium) solid rgba(var(--artifact-brand-rgb), 0.2);
+  --layer-indicator-glow: rgba(var(--artifact-brand-rgb), 0.2);
+  --layer-indicator-divider: rgba(var(--artifact-brand-rgb), 0.25);
+  --layer-indicator-signal: rgba(var(--artifact-brand-rgb), 0.18);
+  --layer-indicator-signal-active: var(--artifact-brand);
+  --layer-indicator-signal-glow: rgba(var(--artifact-brand-rgb), 0.5);
+  --layer-indicator-status: var(--feedback-success);
+  --layer-indicator-status-glow: rgba(var(--feedback-success-rgb), 0.7);
+  
   /* PILLS */
   --pill-be: #419100;
   --pill-cms: #ff399f;
