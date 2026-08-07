@@ -188,23 +188,18 @@
   --font-xs: 0.75rem;
 
   /* WORMHOLE SYSTEM */
-  --wormhole-accretion: var(--color-accent);
-  --wormhole-border: var(--border-medium);
   --wormhole-blur: var(--blur-medium);
   --wormhole-core-size: 50%;
   --wormhole-energy: var(--color-primary);
   --wormhole-glow-outer: var(--size-xl);
   --wormhole-glow-inner: calc(var(--size-xl) * 1.5);
-  --wormhole-rotation-speed: var(--motion-faster);
-  --wormhole-pulse-speed: var(--motion-slow);
+  --wormhole-navigation-delay: 0.4s;
   --wormhole-scale-start: 0.2;
-  --wormhole-scale-end: 1.8;
-  --wormhole-spin-speed: 6s;
+  --wormhole-scale-base: 0.8;
+  --wormhole-scale-end: 1;
   --wormhole-size: 640px;
+  --wormhole-transition-duration: 2.2s;
   --wormhole-vortex-speed: 3s;
-  --wormhole-inner-offset: 12%;
-  --wormhole-size-mobile: 70vmin;
-  --wormhole-core-size-mobile: 22vmin;
 
   /* Z-INDEX SYSTEM */
   --z-astro: 5;

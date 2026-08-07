@@ -1,10 +1,9 @@
-<section class="deep-container" data-cosmic-effects="full">
+<section class="deep-container" data-cosmic-effects="minimal">
   <app-cosmic-root>
     <header class="page-header">
       <h1>Deep Space</h1>
-      <p>Artefatos.</p>
+      <p>Artefatos</p>
     </header>
-    <app-astronauta />
     <div class="deep-grid">
       @for (project of projects(); track project.title; let i = $index) {
         <app-project-card

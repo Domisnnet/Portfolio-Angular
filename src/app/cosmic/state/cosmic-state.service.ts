@@ -52,7 +52,8 @@ export class CosmicLayerService {
       case 1: this.jumpStageSignal.set('charging'); break;
       case 2: this.jumpStageSignal.set('critical'); break;
       case 3: this.jumpStageSignal.set('wormhole'); cosmicLayerSignal.set('wormhole'); break;
-    } return this.jumpStage(); }
+    } return this.jumpStage();
+  }
   finishJump(): void { cosmicLayerSignal.set('deep-space'); this.jumpStageSignal.set('idle'); this.jumpProgressSignal.set(0); }
   reset(): void { cosmicLayerSignal.set('projects'); this.jumpStageSignal.set('idle'); this.jumpProgressSignal.set(0); }
   set(layer: CosmicLayer): void { cosmicLayerSignal.set(layer); }
