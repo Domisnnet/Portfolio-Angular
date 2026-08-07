@@ -1,0 +1,67 @@
+/* =========================
+  Layout Container
+========================= */
+.deep-container {
+  position: relative;
+  min-height: 100vh;
+  padding: var(--size-projects) var(--size-proj);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: var(--z-projects);
+}
+
+/* =========================
+  Header Section
+========================= */
+.page-header {
+  text-align: center;
+  margin-bottom: var(--size-projects);
+
+  h1 {
+    font-family: var(--font-main);
+    font-size: var(--font-display);
+    font-weight: var(--font-bold);
+    color: var(--color-text-primary);
+    margin-top: var(--space-xl);
+  }
+
+  p {
+    font-size: var(--font-lg);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-lg);
+  }
+}
+
+/* =========================
+  Project Grid
+========================= */
+.deep-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--size-project);
+  width: 100%;
+  max-width: var(--container-min);
+  margin: var(--space-none) auto;
+  justify-items: center;
+  align-items: start;
+}
+
+/* =========================
+  Card Interaction
+========================= */
+app-project-card {
+  transition: transform var(--motion-delay-xl) var(--easing-ease);
+
+  &:hover {
+    transform: translateY(-15px);
+    z-index: var(--z-content);
+  }
+}
+
+/* =========================
+  Responsive Adjustments
+========================= */
+@media (max-width: 1024px) {
+  .page-header h1 { font-size: var(--font-xxl); }
+}
