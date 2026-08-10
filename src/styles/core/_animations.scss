@@ -141,21 +141,6 @@
   100% { opacity: var(--op-visible); transform: scale(var(--wormhole-scale-end)); filter: blur(var(--blur-disabled)); }
 }
 
-/* WORMHOLE — OUTER DEPTH */
-@keyframes wormhole-square-distort {
-  0% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-start-rotation)) scale(var(--wormhole-scale-start)); opacity: var(--op-hidden); }
-  24% { opacity: var(--op-subtle); }
-  55% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-mid-rotation)) scale(var(--wormhole-scale-base)); }
-  100% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-end-rotation)) scale(var(--wormhole-depth-outer-scale)); opacity: var(--wormhole-depth-outer-opacity); }
-}
-
-/* WORMHOLE — INNER DEPTH */
-@keyframes wormhole-square-inner {
-  0% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-start-rotation)) scale(var(--wormhole-scale-end)); }
-  50% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-mid-rotation)) scale(var(--wormhole-depth-inner-scale)); }
-  100% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-end-rotation)) scale(var(--wormhole-depth-inner-scale)); }
-}
-
 /* WORMHOLE — ACCRETION */
 @keyframes wormhole-accretion {
   0% { transform: rotate(0deg) scale(var(--wormhole-scale-base)); }
@@ -163,7 +148,20 @@
   100% { transform: rotate(var(--wormhole-accretion-end-rotation)) scale(var(--wormhole-scale-base)); }
 }
 
-/* WORMHOLE — TUNNEL DEPTH */
+/* WORMHOLE — DEPTH / PARALLAX */
+@keyframes wormhole-square-distort {
+  0% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-start-rotation)) scale(var(--wormhole-scale-start)); opacity: var(--op-hidden); }
+  24% { opacity: var(--op-subtle); }
+  55% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-mid-rotation)) scale(var(--wormhole-scale-base)); }
+  100% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-end-rotation)) scale(var(--wormhole-depth-outer-scale)); opacity: var(--wormhole-depth-outer-opacity); }
+}
+
+@keyframes wormhole-square-inner {
+  0% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-start-rotation)) scale(var(--wormhole-scale-end)); }
+  50% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-mid-rotation)) scale(var(--wormhole-depth-inner-scale)); }
+  100% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-end-rotation)) scale(var(--wormhole-depth-inner-scale)); }
+}
+
 @keyframes wormhole-tunnel-collapse {
   0% { opacity: var(--op-hidden); transform: scale(var(--wormhole-tunnel-start-scale)); }
   30% { opacity: var(--op-subtle); transform: scale(var(--wormhole-tunnel-base-scale)); }
@@ -172,17 +170,10 @@
   100% { opacity: var(--wormhole-depth-tunnel-opacity); transform: scale(var(--wormhole-depth-tunnel-scale)); }
 }
 
-/* WORMHOLE — SINGULARITY */
-@keyframes wormhole-singularity-collapse {
-  0% { opacity: var(--op-hidden); transform: scale(var(--wormhole-singularity-start-scale)); }
-  35%, 100% { opacity: var(--op-visible); transform: scale(var(--wormhole-singularity-base-scale)); }
-  68% { transform: scale(var(--wormhole-singularity-end-scale)); }
-}
 
-/* WORMHOLE — VORTEX DEPTH */
 @keyframes wormhole-vortex-depth {
-  0% { transform: rotate(0deg) scale(var(--wormhole-scale-start)); }
-  40% { transform: rotate(var(--wormhole-accretion-end-rotation)) scale(var(--wormhole-depth-vortex-scale)); }
-  70% { transform: rotate(calc(var(--wormhole-accretion-end-rotation) * 1.5)) scale(var(--wormhole-scale-end)); }
-  100% { transform: rotate(calc(var(--wormhole-accretion-end-rotation) * 2)) scale(var(--wormhole-depth-vortex-scale)); }
+  0% { transform: scale(var(--wormhole-scale-start)); opacity: var(--op-hidden); }
+  35% { transform: scale(var(--wormhole-depth-vortex-scale)); opacity: var(--wormhole-depth-vortex-opacity); }
+  65% { transform: scale(var(--wormhole-scale-end)); opacity: var(--wormhole-depth-vortex-opacity); }
+  100% { transform: scale(var(--wormhole-depth-vortex-scale)); opacity: var(--wormhole-depth-vortex-opacity); }
 }
