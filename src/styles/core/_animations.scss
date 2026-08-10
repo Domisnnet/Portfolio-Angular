@@ -12,77 +12,71 @@
 
 /* HERO */
 @keyframes heroFloat {
-  0% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-24px); }
-  100% { transform: translateY(0); }
 }
 
 @keyframes zero-gravity-float {
-  0% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
+  0%, 100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
   25% { transform: translate3d(6px, -10px, 0) rotateZ(0.6deg); }
   50% { transform: translate3d(-6px, -14px, 0) rotateZ(-0.6deg); }
   75% { transform: translate3d(4px, -8px, 0) rotateZ(0.4deg); }
-  100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
 }
 
 /* HOLOGRAPHIC */
 @keyframes holoShift {
-  0% { transform: translateX(-5%); }
+  0%, 100% { transform: translateX(-5%); }
   50% { transform: translateX(5%); }
-  100% { transform: translateX(-5%); }
 }
 
 /* NEBULA */
 @keyframes nebulaDrift {
   from { transform: translate3d(0, 0, 0) scale(1); }
-  to   { transform: translate3d(-12%, -8%, 0) scale(1.15); }
+  to { transform: translate3d(-12%, -8%, 0) scale(1.15); }
 }
 
 /* ORBITS */
 @keyframes orbit-drift {
   from { transform: rotate(0deg); }
-  to   { transform: rotate(0.6deg); }
+  to { transform: rotate(0.6deg); }
 }
 
 @keyframes orbitRotate {
   from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes orbitRotateReverse {
   from { transform: rotate(360deg); }
-  to   { transform: rotate(0deg); }
+  to { transform: rotate(0deg); }
 }
 
 @keyframes orbitSpin {
   from { stroke-dashoffset: 0; }
-  to   { stroke-dashoffset: 64; }
+  to { stroke-dashoffset: 64; }
 }
 
 /* SECRET STAR */
 @keyframes star-pulse {
-  0% { transform: scale(1); opacity: var(--op-medium); }
+  0%, 100% { transform: scale(1); opacity: var(--op-medium); }
   50% { transform: scale(var(--secret-star-scale-hover)); opacity: var(--op-hover); }
-  100% { transform: scale(1); opacity: var(--op-medium); }
 }
 
 @keyframes star-shake {
-  0% { transform: translate(0); }
-  25% { transform: translate(var(--secret-star-shake-distance), 0); }
+  0%, 100% { transform: translate(0); }
+  25%, 75% { transform: translate(var(--secret-star-shake-distance), 0); }
   50% { transform: translate(calc(var(--secret-star-shake-distance) * -1), 0); }
-  75% { transform: translate(var(--secret-star-shake-distance), 0); }
-  100% { transform: translate(0); }
 }
 
 /* STARS */
 @keyframes stars-drift {
   from { background-position: 0 0; }
-  to   { background-position: -400px 800px; }
+  to { background-position: -400px 800px; }
 }
 
 @keyframes stars-twinkle {
   from { opacity: 0.25; }
-  to   { opacity: 0.6; }
+  to { opacity: 0.6; }
 }
 
 /* TRACTOR BEAM */
@@ -98,8 +92,8 @@
 
 @keyframes beam-weave-expand {
   0% { transform: scale(0.9); opacity: 0; }
-  40% { opacity: 0.4; }
-  70% { transform: scale(1.2); opacity: 0.4; }
+  40%, 70% { opacity: 0.4; }
+  70% { transform: scale(1.2); }
   100% { transform: scale(1.3); opacity: 0; }
 }
 
@@ -121,12 +115,12 @@
 
 @keyframes revealPill {
   from { opacity: 0; transform: translateY(12px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-down {
   from { opacity: 0; transform: translateY(-10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes spin {
@@ -139,12 +133,6 @@
 }
 
 /* WORMHOLE */
-@keyframes wormhole-accretion {
-  0% { transform: rotate(0deg) scale(var(--wormhole-scale-base)); }
-  50% { transform: rotate(180deg) scale(var(--wormhole-scale-end)); }
-  100% { transform: rotate(var(--wormhole-accretion-end-rotation)) scale(var(--wormhole-scale-base)); }
-}
-
 @keyframes wormhole-open {
   0% { opacity: var(--op-hidden); transform: scale(var(--wormhole-scale-start)); filter: blur(var(--blur-strong)); }
   28% { opacity: var(--op-visible); transform: scale(var(--wormhole-scale-base)); filter: blur(var(--wormhole-blur)); }
@@ -153,29 +141,48 @@
   100% { opacity: var(--op-visible); transform: scale(var(--wormhole-scale-end)); filter: blur(var(--blur-disabled)); }
 }
 
-@keyframes wormhole-singularity-collapse {
-  0% { opacity: var(--op-hidden); transform: scale(var(--wormhole-singularity-start-scale)); }
-  35% { opacity: var(--op-visible); transform: scale(var(--wormhole-singularity-base-scale)); }
-  68% { transform: scale(var(--wormhole-singularity-end-scale)); }
-  100% { opacity: var(--op-visible); transform: scale(var(--wormhole-singularity-base-scale)); }
-}
-
+/* WORMHOLE — OUTER DEPTH */
 @keyframes wormhole-square-distort {
   0% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-start-rotation)) scale(var(--wormhole-scale-start)); opacity: var(--op-hidden); }
   24% { opacity: var(--op-subtle); }
-  55% { transform: translate(-50%, -50%) rotate(calc(var(--wormhole-square-start-rotation) + var(--wormhole-square-end-rotation) / 2 )) scale(var(--wormhole-scale-base)); }
-  100% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-end-rotation)) scale(var(--wormhole-scale-end)); opacity: var(--op-active); }
+  55% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-mid-rotation)) scale(var(--wormhole-scale-base)); }
+  100% { transform: translate(-50%, -50%) rotate(var(--wormhole-square-end-rotation)) scale(var(--wormhole-depth-outer-scale)); opacity: var(--wormhole-depth-outer-opacity); }
 }
 
+/* WORMHOLE — INNER DEPTH */
 @keyframes wormhole-square-inner {
   0% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-start-rotation)) scale(var(--wormhole-scale-end)); }
-  50% { transform: translate(-50%, -50%) rotate(225deg) scale(var(--wormhole-scale-base)); }
-  100% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-end-rotation)) scale(var(--wormhole-scale-end)); }
+  50% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-mid-rotation)) scale(var(--wormhole-depth-inner-scale)); }
+  100% { transform: translate(-50%, -50%) rotate(var(--wormhole-inner-end-rotation)) scale(var(--wormhole-depth-inner-scale)); }
 }
 
+/* WORMHOLE — ACCRETION */
+@keyframes wormhole-accretion {
+  0% { transform: rotate(0deg) scale(var(--wormhole-scale-base)); }
+  50% { transform: rotate(calc(var(--wormhole-accretion-end-rotation) / 2)) scale(var(--wormhole-scale-end)); }
+  100% { transform: rotate(var(--wormhole-accretion-end-rotation)) scale(var(--wormhole-scale-base)); }
+}
+
+/* WORMHOLE — TUNNEL DEPTH */
 @keyframes wormhole-tunnel-collapse {
   0% { opacity: var(--op-hidden); transform: scale(var(--wormhole-tunnel-start-scale)); }
   30% { opacity: var(--op-subtle); transform: scale(var(--wormhole-tunnel-base-scale)); }
+  55% { transform: scale(var(--wormhole-depth-tunnel-scale)); }
   70% { opacity: var(--wormhole-tunnel-opacity); transform: scale(var(--wormhole-tunnel-end-scale)); }
-  100% { opacity: var(--op-visible); transform: scale(var(--wormhole-tunnel-base-scale)); }
+  100% { opacity: var(--wormhole-depth-tunnel-opacity); transform: scale(var(--wormhole-depth-tunnel-scale)); }
+}
+
+/* WORMHOLE — SINGULARITY */
+@keyframes wormhole-singularity-collapse {
+  0% { opacity: var(--op-hidden); transform: scale(var(--wormhole-singularity-start-scale)); }
+  35%, 100% { opacity: var(--op-visible); transform: scale(var(--wormhole-singularity-base-scale)); }
+  68% { transform: scale(var(--wormhole-singularity-end-scale)); }
+}
+
+/* WORMHOLE — VORTEX DEPTH */
+@keyframes wormhole-vortex-depth {
+  0% { transform: rotate(0deg) scale(var(--wormhole-scale-start)); }
+  40% { transform: rotate(var(--wormhole-accretion-end-rotation)) scale(var(--wormhole-depth-vortex-scale)); }
+  70% { transform: rotate(calc(var(--wormhole-accretion-end-rotation) * 1.5)) scale(var(--wormhole-scale-end)); }
+  100% { transform: rotate(calc(var(--wormhole-accretion-end-rotation) * 2)) scale(var(--wormhole-depth-vortex-scale)); }
 }
