@@ -46,7 +46,8 @@ export class CosmicLayerService {
     });
   }
   advance(): JumpStage {
-    const progress = Math.min(this.jumpProgress() + 1, 3 );
+    if (this.jumpStage() === 'wormhole') { return this.jumpStage(); }
+    const progress = Math.min(this.jumpProgress() + 1, 3);
     this.jumpProgressSignal.set(progress);
     switch (progress) {
       case 1: this.jumpStageSignal.set('charging'); break;
