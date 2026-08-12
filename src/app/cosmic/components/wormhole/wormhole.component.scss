@@ -15,39 +15,23 @@
   width: 100%;
   height: 100%;
   isolation: isolate;
+  overflow: hidden;
   opacity: var(--op-hidden);
   transform: scale(var(--wormhole-scale-start));
   animation: wormhole-open var(--wormhole-transition-duration) var(--easing-ease) forwards;
 }
 
-/* SQUARE FIELD */
-.wormhole-square, .square-inner {
+/* SPACE FIELD */
+.wormhole-space {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: center;
-  pointer-events: none;
-}
-
-.wormhole-square {
-  width: var(--wormhole-size);
-  height: var(--wormhole-size);
-  border: var(--border-thin) solid var(--wormhole-square-color);
-  opacity: var(--op-subtle);
-  filter: blur(var(--wormhole-blur));
-  box-shadow: 0 0 var(--wormhole-glow-outer) var(--wormhole-square-glow), inset 0 0 var(--wormhole-glow-inner) var(--wormhole-square-glow);
+  width: var(--wormhole-space-size);
+  height: var(--wormhole-space-size);
+  border-radius: var(--radius-pill);
+  background: radial-gradient(circle, var(--wormhole-space-core) 0%, var(--wormhole-space-mid) 32%, var(--wormhole-space-edge) 62%, transparent 76% );
+  opacity: var(--wormhole-space-opacity);
+  filter: blur(var(--wormhole-space-blur));
   mix-blend-mode: screen;
-  animation: wormhole-square-distort var(--wormhole-square-speed) linear infinite;
-}
-
-.square-inner {
-  width: calc(var(--wormhole-size) - var(--wormhole-inner-offset) * 2 );
-  height: calc(var(--wormhole-size) - var(--wormhole-inner-offset) * 2 );
-  border: var(--border-thin) solid var(--wormhole-square-inner-color);
-  opacity: var(--wormhole-inner-opacity);
-  filter: blur(var(--wormhole-inner-blur));
-  mix-blend-mode: screen;
-  animation: wormhole-square-inner var(--wormhole-inner-speed) linear infinite;
+  animation: wormhole-space-breathe var(--wormhole-space-speed) var(--easing-standard) infinite;
 }
 
 /* TUNNEL */
@@ -56,12 +40,71 @@
   width: var(--wormhole-tunnel-size);
   height: var(--wormhole-tunnel-size);
   border-radius: var(--radius-pill);
-  background: radial-gradient(circle, var(--wormhole-tunnel-core) var(--wormhole-tunnel-inner-stop), var(--wormhole-tunnel-mid) var(--wormhole-tunnel-outer-stop), transparent var(--wormhole-tunnel-fade));
+  background: radial-gradient(circle, transparent 0%, transparent var(--wormhole-tunnel-hole), var(--wormhole-tunnel-core) 30%, var(--wormhole-tunnel-mid) 52%, transparent 74% );
   opacity: var(--wormhole-tunnel-opacity);
   filter: blur(var(--wormhole-tunnel-blur));
   mix-blend-mode: screen;
-  animation: wormhole-tunnel-collapse var(--wormhole-depth-tunnel-speed) var(--easing-ease) infinite;
+  animation: wormhole-tunnel-open var(--wormhole-transition-duration) var(--easing-ease) forwards;
 }
+
+/* ENERGY FIELD */
+.wormhole-field {
+  position: absolute;
+  width: var(--wormhole-field-size);
+  height: var(--wormhole-field-size);
+  border-radius: var(--radius-pill);
+  border: var(--border-medium) solid var(--wormhole-field-border);
+  background: radial-gradient(circle, transparent 0%, transparent 38%, var(--wormhole-field-core) 48%, var(--wormhole-field-mid) 62%, transparent 76% );
+  box-shadow: 0 0 var(--wormhole-field-glow) var(--wormhole-field-glow-color), inset 0 0 var(--wormhole-field-inner-glow) var(--wormhole-field-glow-color);
+  opacity: var(--wormhole-field-opacity);
+  filter: blur(var(--wormhole-field-blur));
+  mix-blend-mode: screen;
+  animation: wormhole-field-expand var(--wormhole-transition-duration) var(--easing-ease) forwards, wormhole-field-rotate var(--wormhole-field-speed) linear infinite;
+}
+
+/* ROTATING SQUARE */
+.wormhole-square {
+  position: absolute;
+  width: var(--wormhole-square-size);
+  height: var(--wormhole-square-size);
+  border: var(--border-medium) solid var(--wormhole-square-color);
+  opacity: var(--wormhole-square-opacity);
+  filter: blur(var(--wormhole-square-blur));
+  box-shadow: 0 0 var(--wormhole-square-glow) var(--wormhole-square-glow-color), inset 0 0 var(--wormhole-square-inner-glow) var(--wormhole-square-glow-color);
+  mix-blend-mode: screen;
+  transform-origin: center;
+  animation: wormhole-square-open var(--wormhole-transition-duration) var(--easing-ease) forwards, wormhole-square-rotate var(--wormhole-square-speed) linear infinite;
+}
+
+/* INNER SQUARE */
+.square-inner {
+  position: absolute;
+  inset: var(--wormhole-square-inner-inset);
+  border: var(--border-thin) solid var(--wormhole-square-inner-color);
+  opacity: var(--wormhole-square-inner-opacity);
+  filter: blur(var(--wormhole-square-inner-blur));
+  box-shadow: 0 0 var(--wormhole-square-inner-glow) var(--wormhole-square-inner-color);
+  transform: rotate(var(--wormhole-square-inner-rotation));
+}
+
+/* METEOR FIELD */
+.wormhole-meteor {
+  position: absolute;
+  width: var(--wormhole-meteor-width);
+  height: var(--wormhole-meteor-height);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(90deg, transparent, var(--wormhole-meteor-color), var(--wormhole-meteor-core), transparent );
+  box-shadow: 0 0 var(--wormhole-meteor-glow) var(--wormhole-meteor-color);
+  filter: blur(var(--wormhole-meteor-blur));
+  opacity: var(--wormhole-meteor-opacity);
+  transform-origin: left center;
+  mix-blend-mode: screen;
+}
+
+.meteor-one { animation: wormhole-meteor-one var(--wormhole-meteor-speed-one) var(--easing-ease) infinite; }
+.meteor-two { animation: wormhole-meteor-two var(--wormhole-meteor-speed-two) var(--easing-ease) infinite; }
+.meteor-three { animation: wormhole-meteor-three var(--wormhole-meteor-speed-three) var(--easing-ease) infinite; }
+.meteor-four { animation: wormhole-meteor-four var(--wormhole-meteor-speed-four) var(--easing-ease) infinite; }
 
 /* VORTEX */
 .wormhole-vortex {
@@ -69,37 +112,40 @@
   width: var(--wormhole-vortex-size);
   height: var(--wormhole-vortex-size);
   border-radius: var(--radius-pill);
-  background: radial-gradient(circle, var(--wormhole-field-core) var(--wormhole-field-mid-stop), var(--wormhole-field-mid) var(--wormhole-field-edge-stop), var(--wormhole-field-edge) var(--wormhole-field-fade), transparent );
+  border: var(--border-thin) solid var(--wormhole-vortex-border);
+  background: radial-gradient(circle, transparent 0%, transparent 34%, var(--wormhole-vortex-core) 48%, var(--wormhole-vortex-mid) 64%, transparent 78% );
   opacity: var(--wormhole-vortex-opacity);
   filter: blur(var(--wormhole-vortex-blur));
-  box-shadow: 0 0 var(--wormhole-vortex-glow) var(--wormhole-energy);
+  box-shadow: 0 0 var(--wormhole-vortex-glow) var(--wormhole-vortex-glow-color);
   mix-blend-mode: screen;
-  animation: wormhole-vortex-depth var(--wormhole-depth-vortex-speed) linear infinite;
+  animation: wormhole-vortex-open var(--wormhole-transition-duration) var(--easing-ease) forwards, wormhole-vortex-spin var(--wormhole-vortex-speed) linear infinite;
 }
 
 /* CORE */
 .wormhole-core {
-  display: grid;
   position: relative;
+  display: grid;
   place-items: center;
   width: var(--wormhole-core-size);
   height: var(--wormhole-core-size);
   isolation: isolate;
-  transform: scale(var(--wormhole-depth-core-scale));
+  transform: scale(var(--wormhole-core-start-scale));
+  animation: wormhole-core-open var(--wormhole-transition-duration) var(--easing-ease) forwards;
 }
 
 /* ACCRETION */
 .wormhole-accretion {
   position: absolute;
-  width: var(--wormhole-ring-size);
-  height: var(--wormhole-ring-size);
-  border: var(--border-thin) solid var(--wormhole-accretion-color);
+  width: var(--wormhole-accretion-size);
+  height: var(--wormhole-accretion-size);
+  border: var(--border-thick) solid var(--wormhole-accretion-color);
   border-radius: var(--radius-pill);
-  opacity: var(--op-active);
-  filter: blur(var(--wormhole-inner-blur));
-  box-shadow: 0 0 var(--wormhole-glow-inner) var(--wormhole-accretion-color);
+  opacity: var(--wormhole-accretion-opacity);
+  filter: blur(var(--wormhole-accretion-blur));
+  box-shadow: 0 0 var(--wormhole-accretion-glow) var(--wormhole-accretion-color), inset 0 0 var(--wormhole-accretion-inner-glow) var(--wormhole-accretion-color);
+  transform: rotateX(var(--wormhole-accretion-tilt));
   mix-blend-mode: screen;
-  animation: wormhole-accretion var(--wormhole-vortex-speed) linear infinite;
+  animation: wormhole-accretion-spin var(--wormhole-accretion-speed) linear infinite;
 }
 
 /* HORIZON */
@@ -107,47 +153,33 @@
   position: absolute;
   width: var(--wormhole-ring-size);
   height: var(--wormhole-ring-size);
-  border: var(--border-thin) solid var(--wormhole-horizon-outer);
+  border: var(--border-medium) solid var(--wormhole-horizon-outer);
   border-radius: var(--radius-pill);
-  opacity: var(--wormhole-inner-opacity);
-  box-shadow: 0 0 var(--wormhole-glow-outer) var(--wormhole-horizon-outer);
+  opacity: var(--wormhole-ring-opacity);
+  box-shadow: 0 0 var(--wormhole-ring-glow) var(--wormhole-horizon-outer), inset 0 0 var(--wormhole-ring-inner-glow) var(--wormhole-horizon-outer);
   mix-blend-mode: screen;
 }
 
 /* BLACK HOLE */
 .wormhole-black-hole {
   position: absolute;
-  width: var(--wormhole-core-size);
-  height: var(--wormhole-core-size);
+  width: var(--wormhole-black-hole-size);
+  height: var(--wormhole-black-hole-size);
   border-radius: var(--radius-pill);
   background: var(--wormhole-singularity-core);
-  box-shadow: 0 0 var(--wormhole-singularity-glow) var(--wormhole-singularity-shadow);
-  filter: blur(var(--wormhole-singularity-blur));
-  z-index: 1;
+  box-shadow: 0 0 var(--wormhole-black-hole-glow) var(--wormhole-black-hole-shadow);
+  filter: blur(var(--wormhole-black-hole-blur));
+  z-index: 2;
 }
-
-/* SINGULARITY */
-.wormhole-singularity {
-  position: absolute;
-  width: var(--wormhole-singularity-size);
-  height: var(--wormhole-singularity-size);
-  border-radius: var(--radius-pill);
-  background: radial-gradient(circle, var(--wormhole-singularity-core) var(--wormhole-singularity-stop), var(--wormhole-singularity-color) var(--wormhole-horizon-inner-stop), var(--wormhole-horizon-outer) var(--wormhole-horizon-outer-stop), transparent var(--wormhole-horizon-fade));
-  opacity: var(--op-visible);
-  box-shadow: 0 0 var(--wormhole-singularity-glow) var(--wormhole-singularity-shadow);
-  filter: blur(var(--wormhole-singularity-blur));
-  mix-blend-mode: screen;
-  animation: wormhole-singularity-collapse var(--wormhole-transition-duration) var(--easing-ease) forwards;
-}
-
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .wormhole-square { width: var(--wormhole-size-mobile); height: var(--wormhole-size-mobile); }
-  .square-inner { width: calc(var(--wormhole-size-mobile) - var(--wormhole-inner-offset) * 2 ); height: calc(var(--wormhole-size-mobile) - var(--wormhole-inner-offset) * 2 ); }
+  .wormhole-space { width: var(--wormhole-space-size-mobile); height: var(--wormhole-space-size-mobile); }
+  .wormhole-field { width: var(--wormhole-field-size-mobile); height: var(--wormhole-field-size-mobile); }
+  .wormhole-square { width: var(--wormhole-square-size-mobile); height: var(--wormhole-square-size-mobile); }
   .wormhole-vortex { width: var(--wormhole-vortex-size-mobile); height: var(--wormhole-vortex-size-mobile); }
   .wormhole-tunnel { width: var(--wormhole-tunnel-size-mobile); height: var(--wormhole-tunnel-size-mobile); }
-  .wormhole-singularity { width: var(--wormhole-singularity-size-mobile); height: var(--wormhole-singularity-size-mobile); }
   .wormhole-core { width: var(--wormhole-core-size-mobile); height: var(--wormhole-core-size-mobile); }
   .wormhole-accretion, .wormhole-ring { width: var(--wormhole-ring-size-mobile); height: var(--wormhole-ring-size-mobile); }
+  .wormhole-black-hole { width: var(--wormhole-black-hole-size-mobile); height: var(--wormhole-black-hole-size-mobile); }
 }
