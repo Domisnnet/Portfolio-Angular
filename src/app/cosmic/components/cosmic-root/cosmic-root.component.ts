@@ -19,7 +19,7 @@ import { WormholeComponent } from '@app/cosmic/components/wormhole/wormhole.comp
     WormholeComponent,
     CosmicNebulaComponent,
     CosmicGridComponent,
-    CosmicBeamComponent
+    CosmicBeamComponent,
   ],
   templateUrl: './cosmic-root.component.html',
   styleUrls: ['./cosmic-root.component.scss'],

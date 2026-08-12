@@ -10,12 +10,7 @@ import { HeroComponent } from '@app/components/hero/hero';
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [
-    CommonModule, 
-    TitleCasePipe, 
-    StackPillComponent, 
-    HeroComponent
-  ],
+  imports: [CommonModule, TitleCasePipe, StackPillComponent, HeroComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {

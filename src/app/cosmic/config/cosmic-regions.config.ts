@@ -12,7 +12,7 @@ export const COSMIC_REGIONS: Record<string, CosmicRegion> = {
     energy: 98,
     status: CosmicStatus.Online,
     scanMessage: 'SCANNING_FEATURED_SECTOR',
-    diagnostic: 'ALL_SYSTEMS_NOMINAL'
+    diagnostic: 'ALL_SYSTEMS_NOMINAL',
   },
   deepSpace: {
     id: 'deep-space',
@@ -24,7 +24,7 @@ export const COSMIC_REGIONS: Record<string, CosmicRegion> = {
     energy: 84,
     status: CosmicStatus.Exploring,
     scanMessage: 'SCANNING_DEEP_SPACE',
-    diagnostic: 'LONG_RANGE_SCAN_ACTIVE'
+    diagnostic: 'LONG_RANGE_SCAN_ACTIVE',
   },
   stableOrbit: {
     id: 'stable-orbit',
@@ -36,7 +36,7 @@ export const COSMIC_REGIONS: Record<string, CosmicRegion> = {
     energy: 61,
     status: CosmicStatus.Stable,
     scanMessage: 'SCANNING_STABLE_ORBIT',
-    diagnostic: 'NAVIGATION_LOCK_ACQUIRED'
+    diagnostic: 'NAVIGATION_LOCK_ACQUIRED',
   },
   unstableOrbit: {
     id: 'unstable-orbit',
@@ -48,6 +48,6 @@ export const COSMIC_REGIONS: Record<string, CosmicRegion> = {
     energy: 33,
     status: CosmicStatus.Unstable,
     scanMessage: 'SCANNING_UNSTABLE_ORBIT',
-    diagnostic: 'SIGNAL_INTERFERENCE_DETECTED'
-  }
+    diagnostic: 'SIGNAL_INTERFERENCE_DETECTED',
+  },
 };

@@ -14,5 +14,7 @@ export class LayerJumpComponent {
   readonly progress = this.cosmic.jumpProgress;
   private static readonly RADIUS = 44;
   readonly circumference = 2 * Math.PI * LayerJumpComponent.RADIUS;
-  readonly dashOffset = computed(() => { return this.circumference - (this.progress() / 3) * this.circumference; });
+  readonly dashOffset = computed(() => {
+    return this.circumference - (this.progress() / 3) * this.circumference;
+  });
 }

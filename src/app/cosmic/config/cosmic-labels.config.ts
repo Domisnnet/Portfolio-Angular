@@ -9,5 +9,5 @@ export const COSMIC_LABELS = {
   unknown: 'UNKNOWN',
   au: 'AU',
   energy: 'ENERGY_LEVEL',
-  scanning: 'SCANNING'
+  scanning: 'SCANNING',
 };

@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnDestroy, AfterViewInit, viewChild, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  OnDestroy,
+  AfterViewInit,
+  viewChild,
+  inject,
+} from '@angular/core';
 
 interface Star {
   x: number;
@@ -91,7 +99,8 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
       this.ctx.beginPath();
       this.ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
       this.ctx.fill();
-    } this.ctx.globalAlpha = 1;
+    }
+    this.ctx.globalAlpha = 1;
   }
 
   private update(): void {
@@ -108,7 +117,8 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
     const color = styles.getPropertyValue('--stars-df').trim() || styles.getPropertyValue('--star-color').trim();
     if (!color) {
       throw new Error('[CosmicStars] Missing CSS contract: --stars-df or --star-color');
-    } return color;
+    }
+    return color;
   }
 
   private getEffectsMode(): CosmicEffectsMode {

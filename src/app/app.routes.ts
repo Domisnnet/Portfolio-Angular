@@ -25,20 +25,17 @@ export const routes: Routes = [
       },
       {
         path: 'projects',
-        loadComponent: () =>
-          import('./pages/projects/projects-page.component').then((m) => m.ProjectsPageComponent),
+        loadComponent: () => import('./pages/projects/projects-page.component').then((m) => m.ProjectsPageComponent),
         data: { cosmic: 'full' },
       },
       {
         path: 'deep-space',
-        loadComponent: () =>
-          import('./pages/deep-space/deep-space.component').then((m) => m.DeepSpacePageComponent),
+        loadComponent: () => import('./pages/deep-space/deep-space.component').then((m) => m.DeepSpacePageComponent),
         data: { cosmic: 'full' },
       },
       {
         path: 'contact',
-        loadComponent: () =>
-          import('./pages/contact/contact-page.component').then((m) => m.ContactPageComponent),
+        loadComponent: () => import('./pages/contact/contact-page.component').then((m) => m.ContactPageComponent),
         data: { cosmic: 'minimal' },
       },
       {

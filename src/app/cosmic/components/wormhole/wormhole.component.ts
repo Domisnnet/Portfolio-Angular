@@ -14,6 +14,10 @@ export class WormholeComponent {
   private readonly router = inject(Router);
   readonly isActive = computed(() => this.cosmic.layer() === 'wormhole');
   onTransitionEnd(event: AnimationEvent): void {
-    if ( event.target !== event.currentTarget || event.animationName !== 'wormhole-open' ) { return; }
-    this.cosmic.finishJump(); void this.router.navigate(['/deep-space']); }
+    if (event.target !== event.currentTarget || event.animationName !== 'wormhole-open') {
+      return;
+    }
+    this.cosmic.finishJump();
+    void this.router.navigate(['/deep-space']);
+  }
 }
