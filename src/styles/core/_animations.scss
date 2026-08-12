@@ -214,10 +214,6 @@
 
 /* WORMHOLE — STARFIELD PULL */
 @keyframes wormhole-star-pull {
-  0% { transform: rotate(var(--star-angle)) translateY(0); }
-}
-
-@keyframes wormhole-star-pull {
   0% { opacity: var(--op-hidden); transform: rotate(var(--star-angle)) translateY(-52vh) scaleY(var(--wormhole-starfield-scale-start)); }
   18% { opacity: var(--wormhole-starfield-opacity); }
   48% { opacity: var(--op-active); transform: rotate(calc(var(--star-angle) + 4deg)) translateY(-28vh) scaleY(0.9); }
