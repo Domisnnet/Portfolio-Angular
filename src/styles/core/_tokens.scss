@@ -38,8 +38,8 @@
   --header-height: 72px;
 
   /* HUD SYSTEM */
-  --hud-top: -2.1rem;
-  --hud-left: var(--space-xxs);
+  --hud-top: -2.3rem;
+  --hud-left: 0rem;
   --hud-width: 225px;
   --hud-padding: var(--space-xs);
   --hud-gap: var(--space-md);
@@ -272,7 +272,6 @@
   --wormhole-vortex-size: 660px;
   --wormhole-vortex-size-mobile: 78vmin;
   --wormhole-vortex-speed: 10s;
-  /* STARFIELD PULL */
   --wormhole-starfield-opacity: 0.65;
   --wormhole-starfield-speed: 2.2s;
   --wormhole-starfield-length: 22px;
