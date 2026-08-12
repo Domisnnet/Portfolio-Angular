@@ -12,7 +12,5 @@ import { CosmicLayerService } from '@app/cosmic/state/cosmic-state.service';
 })
 export class ScanningArtifactComponent {
   readonly labels = COSMIC_LABELS;
-  constructor(
-    protected readonly cosmic: CosmicLayerService,
-  ) {}
+  constructor(protected readonly cosmic: CosmicLayerService) {}
 }

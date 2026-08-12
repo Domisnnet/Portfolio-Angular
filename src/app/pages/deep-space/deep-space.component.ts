@@ -15,11 +15,7 @@ export interface Project {
 @Component({
   selector: 'app-deep-space-page',
   standalone: true,
-  imports: [
-    CommonModule,
-    CosmicRootComponent,
-    ProjectCardComponent,
-  ],
+  imports: [CommonModule, CosmicRootComponent, ProjectCardComponent],
   templateUrl: './deep-space.component.html',
   styleUrls: ['./deep-space.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

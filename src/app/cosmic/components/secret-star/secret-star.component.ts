@@ -14,7 +14,9 @@ export class SecretStarComponent {
   handleClick(event: MouseEvent): void {
     event.preventDefault();
     event.stopPropagation();
-    if (this.stage() === 'wormhole') { return; }
+    if (this.stage() === 'wormhole') {
+      return;
+    }
     this.cosmic.advance();
   }
 }
