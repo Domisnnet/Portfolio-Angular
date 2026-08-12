@@ -1,16 +1,16 @@
 @if (isActive()) {
   <div class="wormhole" (animationend)="onTransitionEnd($event)">
-    <div class="wormhole-space"></div>
     <div class="wormhole-tunnel"></div>
-    <div class="wormhole-field"></div>
-    <div class="wormhole-square">
-      <div class="square-inner"></div>
+    <div class="wormhole-starfield" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
     </div>
-    <div class="wormhole-meteor meteor-one"></div>
-    <div class="wormhole-meteor meteor-two"></div>
-    <div class="wormhole-meteor meteor-three"></div>
-    <div class="wormhole-meteor meteor-four"></div>
+    <div class="wormhole-square"></div>
+    <div class="square-inner"></div>
     <div class="wormhole-vortex"></div>
+    <div class="wormhole-singularity"></div>
     <div class="wormhole-core">
       <div class="wormhole-accretion"></div>
       <div class="wormhole-ring"></div>

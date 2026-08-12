@@ -272,6 +272,17 @@
   --wormhole-vortex-size: 660px;
   --wormhole-vortex-size-mobile: 78vmin;
   --wormhole-vortex-speed: 10s;
+  /* STARFIELD PULL */
+  --wormhole-starfield-opacity: 0.65;
+  --wormhole-starfield-speed: 2.2s;
+  --wormhole-starfield-length: 22px;
+  --wormhole-starfield-glow: 10px;
+  --wormhole-starfield-start-distance: 48vh;
+  --wormhole-starfield-end-distance: 4vh;
+  --wormhole-starfield-scale-start: 0.35;
+  --wormhole-starfield-scale-end: 1.8;
+  --wormhole-starfield-start-distance-mobile: 38vh;
+  --wormhole-starfield-end-distance-mobile: 5vh;
 
   /* Z-INDEX SYSTEM */
   --z-astro: 5;
@@ -291,4 +302,10 @@
   --z-stars: 1;
   --z-terminal: 1090;
   --z-wormhole: 1000;
+  --z-wormhole-tunnel: var(--z-wormhole);
+  --z-wormhole-square: calc(var(--z-wormhole-tunnel) + 1);
+  --z-wormhole-vortex: calc(var(--z-wormhole-square) + 1);
+  --z-wormhole-singularity: calc(var(--z-wormhole-vortex) + 1);
+  --z-wormhole-starfield: calc(var(--z-wormhole) - 1);
+  --z-wormhole-core: calc(var(--z-wormhole-singularity) + 1);
 }
