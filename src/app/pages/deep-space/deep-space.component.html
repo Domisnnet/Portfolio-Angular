@@ -1,17 +1,19 @@
-<section class="deep-container" data-cosmic-effects="full">
+<section class="deep-space-container" data-cosmic-effects="full">
   <app-cosmic-root>
-    <header class="page-header">
-      <h1>Deep Space</h1>
-      <p>Artefatos</p>
+    <app-secret-star />
+    <app-layer-jump />
+    <header class="deep-space-header">
+      <h1 class="deep-space-header__title">Deep Space</h1>
+      <p class="deep-space-header__description">Seja Bem Vindo ao próximo Universo.</p>
     </header>
-    <div class="deep-grid">
+    <div class="deep-space-grid">
       @for (project of projects(); track project.title; let i = $index) {
-        <app-project-card
-          [project]="project"
-          [index]="i"
-          [style.--rotation]="i % 2 === 0 ? '2deg' : '-2deg'"
+        <app-project-card 
+          [project]="project" 
+          [index]="i" [style.--rotation]="i % 2 === 0 ? 
+          '2deg' : '-2deg'"
         ></app-project-card>
       }
     </div>
-  </app-cosmic-root>
+  </app-cosmic-root>  
 </section>

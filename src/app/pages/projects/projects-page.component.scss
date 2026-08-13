@@ -28,7 +28,7 @@
     font-family: var(--font-main); 
     font-size: var(--font-display); 
     color: var(--projects-accent-primary);
-    opacity: var(--op-hidden);
+    opacity: var(--op-visible);
     transform: translateY(var(--size-md));
     transition: all var(--motion-slow) var(--motion-delay-sm);
     margin-top: var(--space-xl); 
@@ -39,6 +39,9 @@
     font-size: var(--font-lg); 
     font-weight: var(--font-semibold);
     color: var(--projects-accent-secondary); 
+    opacity: var(--op-visible);
+    transform: translateY(var(--size-md));
+    transition: all var(--motion-slow) var(--motion-delay-sm);
     margin-top: var(--space-lg); 
   }
 }
@@ -69,6 +72,6 @@ app-project-card {
   Responsive Adjustments
 ========================= */
 @media (max-width: 1024px) {
-  .projects-header__title { color: var(--text-primary); font-size: var(--font-xl); }
-  .projects-header__description { color: var(--text-secondary); font-size: var(--font-xxl); }
+  .projects-header__title { font-size: var(--font-xl); }
+  .projects-header__description { font-size: var(--font-xxl); }
 }

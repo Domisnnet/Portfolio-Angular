@@ -1,42 +1,55 @@
+:host {
+  display: block;
+  position: relative;
+  z-index: var(--z-projects);
+}
+
 /* =========================
   Layout Container
 ========================= */
-.deep-container {
+.deep-space-container {
   position: relative;
   min-height: 100vh;
   padding: var(--size-projects) var(--size-proj);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  z-index: var(--z-projects);
 }
 
 /* =========================
   Header Section
 ========================= */
-.page-header {
+.deep-space-header {
   text-align: center;
   margin-bottom: var(--size-projects);
+  z-index: var(--z-header);
 
-  h1 {
-    font-family: var(--font-main);
-    font-size: var(--font-display);
-    font-weight: var(--font-bold);
-    color: var(--color-text-primary);
-    margin-top: var(--space-xl);
+  .deep-space-header__title {
+    font-family: var(--font-main); 
+    font-size: var(--font-display); 
+    color: var(--projects-accent-primary);
+    opacity: var(--op-visible);
+    transform: translateY(var(--size-md));
+    transition: all var(--motion-slow) var(--motion-delay-sm);
+    margin-top: var(--space-xl); 
   }
 
-  p {
-    font-size: var(--font-lg);
-    color: var(--color-text-secondary);
-    margin-top: var(--space-lg);
+  .deep-space-header__description {
+    font-family: var(--font-main);
+    font-size: var(--font-lg); 
+    font-weight: var(--font-semibold);
+    color: var(--projects-accent-secondary); 
+    opacity: var(--op-visible);
+    transform: translateY(var(--size-md));
+    transition: all var(--motion-slow) var(--motion-delay-sm);
+    margin-top: var(--space-lg); 
   }
 }
 
 /* =========================
   Project Grid
 ========================= */
-.deep-grid {
+.deep-space-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--size-project);
@@ -52,16 +65,13 @@
 ========================= */
 app-project-card {
   transition: transform var(--motion-delay-xl) var(--easing-ease);
-
-  &:hover {
-    transform: translateY(-15px);
-    z-index: var(--z-content);
-  }
+  &:hover { transform: translateY(-15px); z-index: var(--z-content); }
 }
 
 /* =========================
   Responsive Adjustments
 ========================= */
 @media (max-width: 1024px) {
-  .page-header h1 { font-size: var(--font-xxl); }
+  .deep-space-header__title { font-size: var(--font-xl); }
+  .deep-space-header__description { font-size: var(--font-xxl); }
 }
