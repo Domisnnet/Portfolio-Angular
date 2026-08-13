@@ -12,14 +12,14 @@ import { WormholeComponent } from '@app/cosmic/components/wormhole/wormhole.comp
   selector: 'app-cosmic-root',
   standalone: true,
   imports: [
-    CosmicStarsComponent,
     SecretStarComponent,
-    LayerIndicatorComponent,
-    LayerJumpComponent,
-    WormholeComponent,
+    CosmicStarsComponent,
     CosmicNebulaComponent,
     CosmicGridComponent,
     CosmicBeamComponent,
+    LayerIndicatorComponent,
+    LayerJumpComponent,
+    WormholeComponent
   ],
   templateUrl: './cosmic-root.component.html',
   styleUrls: ['./cosmic-root.component.scss'],

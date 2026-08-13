@@ -134,110 +134,86 @@
 
 /* WORMHOLE */
 @keyframes wormhole-open {
-  0% { opacity: var(--op-hidden); transform: scale(var(--wormhole-scale-start)); filter: blur(var(--blur-strong)); }
-  32% { opacity: var(--op-visible); transform: scale(0.72); filter: blur(var(--wormhole-blur)); }
-  68% { transform: scale(1.04); filter: blur(var(--blur-disabled)); }
-  100% { opacity: var(--op-visible); transform: scale(var(--wormhole-scale-end)); filter: blur(var(--blur-disabled)); }
+  0% { opacity: 0; transform: scale(1.08); filter: saturate(0.75) brightness(0.85); }
+  12% { opacity: 1; }
+  74% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.04); filter: saturate(1.1) brightness(1.12); }
 }
 
-/* WORMHOLE — ACCRETION */
+@keyframes wormhole-pulse {
+  0%, 100% { transform: scale(0.98); opacity: 0.78; }
+  50% { transform: scale(1.03); opacity: 1; }
+}
+
+@keyframes wormhole-tunnel-spin {
+  from { transform: translateZ(-80px) scale(var(--wormhole-scale-start)) rotate(0deg); }
+  to { transform: translateZ(-80px) scale(var(--wormhole-scale-end)) rotate(360deg); }
+}
+
+@keyframes wormhole-tunnel-breathe {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+
+@keyframes wormhole-starburst {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--rotate, 0deg)) translateX(var(--wormhole-starfield-start-distance)) scale(var(--wormhole-starfield-scale-start)); }
+  18% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, -50%) rotate(var(--rotate, 0deg)) translateX(var(--wormhole-starfield-end-distance)) scale(var(--wormhole-starfield-scale-end)); }
+}
+
+@keyframes wormhole-square-spin {
+  from { transform: rotate(45deg) scale(var(--wormhole-scale-start)); }
+  to { transform: rotate(405deg) scale(var(--wormhole-scale-end)); }
+}
+
+@keyframes wormhole-square-expand {
+  0% { opacity: 0; filter: blur(calc(var(--wormhole-square-blur) + 2px)); }
+  18% { opacity: var(--wormhole-square-opacity); }
+  100% { opacity: 0; filter: blur(var(--wormhole-square-blur)); }
+}
+
+@keyframes wormhole-square-inner-spin {
+  from { transform: rotate(var(--wormhole-square-inner-rotation)) scale(var(--wormhole-scale-start)); }
+  to { transform: rotate(calc(var(--wormhole-square-inner-rotation) + 360deg)) scale(var(--wormhole-scale-end)); }
+}
+
+@keyframes wormhole-square-inner-expand {
+  0% { opacity: 0; }
+  20% { opacity: var(--wormhole-square-inner-opacity); }
+  100% { opacity: 0; }
+}
+
+@keyframes wormhole-vortex-rotate {
+  from { transform: scale(var(--wormhole-core-start-scale)) rotate(0deg); }
+  to { transform: scale(var(--wormhole-scale-end)) rotate(360deg); }
+}
+
+@keyframes wormhole-vortex-expand {
+  0% { opacity: 0; }
+  14% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes wormhole-singularity-bloom {
+  0% { opacity: 0; transform: scale(0.15); }
+  16% { opacity: 1; }
+  72% { transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.02); }
+}
+
+@keyframes wormhole-core-pop {
+  0% { opacity: 0; transform: scale(0.15); }
+  16% { opacity: 1; }
+  72% { transform: scale(1); }
+  100% { transform: scale(1.02); }
+}
+
 @keyframes wormhole-accretion-spin {
-  from { transform: rotate(0deg) rotateX(var(--wormhole-accretion-tilt)); }
-  to { transform: rotate(360deg) rotateX(var(--wormhole-accretion-tilt)); }
+  from { transform: rotate(var(--wormhole-accretion-tilt)) scale(0.92); }
+  to { transform: rotate(calc(var(--wormhole-accretion-tilt) + 360deg)) scale(0.92); }
 }
 
-/* WORMHOLE — CORE */
-@keyframes wormhole-core-open {
-  0% { opacity: var(--op-hidden); transform: scale(var(--wormhole-core-start-scale)); }
-  42% { opacity: var(--op-visible); transform: scale(0.82); }
-  72% { transform: scale(1.06); }
-  100% { opacity: var(--op-visible); transform: scale(1); }
-}
-
-/* WORMHOLE — FIELD */
-@keyframes wormhole-field-expand {
-  0% { opacity: var(--op-hidden); transform: scale(0.18); }
-  45% { opacity: var(--wormhole-field-opacity); transform: scale(0.88); }
-  75% { transform: scale(1.04); }
-  100% { opacity: var(--wormhole-field-opacity); transform: scale(1); }
-}
-
-@keyframes wormhole-field-rotate {
-  from { transform: scale(1) rotate(0deg); }
-  to { transform: scale(1) rotate(360deg); }
-}
-
-/* WORMHOLE — METEORS */
-@keyframes wormhole-meteor-one {
-  0% { transform: translate(-52vw, -34vh) rotate(28deg) scale(0.4); opacity: 0; }
-  18% { opacity: var(--wormhole-meteor-opacity); }
-  100% { transform: translate(52vw, 34vh) rotate(28deg) scale(1); opacity: 0; }
-}
-
-@keyframes wormhole-meteor-two {
-  0% { transform: translate(48vw, -28vh) rotate(148deg) scale(0.3); opacity: 0; }
-  22% { opacity: var(--wormhole-meteor-opacity); }
-  100% { transform: translate(-48vw, 28vh) rotate(148deg) scale(1); opacity: 0; }
-}
-
-@keyframes wormhole-meteor-three {
-  0% { transform: translate(-42vw, 30vh) rotate(-32deg) scale(0.35); opacity: 0; }
-  20% { opacity: var(--wormhole-meteor-opacity); }
-  100% { transform: translate(46vw, -32vh) rotate(-32deg) scale(1); opacity: 0; }
-}
-
-@keyframes wormhole-meteor-four {
-  0% { transform: translate(40vw, 36vh) rotate(-145deg) scale(0.25); opacity: 0; }
-  25% { opacity: var(--wormhole-meteor-opacity); }
-  100% { transform: translate(-46vw, -36vh) rotate(-145deg) scale(1); opacity: 0; }
-}
-
-/* WORMHOLE — SPACE */
-@keyframes wormhole-space-breathe {
-  0%,
-  100% { transform: scale(0.94); opacity: var(--wormhole-space-opacity); }
-  50% { transform: scale(1.04); opacity: var(--op-visible); }
-}
-
-/* WORMHOLE — SQUARE */
-@keyframes wormhole-square-open {
-  0% { opacity: var(--op-hidden); transform: scale(0.15) rotate(0deg); }
-  40% { opacity: var(--wormhole-square-opacity); transform: scale(0.76) rotate(45deg); }
-  72% { transform: scale(1.04) rotate(135deg); }
-  100% { opacity: var(--wormhole-square-opacity); transform: scale(1) rotate(180deg); }
-}
-
-@keyframes wormhole-square-rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* WORMHOLE — STARFIELD PULL */
-@keyframes wormhole-star-pull {
-  0% { opacity: var(--op-hidden); transform: rotate(var(--star-angle)) translateY(-52vh) scaleY(var(--wormhole-starfield-scale-start)); }
-  18% { opacity: var(--wormhole-starfield-opacity); }
-  48% { opacity: var(--op-active); transform: rotate(calc(var(--star-angle) + 4deg)) translateY(-28vh) scaleY(0.9); }
-  72% { opacity: var(--op-hover); transform: rotate(calc(var(--star-angle) + 9deg)) translateY(-10vh) scaleY(1.35); }
-  88% { opacity: var(--op-hover); transform: rotate(calc(var(--star-angle) + 13deg)) translateY(-5vh) scaleY(var(--wormhole-starfield-scale-end)); }
-  100% { opacity: var(--op-hidden); transform: rotate(calc(var(--star-angle) + 16deg)) translateY(-2vh) scaleY(2); }
-}
-
-/* WORMHOLE — TUNNEL */
-@keyframes wormhole-tunnel-open {
-  0% { opacity: var(--op-hidden); transform: scale(0.15); }
-  35% { opacity: var(--wormhole-tunnel-opacity); transform: scale(0.72); }
-  70% { transform: scale(1.02); }
-  100% { opacity: var(--wormhole-tunnel-opacity); transform: scale(1); }
-}
-
-/* WORMHOLE — VORTEX */
-@keyframes wormhole-vortex-open {
-  0% { opacity: var(--op-hidden); transform: scale(0.2); }
-  45% { opacity: var(--wormhole-vortex-opacity); transform: scale(0.86); }
-  100% { opacity: var(--wormhole-vortex-opacity); transform: scale(1); }
-}
-
-@keyframes wormhole-vortex-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+@keyframes wormhole-ring-pulse {
+  0%, 100% { transform: scale(0.98); }
+  50% { transform: scale(1.02); }
 }
