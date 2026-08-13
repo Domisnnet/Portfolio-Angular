@@ -25,11 +25,12 @@
   --border-thick: 3px;
   --border-thin: 1px;
   --radius-lg: 20px;
-  --radius-xl: 24px;
   --radius-md: 12px;
   --radius-none: 0px;
   --radius-pill: 999px;
   --radius-sm: 8px;
+  --radius-xl: 24px;
+  --radius-xxl: 32px;
   --radius-xs: 4px;
 
   /* LAYOUT SYSTEM */
@@ -309,7 +310,7 @@
   --z-secret-star: 1.1;
   --z-stars: 1;
   --z-terminal: 1090;
-  --z-wormhole: 10;
+  --z-wormhole: 1000;
   --z-wormhole-tunnel: var(--z-wormhole);
   --z-wormhole-square: calc(var(--z-wormhole-tunnel) + 1);
   --z-wormhole-vortex: calc(var(--z-wormhole-square) + 1);

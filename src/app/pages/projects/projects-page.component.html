@@ -1,19 +1,20 @@
 <section class="projects-container" data-cosmic-effects="full">
   <app-cosmic-root>
-    <header class="page-header">
-      <h1>Meus Projetos</h1>
-      <p>Artefatos tecnológicos recuperados.</p>
+    <app-secret-star />
+    <app-layer-jump />
+    <header class="projects-header">
+      <h1 class="projects-header__title">Meus Projetos</h1>
+      <p class="projects-header__description">Artefatos tecnológicos recuperados.</p>
     </header>
     <app-astronauta />
     <div class="projects-grid">
       @for (project of projects(); track project.title; let i = $index) {
-        <app-project-card
-          [project]="project"
-          [index]="i"
-          [style.--rotation]="i % 2 === 0 ? '2deg' : '-2deg'"
-        >
-        </app-project-card>
+        <app-project-card 
+          [project]="project" 
+          [index]="i" [style.--rotation]="i % 2 === 0 ? 
+          '2deg' : '-2deg'"
+        ></app-project-card>
       }
     </div>
-  </app-cosmic-root>
+  </app-cosmic-root>  
 </section>
