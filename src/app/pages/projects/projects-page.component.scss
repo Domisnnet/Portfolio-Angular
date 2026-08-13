@@ -1,3 +1,9 @@
+:host {
+  display: block;
+  position: relative;
+  z-index: var(--z-projects);
+}
+
 /* =========================
   Layout Container
 ========================= */
@@ -8,28 +14,32 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  z-index: var(--z-projects);
 }
 
 /* =========================
   Header Section
 ========================= */
-.page-header {
+.projects-header {
   text-align: center;
   margin-bottom: var(--size-projects);
+  z-index: var(--z-header);
 
-  h1 {
-    font-family: var(--font-main);
-    font-size: var(--font-display);
-    font-weight: var(--font-bold);
-    color: var(--text-primary);
-    margin-top: var(--space-xl);
+  .projects-header__title {
+    font-family: var(--font-main); 
+    font-size: var(--font-display); 
+    color: var(--projects-accent-primary);
+    opacity: var(--op-hidden);
+    transform: translateY(var(--size-md));
+    transition: all var(--motion-slow) var(--motion-delay-sm);
+    margin-top: var(--space-xl); 
   }
 
-  p {
-    font-size: var(--font-lg);
-    color: var(--color-text-secondary);
-    margin-top: var(--space-lg);
+  .projects-header__description {
+    font-family: var(--font-main);
+    font-size: var(--font-lg); 
+    font-weight: var(--font-semibold);
+    color: var(--projects-accent-secondary); 
+    margin-top: var(--space-lg); 
   }
 }
 
@@ -52,16 +62,13 @@
 ========================= */
 app-project-card {
   transition: transform var(--motion-delay-xl) var(--easing-ease);
-
-  &:hover {
-    transform: translateY(-15px);
-    z-index: var(--z-content);
-  }
+  &:hover { transform: translateY(-15px); z-index: var(--z-content); }
 }
 
 /* =========================
   Responsive Adjustments
 ========================= */
 @media (max-width: 1024px) {
-  .page-header h1 { font-size: var(--font-xxl); }
+  .projects-header__title { color: var(--text-primary); font-size: var(--font-xl); }
+  .projects-header__description { color: var(--text-secondary); font-size: var(--font-xxl); }
 }
