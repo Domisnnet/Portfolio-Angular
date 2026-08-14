@@ -9,10 +9,12 @@
       [style.--meteor-angle]="meteor.angle + 'deg'"
       [style.--meteor-delay]="meteor.delay + 's'"
     >
-      <div class="meteor__trail">
-        <div class="meteor__trail-core"></div>
-        <div class="meteor__trail-glow"></div>
-      </div>
+      <img
+        class="meteor__image"
+        [src]="meteor.image"
+        alt="Imagens de Meteoros"
+        aria-hidden="true"
+      />
       <div class="meteor__body">
         <div class="meteor__halo"></div>
         <div class="meteor__core"></div>

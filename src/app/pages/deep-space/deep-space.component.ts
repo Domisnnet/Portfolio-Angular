@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CosmicRootComponent } from '@app/cosmic/components/cosmic-root/cosmic-root.component';
-import { SecretStarComponent } from '@app/cosmic/components/secret-star/secret-star.component';
-import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump.component';
 import { ProjectCardComponent } from '@app/components/project-card/project-card.component';
 import { TagKey } from '@app/constants/project-tags.config';
 
@@ -20,8 +18,6 @@ export interface Project {
   imports: [
     CommonModule, 
     CosmicRootComponent,
-    SecretStarComponent,
-    LayerJumpComponent, 
     ProjectCardComponent
   ],
   templateUrl: './deep-space.component.html',
