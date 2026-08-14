@@ -5,6 +5,7 @@ export * from '@app/cosmic/components/cosmic-nebula/cosmic-nebula.component';
 export * from '@app/cosmic/components/cosmic-stars/cosmic-stars.component';
 export * from '@app/cosmic/components/scanning-artifact/scanning-artifact.component';
 export * from '@app/cosmic/components/secret-star/secret-star.component';
+export * from '@app/cosmic/components/meteor-field/meteor-field.component';
 export * from '@app/cosmic/components/layer-indicator/layer-indicator.component';
 export * from '@app/cosmic/components/layer-jump/layer-jump.component';
 export * from '@app/cosmic/components/wormhole/wormhole.component';

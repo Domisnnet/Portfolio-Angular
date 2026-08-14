@@ -29,6 +29,22 @@
   50% { transform: translateX(5%); }
 }
 
+/* METEORS */
+@keyframes meteor-flight {
+  from { transform: translate3d(var(--meteor-start-x), var(--meteor-start-y), var(--meteor-start-z)) rotate(var(--meteor-angle)) scale(var(--meteor-start-scale)); opacity: var(--meteor-start-opacity); }
+  to { transform: translate3d(var(--meteor-end-x), var(--meteor-end-y), var(--meteor-end-z)) rotate(var(--meteor-angle)) scale(var(--meteor-end-scale)); opacity: var(--meteor-end-opacity); }
+}
+
+@keyframes meteor-halo-pulse {
+  from { opacity: var(--meteor-halo-opacity-min); transform: scale(var(--meteor-halo-scale-min)); }
+  to { opacity: var(--meteor-halo-opacity-max); transform: scale(var(--meteor-halo-scale-max)); }
+}
+
+@keyframes meteor-particle-flicker {
+  from { opacity: var(--meteor-particle-opacity-min); transform: scale(var(--meteor-particle-scale-min)); }
+  to { opacity: var(--meteor-particle-opacity-max); transform: scale(var(--meteor-particle-scale-max)); }
+}
+
 /* NEBULA */
 @keyframes nebulaDrift {
   from { transform: translate3d(0, 0, 0) scale(1); }
@@ -330,5 +346,107 @@
   }
   50% {
     transform: scale(1.02);
+  }
+}
+
+/* ANIMATIONS */
+@keyframes wormhole-frame {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg)
+      scale(1.15);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(135deg)
+      scale(1.02);
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(225deg)
+      scale(1.15);
+  }
+}
+
+@keyframes wormhole-square-portal {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg)
+      scale(0.82);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(135deg)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(225deg)
+      scale(0.82);
+  }
+}
+
+@keyframes wormhole-inner-portal {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg)
+      scale(0.88);
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(225deg)
+      scale(0.88);
+  }
+}
+
+@keyframes wormhole-vortex-rotate {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg)
+      scale(0.94);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(360deg)
+      scale(1.02);
+  }
+}
+
+@keyframes wormhole-tunnel-depth {
+  0% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.68);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.68);
+    opacity: 0.35;
   }
 }

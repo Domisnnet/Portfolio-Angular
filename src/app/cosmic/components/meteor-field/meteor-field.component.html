@@ -1,0 +1,22 @@
+<div class="meteor-field" aria-hidden="true">
+  @for (meteor of meteors; track meteor.id) {
+    <div class="meteor" [style.--meteor-x]="meteor.x + 'vw'" [style.--meteor-y]="meteor.y + 'vh'" [style.--meteor-size]="meteor.size" [style.--meteor-speed]="meteor.speed + 's'" [style.--meteor-angle]="meteor.angle + 'deg'" [style.--meteor-intensity]="meteor.intensity" [style.--meteor-delay]="meteor.delay + 's'">
+      <div class="meteor__trail">
+        <div class="meteor__trail-core"></div>
+        <div class="meteor__trail-glow"></div>
+      </div>
+      <div class="meteor__body">
+        <div class="meteor__core"></div>
+        <div class="meteor__halo"></div>
+      </div>
+      <div class="meteor__particles">
+        <span class="meteor__particle meteor__particle--1"></span>
+        <span class="meteor__particle meteor__particle--2"></span>
+        <span class="meteor__particle meteor__particle--3"></span>
+        <span class="meteor__particle meteor__particle--4"></span>
+        <span class="meteor__particle meteor__particle--5"></span>
+        <span class="meteor__particle meteor__particle--6"></span>
+      </div>
+    </div>
+  }
+</div>
