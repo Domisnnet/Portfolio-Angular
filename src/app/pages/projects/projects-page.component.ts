@@ -2,6 +2,7 @@ import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AstronautaComponent } from '@app/components/astronauta/astronauta.component';
 import { CosmicRootComponent } from '@app/cosmic/components/cosmic-root/cosmic-root.component';
+import { MeteorFieldComponent } from '@app/cosmic/components/meteor-field/meteor-field.component';
 import { SecretStarComponent } from '@app/cosmic/components/secret-star/secret-star.component';
 import { LayerJumpComponent } from '@app/cosmic/components/layer-jump/layer-jump.component';
 import { ProjectCardComponent } from '@app/components/project-card/project-card.component';
@@ -21,6 +22,7 @@ export interface Project {
   imports: [
     CommonModule, 
     AstronautaComponent, 
+    MeteorFieldComponent,
     CosmicRootComponent,
     SecretStarComponent,
     LayerJumpComponent, 
