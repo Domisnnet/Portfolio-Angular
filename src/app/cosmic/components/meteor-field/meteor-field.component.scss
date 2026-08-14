@@ -10,12 +10,13 @@
 }
 
 .meteor-field {
-  position: absolute;
+  position: relative;
   inset: var(--meteor-field-inset);
   width: var(--meteor-field-width);
   height: var(--meteor-field-height);
   overflow: var(--meteor-field-overflow);
   pointer-events: var(--pointer-events-none);
+  isolation: isolate;
 }
 
 .meteor {
@@ -26,221 +27,76 @@
   height: calc(var(--meteor-base-height) * var(--meteor-size));
   transform-origin: var(--meteor-transform-origin);
   opacity: var(--meteor-intensity);
-  filter:
-    drop-shadow(
-      var(--meteor-shadow-x)
-      var(--meteor-shadow-y)
-      var(--meteor-shadow-blur)
-      rgba(var(--glow-color-rgb), var(--meteor-shadow-opacity))
-    );
-  animation:
-    meteor-flight
-    var(--meteor-speed)
-    var(--meteor-easing)
-    var(--meteor-delay)
-    var(--meteor-iteration-count);
-  will-change: var(--meteor-will-change);
+  filter: drop-shadow(var(--meteor-shadow-x) var(--meteor-shadow-y) var(--meteor-shadow-blur) rgba(var(--meteor-energy-color-rgb), var(--meteor-shadow-opacity)));
+  animation: meteor-flight var(--meteor-speed) var(--meteor-easing) var(--meteor-delay) var(--meteor-iteration-count); will-change: var(--meteor-will-change);
 }
 
-
-/* ==========================================================================
-   TRAIL
-   ========================================================================== */
-
+/* TRAIL */
 .meteor__trail {
   position: absolute;
-
   right: var(--meteor-trail-right);
   top: var(--meteor-center);
-
   width: var(--meteor-trail-width);
   height: var(--meteor-trail-height);
-
-  transform:
-    translateY(var(--meteor-center-offset));
-
+  transform: translateY(var(--meteor-center-offset));
   transform-origin: var(--meteor-trail-origin);
 }
 
 .meteor__trail-core {
   position: absolute;
-
   right: var(--meteor-zero);
   top: var(--meteor-center);
-
   width: var(--meteor-trail-core-width);
   height: var(--meteor-trail-core-height);
-
-  transform:
-    translateY(var(--meteor-center-offset))
-    scaleY(var(--meteor-trail-core-scale));
-
+  transform: translateY(var(--meteor-center-offset)) scaleY(var(--meteor-trail-core-scale));
   transform-origin: var(--meteor-trail-origin);
-
-  background:
-    linear-gradient(
-      var(--meteor-trail-direction),
-
-      transparent var(--meteor-trail-stop-0),
-      rgba(var(--glow-color-rgb), var(--meteor-trail-opacity-0))
-        var(--meteor-trail-stop-1),
-
-      rgba(var(--glow-color-rgb), var(--meteor-trail-opacity-1))
-        var(--meteor-trail-stop-2),
-
-      rgba(var(--glow-color-rgb), var(--meteor-trail-opacity-2))
-        var(--meteor-trail-stop-3),
-
-      var(--glow-color)
-        var(--meteor-trail-stop-4)
-    );
-
+  background: linear-gradient(var(--meteor-trail-direction), transparent var(--meteor-trail-stop-0), rgba(var(--meteor-trail-color-rgb), var(--meteor-trail-opacity-0)) var(--meteor-trail-stop-1), rgba(var(--meteor-trail-color-rgb), var(--meteor-trail-opacity-1)) var(--meteor-trail-stop-2), rgba(var(--meteor-trail-color-rgb), var(--meteor-trail-opacity-2)) var(--meteor-trail-stop-3), var(--meteor-trail-color) var(--meteor-trail-stop-4));
   filter: blur(var(--meteor-trail-core-blur));
-
-  clip-path: polygon(
-    var(--meteor-tail-point),
-    var(--meteor-tail-upper),
-    var(--meteor-tail-front-upper),
-    var(--meteor-tail-front-lower),
-    var(--meteor-tail-lower)
-  );
+  clip-path: polygon(var(--meteor-tail-point), var(--meteor-tail-upper), var(--meteor-tail-front-upper), var(--meteor-tail-front-lower), var(--meteor-tail-lower));
 }
 
 .meteor__trail-glow {
   position: absolute;
-
   right: var(--meteor-trail-glow-right);
   top: var(--meteor-center);
-
   width: var(--meteor-trail-glow-width);
   height: var(--meteor-trail-glow-height);
-
-  transform:
-    translateY(var(--meteor-center-offset))
-    scaleY(var(--meteor-trail-glow-scale));
-
+  transform: translateY(var(--meteor-center-offset)) scaleY(var(--meteor-trail-glow-scale));
   transform-origin: var(--meteor-trail-origin);
-
-  background:
-    radial-gradient(
-      ellipse at var(--meteor-gradient-origin),
-
-      rgba(var(--glow-color-rgb), var(--meteor-glow-opacity-0))
-        var(--meteor-glow-stop-0),
-
-      rgba(var(--glow-color-rgb), var(--meteor-glow-opacity-1))
-        var(--meteor-glow-stop-1),
-
-      rgba(var(--glow-color-rgb), var(--meteor-glow-opacity-2))
-        var(--meteor-glow-stop-2),
-
-      transparent
-        var(--meteor-glow-stop-3)
-    );
-
+  background: radial-gradient(ellipse at var(--meteor-gradient-origin), rgba(var(--meteor-energy-color-rgb), var(--meteor-glow-opacity-0)) var(--meteor-glow-stop-0), rgba(var(--meteor-energy-color-rgb), var(--meteor-glow-opacity-1)) var(--meteor-glow-stop-1), rgba(var(--meteor-energy-color-rgb), var(--meteor-glow-opacity-2)) var(--meteor-glow-stop-2), transparent var(--meteor-glow-stop-3));
   filter: blur(var(--meteor-trail-glow-blur));
 }
 
-
-/* ==========================================================================
-   BODY
-   ========================================================================== */
-
+/* BODY */
 .meteor__body {
   position: absolute;
-
   right: var(--meteor-body-right);
   top: var(--meteor-center);
-
-  width: calc(
-    var(--meteor-body-size) *
-    var(--meteor-size)
-  );
-
-  height: calc(
-    var(--meteor-body-size) *
-    var(--meteor-size)
-  );
-
-  transform:
-    translate(
-      var(--meteor-body-translate-x),
-      var(--meteor-center-offset)
-    );
-
+  width: calc(var(--meteor-body-size) * var(--meteor-size));
+  height: calc(var(--meteor-body-size) * var(--meteor-size));
+  transform: translate(var(--meteor-body-translate-x), var(--meteor-center-offset));
   border-radius: var(--shape-circle);
 }
 
 .meteor__halo {
   position: absolute;
-
   inset: var(--meteor-halo-inset);
-
   border-radius: var(--shape-circle);
-
-  background:
-    radial-gradient(
-      circle,
-
-      rgba(255, 255, 255, var(--meteor-core-white-opacity))
-        var(--meteor-core-stop-0),
-
-      rgba(var(--glow-color-rgb), var(--meteor-halo-opacity-0))
-        var(--meteor-core-stop-1),
-
-      rgba(var(--glow-color-rgb), var(--meteor-halo-opacity-1))
-        var(--meteor-core-stop-2),
-
-      rgba(var(--glow-color-rgb), var(--meteor-halo-opacity-2))
-        var(--meteor-core-stop-3),
-
-      transparent
-        var(--meteor-core-stop-4)
-    );
-
+  background: radial-gradient(circle, var(--meteor-energy-core) var(--meteor-core-stop-0), rgba(var(--meteor-energy-color-rgb), var(--meteor-halo-opacity-0)) var(--meteor-core-stop-1), rgba(var(--meteor-energy-color-rgb), var(--meteor-halo-opacity-1)) var(--meteor-core-stop-2), rgba(var(--meteor-energy-color-rgb), var(--meteor-halo-opacity-2)) var(--meteor-core-stop-3), transparent var(--meteor-core-stop-4));
   filter: blur(var(--meteor-halo-blur));
-
-  animation:
-    meteor-halo-pulse
-    var(--meteor-halo-duration)
-    var(--meteor-halo-easing)
-    var(--animation-infinite)
-    alternate;
+  animation: meteor-halo-pulse var(--meteor-halo-duration) var(--meteor-halo-easing) var(--animation-infinite) alternate;
 }
 
 .meteor__core {
   position: absolute;
-
   inset: var(--meteor-core-inset);
-
-  z-index: var(--meteor-core-z-index);
-
   border-radius: var(--shape-circle);
-
-  background:
-    radial-gradient(
-      circle at var(--meteor-core-position),
-
-      #fff var(--meteor-core-stop-0),
-      #fff var(--meteor-core-stop-1),
-
-      rgba(var(--glow-color-rgb), var(--meteor-core-opacity-0))
-        var(--meteor-core-stop-2),
-
-      rgba(var(--glow-color-rgb), var(--meteor-core-opacity-1))
-        var(--meteor-core-stop-3),
-
-      transparent
-        var(--meteor-core-stop-4)
-    );
-  box-shadow:
-    var(--meteor-core-shadow);
+  background: radial-gradient(circle at var(--meteor-core-position), var(--meteor-energy-core) var(--meteor-core-stop-0), var(--meteor-energy-core) var(--meteor-core-stop-1), rgba(var(--meteor-energy-color-rgb), var(--meteor-core-opacity-0)) var(--meteor-core-stop-2), rgba(var(--meteor-energy-color-rgb), var(--meteor-core-opacity-1)) var(--meteor-core-stop-3), transparent var(--meteor-core-stop-4));
+  box-shadow: var(--meteor-core-shadow);
+  z-index: var(--meteor-core-z-index);
 }
 
-
-/* ==========================================================================
-   PARTICLES
-   ========================================================================== */
+/* PARTICLES */
 .meteor__particles {
   position: absolute;
   right: var(--meteor-particles-right);
@@ -258,18 +114,10 @@
   border-radius: var(--shape-circle);
   background: var(--meteor-particle-color);
   box-shadow: var(--meteor-particle-shadow);
-  animation:
-    meteor-particle-flicker
-    var(--meteor-particle-duration)
-    var(--meteor-particle-easing)
-    var(--animation-infinite)
-    alternate;
+  animation: meteor-particle-flicker var(--meteor-particle-duration) var(--meteor-particle-easing) var(--animation-infinite) alternate;
 }
 
-
-/* ==========================================================================
-   PARTICLE VARIATIONS
-   ========================================================================== */
+/* PARTICLE VARIATIONS */
 .meteor__particle--1 {
   right: var(--meteor-particle-1-right);
   top: var(--meteor-particle-1-top);
@@ -320,33 +168,13 @@
 
 /* RESPONSIVE */
 @media (max-width: var(--breakpoint-mobile)) {
-  .meteor {
-    width: calc(
-      var(--meteor-mobile-width) *
-      var(--meteor-size)
-    );
-
-    height: calc(
-      var(--meteor-mobile-height) *
-      var(--meteor-size)
-    );
-  }
-
-  .meteor__body {
-    width: calc(
-      var(--meteor-mobile-body-size) *
-      var(--meteor-size)
-    );
-    height: calc(
-      var(--meteor-mobile-body-size) *
-      var(--meteor-size)
-    );
-  }
+  .meteor { width: calc(var(--meteor-mobile-width) * var(--meteor-size)); height: calc(var(--meteor-mobile-height) * var(--meteor-size)); }
+  .meteor__body { width: calc(var(--meteor-mobile-body-size) * var(--meteor-size)); height: calc(var(--meteor-mobile-body-size) * var(--meteor-size)); }
 }
 
 /* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
   .meteor,
   .meteor__halo,
-  .meteor__particle { animation-duration: var(--motion-reduced); }
+  .meteor__particle { animation-duration: var(--meteor-motion-reduced); }
 }

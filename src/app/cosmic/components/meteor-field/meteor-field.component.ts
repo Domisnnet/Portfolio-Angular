@@ -16,7 +16,7 @@ interface Meteor {
   standalone: true,
   imports: [],
   templateUrl: './meteor-field.component.html',
-  styleUrl: './meteor-field.component.scss',
+  styleUrls: ['./meteor-field.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MeteorFieldComponent {
