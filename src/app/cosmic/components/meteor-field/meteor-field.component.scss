@@ -20,30 +20,36 @@
 
 .meteor {
   position: absolute;
+
   left: var(--meteor-x);
   top: var(--meteor-y);
 
-  /*
-   * A escala agora é controlada diretamente
-   * pela dimensão base do meteoro.
-   */
   width: calc(var(--meteor-base-width) * var(--meteor-size));
   height: calc(var(--meteor-base-height) * var(--meteor-size));
 
-  transform-origin: center center;
+  transform-origin: var(--meteor-transform-origin);
 
-  opacity: var(--meteor-intensity);
+  opacity: 0;
 
   animation:
     meteor-flight
     var(--meteor-speed)
     var(--meteor-easing)
     var(--meteor-delay)
-    infinite;
+    var(--meteor-iteration-count);
+
+  filter:
+    drop-shadow(
+      var(--meteor-shadow-x)
+      var(--meteor-shadow-y)
+      var(--meteor-shadow-blur)
+      rgba(
+        var(--meteor-energy-color-rgb),
+        var(--meteor-shadow-opacity)
+      )
+    );
 
   will-change: transform, opacity;
-
-  pointer-events: none;
 }
 
 /* =========================================
