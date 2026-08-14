@@ -23,7 +23,7 @@ export class MeteorFieldComponent {
   readonly meteors: readonly Meteor[] = [
     {
       id: 1,
-      x: 108,
+      x: 92,
       y: 18,
       size: 0.72,
       speed: 5.8,
@@ -33,7 +33,7 @@ export class MeteorFieldComponent {
     },
     {
       id: 2,
-      x: 118,
+      x: 96,
       y: 42,
       size: 1,
       speed: 7.4,
@@ -43,7 +43,7 @@ export class MeteorFieldComponent {
     },
     {
       id: 3,
-      x: 104,
+      x: 90,
       y: 68,
       size: 0.5,
       speed: 4.9,
@@ -53,7 +53,7 @@ export class MeteorFieldComponent {
     },
     {
       id: 4,
-      x: 125,
+      x: 98,
       y: 82,
       size: 1.25,
       speed: 8.8,
@@ -63,7 +63,7 @@ export class MeteorFieldComponent {
     },
     {
       id: 5,
-      x: 112,
+      x: 94,
       y: 55,
       size: 0.38,
       speed: 4.2,
