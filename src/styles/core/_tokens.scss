@@ -63,19 +63,6 @@
   --letter-wide: 0.12em;
   --letter-ultra-wide: .18em;
 
-  /* METEORS */
-  --meteor-atmosphere-color: var(--meteor-energy-color);
-  --meteor-atmosphere-color-rgb: var(--meteor-energy-color-rgb);
-  --meteor-core-color: var(--meteor-energy-core);
-  --meteor-core-glow: var(--meteor-energy-color);
-  --meteor-energy-color: var(--glow-color);
-  --meteor-energy-color-rgb: var(--glow-color-rgb);
-  --meteor-particle-color: var(--meteor-energy-core);
-  --meteor-particle-glow: var(--meteor-energy-color);
-  --meteor-particle-shadow: 0 0 5px var(--glow-color), 0 0 10px rgba(var(--glow-color-rgb), .7);
-  --meteor-trail-color: var(--meteor-energy-color);
-  --meteor-trail-color-rgb: var(--meteor-energy-color-rgb);
-
   /* MOTION SYSTEM */
   --easing-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --easing-ease-in: cubic-bezier(0.22, 1, 0.36, 1);

@@ -1,4 +1,5 @@
 :host {
+  display: block;
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -7,24 +8,41 @@
   z-index: var(--z-meteor-field);
 }
 
-.meteor-field { position: absolute; }
+.meteor-field {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
 .meteor {
   display: block;
-  animation: meteor-flight 25s ease-in-out infinite;
-  will-change: transform;
+  position: absolute;
+  top: var(--meteor-y);
+  left: var(--meteor-x);
+  width: var(--meteor-size);
+  height: auto;
+  opacity: var(--meteor-intensity);
+  transform: translate3d(0, 0, 0) rotate(var(--meteor-angle));
+  animation: meteor-flight var(--meteor-speed) linear var(--meteor-delay) infinite;
+  will-change: transform, opacity;
+}
 
-  .meteor__image { width: calc(var(--size-2xs) * 100); height: auto; }
+.meteor__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 @media (max-width: 768px) {
-  .meteor {
-    transform: translate3d(0, 0, 0) rotate(var(--meteor-angle)) scale(0.78);
-  }
+  .meteor { transform: translate3d(0, 0, 0) rotate(var(--meteor-angle)) scale(0.78); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .meteor {
-    animation-play-state: paused;
-  }
+  .meteor { animation-play-state: paused; opacity: var(--meteor-intensity); transform: translate3d(0, 0, 0) rotate(var(--meteor-angle)); }
 }
