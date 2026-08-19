@@ -35,16 +35,6 @@
   to { transform: translate3d(var(--meteor-end-x), var(--meteor-end-y), var(--meteor-end-z)) rotate(var(--meteor-angle)) scale(var(--meteor-end-scale)); opacity: var(--meteor-end-opacity); }
 }
 
-@keyframes meteor-halo-pulse {
-  from { opacity: var(--meteor-halo-opacity-min); transform: scale(var(--meteor-halo-scale-min)); }
-  to { opacity: var(--meteor-halo-opacity-max); transform: scale(var(--meteor-halo-scale-max)); }
-}
-
-@keyframes meteor-particle-flicker {
-  from { opacity: var(--meteor-particle-opacity-min); transform: scale(var(--meteor-particle-scale-min)); }
-  to { opacity: var(--meteor-particle-opacity-max); transform: scale(var(--meteor-particle-scale-max)); }
-}
-
 /* NEBULA */
 @keyframes nebulaDrift {
   from { transform: translate3d(0, 0, 0) scale(1); }
