@@ -15,8 +15,6 @@
   overflow: hidden;
   width: auto;
   height: auto;
-  opacity: var(--meteor-field-opacity);
-  mix-blend-mode: var(--meteor-field-blend-mode);
 }
 
 .meteor-field__layer {
@@ -25,9 +23,9 @@
   pointer-events: none;
 }
 
-.meteor-field__layer--far { z-index: 1; }
-.meteor-field__layer--mid { z-index: 2; }
-.meteor-field__layer--near { z-index: 3; }
+.meteor-field__layer--far { z-index: 4; }
+.meteor-field__layer--mid { z-index: 5; }
+.meteor-field__layer--near { z-index: 6; }
 
 @media (max-width: 768px) {
   .meteor-field { inset: -16vh -24vw; }

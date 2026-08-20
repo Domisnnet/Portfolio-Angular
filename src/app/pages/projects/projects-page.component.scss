@@ -2,11 +2,10 @@
   display: block;
   position: relative;
   z-index: var(--z-projects);
+  isolation: isolate;
 }
 
-/* =========================
-  Layout Container
-========================= */
+/* Layout Container */
 .projects-container {
   position: relative;
   min-height: 100vh;
@@ -16,14 +15,10 @@
   overflow: hidden;
 }
 
-/* =========================
-  Header Section
-========================= */
+/* Header Section */
 .projects-header {
   text-align: center;
   margin-bottom: var(--size-projects);
-  z-index: var(--z-header);
-
   .projects-header__title {
     font-family: var(--font-main); 
     font-size: var(--font-display); 
@@ -33,7 +28,6 @@
     transition: all var(--motion-slow) var(--motion-delay-sm);
     margin-top: var(--space-xl); 
   }
-
   .projects-header__description {
     font-family: var(--font-main);
     font-size: var(--font-lg); 
@@ -46,9 +40,7 @@
   }
 }
 
-/* =========================
-  Project Grid
-========================= */
+/* Project Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -60,17 +52,13 @@
   align-items: start;
 }
 
-/* =========================
-  Card Interaction
-========================= */
+/* Card Interaction */
 app-project-card {
   transition: transform var(--motion-delay-xl) var(--easing-ease);
   &:hover { transform: translateY(-15px); z-index: var(--z-content); }
 }
 
-/* =========================
-  Responsive Adjustments
-========================= */
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
   .projects-header__title { font-size: var(--font-xl); }
   .projects-header__description { font-size: var(--font-xxl); }
