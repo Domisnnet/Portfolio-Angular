@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MyTitleComponent } from '@app/components/my-title/my-title.component';
+import { PAGE_HEADERS, HeaderConfig } from '@app/data/header-data';
 import { CosmicRootComponent } from '@app/cosmic/components/cosmic-root/cosmic-root.component';
 import { ProjectCardComponent } from '@app/components/project-card/project-card.component';
 import { TagKey } from '@app/constants/project-tags.config';
@@ -17,6 +19,7 @@ export interface Project {
   standalone: true,
   imports: [
     CommonModule, 
+    MyTitleComponent,
     CosmicRootComponent,
     ProjectCardComponent
   ],
@@ -25,6 +28,7 @@ export interface Project {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeepSpacePageComponent {
+  readonly headerData: HeaderConfig = PAGE_HEADERS['deepSpace'];
   readonly projects = signal<Project[]>([
     {
       title: 'Drakonik Nexus',

@@ -1,9 +1,7 @@
 <app-hero></app-hero>
 <section class="stack-section" data-cosmic-effects="minimal">
   <div class="stack-container no-padding-top">
-    <h2>Minha Stack Dev</h2>
-    <h2 class="text-muted">Codificando ideias. Construindo o futuro!</h2>
-    <p>Desenvolvedor web em constante evolução — criativo, curioso e apaixonado por tecnologia.</p>
+    <app-my-title [config]="headerData"></app-my-title>
     @for (category of categories; track category) {
       <div class="stack-block" [class]="category">
         <h3>{{ category | titlecase }}</h3>

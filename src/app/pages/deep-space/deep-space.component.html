@@ -1,8 +1,7 @@
 <section class="deep-space-container" data-cosmic-effects="full">
   <app-cosmic-root>
     <header class="deep-space-header">
-      <h1 class="deep-space-header__title">Deep Space</h1>
-      <p class="deep-space-header__description">Seja Bem Vindo ao próximo Universo.</p>
+      <app-my-title [config]="headerData"></app-my-title>
     </header>
     <div class="deep-space-grid">
       @for (project of projects(); track project.title; let i = $index) {

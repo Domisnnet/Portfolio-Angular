@@ -1,5 +1,7 @@
 import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MyTitleComponent } from '@app/components/my-title/my-title.component';
+import { PAGE_HEADERS, HeaderConfig } from '@app/data/header-data';
 import { AstronautaComponent } from '@app/components/astronauta/astronauta.component';
 import { CosmicRootComponent } from '@app/cosmic/components/cosmic-root/cosmic-root.component';
 import { ProjectCardComponent } from '@app/components/project-card/project-card.component';
@@ -18,6 +20,7 @@ export interface Project {
   standalone: true,
   imports: [
     CommonModule, 
+    MyTitleComponent,
     AstronautaComponent, 
     CosmicRootComponent,
     ProjectCardComponent
@@ -27,6 +30,7 @@ export interface Project {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsPageComponent {
+  readonly headerData: HeaderConfig = PAGE_HEADERS['projects'];
   readonly projects = signal<Project[]>([
     {
       title: 'Drakonik Nexus',

@@ -1,0 +1,11 @@
+<div class="my-title" 
+  [style.text-align]="config.align || 'center'" 
+  [class]="config.customClass || ''">
+  <h1 class="my-title__title">{{ config.title }}</h1>
+  @if (config.subtitle) {
+    <h2 class="my-title__subtitle">{{ config.subtitle }}</h2>
+  }
+  @if (config.description) {
+    <p class="my-title__description">{{ config.description }}</p>
+  }
+</div>

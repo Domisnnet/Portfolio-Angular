@@ -15,31 +15,6 @@
   overflow: hidden;
 }
 
-/* Header Section */
-.deep-space-header {
-  text-align: center;
-  margin-bottom: var(--size-projects);
-  .deep-space-header__title {
-    font-family: var(--font-main); 
-    font-size: var(--font-display); 
-    color: var(--projects-accent-primary);
-    opacity: var(--op-visible);
-    transform: translateY(var(--size-md));
-    transition: all var(--motion-slow) var(--motion-delay-sm);
-    margin-top: var(--space-xl); 
-  }
-  .deep-space-header__description {
-    font-family: var(--font-main);
-    font-size: var(--font-lg); 
-    font-weight: var(--font-semibold);
-    color: var(--projects-accent-secondary); 
-    opacity: var(--op-visible);
-    transform: translateY(var(--size-md));
-    transition: all var(--motion-slow) var(--motion-delay-sm);
-    margin-top: var(--space-lg); 
-  }
-}
-
 /* Project Grid */
 .deep-space-grid {
   display: grid;
