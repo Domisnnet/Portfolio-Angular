@@ -31,11 +31,11 @@
 
 /* METEORS */
 @keyframes meteor-flight {
-  0% { opacity: 0; transform: translate3d(28vw, -28vh, 0) rotate(var(--meteor-angle)); }
+  0% { opacity: var(--op-hidden); transform: translate3d(var(--meteor-field-entry-x), var(--meteor-field-entry-y) 0 ) rotate(var(--meteor-angle)); }
   10% { opacity: var(--meteor-intensity); }
   78% { opacity: var(--meteor-intensity); }
-  100% { opacity: 0; transform: translate3d(-125vw, 125vh, 0) rotate(var(--meteor-angle)); }
-}
+  94% { opacity: var(--op-hidden); }
+  100% { opacity: var(--op-hidden); transform: translate3d(var(--meteor-field-exit-x), var(--meteor-field-exit-y) 0 ) rotate(var(--meteor-angle)); } }
 
 /* NEBULA */
 @keyframes nebulaDrift {

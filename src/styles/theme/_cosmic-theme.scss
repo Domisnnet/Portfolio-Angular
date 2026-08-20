@@ -120,10 +120,31 @@
   --meteor-angle: 0deg;
   --meteor-delay: 0s;
   --meteor-intensity: 1;
-  --meteor-size: 10;
+  --meteor-size: 10px;
   --meteor-speed: 20s;
-  --meteor-x: 5px;
-  --meteor-y: -5px;
+  --meteor-x: 5vw;
+  --meteor-y: -5vh;
+  /* METEOR FIELD */
+  --meteor-field-entry-x: 28vw;
+  --meteor-field-entry-y: -28vh;
+  --meteor-field-exit-x: -125vw;
+  --meteor-field-exit-y: 125vh;
+  --meteor-field-opacity: var(--op-visible);
+  --meteor-field-blend-mode: normal;
+  /* METEOR DEPTH */
+  --meteor-scale-near: 1;
+  --meteor-scale-mid: 0.68;
+  --meteor-scale-far: 0.38;
+  --meteor-blur-near: 0;
+  --meteor-blur-mid: 0.3px;
+  --meteor-blur-far: 0.8px;
+  --meteor-intensity-near: 0.72;
+  --meteor-intensity-mid: 0.45;
+  --meteor-intensity-far: 0.22;
+  /* METEOR RESPONSIVE */
+  --meteor-scale-mobile-near: 0.72;
+  --meteor-scale-mobile-mid: 0.52;
+  --meteor-scale-mobile-far: 0.34;
 
   /* PILLS */
   --pill-be: #419100;
