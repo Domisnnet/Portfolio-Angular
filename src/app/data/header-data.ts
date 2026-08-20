@@ -10,7 +10,13 @@ export const PAGE_HEADERS = {
   home: {
     title: 'Minha Stack Dev',
     subtitle: 'Codificando ideias. Construindo o futuro!',
-    description: 'Desenvolvedor web em constante evolução — criativo, curioso e apaixonado por tecnologia.',
+    description: 'Desenvolvedor web em constante evolução — criativo, curioso e apaixonado por Tecnologia.',
+    align: 'center'
+  },
+  hero: {
+    title: 'Olá, eu sou o DomisDev!',
+    subtitle: 'Desenvolvedor Web Frontend',
+    description: 'Desenvolvedor Web Criativo, transformando ideias em realidade digital com código limpo e designs modernos.',
     align: 'center'
   },
   projects: {
