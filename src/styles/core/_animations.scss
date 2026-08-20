@@ -29,14 +29,6 @@
   50% { transform: translateX(5%); }
 }
 
-/* METEORS */
-@keyframes meteor-flight {
-  0% { opacity: var(--op-hidden); transform: translate3d(var(--meteor-field-entry-x), var(--meteor-field-entry-y) 0 ) rotate(var(--meteor-angle)); }
-  8% { opacity: var(--meteor-intensity); }
-  76% { opacity: var(--meteor-intensity); }
-  94% { opacity: var(--op-hidden); }
-  100% { opacity: var(--op-hidden); transform: translate3d(var(--meteor-field-exit-x), var(--meteor-field-exit-y) 0 ) rotate(var(--meteor-angle)); } }
-
 /* NEBULA */
 @keyframes nebulaDrift {
   from { transform: translate3d(0, 0, 0) scale(1); }
