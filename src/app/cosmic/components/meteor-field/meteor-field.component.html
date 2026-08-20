@@ -1,14 +1,5 @@
-<div class="meteor-field" #meteor aria-hidden="true">
-  @for (meteorItem of meteors; track meteorItem.id) {
-    <span class="meteor"
-      [style.--meteor-x]="meteorItem.x + 'vw'"
-      [style.--meteor-y]="meteorItem.y + 'vh'"
-      [style.--meteor-size]="meteorItem.size"
-      [style.--meteor-speed]="meteorItem.speed"
-      [style.--meteor-angle]="meteorItem.angle + 'deg'"
-      [style.--meteor-delay]="meteorItem.delay"
-    >
-      <img class="meteor__image" [src]="meteorItem.image" alt="Imagens de Meteoros" />
-    </span>
-  }
+<div class="meteor-field" aria-hidden="true">
+  <app-meteor-layer class="meteor-field__layer meteor-field__layer--far" layer="far" [meteors]="farMeteors" />
+  <app-meteor-layer class="meteor-field__layer meteor-field__layer--mid" layer="mid" [meteors]="midMeteors" />
+  <app-meteor-layer class="meteor-field__layer meteor-field__layer--near" layer="near" [meteors]="nearMeteors" />
 </div>
