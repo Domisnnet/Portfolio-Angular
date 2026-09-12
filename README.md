@@ -14,8 +14,6 @@
 
 </div>
 
----
-
   <img src="src/assets/images/portfólio.png" alt="Captura de tela do portfólio DomisDev exibindo a seção hero com nome, título profissional e botões de navegação" width="85%">
 
 ---
