@@ -281,8 +281,7 @@ Sim! O projeto é **Open Source** sob licença MIT. Você pode clonar, estudar e
 
 <h2 id="licenca">13. 📄 Licença</h2>
 
-Este projeto está licenciado sob a **Licença MIT** — consulte o arquivo ![LICENSE](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE) para mais detalhes.
-
+Este projeto está licenciado sob a **Licença MIT** — consulte o arquivo para mais detalhes.
 [![Licença MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow.svg?style=flat-square)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 
 ---
