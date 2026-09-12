@@ -112,7 +112,7 @@ Aplicação de **meta tags estruturadas** (Open Graph, Twitter Cards), **HTML se
 
 <h3 id="pre-requisitos">Pré-requisitos</h3>
 
-- **Node.js** 20+ ([download](https://nodejs.org/))
+- **Node.js** 20+ [download](https://nodejs.org/)
 - **Angular CLI** 20+ — `npm install -g @angular/cli`
 - **Firebase CLI** (opcional, para deploy) — `npm install -g firebase-tools`
 
