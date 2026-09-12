@@ -1,4 +1,4 @@
-<div align="center">
+<div align="left">
 
 <h2 id="domisdev-portfolio">🚀 DomisDev Portfólio</h2>
 
@@ -16,10 +16,6 @@
 [![Issues](https://img.shields.io/github/issues/Domisnnet/Portfolio-Angular?style=for-the-badge&color=red)](https://github.com/Domisnnet/Portfolio-Angular/issues)
 
 **Portfólio profissional desenvolvido com Angular 20, componentes Standalone, SCSS modular e hospedagem via Firebase.**
-
-[![Acessar Portfólio](https://img.shields.io/badge/🌐_Acessar-Portfólio-success?style=for-the-badge)](https://portfolio-23948217-d156e.firebaseapp.com/)
-[![Reportar Bug](https://img.shields.io/badge/🐛_Reportar-Bug-critical?style=for-the-badge)](https://github.com/Domisnnet/Portfolio-Angular/issues/new?template=bug_report.md)
-[![Sugerir Melhoria](https://img.shields.io/badge/💡_Sugerir-Melhoria-yellow?style=for-the-badge)](https://github.com/Domisnnet/Portfolio-Angular/issues/new?template=feature_request.md)
 
 </div>
 
