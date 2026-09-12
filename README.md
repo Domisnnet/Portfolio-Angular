@@ -273,7 +273,7 @@ Sim! O projeto é **Open Source** sob licença MIT. Você pode clonar, estudar e
 
 | Atribuição | Responsável | Descrição |
 | :--- | :--- | :--- |
-| **Desenvolvimento Full-Stack** | **DomisDev** ([@Domisnnet](https://github.com/Domisnnet)) | Design, arquitetura Angular e configuração DevOps. |
+| **Desenvolvimento Full-Stack** | **DomisDev** | Design, arquitetura Angular e configuração DevOps. |
 | **Infraestrutura** | **Google Firebase** | Provedor de Hosting e serviços cloud. |
 | **Assistência de IA** | **Google Gemini** | Apoio na padronização documental e revisão técnica. |
 
