@@ -10,19 +10,14 @@
 [![Firebase](https://img.shields.io/badge/Firebase-Hosting-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
 [![Licença MIT](https://img.shields.io/badge/Licen%C3%A7a-MIT-yellow?style=for-the-badge)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 
-[![Repo Size](https://img.shields.io/github/repo-size/Domisnnet/Portfolio-Angular?style=for-the-badge)](https://github.com/Domisnnet/Portfolio-Angular)
-[![Stars](https://img.shields.io/github/stars/Domisnnet/Portfolio-Angular?style=for-the-badge)](https://github.com/Domisnnet/Portfolio-Angular/stargazers)
-[![Last Commit](https://img.shields.io/github/last-commit/Domisnnet/Portfolio-Angular?style=for-the-badge)](https://github.com/Domisnnet/Portfolio-Angular/commits/main)
-[![Issues](https://img.shields.io/github/issues/Domisnnet/Portfolio-Angular?style=for-the-badge&color=red)](https://github.com/Domisnnet/Portfolio-Angular/issues)
-
 **Portfólio profissional desenvolvido com Angular 20, componentes Standalone, SCSS modular e hospedagem via Firebase.**
 
 </div>
 
 ---
 
-<p align="center">
-  <img src="src/assets/images/portfolio-preview.png" alt="Captura de tela do portfólio DomisDev exibindo a seção hero com nome, título profissional e botões de navegação" width="85%">
+<p align="left">
+  <img src="src/assets/images/portfolio.png" alt="Captura de tela do portfólio DomisDev exibindo a seção hero com nome, título profissional e botões de navegação" width="85%">
 </p>
 
 ---
