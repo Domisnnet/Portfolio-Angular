@@ -288,12 +288,11 @@ Este projeto está licenciado sob a **Licença MIT** — consulte o arquivo para
 
 <h2 id="contato">14. 👨‍💻 Contato</h2>
 
-<div align="center">
+<div align="left">
 
 **DomisDev** — Desenvolvedor Front-end
 
 [![GitHub](https://img.shields.io/badge/GitHub-Domisnnet-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Domisnnet)
-[![Portfólio](https://img.shields.io/badge/Portf%C3%B3lio-Online-success?style=for-the-badge&logo=firebase&logoColor=white)](https://portfolio-23948217-d156e.firebaseapp.com/)
 
 </div>
 
