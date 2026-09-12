@@ -17,14 +17,16 @@
 
 **Portfólio profissional desenvolvido com Angular 20, componentes Standalone, SCSS modular e hospedagem via Firebase.**
 
-[🌐 Acessar Portfólio](https://portfolio-23948217-d156e.firebaseapp.com/) · [🐛 Reportar Bug](https://github.com/Domisnnet/Portfolio-Angular/issues/new?template=bug_report.md) · [💡 Sugerir Melhoria](https://github.com/Domisnnet/Portfolio-Angular/issues/new?template=feature_request.md)
+[![Acessar Portfólio](https://img.shields.io/badge/🌐_Acessar-Portfólio-success?style=for-the-badge)](https://portfolio-23948217-d156e.firebaseapp.com/)
+[![Reportar Bug](https://img.shields.io/badge/🐛_Reportar-Bug-critical?style=for-the-badge)](https://github.com/Domisnnet/Portfolio-Angular/issues/new?template=bug_report.md)
+[![Sugerir Melhoria](https://img.shields.io/badge/💡_Sugerir-Melhoria-yellow?style=for-the-badge)](https://github.com/Domisnnet/Portfolio-Angular/issues/new?template=feature_request.md)
 
 </div>
 
 ---
 
 <p align="center">
-  <img src="src/assets/images/portfolio-preview.webp" alt="Captura de tela do portfólio DomisDev exibindo a seção hero com nome, título profissional e botões de navegação" width="85%">
+  <img src="src/assets/images/portfolio-preview.png" alt="Captura de tela do portfólio DomisDev exibindo a seção hero com nome, título profissional e botões de navegação" width="85%">
 </p>
 
 ---
@@ -130,8 +132,8 @@ Aplicação de **meta tags estruturadas** (Open Graph, Twitter Cards), **HTML se
 <h3 id="passo-a-passo">Passo a passo</h3>
 
 ```bash
-# 1. Clone o repositório
-git clone https://github.com/Domisnnet/Portfolio-Angular.git
+# 1. Clone o repositório (clone raso, mais rápido)
+git clone --depth 1 https://github.com/Domisnnet/Portfolio-Angular.git
 
 # 2. Entre na pasta
 cd Portfolio-Angular
