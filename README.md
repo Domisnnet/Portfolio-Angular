@@ -235,7 +235,7 @@ Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-M
 
 ---
 
-<h2 id="perfil-do-github">12. 👨‍💻 Perfil do GitHub / Contato</h2>
+<h2 id="perfil-do-github">12. 👨‍💻 Perfil do GitHub</h2>
 
 **DomisDev** — Desenvolvedor Front-end
 
