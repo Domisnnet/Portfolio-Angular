@@ -2,7 +2,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/Domisnnet/Portfolio-Angular?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/Domisnnet/Portfolio-Angular?style=for-the-badge)
 
-<h1 id="topo">🚀 DomisDev Portfólio - Engenharia Front-end 🚀🚀</h1>
+<h1 id="topo">🚀 DomisDev Portfólio - Engenharia Front-end</h1>
 
 ![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat-square)
 ![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat-square&logo=angular&logoColor=white)
@@ -242,8 +242,6 @@ Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-M
 <a href="https://github.com/Domisnnet"> 
   <img src="src/assets/images/DomisDev.png" width="90" style="border-radius: 50%" alt="DomisDev GitHub"> 
 </a>
-
-[![GitHub](https://img.shields.io/badge/GitHub-Domisnnet-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Domisnnet)
 
 &nbsp;
 <p align="center">
