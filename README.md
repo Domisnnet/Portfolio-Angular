@@ -59,6 +59,8 @@ Entre no portfólio clicando no botão abaixo:
   </a>
 </div>
 
+---
+
 <h3 id="rodar-localmente">3.2 🖥️ Rodar Localmente</h3>
 
 <h4 id="pre-requisitos">3.2.1 Pré-requisitos</h4>
