@@ -98,8 +98,8 @@ O servidor recarrega automaticamente a cada alteração nos arquivos-fonte.
 | 💊 **Stack Pills System** | Componente reutilizável para exibição dinâmica de tecnologias com ícones. |
 | 📱 **Adaptive Design** | Layout Hero que transiciona de horizontal **(PC)** para vertical **(Mobile)** automaticamente. |
 | ⚡ **Firebase Hosting** | Entrega ultra-rápida via CDN global com certificado SSL e cache inteligente. |
-| 🎨 **Material Pallete** | Identidade visual baseada em princípios de design atômico e cores Material. |
-| ♿ **Acessibilidade (a11y)** | Navegação por teclado, contraste AA e HTML semântico. |
+| 🎨 **Material Palette** | Identidade visual baseada em princípios de design atômico e cores Material. |
+| ♿ **Acessibilidade - a11y** | Navegação por teclado, contraste AA e HTML semântico. |
 
 ---
 
