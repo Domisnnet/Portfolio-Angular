@@ -71,21 +71,34 @@ Entre no portfólio clicando no botão abaixo:
 
 <h4 id="passo-a-passo">3.2.2 Passo a passo</h4>
 
-```bash
 # 1. Clone o repositório
+
+```bash
 git clone --depth 1 https://github.com/Domisnnet/Portfolio-Angular.git
+```
 
 # 2. Entre na pasta
+
+```bash
 cd Portfolio-Angular
+```
 
 # 3. Instale as dependências
+
+```bash
 npm install
+```
 
 # 4. Inicie o servidor de desenvolvimento
+
+```bash
 ng serve
+```
 
 # 5. Acesse no navegador
-# http://localhost:4200
+
+```bash
+http://localhost:4200
 ```
 
 O servidor recarrega automaticamente a cada alteração nos arquivos-fonte.
