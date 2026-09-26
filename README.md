@@ -14,7 +14,7 @@ Bem-vindo ao repositório do meu **Portfólio Profissional**. Esta aplicação �
 
 ---
 
-## 📚 Tabela de Conteúdo
+<h2>📚 Tabela de Conteúdo</h2>
 
 | 💻 O Projeto | 🛠️ Técnico | 🤝 Comunidade |
 | :---: | :---: | :---: |
