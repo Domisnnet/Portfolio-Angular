@@ -10,7 +10,7 @@
 [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 ![Portfólio](src/assets/images/portfólio.png)
 
-Bem-vindo ao repositório do meu **Portfólio Profissional**. Esta aplicação é uma vitrine técnica desenvolvida com **Angular 20**, utilizando componentes **Standalone** para máxima reutilização e otimização de performance. O projeto combina design em **SCSS modular** com uma infraestrutura escalável no **Firebase**, refletindo minha stack como especialista em Front-end.
+> Bem-vindo ao repositório do meu **Portfólio Profissional**. Esta aplicação é uma vitrine técnica desenvolvida com **Angular 20**, utilizando componentes **Standalone** para máxima reutilização e otimização de performance. O projeto combina design em **SCSS modular** com uma infraestrutura escalável no **Firebase**, refletindo minha stack como especialista em Front-end.
 
 ---
 
