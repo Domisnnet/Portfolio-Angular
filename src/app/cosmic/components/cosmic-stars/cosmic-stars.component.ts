@@ -5,9 +5,7 @@ import {
   OnDestroy,
   AfterViewInit,
   viewChild,
-  inject,
-} from '@angular/core';
-
+  inject } from '@angular/core';
 interface Star {
   x: number;
   y: number;
@@ -17,7 +15,6 @@ interface Star {
   dir: 1 | -1;
 }
 type CosmicEffectsMode = 'full' | 'minimal' | 'silent';
-
 @Component({
   selector: 'app-cosmic-stars',
   standalone: true,
@@ -49,9 +46,7 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.animationId) {
-      cancelAnimationFrame(this.animationId);
-    }
+    if (this.animationId) { cancelAnimationFrame(this.animationId); }
     window.removeEventListener('resize', this.onResize);
   }
 
@@ -114,10 +109,9 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
 
   private getStarColor(): string {
     const styles = getComputedStyle(document.documentElement);
-    const color = styles.getPropertyValue('--stars-df').trim() || styles.getPropertyValue('--star-color').trim();
-    if (!color) {
-      throw new Error('[CosmicStars] Missing CSS contract: --stars-df or --star-color');
-    }
+    const color = styles.getPropertyValue('--stars-df').trim() || 
+      styles.getPropertyValue('--star-color').trim();
+    if (!color) { throw new Error('[CosmicStars] Missing CSS contract: --stars-df or --star-color'); }
     return color;
   }
 
@@ -125,8 +119,5 @@ export class CosmicStarsComponent implements AfterViewInit, OnDestroy {
     return (document.documentElement.getAttribute('data-cosmic-effects') as CosmicEffectsMode) || 'full';
   }
 
-  private onResize = (): void => {
-    this.initCanvas();
-    this.createStars();
-  };
+  private onResize = (): void => { this.initCanvas(); this.createStars(); };
 }
