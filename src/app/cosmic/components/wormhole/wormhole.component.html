@@ -1,20 +1,3 @@
 @if (isActive()) {
-  <div class="wormhole" (animationend)="onTransitionEnd($event)">
-    <div class="wormhole-tunnel"></div>
-    <div class="wormhole-starfield" aria-hidden="true">
-      <span></span><span></span><span></span><span></span> 
-      <span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span> 
-      <span></span><span></span><span></span><span></span>
-    </div>
-    <div class="wormhole-square"></div>
-    <div class="square-inner"></div>
-    <div class="wormhole-vortex"></div>
-    <div class="wormhole-singularity"></div>
-    <div class="wormhole-core">
-      <div class="wormhole-accretion"></div>
-      <div class="wormhole-ring"></div>
-      <div class="wormhole-black-hole"></div>
-    </div>
-  </div>
+  <canvas #wormholeCanvas class="wormhole"></canvas>
 }

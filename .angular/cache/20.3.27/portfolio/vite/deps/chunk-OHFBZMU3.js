@@ -1,10 +1,10 @@
 import {
+  withHttpTransferCache
+} from "./chunk-UQGUN7HD.js";
+import {
   EVENT_MANAGER_PLUGINS,
   EventManagerPlugin
 } from "./chunk-YRZHW44K.js";
-import {
-  withHttpTransferCache
-} from "./chunk-UQGUN7HD.js";
 import {
   getDOM
 } from "./chunk-CEMLLCAV.js";
@@ -830,4 +830,4 @@ export {
   provideClientHydration,
   VERSION
 };
-//# sourceMappingURL=chunk-5T6EESKU.js.map
+//# sourceMappingURL=chunk-OHFBZMU3.js.map
