@@ -2,6 +2,7 @@
 /dist
 /.angular
 /.vscode
+/firebase-debug.log
 /src/enviroments/enviroment.ts
 /src/app/services/auth.service.ts
 /src/app/services/auth.guard.ts
@@ -9,3 +10,5 @@
 [STRIPPED 89 bytes].service.ts
 /src/app/core/services/cosmic-route-sync.service.ts
 .env
+restaurar.ps1
+limpar.ps1

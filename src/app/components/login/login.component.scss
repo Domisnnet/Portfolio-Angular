@@ -1,0 +1,105 @@
+:host {
+  display: block;
+}
+
+.login-section {
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 560px;
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--glass-border);
+  background: var(--layer-base);
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 10px 40px rgba(var(--glass-shadow-color), var(--glass-shadow-opacity)), inset 0 0 40px rgba(var(--glass-inner-glow-color), var(--glass-inner-glow-opacity));
+  overflow: hidden;
+}
+
+
+.login-body {
+  padding: var(--space-xl);
+
+  h2 {
+    text-align: center;
+    margin-bottom: var(--space-sm);
+    color: var(--accent-primary);
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: var(--space-lg);
+    color: var(--accent-secondary);
+    font-style: italic;
+  }
+
+  input {
+    background: var(--footer-bg-soft); 
+    color: var(--accent-primary);    
+    border: 1px solid var(--glass-border);
+  }
+
+  input::placeholder {
+    color: var(--text-muted);
+  }
+
+  input:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.35);
+    background: var(--glass-bg);
+    color: var(--accent-primary);
+  }
+
+  label {
+    color: var(--accent-secondary);
+  }
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+
+  label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-sm);
+    color: var(--accent-secondary);
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    border: var(--border-thin) solid var(--glass-border);
+    background: var(--footer-bg-soft);
+    color: var(--accent-primary);
+    font-family: inherit;
+    transition: var(--motion-fast);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted);
+  }
+
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.35);
+    background: var(--glass-bg);
+  }
+}
+
+.form-mail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-sm);
+}

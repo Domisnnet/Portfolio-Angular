@@ -24,23 +24,14 @@ export class ButtonComponent {
   @Input() iconLeft?: string;
   @Input() iconRight?: string;
   @Input() text = '';
-  @HostBinding('class.full-width-host') get hostFullWidth(): boolean {
-    return this.fullWidth;
-  }
+  @HostBinding('class.full-width-host') get hostFullWidth(): boolean { return this.fullWidth; }
 
-  get isLink(): boolean {
-    return !!this.href;
-  }
+  get isLink(): boolean { return !!this.href; }
 
-  get isRouterLink(): boolean {
-    return !this.href && !!this.routerLink;
-  }
+  get isRouterLink(): boolean { return !this.href && !!this.routerLink; }
 
   get computedRel(): string | null {
-    if (this.target === '_blank') {
-      return this.rel ?? 'noopener noreferrer';
-    }
-    return this.rel ?? null;
+    if (this.target === '_blank') { return this.rel ?? 'noopener noreferrer'; } return this.rel ?? null;
   }
 
   get buttonClasses(): string[] {
