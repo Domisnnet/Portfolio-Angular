@@ -1,3 +1,3 @@
 import { Component } from '@angular/core';
-@Component({ selector: 'app-cosmic-stars', standalone: true, template: '<!-- SECURED - DomisDocs -->' })
+@Component({ selector: 'app-cosmic-stars', standalone: true, template: '<!-- SECURED -->' })
 export class CosmicStarsComponent {}
