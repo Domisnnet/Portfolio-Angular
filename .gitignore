@@ -2,7 +2,7 @@
 /dist
 /.angular
 /.vscode
-/src/enviroments/
+/src/enviroments/enviroment.ts
 src/app/services/auth.service.ts
 src/app/services/auth.guard.ts
 src/app/services/contact.service.ts
