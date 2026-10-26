@@ -12,11 +12,7 @@
 .env
 restaurar.ps1
 limpar.ps1
-
 /src/app/components/cosmic/
-
 /src/app/cosmic/
-
 /src/app/core/cosmic-toggle/
-
 /src/app/layout/cosmic-layout/
