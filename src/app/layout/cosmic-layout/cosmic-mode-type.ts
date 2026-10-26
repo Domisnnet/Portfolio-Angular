@@ -1,1 +1,0 @@
-export type CosmicMode = 'full' | 'minimal' | 'silent';
