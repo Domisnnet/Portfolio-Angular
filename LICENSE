@@ -65,7 +65,7 @@ firebase.json, apphosting.yaml, firestore.rules, storage.rules, functions/,
 .github/, templates/, meu-app/, src/app/, src/lib/ e toda Versão Adquirida.
 
 
-<h2>1. DEFINIÇÕES</h2>
+## 1. DEFINIÇÕES
 
 1.1 “Software”: todo conteúdo original no repositório “DomisPacks-Technical” e 
 “DomisDoc-Legacy-Thecnical/packages/create-domis” — código-fonte do CLI v1.0.78 
@@ -88,7 +88,7 @@ acesso ao repositório;
 construído PELO LICENCIADO usando o Software, sem acesso ao código-base.
 
 
-<h2>2. ACEITE, CONCESSÃO & PRAZOS</h2>
+## 2. ACEITE, CONCESSÃO & PRAZOS
 
 2.1 Ao rodar `npx create-domis@latest`, `npm create domis@latest`, acessar
 verificar.html, obrigado.html ou usar qualquer pack → aceita integralmente
@@ -121,7 +121,7 @@ original, marca DomisPacks, CLI e estrutura de acionamento das 3 opções
 permanecem sempre de propriedade exclusiva do LICENCIANTE.
 
 
-<h2>3. RESTRIÇÕES EXPRESSAS — SALVO AUTORIZAÇÃO ESCRITA MINHA:</h2>
+## 3. RESTRIÇÕES EXPRESSAS — SALVO AUTORIZAÇÃO ESCRITA MINHA:
 
 ❌ 3.1 Revender, publicar, compartilhar integral/parcialmente — nem “como base”,
 biblioteca, modelo, curso, vídeo, repositório público, marketplace (ex:
@@ -141,7 +141,7 @@ documentação;
 ❌ 3.7 Uso para fins ilícitos, spam, ou que viole termos do Firebase/GitHub/npm.
 
 
-<h2>4. PLANOS, GARANTIAS & LIMITE RESPONSABILIDADE</h2>
+## 4. PLANOS, GARANTIAS & LIMITE RESPONSABILIDADE
 
 4.1 ANEXO 1 - TABELA DE PLANOS (parte integrante):
 Plano Grátis: uso vitalício Versão Adquirida Grátis + sem acesso repo privado + sem suporte;
@@ -171,7 +171,7 @@ exceto prazo legal de arrependimento de 7 dias se ainda não houve acesso ao
 conteúdo privado (Art. 49 CDC).
 
 
-<h2>5. QUEBRA / ENCERRAMENTO:</h2>
+## 5. QUEBRA / ENCERRAMENTO:
 
 5.1 Violação sem correção em até 15 dias úteis após notificação, ou violação
 de impossível reparo, ou risco grave (compartilhamento de PRO_KEY, publicação
