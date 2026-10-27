@@ -1,17 +1,51 @@
+PRIVATE COMMERCIAL LICENSE — Versão: v1.4 — Atualizada: outubro/2026
+Copyright © 2026 Dominique Marcelino Gonçalves / Domisnnet
+Todos os direitos reservados.
+
+================================================================
+LICENCIANTE
+================================================================
+Dominique Marcelino Gonçalves (“DomisDev / Domisnnet”)
+Pessoa Física — Rua Paschoal Donhate, 100 — Bairro Nova Jacareí
+CEP 12.325-040 • Jacareí / SP • Brasil
+Contatos: contato@domispacks.site • (12) 9 8104-9878
+Identificação fiscal completa mediante confirmação de compra ou relação contratual formalizada
+Idioma oficial: Português-BR — prevalece sobre qualquer tradução
+Lei aplicável & Foro Exclusivo: República Federativa do Brasil • Comarca Jacareí-SP
+
+================================================================
+AVISO DE COMPONENTES DE TERCEIROS SOB MIT — ATUALIZADO v1.0.78
+================================================================
+Este software utiliza bibliotecas de terceiros sob licença MIT. O texto MIT 
+abaixo refere-se EXCLUSIVAMENTE a essas bibliotecas, mantendo seus respectivos 
+copyrights e repositórios originais.
+
+O código proprietário do CLI Domis, incluindo a lógica que aciona as 3 opções:
+- 🔥 DomisPacks Free - Firebase
+- 🔥 DomisPacks Lite — Next.js 15 + SaaS
+- 🔥 DomisPacks PRO — Stripe + Rules
+via `npx create-domis@latest` - atalho: `npm create domis@latest`, validação via verificar.html e
+autenticação por PRO_KEY, NÃO é MIT e é regido integralmente por esta
+Licença Private Commercial.
+
+Lista REAL e ATUALIZADA conforme packages/create-domis/package.json v1.0.78 (congelado):
+
+- chalk v5.3.0 (Sindre Sorhus) - https://github.com/chalk/chalk - MIT License
+- inquirer v9.2.12 (Simon Boudrias) - https://github.com/SBoudrias/Inquirer.js - MIT License
+- ora v7.0.1 (Sindre Sorhus) - https://github.com/sindresorhus/ora - MIT License
+- extract-zip v2.0.1 (Max Ogden) - https://github.com/maxogden/extract-zip - MIT License
+
+--- INÍCIO MIT DE TERCEIROS ---
 MIT License
-
-Copyright (c) 2026 Domisnnet
-
+Copyright (c) - respective third-party authors (chalk, inquirer, ora, extract-zip)
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
-
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -19,3 +53,151 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+--- FIM MIT DE TERCEIROS ---
+
+================================================================
+SEÇÃO PRINCIPAL - PRIVATE COMMERCIAL - VÁLIDA PARA CLI + PACKS
+================================================================
+Escopo: npx create-domis@latest (e atalho npm create domis@latest),
+create-domis (pacote npm) v1.0.78, /packages/create-domis/src/, /packages/create-domis/dist/,
+/src/cli, /bin, verificar.html, obrigado.html,
+firebase.json, apphosting.yaml, firestore.rules, storage.rules, functions/,
+.github/, templates/, meu-app/, src/app/, src/lib/ e toda Versão Adquirida.
+
+
+<h2>1. DEFINIÇÕES</h2>
+
+1.1 “Software”: todo conteúdo original no repositório “DomisPacks-Technical” e 
+“DomisDoc-Legacy-Thecnical/packages/create-domis” — código-fonte do CLI v1.0.78 
+(incluindo lógica de acionamento das 3 opções: grátis, Lite e Pro e validação 
+PRO_KEY), binários em dist/index.js, configurações, Firebase/Firestore regras, 
+fluxos CI, modelos, trechos, docs, metadados e atualizações recebidas durante 
+seu período de acesso;
+1.2 “PRO_KEY”: credencial individual de acesso — 1 chave = 1 desenvolvedor
+físico autorizado = 1 pessoa — libera Lite ou Pro conforme compra na Kiwify.
+Uso em múltiplas máquinas do mesmo desenvolvedor é permitido, desde que não
+simultâneo em IPs/geolocalizações distintas que caracterizem compartilhamento;
+1.3 “Período de Acesso Estendido”: 6 (seis) meses corridos contados da
+confirmação de pagamento — vale para recebimento de novidades, repositório
+privado vivo, suporte e correções;
+1.4 “Versão Adquirida”: todo conteúdo efetivamente disponibilizado, baixado e
+recebido até a expiração do Período de Acesso Estendido ou rescisão —
+mantém-se sempre seu conforme uso permitido aqui, mesmo após término do
+acesso ao repositório;
+1.5 “Cliente Final”: terceiro que recebe apenas o produto/serviço final
+construído PELO LICENCIADO usando o Software, sem acesso ao código-base.
+
+
+<h2>2. ACEITE, CONCESSÃO & PRAZOS</h2>
+
+2.1 Ao rodar `npx create-domis@latest`, `npm create domis@latest`, acessar
+verificar.html, obrigado.html ou usar qualquer pack → aceita integralmente
+estes termos; sem aceitação interrompa e remova tudo;
+2.2 LICENÇA: Mundial • Não-exclusiva • Intransferível • Não-sublicenciável —
+enquanto cumprir termos:
+ ✅ DIREITO DE USO → VITALÍCIO / PERPÉTUO: sobre “Versão Adquirida” — nunca
+expira, nunca bloqueia funcionamento de projetos já criados;
+ ⏳ ACESSO / ATUALIZAÇÕES / SUPORTE → 6 MESES INCLUSOS: repositório privado,
+novas versões, correções, ajustes, melhorias e atendimento técnico só
+mantêm-se ativos neste prazo — renovar/contratar separadamente depois se
+quiser continuar recebendo evoluções;
+2.2.1 Findo o Período de Acesso Estendido sem renovação, o LICENCIANTE poderá,
+a seu critério, remover o convite de collaborator do repositório privado
+GitHub, desativar a verificação online da PRO_KEY no verificar.html e encerrar
+acesso ao Discord/Área de Membros, permanecendo apenas o direito de uso sobre
+a Versão Adquirida já baixada localmente, sem direito a novas atualizações.
+2.3 O que pode fazer:
+ a) Copiar, estudar, modificar, integrar ilimitadamente em seus projetos;
+ b) Produzir, vender, entregar soluções finais para Clientes Finais — desde
+que o Software/base NÃO fique independente/exposto/reutilizável por
+terceiros como boilerplate, template, starter ou SDK;
+ c) Sem limite quantidade projetos/clientes finais atendidos por 1 dev licenciado;
+2.4 Direitos não mencionados ficam TOTALMENTE RESERVADOS (Arts 29+ Lei 9.610/98).
+2.5 Propriedade do Derivado: Modificações, derivações e projetos finais criados
+pelo LICENCIADO com base no Software são de propriedade do LICENCIADO para fins
+de seu cliente final, desde que não exponham o código-base original de forma
+independente, reutilizável ou como boilerplate concorrente. O código-base
+original, marca DomisPacks, CLI e estrutura de acionamento das 3 opções
+permanecem sempre de propriedade exclusiva do LICENCIANTE.
+
+
+<h2>3. RESTRIÇÕES EXPRESSAS — SALVO AUTORIZAÇÃO ESCRITA MINHA:</h2>
+
+❌ 3.1 Revender, publicar, compartilhar integral/parcialmente — nem “como base”,
+biblioteca, modelo, curso, vídeo, repositório público, marketplace (ex:
+ThemeForest, TemplateMonster) ou referência que exponha código;
+❌ 3.2 Reempacotar, renomear, fazer fork público ou lançar produtos
+funcionalmente iguais e/ou concorrentes que acionem as 3 opções
+(Grátis/Lite/Pro) ou que utilizem a marca DomisPacks;
+❌ 3.3 Remover/alterar marca, aviso autoria, copyright ou direitos, ou burlar/
+alterar/enganar verificação PRO_KEY / verificar.html / obrigado.html;
+❌ 3.4 Compartilhar PRO_KEY, conta ou acesso — equipes pedem licenças separadas.
+1 PRO_KEY = 1 pessoa física. Pessoa jurídica deve adquirir 1 licença por
+desenvolvedor que for usar;
+❌ 3.5 Engenharia reversa do CLI e do acionamento das opções salvo lei obrigar —
+avise por escrito com 15 dias de antecedência;
+❌ 3.6 Treinar IA/LLM, modelo generativo ou dataset usando estrutura, código ou
+documentação;
+❌ 3.7 Uso para fins ilícitos, spam, ou que viole termos do Firebase/GitHub/npm.
+
+
+<h2>4. PLANOS, GARANTIAS & LIMITE RESPONSABILIDADE</h2>
+
+4.1 ANEXO 1 - TABELA DE PLANOS (parte integrante):
+Plano Grátis: uso vitalício Versão Adquirida Grátis + sem acesso repo privado + sem suporte;
+Plano Lite R$49: uso vitalício Versão Adquirida Lite + 6 meses acesso repo privado + docs + updates;
+Plano Pro R$197: tudo Lite + suporte técnico 7 dias corridos dentro janela válida + ajustes liberados + template SSR + CI/CD + rules avançadas;
+4.2 “COMO ESTÁ”, SEM GARANTIAS implícitas/explícitas — adequação, continuidade ou 
+resultados não prometidos além descrito. O Software depende de serviços de 
+terceiros (Kiwify como processadora de pagamento, GitHub para repositório 
+privado, Firebase, npm). Falhas, instabilidades, remoções ou mudanças de política 
+desses terceiros não geram obrigação de reembolso, indenização ou entrega 
+alternativa por parte do LICENCIANTE (força maior / fato de terceiro);
+4.3 NÃO RESPONDO: lucros cessantes, danos indiretos, paralisações, perda de 
+dados, custos de migração. Em qualquer hipótese, minha responsabilidade total 
+fica limitada ao MENOR valor entre: (i) total pago pelo LICENCIADO nos últimos 
+12 meses OU (ii) R$ 150,00 (cento e cinquenta reais) — protege integralmente
+patrimônio pessoal por ser pessoa física;
+4.4 LGPD: dados mínimos só para operação (e-mail, PRO_KEY, IP de ativação para
+antifraude). Ordem judicial ou consentimento expresso = única hipótese de
+compartilhamento. O LICENCIADO é responsável por guardar sua PRO_KEY com
+segurança. O LICENCIANTE pode auditar logs de ativação da PRO_KEY (IP, device
+ID, data/hora) para detectar compartilhamento. Detecção de uso simultâneo em
+geolocalizações/IPs distintos caracteriza violação;
+4.5 Kiwify é mera intermediadora de pagamento. Dúvidas de cobrança, nota fiscal,
+reembolso dentro do prazo da plataforma devem ser tratadas via Kiwify. Após
+acesso ao repositório privado e download da Versão Adquirida, não há reembolso,
+exceto prazo legal de arrependimento de 7 dias se ainda não houve acesso ao
+conteúdo privado (Art. 49 CDC).
+
+
+<h2>5. QUEBRA / ENCERRAMENTO:</h2>
+
+5.1 Violação sem correção em até 15 dias úteis após notificação, ou violação
+de impossível reparo, ou risco grave (compartilhamento de PRO_KEY, publicação
+de código, chargeback/estorno após baixar repositório, revenda): o LICENCIANTE
+poderá cancelar acesso, revogar PRO_KEY, remover do GitHub e encerrar suporte
+imediatamente, sem devoluções — mas NÃO apaga/impede uso da “Versão Adquirida”
+que já integra projetos seus até a data da violação; mantêm-se sempre regras
+confidencialidade/autoria/limites indenização;
+5.2 Em caso de chargeback, estorno ou disputa de pagamento após o LICENCIADO
+já ter recebido acesso ao repositório privado, o acesso será revogado
+imediatamente e a PRO_KEY bloqueada, sem prejuízo de cobrança judicial dos
+valores e perdas.
+5.3 Contrato completo — prevalece tudo escrito; mudanças valem só confirmação
+minha por escrito (e-mail dominique.goncalves61@gmail.com); parte inválida =
+resto continua firme (severabilidade); atualizações de regras aplicam-se a
+novas compras; compras antigas mantêm termo vigente no dia da aquisição.
+Versão 1.4 revoga e substitui versões 1.0, 1.1, 1.2 e 1.3 para novas vendas a
+partir de outubro/2026. Referência congelada: packages/create-domis v1.0.78.
+
+
+================================================================
+ACEITE DIGITAL
+================================================================
+Ao executar `npx create-domis@latest` ou `npm create domis@latest` e ao
+inserir sua PRO_KEY no verificar.html, você declara que leu, entendeu e
+concorda integralmente com esta licença.
+
+Jacareí-SP, outubro de 2026
+Dominique Marcelino Gonçalves / Domisnnet
