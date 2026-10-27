@@ -7,7 +7,7 @@
 ![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat-square)
 ![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat-square&logo=angular&logoColor=white)
 ![Hosting](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
-[![Licença MIT](https://img.shields.io/badge/License-Private_Commercial_V1.4-red?style=flat-square)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
+[![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 ![Portfólio](src/assets/images/portfólio.png)
 
 Bem-vindo ao repositório do meu **Portfólio Profissional**. Esta aplicação é uma vitrine técnica desenvolvida com **Angular 20**, utilizando componentes **Standalone** para máxima reutilização e otimização de performance. O projeto combina design em **SCSS modular** com uma infraestrutura escalável no **Firebase**, refletindo minha stack como especialista em Front-end.
@@ -246,7 +246,7 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 
 <h2 id="licenca">11. 📄 Licença</h2>
 
-Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-Private_Commercial_V1.4-red?style=flat-square)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
+Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 
 ---
 
