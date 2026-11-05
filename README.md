@@ -66,8 +66,8 @@ Entre no portfólio clicando no botão abaixo:
 <h4 id="pre-requisitos">3.2.1 Pré-requisitos</h4>
 
 - **Node.js** 20+  &nbsp;[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-- **Angular CLI** 20+ — `npm install -g @angular/cli`
-- **Firebase CLI** (opcional, para deploy) — `npm install -g firebase-tools`
+- **Angular CLI** 20+  &nbsp;`npm install -g @angular/cli`
+- **Firebase CLI** - opcional, para deploy  &nbsp;`npm install -g firebase-tools`
 
 <h4 id="passo-a-passo">3.2.2 Passo a passo</h4>
 
