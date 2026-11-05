@@ -55,7 +55,7 @@ Entre no portfólio clicando no botão abaixo:
 
 <div align="left">
   <a href="https://portfolio-23948217-d156e.firebaseapp.com/" target="_blank">
-    <img alt="Botão Acessar" src="src/assets/images/botão.webp" height="70" width="70" />
+    <img alt="Botão Acessar" src="https://github.com/Domisnnet/Portfolio-Angular/blob/main/src/assets/images/bot%C3%A3o.webp"                   height="70" width="70" />
   </a>
 </div>
 
@@ -140,18 +140,18 @@ Aplicação de meta tags estruturadas (Open Graph, Twitter Cards), HTML semânti
 Portfolio-Angular/
 ├── src/
 │   ├── app/
-│   │   ├── components/        # Componentes reutilizáveis (stack-pill, etc.)
-│   │   ├── pages/             # Páginas/seções da aplicação
-│   │   ├── shared/            # Serviços, pipes, diretivas e utils
-│   │   ├── app.component.ts   # Componente raiz
-│   │   └── app.config.ts      # Configuração global (providers)
+│   │   ├── components/       📌 Componentes reutilizáveis - stack-pill, etc.
+│   │   ├── pages/            📌 Páginas/seções da aplicação
+│   │   ├── shared/           📌 Serviços, pipes, diretivas e utils
+│   │   ├── app.component.ts  📌 Componente raiz
+│   │   └── app.config.ts     📌 Configuração global - providers
 │   ├── assets/
-│   │   └── images/            # Imagens e ícones
-│   ├── styles/                # SCSS global, variáveis e mixins
-│   └── index.html             # Shell HTML com meta tags SEO
-├── firebase.json              # Configuração do Firebase Hosting
-├── angular.json                # Configuração do Angular CLI
-└── package.json                # Dependências e scripts
+│   │   └── images/           📌 Imagens e ícones
+│   ├── styles/               📌 SCSS global, variáveis e mixins
+│   └── index.html            📌 Shell HTML com meta tags SEO
+├── firebase.json             📌 Configuração do Firebase Hosting
+├── angular.json              📌 Configuração do Angular CLI
+└── package.json              📌 Dependências e scripts
 ```
 
 ---
@@ -246,7 +246,7 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 
 <h2 id="licenca">11. 📄 Licença</h2>
 
-Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
+Este projeto está sob a &nbsp;[![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 
 ---
 
@@ -255,7 +255,7 @@ Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-M
 **DomisDev** — Desenvolvedor Front-end
 
 <a href="https://github.com/Domisnnet"> 
-  <img src="src/assets/images/DomisDev.png" width="90" style="border-radius: 50%" alt="DomisDev GitHub"> 
+  <img src="https://github.com/Domisnnet/Portfolio-Angular/blob/main/src/assets/images/DomisDev.png" width="90" style="border-radius: 50%" alt="DomisDev GitHub"> 
 </a>
 
 &nbsp;
