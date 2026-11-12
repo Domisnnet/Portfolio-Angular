@@ -7,7 +7,7 @@
 
 ![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat&logo=firebase&logoColor=white)
 ![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat-square&logo=angular&logoColor=white)
-![Hosting](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
+![Firebase](https://img.shields.io/badge/Firebase-Ready-FFCA28?style=flat-square&logo=firebase&logoColor=black)
 [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 ![Portfólio](src/assets/images/portfólio.png)
 
