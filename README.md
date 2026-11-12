@@ -1,12 +1,13 @@
-![GitHub repo size](https://img.shields.io/github/repo-size/Domisnnet/Portfolio-Angular?style=for-the-badge)
-![GitHub stars](https://img.shields.io/github/stars/Domisnnet/Portfolio-Angular?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/Domisnnet/Portfolio-Angular?style=for-the-badge)
+![Repo Size](https://img.shields.io/github/repo-size/Domisnnet/Portfolio-Angular?style=flat&label=REPO%20SIZE&labelColor=2d333b&color=0969da)
+![Stars](https://img.shields.io/github/stars/Domisnnet/Portfolio-Angular?style=flat&label=STARS&labelColor=2d333b&color=0969da)
+![Last Commit](https://img.shields.io/github/last-commit/Domisnnet/Portfolio-Angular?style=flat&label=LAST%20COMMIT&labelColor=2d333b&color=2ea44f)
+![Version](https://img.shields.io/github/package-json/v/Domisnnet/Portfolio-Angular?style=flat&label=VERSION&labelColor=2d333b&color=0969da&logo=angular&logoColor=white)
 
 <h1 id="topo">🚀 DomisDev Portfólio - Engenharia Front-end</h1>
 
-![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat-square)
+![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat&logo=firebase&logoColor=white)
 ![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat-square&logo=angular&logoColor=white)
-![Hosting](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
+![Firebase](https://img.shields.io/badge/Firebase-Ready-FFCA28?style=flat-square&logo=firebase&logoColor=black)
 [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 ![Portfólio](src/assets/images/portfólio.png)
 
@@ -55,7 +56,7 @@ Entre no portfólio clicando no botão abaixo:
 
 <div align="left">
   <a href="https://portfolio-23948217-d156e.firebaseapp.com/" target="_blank">
-    <img alt="Botão Acessar" src="src/assets/images/botão.webp" height="70" width="70" />
+    <img alt="Botão Acessar" src="https://github.com/Domisnnet/Portfolio-Angular/blob/main/src/assets/images/bot%C3%A3o.webp"                   height="70" width="70" />
   </a>
 </div>
 
@@ -65,9 +66,9 @@ Entre no portfólio clicando no botão abaixo:
 
 <h4 id="pre-requisitos">3.2.1 Pré-requisitos</h4>
 
-- **Node.js** 20+ ([download](https://nodejs.org/))
-- **Angular CLI** 20+ — `npm install -g @angular/cli`
-- **Firebase CLI** (opcional, para deploy) — `npm install -g firebase-tools`
+- **Node.js** 20+  &nbsp;[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+- **Angular CLI** 20+  &nbsp;`npm install -g @angular/cli`
+- **Firebase CLI** - opcional, para deploy  &nbsp;`npm install -g firebase-tools`
 
 <h4 id="passo-a-passo">3.2.2 Passo a passo</h4>
 
@@ -140,18 +141,18 @@ Aplicação de meta tags estruturadas (Open Graph, Twitter Cards), HTML semânti
 Portfolio-Angular/
 ├── src/
 │   ├── app/
-│   │   ├── components/        # Componentes reutilizáveis (stack-pill, etc.)
-│   │   ├── pages/             # Páginas/seções da aplicação
-│   │   ├── shared/            # Serviços, pipes, diretivas e utils
-│   │   ├── app.component.ts   # Componente raiz
-│   │   └── app.config.ts      # Configuração global (providers)
+│   │   ├── components/       📌 Componentes reutilizáveis - stack-pill, etc.
+│   │   ├── pages/            📌 Páginas/seções da aplicação
+│   │   ├── shared/           📌 Serviços, pipes, diretivas e utils
+│   │   ├── app.component.ts  📌 Componente raiz
+│   │   └── app.config.ts     📌 Configuração global - providers
 │   ├── assets/
-│   │   └── images/            # Imagens e ícones
-│   ├── styles/                # SCSS global, variáveis e mixins
-│   └── index.html             # Shell HTML com meta tags SEO
-├── firebase.json              # Configuração do Firebase Hosting
-├── angular.json                # Configuração do Angular CLI
-└── package.json                # Dependências e scripts
+│   │   └── images/           📌 Imagens e ícones
+│   ├── styles/               📌 SCSS global, variáveis e mixins
+│   └── index.html            📌 Shell HTML com meta tags SEO
+├── firebase.json             📌 Configuração do Firebase Hosting
+├── angular.json              📌 Configuração do Angular CLI
+└── package.json              📌 Dependências e scripts
 ```
 
 ---
@@ -246,7 +247,7 @@ Se algo não estiver funcionando como esperado, não hesite em abrir um chamado:
 
 <h2 id="licenca">11. 📄 Licença</h2>
 
-Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
+Este projeto está sob a &nbsp;[![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
 
 ---
 
@@ -255,7 +256,7 @@ Este projeto está sob a [![Licença MIT](https://img.shields.io/badge/License-M
 **DomisDev** — Desenvolvedor Front-end
 
 <a href="https://github.com/Domisnnet"> 
-  <img src="src/assets/images/DomisDev.png" width="90" style="border-radius: 50%" alt="DomisDev GitHub"> 
+  <img src="https://github.com/Domisnnet/Portfolio-Angular/blob/main/src/assets/images/DomisDev.png" width="90" style="border-radius: 50%" alt="DomisDev GitHub"> 
 </a>
 
 &nbsp;
