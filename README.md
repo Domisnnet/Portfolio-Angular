@@ -1,10 +1,11 @@
-![GitHub repo size](https://img.shields.io/github/repo-size/Domisnnet/Portfolio-Angular?style=for-the-badge)
-![GitHub stars](https://img.shields.io/github/stars/Domisnnet/Portfolio-Angular?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/Domisnnet/Portfolio-Angular?style=for-the-badge)
+![Repo Size](https://img.shields.io/github/repo-size/Domisnnet/Portfolio-Angular?style=flat&label=REPO%20SIZE&labelColor=2d333b&color=0969da)
+![Stars](https://img.shields.io/github/stars/Domisnnet/Portfolio-Angular?style=flat&label=STARS&labelColor=2d333b&color=0969da)
+![Last Commit](https://img.shields.io/github/last-commit/Domisnnet/Portfolio-Angular?style=flat&label=LAST%20COMMIT&labelColor=2d333b&color=2ea44f)
+![Version](https://img.shields.io/github/package-json/v/Domisnnet/Portfolio-Angular?style=flat&label=VERSION&labelColor=2d333b&color=0969da&logo=n8n&logoColor=white)
 
 <h1 id="topo">🚀 DomisDev Portfólio - Engenharia Front-end</h1>
 
-![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat-square)
+![Status do Deploy](https://img.shields.io/badge/Status-Online-brightgreen?style=flat&logo=firebase&logoColor=white)
 ![Angular](https://img.shields.io/badge/Angular-20-DD0031?style=flat-square&logo=angular&logoColor=white)
 ![Hosting](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
 [![Licença MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/Domisnnet/Portfolio-Angular/blob/main/LICENSE)
